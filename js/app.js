@@ -246,7 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             
                             <!-- কার্ড ১ -->
                             <div class="agro-card" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: var(--card-bg, #fff);">
-                                <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=400&auto=format&fit=crop" style="width: 100%; height: 105px; object-fit: cover;" alt="Cattle Feed">
+                                <img src="https://i.postimg.cc/15vBh5m8/Gemini-Generated-Image-ipzo9oipzo9oipzo.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="Cattle Feed">
                                 <div style="padding: 10px 12px;">
                                     <span style="font-size: 0.68rem; color: #795548; font-weight: 700; text-transform: uppercase;">খাদ্য প্রস্তুতকরণ</span>
                                     <h5 style="margin: 3px 0 4px 0; font-size: 0.88rem; color: var(--text-main); font-weight: 700; line-height: 1.3;">TMR রেশনিং পদ্ধতি</h5>
@@ -261,6 +261,46 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <span style="font-size: 0.68rem; color: #4CAF50; font-weight: 700; text-transform: uppercase;">স্বাস্থ্য সুরক্ষা</span>
                                     <h5 style="margin: 3px 0 4px 0; font-size: 0.88rem; color: var(--text-main); font-weight: 700; line-height: 1.3;">ভ্যাকসিনেশন ও ডিওয়ার্মিং</h5>
                                     <p style="margin: 0; font-size: 0.74rem; color: var(--text-muted); line-height: 1.3;">ফ্যাটেনিং শুরুর আগে কৃমিনাশক ও খুরা রোগের টিকা সম্পন্ন করুন।</p>
+                                </div>
+                            </div>
+
+                            <!-- কার্ড 3 -->
+                            <div class="agro-card" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: var(--card-bg, #fff);">
+                                <img src="https://i.postimg.cc/0NX1zq0j/Gemini-Generated-Image-zg3zybzg3zybzg3z.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="Cattle Farm">
+                                <div style="padding: 10px 12px;">
+                                    <span style="font-size: 0.68rem; color: #4CAF50; font-weight: 700; text-transform: uppercase;">খাদ্য প্রক্রিয়াজাতকরণ</span>
+                                    <h5 style="margin: 3px 0 4px 0; font-size: 0.88rem; color: var(--text-main); font-weight: 700; line-height: 1.3;">সাইলেজ ও ফারমেন্টেশন</h5>
+                                    <p style="margin: 0; font-size: 0.74rem; color: var(--text-muted); line-height: 1.3;">মোলাসেস ও কাঁচা ঘাসের সঠিক মিশ্রণে ফারমেন্টেশন প্রক্রিয়ায় দীর্ঘমেয়াদী পুষ্টিকর খাবার তৈরি।</p>
+                                </div>
+                            </div>
+
+                            <!-- কার্ড 4 -->
+                            <div class="agro-card" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: var(--card-bg, #fff);">
+                                <img src="https://i.postimg.cc/fRVtrMqd/Gemini-Generated-Image-qn0195qn0195qn01.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="Cattle Farm">
+                                <div style="padding: 10px 12px;">
+                                    <span style="font-size: 0.68rem; color: #4CAF50; font-weight: 700; text-transform: uppercase;">খামার অবকাঠামো</span>
+                                    <h5 style="margin: 3px 0 4px 0; font-size: 0.88rem; color: var(--text-main); font-weight: 700; line-height: 1.3;">পানি সরবরাহ ও ড্রেনেজ</h5>
+                                    <p style="margin: 0; font-size: 0.74rem; color: var(--text-muted); line-height: 1.3;">প্রতিটি গরুর জন্য আলাদা পানির লাইন, কন্ট্রোল ভালভ এবং খামারের বর্জ্য নিষ্কাশনে উন্নত ড্রেনেজ ব্যবস্থা।</p>
+                                </div>
+                            </div>
+
+                            <!-- কার্ড 5 -->
+                            <div class="agro-card" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: var(--card-bg, #fff);">
+                                <img src="https://i.postimg.cc/0NYJvcYp/Gemini-Generated-Image-6os9v6os9v6os9v6.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="Cattle Farm">
+                                <div style="padding: 10px 12px;">
+                                    <span style="font-size: 0.68rem; color: #4CAF50; font-weight: 700; text-transform: uppercase;">ওজন ও বৃদ্ধি</span>
+                                    <h5 style="margin: 3px 0 4px 0; font-size: 0.88rem; color: var(--text-main); font-weight: 700; line-height: 1.3;">দৈহিক ওজন মনিটরিং</h5>
+                                    <p style="margin: 0; font-size: 0.74rem; color: var(--text-muted); line-height: 1.3;">ষাঁড় গরুর কাঙ্ক্ষিত ওজন বৃদ্ধির হার নিয়মিত যাচাই করা এবং দৈনন্দিন স্বাস্থ্য রেকর্ড সংরক্ষণ।</p>
+                                </div>
+                            </div>
+
+                            <!-- কার্ড 6 -->
+                            <div class="agro-card" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: var(--card-bg, #fff);">
+                                <img src="https://i.postimg.cc/XN8LTZCK/Gemini-Generated-Image-t4srobt4srobt4sr.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="Cattle Farm">
+                                <div style="padding: 10px 12px;">
+                                    <span style="font-size: 0.68rem; color: #4CAF50; font-weight: 700; text-transform: uppercase;">পরিবেশ ও পরিচ্ছন্নতা</span>
+                                    <h5 style="margin: 3px 0 4px 0; font-size: 0.88rem; color: var(--text-main); font-weight: 700; line-height: 1.3;">বায়োসিকিউরিটি ও বর্জ্য ব্যবস্থাপনা</h5>
+                                    <p style="margin: 0; font-size: 0.74rem; color: var(--text-muted); line-height: 1.3;">খামারের সার্বিক পরিচ্ছন্নতা বজায় রাখা এবং জীবাণুনাশক স্প্রে করার মাধ্যমে রোগবালাই নিয়ন্ত্রণ।</p>
                                 </div>
                             </div>
 
