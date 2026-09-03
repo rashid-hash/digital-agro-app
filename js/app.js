@@ -131,46 +131,144 @@ document.addEventListener("DOMContentLoaded", () => {
 
         switch(page) {
             case 'home':
+                const user = JSON.parse(localStorage.getItem('agroUser')) || { name: 'খামারি ভাই' };
                 content = `
-                    <div class="fade-in">
-                        <div style="margin-bottom: 20px;">
-                            <h2 style="color: var(--primary-dark); font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px;">শুভ সকাল, খামারি ভাই</h2>
-                            <p style="color: var(--text-muted); font-size:0.9rem;">আপনার খামারের আজকের ড্যাশবোর্ড</p>
-                        </div>
+                <div class="fade-in" style="padding-bottom: 90px;">
+                    <!-- হেডার সেকশন -->
+                    <div style="padding: 15px 15px 5px 15px;">
+                        <h2 style="margin:0; font-size: 1.4rem; color: var(--text-main); font-weight: 800;">শুভ সকাল, ${user.name}</h2>
+                        <p style="margin:3px 0 0 0; font-size: 0.85rem; color: var(--text-muted);">আপনার খামারের আজকের ড্যাশবোর্ড</p>
+                    </div>
 
-                        <div class="agro-card weather-card" id="weather-content" onclick="window.vibrate(30)">
-                            <div style="width:100%;">
-                                <div class="skeleton skeleton-title"></div>
-                                <div class="skeleton skeleton-text" style="width:80%;"></div>
+                    <!-- আবহাওয়া কার্ড -->
+                    <div style="padding: 0 15px; margin-top: 10px;">
+                        <div class="agro-card" style="padding: 15px; background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%); border: none; display: flex; justify-content: space-between; align-items: center; border-radius: 18px;">
+                            <div>
+                                <h3 style="margin:0; font-size: 1.2rem; color: #0D47A1; font-weight: 700;">কুড়িগ্রাম</h3>
+                                <p style="margin:4px 0 0 0; font-size: 0.85rem; color: #1565C0;">বর্তমান তাপমাত্রা: ৩২°C</p>
                             </div>
-                        </div>
-
-                        <div class="grid-menu">
-                            <div class="menu-btn" onclick="goToPage('calculator', 'calculator')">
-                                <div class="menu-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-                                <span style="font-size:0.85rem; font-weight:600;">খাদ্য হিসাব</span>
+                            <div style="font-size: 2.5rem; color: #FBC02D;">
+                                <i class="fa-solid fa-cloud-sun"></i>
                             </div>
-                            <div class="menu-btn" onclick="goToPage('advice', 'advice')">
-                                <div class="menu-icon"><i class="fa-solid fa-syringe"></i></div>
-                                <span style="font-size:0.85rem; font-weight:600;">চিকিৎসা</span>
-                            </div>
-                            <div class="menu-btn" onclick="goToPage('reports', 'more')">
-                                <div class="menu-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-                                <span style="font-size:0.85rem; font-weight:600;">আয়-ব্যয়</span>
-                            </div>
-                            <div class="menu-btn" onclick="goToPage('reminder', 'more')">
-                                <div class="menu-icon"><i class="fa-regular fa-calendar-check"></i></div>
-                                <span style="font-size:0.85rem; font-weight:600;">রিমাইন্ডার</span>
-                            </div>
-                        </div>
-
-                        <div class="agro-card" style="background: #fffdf0; border-left: 5px solid var(--accent);">
-                            <div class="card-title"><i class="fa-solid fa-lightbulb" style="color: var(--accent);"></i> আজকের পরামর্শ</div>
-                            <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-muted);">তীব্র গরমে গরুকে স্যালাইন পানি বা <strong>গ্লুকোলাইট ভেট</strong> খাওয়ালে হিট স্ট্রোকের ঝুঁকি কমে এবং শারীরিক দুর্বলতা দূর হয়।</p>
                         </div>
                     </div>
-                `;
-                setTimeout(fetchWeather, 300);
+
+                    <!-- কুইক মেন্যু গ্রিড -->
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 15px;">
+                        <div class="grid-item fade-in" onclick="loadPage('food-calculator')" style="cursor:pointer; text-align:center;">
+                            <div style="width:50px; height:50px; background:rgba(76, 175, 80, 0.12); color:#2E7D32; border-radius:16px; display:flex; justify-content:center; align-items:center; font-size:1.3rem; margin:0 auto 6px auto;">
+                                <i class="fa-solid fa-scale-balanced"></i>
+                            </div>
+                            <span style="font-weight:600; color:var(--text-main); font-size:0.78rem;">খাদ্য হিসাব</span>
+                        </div>
+                        <div class="grid-item fade-in" onclick="loadPage('treatment')" style="cursor:pointer; text-align:center;">
+                            <div style="width:50px; height:50px; background:rgba(33, 150, 243, 0.12); color:#1565C0; border-radius:16px; display:flex; justify-content:center; align-items:center; font-size:1.3rem; margin:0 auto 6px auto;">
+                                <i class="fa-solid fa-syringe"></i>
+                            </div>
+                            <span style="font-weight:600; color:var(--text-main); font-size:0.78rem;">চিকিৎসা</span>
+                        </div>
+                        <div class="grid-item fade-in" onclick="loadPage('ay-bay')" style="cursor:pointer; text-align:center;">
+                            <div style="width:50px; height:50px; background:rgba(255, 152, 0, 0.12); color:#E65100; border-radius:16px; display:flex; justify-content:center; align-items:center; font-size:1.3rem; margin:0 auto 6px auto;">
+                                <i class="fa-solid fa-file-invoice-dollar"></i>
+                            </div>
+                            <span style="font-weight:600; color:var(--text-main); font-size:0.78rem;">আয়-ব্যয়</span>
+                        </div>
+                        <div class="grid-item fade-in" onclick="loadPage('alerts')" style="cursor:pointer; text-align:center;">
+                            <div style="width:50px; height:50px; background:rgba(156, 39, 176, 0.12); color:#6A1B9A; border-radius:16px; display:flex; justify-content:center; align-items:center; font-size:1.3rem; margin:0 auto 6px auto;">
+                                <i class="fa-solid fa-calendar-check"></i>
+                            </div>
+                            <span style="font-weight:600; color:var(--text-main); font-size:0.78rem;">রিমাইন্ডার</span>
+                        </div>
+                    </div>
+
+                    <!-- আজকের পরামর্শ -->
+                    <div style="padding: 0 15px; margin-bottom: 15px;">
+                        <div class="agro-card" style="padding: 15px; background: #FFFDE7; border-left: 4px solid #FBC02D; border-radius: 12px;">
+                            <h4 style="margin: 0 0 6px 0; color: #F57F17; font-size: 0.95rem; font-weight: 700; display:flex; align-items:center; gap:6px;">
+                                💡 আজকের পরামর্শ
+                            </h4>
+                            <p style="margin:0; font-size: 0.82rem; color: #5D4037; line-height: 1.5;">
+                                তীব্র গরমে গরুকে স্যালাইন পানি বা <b>গ্লুকোলাইট ভেট</b> খাওয়ালে হিট স্ট্রোকের ঝুঁকি কমে এবং শারীরিক দুর্বলতা দূর হয়।
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 🔥 প্রিমিয়াম ফ্যাটেনিং খামার সেকশন (নতুন যুক্ত করা হলো) -->
+                    <div style="padding: 0 15px;">
+                        
+                        <!-- ১. হিরো ব্যানার (Hero Banner with HD Cattle Photo) -->
+                        <div class="agro-card fade-in" style="position: relative; overflow: hidden; border-radius: 20px; border: none; box-shadow: 0 10px 25px rgba(0,0,0,0.08); margin-bottom: 18px; padding: 0;">
+                            <div style="background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.85) 100%), url('https://images.unsplash.com/photo-1545468843-27956a3a7ef8?q=80&w=800&auto=format&fit=crop'); background-size: cover; background-position: center; min-height: 180px; padding: 20px; display: flex; flex-direction: column; justify-content: flex-end; color: white;">
+                                <span style="background: #4CAF50; color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 700; width: max-content; margin-bottom: 8px; letter-spacing: 0.5px; box-shadow: 0 2px 8px rgba(76,175,80,0.4);">
+                                    🔥 প্রিমিয়াম ফ্যাটেনিং গাইড
+                                </span>
+                                <h3 style="margin: 0 0 6px 0; font-size: 1.25rem; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">ষাঁড় মোটাতাজাকরণ ও উন্নত রেশন</h3>
+                                <p style="margin: 0; font-size: 0.8rem; opacity: 0.92; line-height: 1.4; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">
+                                    সঠিক প্রোটিন, সাইলেজ, DDGS ও মোলাসেসের বৈজ্ঞানিক মিশ্রণে ষাঁড়ের দ্রুত ওজন বৃদ্ধি নিশ্চিত করুন।
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- ২. ফ্যাটেনিং কী-মেট্রিক্স / টার্গেট ট্র্যাকার -->
+                        <div style="display: flex; gap: 10px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 5px;">
+                            <div style="flex: 1; min-width: 130px; background: var(--card-bg, #fff); padding: 12px; border-radius: 16px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                                <div style="width: 34px; height: 34px; background: rgba(76, 175, 80, 0.12); color: #2E7D32; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; margin-bottom: 8px;">
+                                    <i class="fa-solid fa-weight-scale"></i>
+                                </div>
+                                <div style="font-size: 0.72rem; color: var(--text-muted, #777);">দৈনিক ওজন লক্ষ্য</div>
+                                <div style="font-size: 1rem; font-weight: 800; color: var(--text-main, #222); margin-top: 2px;">১.২ - ১.৫ কেজি</div>
+                            </div>
+
+                            <div style="flex: 1; min-width: 130px; background: var(--card-bg, #fff); padding: 12px; border-radius: 16px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                                <div style="width: 34px; height: 34px; background: rgba(255, 152, 0, 0.12); color: #E65100; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; margin-bottom: 8px;">
+                                    <i class="fa-solid fa-bowl-food"></i>
+                                </div>
+                                <div style="font-size: 0.72rem; color: var(--text-muted, #777);">ক্রুড প্রোটিন (CP)</div>
+                                <div style="font-size: 1rem; font-weight: 800; color: var(--text-main, #222); margin-top: 2px;">১৪% - ১৬%</div>
+                            </div>
+
+                            <div style="flex: 1; min-width: 130px; background: var(--card-bg, #fff); padding: 12px; border-radius: 16px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                                <div style="width: 34px; height: 34px; background: rgba(33, 150, 243, 0.12); color: #1565C0; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; margin-bottom: 8px;">
+                                    <i class="fa-solid fa-droplet"></i>
+                                </div>
+                                <div style="font-size: 0.72rem; color: var(--text-muted, #777);">বিশুদ্ধ পানি</div>
+                                <div style="font-size: 1rem; font-weight: 800; color: var(--text-main, #222); margin-top: 2px;">২৪ ঘণ্টা সরবরাহ</div>
+                            </div>
+                        </div>
+
+                        <!-- ৩. ছবিসহ ফ্যাটেনিং গ্যালাক্সী & টিপস কার্ডস -->
+                        <h4 style="margin: 0 0 12px 5px; font-size: 0.98rem; color: var(--text-main); font-weight: 700; display: flex; justify-content: space-between; align-items: center;">
+                            <span>🐄 খামার ব্যবস্থাপনা ও গ্যালারি</span>
+                            <span onclick="loadPage('cattle-profiles')" style="font-size: 0.78rem; color: #4CAF50; font-weight: 600; cursor: pointer;">প্রোফাইল দেখুন <i class="fa-solid fa-arrow-right"></i></span>
+                        </h4>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;">
+                            
+                            <!-- কার্ড ১ -->
+                            <div class="agro-card" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: var(--card-bg, #fff);">
+                                <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=400&auto=format&fit=crop" style="width: 100%; height: 105px; object-fit: cover;" alt="Cattle Feed">
+                                <div style="padding: 10px 12px;">
+                                    <span style="font-size: 0.68rem; color: #795548; font-weight: 700; text-transform: uppercase;">খাদ্য প্রস্তুতকরণ</span>
+                                    <h5 style="margin: 3px 0 4px 0; font-size: 0.88rem; color: var(--text-main); font-weight: 700; line-height: 1.3;">TMR রেশনিং পদ্ধতি</h5>
+                                    <p style="margin: 0; font-size: 0.74rem; color: var(--text-muted); line-height: 1.3;">DDGS, ভুষি ও খৈলের মিশ্রণে সুষম টিএমআর খাবার প্রদান।</p>
+                                </div>
+                            </div>
+
+                            <!-- কার্ড ২ -->
+                            <div class="agro-card" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: var(--card-bg, #fff);">
+                                <img src="https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?q=80&w=400&auto=format&fit=crop" style="width: 100%; height: 105px; object-fit: cover;" alt="Cattle Farm">
+                                <div style="padding: 10px 12px;">
+                                    <span style="font-size: 0.68rem; color: #4CAF50; font-weight: 700; text-transform: uppercase;">স্বাস্থ্য সুরক্ষা</span>
+                                    <h5 style="margin: 3px 0 4px 0; font-size: 0.88rem; color: var(--text-main); font-weight: 700; line-height: 1.3;">ভ্যাকসিনেশন ও ডিওয়ার্মিং</h5>
+                                    <p style="margin: 0; font-size: 0.74rem; color: var(--text-muted); line-height: 1.3;">ফ্যাটেনিং শুরুর আগে কৃমিনাশক ও খুরা রোগের টিকা সম্পন্ন করুন।</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>`;
                 break;
 
             case 'calculator':
