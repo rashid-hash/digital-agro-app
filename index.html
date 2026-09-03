@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1B5E20">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    
+    <title>ডিজিটাল এগ্রো | Smart Farm Management</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="splash-screen" class="splash-container">
+        <div class="splash-content">
+            <div class="logo-pulse">
+                <i class="fa-solid fa-leaf"></i>
+            </div>
+            <h1 class="brand-text">ডিজিটাল এগ্রো</h1>
+            <p class="tagline">স্মার্ট খামার, বেশি লাভ</p>
+            <div class="premium-loader"></div>
+        </div>
+    </div>
+
+    <div id="main-app" class="app-wrapper hidden">
+        
+        <header class="app-header glass-effect">
+            <div class="brand">
+                <div class="brand-icon-bg">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+                <span>ডিজিটাল এগ্রো</span>
+            </div>
+            <div class="action-buttons">
+                <button id="installAppBtn" class="icon-btn hidden" aria-label="Install App" style="color: var(--accent);">
+                    <i class="fa-solid fa-download"></i>
+                </button>
+                <button class="icon-btn" aria-label="Notifications">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="badge">৩</span>
+                </button>
+                <button class="icon-btn profile-btn" aria-label="User Profile">
+                    <i class="fa-regular fa-circle-user"></i>
+                </button>
+            </div>
+        </header>
+
+        <div id="ptr-indicator" class="ptr-indicator">
+            <i class="fa-solid fa-arrow-rotate-right fa-spin"></i> রিফ্রেশ হচ্ছে...
+        </div>
+
+        <main id="app-content" class="content-container scroll-hide">
+            </main>
+
+        <nav class="bottom-nav glass-effect">
+            <button class="nav-item active" data-target="home" aria-label="Home">
+                <i class="fa-solid fa-house"></i>
+                <span>হোম</span>
+            </button>
+            <button class="nav-item" data-target="calculator" aria-label="Calculator">
+                <i class="fa-solid fa-calculator"></i>
+                <span>হিসাব</span>
+            </button>
+            <button class="nav-item" data-target="market" aria-label="Market Prices">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>বাজার</span>
+            </button>
+            <button class="nav-item" data-target="advice" aria-label="Expert Advice">
+                <i class="fa-solid fa-stethoscope"></i>
+                <span>পরামর্শ</span>
+            </button>
+            <button class="nav-item" data-target="more" aria-label="Menu">
+                <i class="fa-solid fa-border-all"></i>
+                <span>মেন্যু</span>
+            </button>
+        </nav>
+        
+    </div>
+
+    <script type="module" src="js/firebase-config.js"></script>
+    <script src="js/app.js" defer></script>
+</body>
+</html>
