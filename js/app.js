@@ -128,6 +128,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 <h2 style="font-size: 1.4rem; color: var(--primary-dark); margin: 0; font-weight: 700;">${title}</h2>
             </div>
         `;
+        // loadPage ফাংশনটি যেন সব জায়গা থেকে এক্সেস করা যায়
+window.loadPage = loadPage;
 
         switch(page) {
             case 'home':
@@ -196,18 +198,26 @@ document.addEventListener("DOMContentLoaded", () => {
                     <!-- 🔥 প্রিমিয়াম ফ্যাটেনিং খামার সেকশন (নতুন যুক্ত করা হলো) -->
                     <div style="padding: 0 15px;">
                         
-                        <!-- ১. হিরো ব্যানার (Hero Banner with HD Cattle Photo) -->
-                        <div class="agro-card fade-in" style="position: relative; overflow: hidden; border-radius: 20px; border: none; box-shadow: 0 10px 25px rgba(0,0,0,0.08); margin-bottom: 18px; padding: 0;">
-                            <div style="background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.85) 100%), url('https://images.unsplash.com/photo-1545468843-27956a3a7ef8?q=80&w=800&auto=format&fit=crop'); background-size: cover; background-position: center; min-height: 180px; padding: 20px; display: flex; flex-direction: column; justify-content: flex-end; color: white;">
-                                <span style="background: #4CAF50; color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 700; width: max-content; margin-bottom: 8px; letter-spacing: 0.5px; box-shadow: 0 2px 8px rgba(76,175,80,0.4);">
-                                    🔥 প্রিমিয়াম ফ্যাটেনিং গাইড
+                        <!-- ১. হিরো ব্যানার (ব্লার ব্যাকগ্রাউন্ড ইমেজ ও ক্লিকযোগ্য বাটন) -->
+                        <div class="agro-card fade-in" onclick="loadPage('fattening-guide')" style="position: relative; overflow: hidden; border-radius: 20px; border: none; box-shadow: 0 10px 25px rgba(0,0,0,0.15); margin-bottom: 18px; padding: 0; cursor: pointer; min-height: 190px;">
+                            
+                            <!-- পেছনে ব্লার করা এইচডি ব্যাকগ্রাউন্ড ইমেজ -->
+                            <div style="position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px; background: url('https://i.postimg.cc/gJDcW98N/images-(1).jpg') center/cover no-repeat; filter: blur(5px) brightness(0.55); transform: scale(1.08);"></div>
+
+                            <!-- টেক্সট ও তথ্য (যা ব্লারের উপরে স্পষ্টভাবে দেখা যাবে) -->
+                            <div style="position: relative; z-index: 2; padding: 22px 20px; display: flex; flex-direction: column; justify-content: flex-end; color: white; min-height: 190px; box-sizing: border-box;">
+                                <span style="background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; width: max-content; margin-bottom: 10px; letter-spacing: 0.5px; box-shadow: 0 3px 10px rgba(76,175,80,0.4); display: flex; align-items: center; gap: 6px;">
+                                    🔥 প্রিমিয়াম ফ্যাটেনিং গাইড <i class="fa-solid fa-chevron-right" style="font-size: 0.65rem;"></i>
                                 </span>
-                                <h3 style="margin: 0 0 6px 0; font-size: 1.25rem; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">ষাঁড় মোটাতাজাকরণ ও উন্নত রেশন</h3>
-                                <p style="margin: 0; font-size: 0.8rem; opacity: 0.92; line-height: 1.4; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">
+                                <h3 style="margin: 0 0 6px 0; font-size: 1.3rem; font-weight: 800; text-shadow: 0 2px 6px rgba(0,0,0,0.8); color: #FFFFFF; letter-spacing: 0.3px;">
+                                    ষাঁড় মোটাতাজাকরণ ও উন্নত রেশন
+                                </h3>
+                                <p style="margin: 0; font-size: 0.82rem; opacity: 0.95; line-height: 1.45; text-shadow: 0 2px 4px rgba(0,0,0,0.9); color: #F0F0F0;">
                                     সঠিক প্রোটিন, সাইলেজ, DDGS ও মোলাসেসের বৈজ্ঞানিক মিশ্রণে ষাঁড়ের দ্রুত ওজন বৃদ্ধি নিশ্চিত করুন।
                                 </p>
                             </div>
                         </div>
+                        
 
                         <!-- ২. ফ্যাটেনিং কী-মেট্রিক্স / টার্গেট ট্র্যাকার -->
                         <div style="display: flex; gap: 10px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 5px;">
@@ -242,11 +252,12 @@ document.addEventListener("DOMContentLoaded", () => {
                             <span onclick="loadPage('cattle-profiles')" style="font-size: 0.78rem; color: #4CAF50; font-weight: 600; cursor: pointer;">প্রোফাইল দেখুন <i class="fa-solid fa-arrow-right"></i></span>
                         </h4>
 
+                        <!-- খামার ব্যবস্থাপনা ও গ্যালারি (ক্লিকযোগ্য কার্ড গ্রিড) -->
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;">
                             
-                            <!-- কার্ড ১ -->
-                            <div class="agro-card" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: var(--card-bg, #fff);">
-                                <img src="https://i.postimg.cc/15vBh5m8/Gemini-Generated-Image-ipzo9oipzo9oipzo.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="Cattle Feed">
+                            <!-- কার্ড ১: TMR রেশনিং পদ্ধতি -->
+                            <div class="agro-card fade-in" onclick="loadPage('tmr-rationing')" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.06); background: var(--card-bg, #fff); cursor: pointer;">
+                                <img src="https://i.postimg.cc/15vBh5m8/Gemini-Generated-Image-ipzo9oipzo9oipzo.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="TMR Feed">
                                 <div style="padding: 10px 12px;">
                                     <span style="font-size: 0.68rem; color: #795548; font-weight: 700; text-transform: uppercase;">খাদ্য প্রস্তুতকরণ</span>
                                     <h5 style="margin: 3px 0 4px 0; font-size: 0.88rem; color: var(--text-main); font-weight: 700; line-height: 1.3;">TMR রেশনিং পদ্ধতি</h5>
@@ -254,9 +265,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 </div>
                             </div>
 
-                            <!-- কার্ড ২ -->
-                            <div class="agro-card" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: var(--card-bg, #fff);">
-                                <img src="https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?q=80&w=400&auto=format&fit=crop" style="width: 100%; height: 105px; object-fit: cover;" alt="Cattle Farm">
+                            <!-- কার্ড ২: ভ্যাকসিনেশন ও ডিওয়ার্মিং -->
+                            <div class="agro-card fade-in" onclick="loadPage('vaccine-deworming')" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.06); background: var(--card-bg, #fff); cursor: pointer;">
+                                <img src="https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?q=80&w=400&auto=format&fit=crop" style="width: 100%; height: 105px; object-fit: cover;" alt="Vaccine">
                                 <div style="padding: 10px 12px;">
                                     <span style="font-size: 0.68rem; color: #4CAF50; font-weight: 700; text-transform: uppercase;">স্বাস্থ্য সুরক্ষা</span>
                                     <h5 style="margin: 3px 0 4px 0; font-size: 0.88rem; color: var(--text-main); font-weight: 700; line-height: 1.3;">ভ্যাকসিনেশন ও ডিওয়ার্মিং</h5>
@@ -264,38 +275,38 @@ document.addEventListener("DOMContentLoaded", () => {
                                 </div>
                             </div>
 
-                            <!-- কার্ড 3 -->
-                            <div class="agro-card" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: var(--card-bg, #fff);">
-                                <img src="https://i.postimg.cc/0NX1zq0j/Gemini-Generated-Image-zg3zybzg3zybzg3z.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="Cattle Farm">
+                            <!-- কার্ড ৩: সাইলেজ ও ফারমেন্টেশন -->
+                            <div class="agro-card fade-in" onclick="loadPage('silage-fermentation')" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.06); background: var(--card-bg, #fff); cursor: pointer;">
+                                <img src="https://i.postimg.cc/0NX1zq0j/Gemini-Generated-Image-zg3zybzg3zybzg3z.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="Silage">
                                 <div style="padding: 10px 12px;">
-                                    <span style="font-size: 0.68rem; color: #4CAF50; font-weight: 700; text-transform: uppercase;">খাদ্য প্রক্রিয়াজাতকরণ</span>
+                                    <span style="font-size: 0.68rem; color: #E65100; font-weight: 700; text-transform: uppercase;">খাদ্য প্রক্রিয়াজাতকরণ</span>
                                     <h5 style="margin: 3px 0 4px 0; font-size: 0.88rem; color: var(--text-main); font-weight: 700; line-height: 1.3;">সাইলেজ ও ফারমেন্টেশন</h5>
-                                    <p style="margin: 0; font-size: 0.74rem; color: var(--text-muted); line-height: 1.3;">মোলাসেস ও কাঁচা ঘাসের সঠিক মিশ্রণে ফারমেন্টেশন প্রক্রিয়ায় দীর্ঘমেয়াদী পুষ্টিকর খাবার তৈরি।</p>
+                                    <p style="margin: 0; font-size: 0.74rem; color: var(--text-muted); line-height: 1.3;">মোলাসেস ও কাঁচা ঘাসের সঠিক মিশ্রণে ফারমেন্টেশন প্রযুক্তি।</p>
                                 </div>
                             </div>
 
-                            <!-- কার্ড 4 -->
-                            <div class="agro-card" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: var(--card-bg, #fff);">
-                                <img src="https://i.postimg.cc/fRVtrMqd/Gemini-Generated-Image-qn0195qn0195qn01.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="Cattle Farm">
+                            <!-- কার্ড ৪: পানি সরবরাহ ও ড্রেনেজ -->
+                            <div class="agro-card fade-in" onclick="loadPage('water-drainage')" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.06); background: var(--card-bg, #fff); cursor: pointer;">
+                                <img src="https://i.postimg.cc/fRVtrMqd/Gemini-Generated-Image-qn0195qn0195qn01.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="Water System">
                                 <div style="padding: 10px 12px;">
-                                    <span style="font-size: 0.68rem; color: #4CAF50; font-weight: 700; text-transform: uppercase;">খামার অবকাঠামো</span>
+                                    <span style="font-size: 0.68rem; color: #0288D1; font-weight: 700; text-transform: uppercase;">খামার অবকাঠামো</span>
                                     <h5 style="margin: 3px 0 4px 0; font-size: 0.88rem; color: var(--text-main); font-weight: 700; line-height: 1.3;">পানি সরবরাহ ও ড্রেনেজ</h5>
-                                    <p style="margin: 0; font-size: 0.74rem; color: var(--text-muted); line-height: 1.3;">প্রতিটি গরুর জন্য আলাদা পানির লাইন, কন্ট্রোল ভালভ এবং খামারের বর্জ্য নিষ্কাশনে উন্নত ড্রেনেজ ব্যবস্থা।</p>
+                                    <p style="margin: 0; font-size: 0.74rem; color: var(--text-muted); line-height: 1.3;">ইন্ডিভিজুয়াল ওয়াটার লাইন, ভালভ ও উন্নত ড্রেনেজ ব্যবস্থা।</p>
                                 </div>
                             </div>
 
-                            <!-- কার্ড 5 -->
-                            <div class="agro-card" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: var(--card-bg, #fff);">
-                                <img src="https://i.postimg.cc/0NYJvcYp/Gemini-Generated-Image-6os9v6os9v6os9v6.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="Cattle Farm">
+                            <!-- কার্ড 5: পানি সরবরাহ ও ড্রেনেজ -->
+                            <div class="agro-card fade-in" onclick="loadPage('water-drainage')" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.06); background: var(--card-bg, #fff); cursor: pointer;">
+                                <img src="https://i.postimg.cc/0NYJvcYp/Gemini-Generated-Image-6os9v6os9v6os9v6.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="Water System">
                                 <div style="padding: 10px 12px;">
-                                    <span style="font-size: 0.68rem; color: #4CAF50; font-weight: 700; text-transform: uppercase;">ওজন ও বৃদ্ধি</span>
+                                    <span style="font-size: 0.68rem; color: #0288D1; font-weight: 700; text-transform: uppercase;">ওজন ও বৃদ্ধি</span>
                                     <h5 style="margin: 3px 0 4px 0; font-size: 0.88rem; color: var(--text-main); font-weight: 700; line-height: 1.3;">দৈহিক ওজন মনিটরিং</h5>
                                     <p style="margin: 0; font-size: 0.74rem; color: var(--text-muted); line-height: 1.3;">ষাঁড় গরুর কাঙ্ক্ষিত ওজন বৃদ্ধির হার নিয়মিত যাচাই করা এবং দৈনন্দিন স্বাস্থ্য রেকর্ড সংরক্ষণ।</p>
                                 </div>
                             </div>
 
                             <!-- কার্ড 6 -->
-                            <div class="agro-card" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: var(--card-bg, #fff);">
+                            <div class="agro-card fade-in" onclick="loadPage('water-drainage')" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.06); background: var(--card-bg, #fff); cursor: pointer;">
                                 <img src="https://i.postimg.cc/XN8LTZCK/Gemini-Generated-Image-t4srobt4srobt4sr.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="Cattle Farm">
                                 <div style="padding: 10px 12px;">
                                     <span style="font-size: 0.68rem; color: #4CAF50; font-weight: 700; text-transform: uppercase;">পরিবেশ ও পরিচ্ছন্নতা</span>
@@ -310,6 +321,159 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 </div>`;
                 break;
+            
+            // ১. TMR রেশনিং পদ্ধতি পেজ
+            case 'tmr-rationing':
+                content = `
+                <div class="fade-in" style="padding-bottom: 90px;">
+                    ${subPageHeader('TMR রেশনিং পদ্ধতি')}
+                    <div style="padding: 15px;">
+                        <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=800&auto=format&fit=crop" style="width:100%; height:180px; object-fit:cover; border-radius:16px; margin-bottom:15px;">
+                        <div class="agro-card" style="padding: 16px; border-left: 4px solid #795548;">
+                            <h3 style="margin:0 0 10px 0; color: var(--text-main);">টিএমআর (Total Mixed Ration) কী?</h3>
+                            <p style="font-size:0.88rem; color: var(--text-muted); line-height:1.6; margin-bottom:12px;">TMR হলো শুকনো খড়, সবুজ ঘাস, দানাদার খাদ্য, DDGS ও মোলাসেস নির্দিষ্ট অনুপাতে মেখে গরুকে একবারে পরিবেশন করার আধুনিক পদ্ধতি।</p>
+                            <h4 style="margin:10px 0 6px 0; font-size:0.95rem; color:#795548;">উপকারিতা:</h4>
+                            <ul style="margin:0; padding-left:18px; font-size:0.85rem; color:var(--text-muted); line-height:1.6;">
+                                <li>গরু পছন্দের খাদ্য আলাদা করে খাওয়ার সুযোগ পায় না।</li>
+                                <li>পাকস্থলীতে (Rumen) pH এর মান ভারসাম্যপূর্ণ থাকে।</li>
+                                <li>দৈনিক ১.২ থেকে ১.৫ কেজি পর্যন্ত দৈহিক ওজন বৃদ্ধি পায়।</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>`;
+                break;
+
+            // ২. ভ্যাকসিনেশন ও ডিওয়ার্মিং পেজ
+            case 'vaccine-deworming':
+                content = `
+                <div class="fade-in" style="padding-bottom: 90px;">
+                    ${subPageHeader('ভ্যাকসিনেশন ও ডিওয়ার্মিং')}
+                    <div style="padding: 15px;">
+                        <img src="https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?q=80&w=800&auto=format&fit=crop" style="width:100%; height:180px; object-fit:cover; border-radius:16px; margin-bottom:15px;">
+                        <div class="agro-card" style="padding: 16px; border-left: 4px solid #4CAF50;">
+                            <h3 style="margin:0 0 10px 0; color: var(--text-main);">স্বাস্থ্য সুরক্ষা নির্দেশিকা</h3>
+                            <p style="font-size:0.88rem; color: var(--text-muted); line-height:1.6; margin-bottom:12px;">ফ্যাটেনিং শুরুর পূর্বে ষাঁড় গরুর অভ্যন্তরীণ ও বাহ্যিক প্যারাসাইট দূর করা এবং রোগ প্রতিরোধ ক্ষমতা তৈরি করা অত্যন্ত জরুরি।</p>
+                            <h4 style="margin:10px 0 6px 0; font-size:0.95rem; color:#2E7D32;">করণীয় ধাপসমূহ:</h4>
+                            <ul style="margin:0; padding-left:18px; font-size:0.85rem; color:var(--text-muted); line-height:1.6;">
+                                <li><b>ডিওয়ার্মিং:</b> সঠিক মাত্রায় ব্রড-স্পেকট্রাম এনথেলেমিন্টিক বড়ি বা ইনজেকশন দিন।</li>
+                                <li><b>লিভার প্রোটেকশন:</b> কৃমিনাশকের পর ৫-৭ দিন লিভার টনিক দেওয়া আবশ্যক।</li>
+                                <li><b>টিকা সিডিউল:</b> সুস্থ হওয়ার পর খুরা রোগ (FMD), তড়কা ও বাদলা রোগের টিকা দিন।</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>`;
+                break;
+
+            // ৩. সাইলেজ ও ফারমেন্টেশন পেজ
+            case 'silage-fermentation':
+                content = `
+                <div class="fade-in" style="padding-bottom: 90px;">
+                    ${subPageHeader('সাইলেজ ও ফারমেন্টেশন')}
+                    <div style="padding: 15px;">
+                        <img src="https://images.unsplash.com/photo-1595855759920-86582396756a?q=80&w=800&auto=format&fit=crop" style="width:100%; height:180px; object-fit:cover; border-radius:16px; margin-bottom:15px;">
+                        <div class="agro-card" style="padding: 16px; border-left: 4px solid #E65100;">
+                            <h3 style="margin:0 0 10px 0; color: var(--text-main);">ভুট্টা সাইলেজ ও ফারমেন্টেশন পদ্ধতি</h3>
+                            <p style="font-size:0.88rem; color: var(--text-muted); line-height:1.6; margin-bottom:12px;">কাঁচা ঘাস বা কাঁচা ভুট্টা গাছ কেটে বাতাসহীন অবস্থায় মোলাসেস ও ল্যাকটোব্যাসিলাস ব্যাকটেরিয়া দিয়ে ফারমেন্টেশন করাই হলো সাইলেজ।</p>
+                            <h4 style="margin:10px 0 6px 0; font-size:0.95rem; color:#E65100;">প্রধান বৈশিষ্ট্য:</h4>
+                            <ul style="margin:0; padding-left:18px; font-size:0.85rem; color:var(--text-muted); line-height:1.6;">
+                                <li>বছরের যেকোনো সময় পুষ্টিকর সবুজ খাবারের ঘাটতি মেটায়।</li>
+                                <li>ফারমেন্টেশনের ফলে হজমক্ষমতা বৃদ্ধি পায় এবং দ্রবণীয় কার্বোহাইড্রেট তৈরি হয়।</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>`;
+                break;
+
+            // ৪. পানি সরবরাহ ও ড্রেনেজ পেজ
+            case 'water-drainage':
+                content = `
+                <div class="fade-in" style="padding-bottom: 90px;">
+                    ${subPageHeader('পানি সরবরাহ ও ড্রেনেজ')}
+                    <div style="padding: 15px;">
+                        <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?q=80&w=800&auto=format&fit=crop" style="width:100%; height:180px; object-fit:cover; border-radius:16px; margin-bottom:15px;">
+                        <div class="agro-card" style="padding: 16px; border-left: 4px solid #0288D1;">
+                            <h3 style="margin:0 0 10px 0; color: var(--text-main);">শেড ও ওয়াটার লাইন ম্যানেজমেন্ট</h3>
+                            <p style="font-size:0.88rem; color: var(--text-muted); line-height:1.6; margin-bottom:12px;">গরুর দ্রুত ওজন বৃদ্ধির জন্য প্রতি কেজি খাদ্য গ্রহণের বিপরীতে অন্তত ৪-৫ লিটার বিশুদ্ধ পানির প্রয়োজন।</p>
+                            <h4 style="margin:10px 0 6px 0; font-size:0.95rem; color:#0288D1;">ইনফ্রাস্ট্রাকচার টিপস:</h4>
+                            <ul style="margin:0; padding-left:18px; font-size:0.85rem; color:var(--text-muted); line-height:1.6;">
+                                <li><b>ইন্ডিভিজুয়াল ওয়াটার লাইন:</b> প্রতিটি গরুর সামনে অটোমেটিক নিপল বা ভালভ ওয়াটার ট্রাফ রাখুন।</li>
+                                <li><b>ড্রেনেজ সিস্টেম:</b> খামার শুকনো রাখতে ২% স্লোপযুক্ত ড্রেন রাখুন যাতে সহজে পানি ও বর্জ্য বেরিয়ে যায়।</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>`;
+                break;
+            case 'fattening-guide':
+                content = `
+                <div class="fade-in" style="padding-bottom: 90px;">
+                    ${subPageHeader('প্রিমিয়াম ফ্যাটেনিং গাইড')}
+                    
+                    <div style="padding: 15px;">
+                        <!-- হেডার কার্ড -->
+                        <div style="background: linear-gradient(135deg, #1B5E20 0%, #388E3C 100%); color: white; padding: 20px; border-radius: 18px; margin-bottom: 15px; box-shadow: 0 8px 20px rgba(46,125,50,0.25);">
+                            <span style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 700;">বৈজ্ঞানিক পদ্ধতি</span>
+                            <h2 style="margin: 8px 0 5px 0; font-size: 1.3rem; font-weight: 800;">ষাঁড় মোটাতাজাকরণ সম্পূর্ণ গাইড</h2>
+                            <p style="margin: 0; font-size: 0.85rem; opacity: 0.92; line-height: 1.4;">দৈনিক ১.২ - ১.৫ কেজি দৈহিক ওজন বৃদ্ধির আবশ্যকীয় দিকনির্দেশনা</p>
+                        </div>
+
+                        <!-- ১. ডিওয়ার্মিং ও প্রাথমিক চিকিৎসা -->
+                        <div class="agro-card" style="margin-bottom: 12px; padding: 16px; border-left: 4px solid #4CAF50;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <div style="width: 32px; height: 32px; background: rgba(76, 175, 80, 0.15); color: #2E7D32; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem;">১</div>
+                                <h4 style="margin: 0; font-size: 1rem; color: var(--text-main); font-weight: 700;">কৃমিনাশক ও প্রাথমিক প্রস্তুতি</h4>
+                            </div>
+                            <ul style="margin: 0; padding-left: 18px; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+                                <li><b>কৃমিনাশক ডিল্ডিং:</b> নতুন ষাঁড় খামারে আনার পর প্রথম ৩-৫ দিনের মধ্যে এনডোপ্যারাসাইট (কলিজা কৃমি, ফিতা কৃমি) ও এক্টোপ্যারাসাইট (উঁকুন, আটালি) দূর করতে ভালো ব্রান্ডের এনথেলেমিন্টিক প্রয়োগ করুন।</li>
+                                <li><b>লিভার টনিক ও মেটাবোলাইট:</b> কৃমিনাশক দেওয়ার ৩ দিন পর থেকে ৫-৭ দিন ভালো মানের লিভার টনিক এবং প্রয়োজনীয় জিংক/ভিটামিন এডি৩ই ইঞ্জেকশন প্রয়োগ করতে হবে।</li>
+                            </ul>
+                        </div>
+
+                        <!-- ২. ভ্যাকসিনেশন সিডিউল -->
+                        <div class="agro-card" style="margin-bottom: 12px; padding: 16px; border-left: 4px solid #2196F3;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <div style="width: 32px; height: 32px; background: rgba(33, 150, 243, 0.15); color: #1565C0; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem;">২</div>
+                                <h4 style="margin: 0; font-size: 1rem; color: var(--text-main); font-weight: 700;">ভ্যাকসিনেশন (রোগ প্রতিরোধ)</h4>
+                            </div>
+                            <ul style="margin: 0; padding-left: 18px; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+                                <li><b>রোগের টিকা:</b> কৃমিনাশক দেওয়ার ৭-১০ দিন পর গরু সম্পূর্ণ সুস্থ থাকা অবস্থায় খুরা রোগ (FMD), তড়কা (Anthrax) এবং বাদলা (Black Quarter) রোগের ভ্যাকসিন দিন।</li>
+                                <li>ভ্যাকসিন দেওয়ার সময় শারীরিক তাপমাত্রা স্বাভাবিক থাকা জরুরি।</li>
+                            </ul>
+                        </div>
+
+                        <!-- ৩. উন্নত খাদ্য ও রেশন (DDGS, Molasses & Protein) -->
+                        <div class="agro-card" style="margin-bottom: 12px; padding: 16px; border-left: 4px solid #FF9800;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <div style="width: 32px; height: 32px; background: rgba(255, 152, 0, 0.15); color: #E65100; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem;">৩</div>
+                                <h4 style="margin: 0; font-size: 1rem; color: var(--text-main); font-weight: 700;">বৈজ্ঞানিক খাদ্য ও প্রোটিন মিশ্রণ</h4>
+                            </div>
+                            <p style="font-size: 0.85rem; color: var(--text-main); margin-bottom: 8px; font-weight: 600;">খাদ্যে ১৪% - ১৬% ক্রুড প্রোটিন (CP) এবং উচ্চ শক্তি নিশ্চিত করুন:</p>
+                            <ul style="margin: 0; padding-left: 18px; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+                                <li><b>DDGS ও খৈল:</b> ভুট্টা ভাঙা, সয়াবিন খৈল ও DDGS এর সুষম অনুপাত তৈরি করে খাবারে উচ্চ প্রোটিন নিশ্চিত করুন।</li>
+                                <li><b>মোলাসেস (ঝোল গুড়):</b> রুচি বাড়াতে এবং শক্তির উৎস হিসেবে দৈনিক খাবার তৈরিতে ৩%-৫% মোলাসেস মেশান।</li>
+                                <li><b>সাইলেজ ও টিএমআর (TMR):</b> কাঁচা ঘাসের অভাব পূরণে ভুট্টা সাইলেজ ও শুকনো খড় একত্রে মেখে TMR (Total Mixed Ration) হিসেবে খেতে দিন।</li>
+                            </ul>
+                        </div>
+
+                        <!-- ৪. পানি ও খামার অবকাঠামো -->
+                        <div class="agro-card" style="margin-bottom: 15px; padding: 16px; border-left: 4px solid #795548;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <div style="width: 32px; height: 32px; background: rgba(121, 85, 72, 0.15); color: #795548; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem;">৪</div>
+                                <h4 style="margin: 0; font-size: 1rem; color: var(--text-main); font-weight: 700;">পানি সরবরাহ ও শেড ব্যবস্থাপনা</h4>
+                            </div>
+                            <ul style="margin: 0; padding-left: 18px; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+                                <li><b>পানি লাইন:</b> প্রতিটি ষাঁড়ের কাছে ইন্ডিভিজুয়াল ওয়াটার পাত্র বা কন্ট্রোল ভালভ দিয়ে ২৪ ঘণ্টা বিশুদ্ধ ও ঠাণ্ডা পানি পানের ব্যবস্থা রাখুন।</li>
+                                <li><b>ড্রেনেজ:</b> শেডের ফ্লোর সবসময় শুকনো রাখুন এবং পর্যাপ্ত আলো-বাতাস নিশ্চিত করুন।</li>
+                            </ul>
+                        </div>
+
+                        <!-- বাটন -->
+                        <button onclick="loadPage('cattle-profiles')" style="width: 100%; background: #4CAF50; color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 700; cursor: pointer; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(76,175,80,0.3);">
+                            <i class="fa-solid fa-cow"></i> আপনার গরুর প্রোফাইল ও ওজন চেক করুন
+                        </button>
+                    </div>
+                </div>`;
+                break;
+                
 
             case 'calculator':
                 content = `
