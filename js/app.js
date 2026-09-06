@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         `;
         // loadPage ফাংশনটি যেন সব জায়গা থেকে এক্সেস করা যায়
-window.loadPage = loadPage;
+        window.loadPage = loadPage;
 
         switch(page) {
             case 'home':
@@ -195,16 +195,13 @@ window.loadPage = loadPage;
                         </div>
                     </div>
 
-                    <!-- 🔥 প্রিমিয়াম ফ্যাটেনিং খামার সেকশন (নতুন যুক্ত করা হলো) -->
+                    <!-- 🔥 প্রিমিয়াম ফ্যাটেনিং খামার সেকশন -->
                     <div style="padding: 0 15px;">
                         
-                        <!-- ১. হিরো ব্যানার (ব্লার ব্যাকগ্রাউন্ড ইমেজ ও ক্লিকযোগ্য বাটন) -->
+                        <!-- ১. হিরো ব্যানার -->
                         <div class="agro-card fade-in" onclick="loadPage('fattening-guide')" style="position: relative; overflow: hidden; border-radius: 20px; border: none; box-shadow: 0 10px 25px rgba(0,0,0,0.15); margin-bottom: 18px; padding: 0; cursor: pointer; min-height: 190px;">
-                            
-                            <!-- পেছনে ব্লার করা এইচডি ব্যাকগ্রাউন্ড ইমেজ -->
                             <div style="position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px; background: url('https://i.postimg.cc/gJDcW98N/images-(1).jpg') center/cover no-repeat; filter: blur(5px) brightness(0.55); transform: scale(1.08);"></div>
 
-                            <!-- টেক্সট ও তথ্য (যা ব্লারের উপরে স্পষ্টভাবে দেখা যাবে) -->
                             <div style="position: relative; z-index: 2; padding: 22px 20px; display: flex; flex-direction: column; justify-content: flex-end; color: white; min-height: 190px; box-sizing: border-box;">
                                 <span style="background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; width: max-content; margin-bottom: 10px; letter-spacing: 0.5px; box-shadow: 0 3px 10px rgba(76,175,80,0.4); display: flex; align-items: center; gap: 6px;">
                                     🔥 প্রিমিয়াম ফ্যাটেনিং গাইড <i class="fa-solid fa-chevron-right" style="font-size: 0.65rem;"></i>
@@ -217,7 +214,6 @@ window.loadPage = loadPage;
                                 </p>
                             </div>
                         </div>
-                        
 
                         <!-- ২. ফ্যাটেনিং কী-মেট্রিক্স / টার্গেট ট্র্যাকার -->
                         <div style="display: flex; gap: 10px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 5px;">
@@ -252,7 +248,7 @@ window.loadPage = loadPage;
                             <span onclick="loadPage('cattle-profiles')" style="font-size: 0.78rem; color: #4CAF50; font-weight: 600; cursor: pointer;">প্রোফাইল দেখুন <i class="fa-solid fa-arrow-right"></i></span>
                         </h4>
 
-                        <!-- খামার ব্যবস্থাপনা ও গ্যালারি (ক্লিকযোগ্য কার্ড গ্রিড) -->
+                        <!-- খামার ব্যবস্থাপনা ও গ্যালারি -->
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;">
                             
                             <!-- কার্ড ১: TMR রেশনিং পদ্ধতি -->
@@ -295,9 +291,9 @@ window.loadPage = loadPage;
                                 </div>
                             </div>
 
-                            <!-- কার্ড 5: পানি সরবরাহ ও ড্রেনেজ -->
+                            <!-- কার্ড 5: দৈহিক ওজন মনিটরিং -->
                             <div class="agro-card fade-in" onclick="loadPage('water-drainage')" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.06); background: var(--card-bg, #fff); cursor: pointer;">
-                                <img src="https://i.postimg.cc/0NYJvcYp/Gemini-Generated-Image-6os9v6os9v6os9v6.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="Water System">
+                                <img src="https://i.postimg.cc/0NYJvcYp/Gemini-Generated-Image-6os9v6os9v6os9v6.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="Weight Monitoring">
                                 <div style="padding: 10px 12px;">
                                     <span style="font-size: 0.68rem; color: #0288D1; font-weight: 700; text-transform: uppercase;">ওজন ও বৃদ্ধি</span>
                                     <h5 style="margin: 3px 0 4px 0; font-size: 0.88rem; color: var(--text-main); font-weight: 700; line-height: 1.3;">দৈহিক ওজন মনিটরিং</h5>
@@ -307,7 +303,7 @@ window.loadPage = loadPage;
 
                             <!-- কার্ড 6 -->
                             <div class="agro-card fade-in" onclick="loadPage('water-drainage')" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.06); background: var(--card-bg, #fff); cursor: pointer;">
-                                <img src="https://i.postimg.cc/XN8LTZCK/Gemini-Generated-Image-t4srobt4srobt4sr.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="Cattle Farm">
+                                <img src="https://i.postimg.cc/XN8LTZCK/Gemini-Generated-Image-t4srobt4srobt4sr.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="Bio Security">
                                 <div style="padding: 10px 12px;">
                                     <span style="font-size: 0.68rem; color: #4CAF50; font-weight: 700; text-transform: uppercase;">পরিবেশ ও পরিচ্ছন্নতা</span>
                                     <h5 style="margin: 3px 0 4px 0; font-size: 0.88rem; color: var(--text-main); font-weight: 700; line-height: 1.3;">বায়োসিকিউরিটি ও বর্জ্য ব্যবস্থাপনা</h5>
@@ -322,7 +318,6 @@ window.loadPage = loadPage;
                 </div>`;
                 break;
             
-            // ১. TMR রেশনিং পদ্ধতি পেজ
             case 'tmr-rationing':
                 content = `
                 <div class="fade-in" style="padding-bottom: 90px;">
@@ -334,7 +329,7 @@ window.loadPage = loadPage;
                             <p style="font-size:0.88rem; color: var(--text-muted); line-height:1.6; margin-bottom:12px;">TMR হলো শুকনো খড়, সবুজ ঘাস, দানাদার খাদ্য, DDGS ও মোলাসেস নির্দিষ্ট অনুপাতে মেখে গরুকে একবারে পরিবেশন করার আধুনিক পদ্ধতি।</p>
                             <h4 style="margin:10px 0 6px 0; font-size:0.95rem; color:#795548;">উপকারিতা:</h4>
                             <ul style="margin:0; padding-left:18px; font-size:0.85rem; color:var(--text-muted); line-height:1.6;">
-                                <li>গরু পছন্দের খাদ্য আলাদা করে খাওয়ার সুযোগ পায় না।</li>
+                                <li>গরু পছন্দের খাদ্য আলাদা করে খাওয়ার সুযোগ পায় পণ্ডিত না।</li>
                                 <li>পাকস্থলীতে (Rumen) pH এর মান ভারসাম্যপূর্ণ থাকে।</li>
                                 <li>দৈনিক ১.২ থেকে ১.৫ কেজি পর্যন্ত দৈহিক ওজন বৃদ্ধি পায়।</li>
                             </ul>
@@ -343,7 +338,6 @@ window.loadPage = loadPage;
                 </div>`;
                 break;
 
-            // ২. ভ্যাকসিনেশন ও ডিওয়ার্মিং পেজ
             case 'vaccine-deworming':
                 content = `
                 <div class="fade-in" style="padding-bottom: 90px;">
@@ -364,7 +358,6 @@ window.loadPage = loadPage;
                 </div>`;
                 break;
 
-            // ৩. সাইলেজ ও ফারমেন্টেশন পেজ
             case 'silage-fermentation':
                 content = `
                 <div class="fade-in" style="padding-bottom: 90px;">
@@ -384,7 +377,6 @@ window.loadPage = loadPage;
                 </div>`;
                 break;
 
-            // ৪. পানি সরবরাহ ও ড্রেনেজ পেজ
             case 'water-drainage':
                 content = `
                 <div class="fade-in" style="padding-bottom: 90px;">
@@ -403,6 +395,7 @@ window.loadPage = loadPage;
                     </div>
                 </div>`;
                 break;
+
             case 'fattening-guide':
                 content = `
                 <div class="fade-in" style="padding-bottom: 90px;">
@@ -473,7 +466,6 @@ window.loadPage = loadPage;
                     </div>
                 </div>`;
                 break;
-                
 
             case 'calculator':
                 content = `
@@ -619,7 +611,6 @@ window.loadPage = loadPage;
                 setTimeout(() => { window.loadExpensesLive(); }, 100);
                 break;
 
-            // ================= PAGE: গরুর প্রোফাইল =================
             case 'cattle-profiles':
                 let cattleCards = '';
                 for(let i = 1; i <= 10; i++) {
@@ -629,7 +620,7 @@ window.loadPage = loadPage;
                             <i class="fa-solid fa-cow"></i>
                         </div>
                         <div style="flex: 1;">
-                            <h3 style="margin: 0; font-size: 1.1rem; color: var(--text-main);">ষাঁড় গরু - ${i}</h3>
+                            <h3 id="list-title-${i}" style="margin: 0; font-size: 1.1rem; color: var(--text-main);">ষাঁড় গরু - ${i}</h3>
                             <p id="list-badge-${i}" style="margin: 2px 0 0 0; font-size: 0.82rem; color: var(--text-muted);">প্রোফাইল দেখতে ক্লিক করুন</p>
                         </div>
                         <i class="fa-solid fa-chevron-right" style="color: #ccc;"></i>
@@ -640,151 +631,155 @@ window.loadPage = loadPage;
                 <div class="fade-in" style="padding-bottom: 80px;">
                     ${subPageHeader('গরুর প্রোফাইল ও ট্যাগিং')}
                     <div style="padding: 15px;">
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; text-align: center;">তালিকা থেকে যেকোনো ষাঁড় সিলেক্ট করে ওজন ও ভ্যাকসিনের তথ্য দিন বা এডিট করুন।</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; text-align: center;">তালিকা থেকে যেকোনো ষাঁড় সিলেক্ট করে জাত, ওজন ও মেডিসিনের তথ্য দিন।</p>
                         ${cattleCards}
                     </div>
                 </div>`;
                 
-                // পেজ ওপেন হওয়ার সাথে সাথে ডাটা চেক করে স্ট্যাটাস দেখাবে
                 setTimeout(() => window.loadAllCattleSummary(), 100);
                 break;
 
             case 'cattle-details':
                 const cowId = window.currentCattleId || 1;
-                // গরুর জন্য অটোমেটিক একটি স্মার্ট ট্যাগ আইডি তৈরি করা হচ্ছে (যেমন: TAG-001)
-                const tagNo = `TAG-${String(cowId).padStart(3, '0')}`; 
+                const tagNo = 'TAG-' + String(cowId).padStart(3, '0'); 
 
                 content = `
                 <div class="fade-in" style="padding-bottom: 90px;">
-                    ${subPageHeader(`গরুর প্রোফাইল ও ট্যাগিং`)}
+                    ${subPageHeader('প্রোফাইল ও মেডিসিন আপডেট')}
                     
-                    <div style="padding: 15px;">
-                        <!-- প্রিমিয়াম প্রোফাইল কার্ড -->
+                    <div style="padding: 15px;" id="printable-profile">
                         <div class="agro-card" style="border-radius: 20px; overflow: hidden; padding: 0; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background: var(--card-bg, #fff);">
                             
-                            <!-- কভার ইমেজ ও ট্যাগ নম্বর -->
-                            <div style="position: relative; height: 140px; background: url('https://images.unsplash.com/photo-1545468843-27956a3a7ef8?q=80&w=600&auto=format&fit=crop') center/cover;">
-                                <div style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.75); color: #fff; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; backdrop-filter: blur(4px); box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                            <div style="position: relative; height: 140px; background: #CFD8DC url('https://images.unsplash.com/photo-1545468843-27956a3a7ef8?q=80&w=600&auto=format&fit=crop') center/cover;">
+                                <div style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.75); color: #fff; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; backdrop-filter: blur(4px);">
                                     <i class="fa-solid fa-tag" style="color: #FFEB3B;"></i> ${tagNo}
                                 </div>
                             </div>
                             
                             <div style="padding: 0 20px 25px 20px; position: relative;">
-                                <!-- এভাটার (Avatar) -->
-                                <div style="width: 85px; height: 85px; background: #fff; border-radius: 50%; border: 4px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.15); position: absolute; top: -45px; left: 20px; display: flex; justify-content: center; align-items: center; font-size: 2.2rem; color: #795548;">
-                                    <i class="fa-solid fa-cow"></i>
+                                <div style="width: 85px; height: 85px; background: #fff; border-radius: 50%; border: 4px solid #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.15); position: absolute; top: -45px; left: 50%; transform: translateX(-50%); display: flex; justify-content: center; align-items: center; font-size: 2.2rem; color: #795548; overflow: hidden; cursor: pointer;" onclick="document.getElementById('cow-image-upload').click()">
+                                    <img id="cow-profile-img" src="" alt="" style="width: 100%; height: 100%; object-fit: cover; display: none;">
+                                    <i id="cow-default-icon" class="fa-solid fa-cow"></i>
+                                    <div style="position: absolute; bottom: 0; background: rgba(0,0,0,0.5); width: 100%; height: 25px; display: flex; justify-content: center; align-items: center; color: white; font-size: 0.7rem;">
+                                        <i class="fa-solid fa-camera"></i>
+                                    </div>
                                 </div>
+                                <input type="file" id="cow-image-upload" accept="image/*" style="display: none;" onchange="window.handleCowImageUpload(event)">
                                 
-                                <div style="margin-top: 50px; display: flex; justify-content: space-between; align-items: flex-start;">
-                                    <div>
-                                        <h2 style="margin: 0 0 6px 0; font-size: 1.45rem; color: var(--text-main); font-weight: 800;">ষাঁড় গরু - ${cowId}</h2>
-                                        <p id="cow-status-badge" style="margin: 0; font-size: 0.8rem; color: #1565C0; font-weight: 700; background: #E3F2FD; padding: 4px 12px; border-radius: 12px; display: inline-block;">
-                                            <i class="fa-solid fa-spinner fa-spin"></i> ডাটা লোড হচ্ছে...
-                                        </p>
+                                <div style="padding-top: 55px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                                    <h2 id="details-cow-title" style="margin: 0 0 8px 0; font-size: 1.45rem; color: var(--text-main); font-weight: 800;">ষাঁড় গরু - ${cowId}</h2>
+                                    <p id="cow-status-badge" style="margin: 0; font-size: 0.85rem; color: #1565C0; font-weight: 700; background: #E3F2FD; padding: 6px 14px; border-radius: 20px; display: inline-block; transition: 0.3s;">
+                                        <i class="fa-solid fa-spinner fa-spin"></i> ডাটা লোড হচ্ছে...
+                                    </p>
+                                </div>
+
+                                <div id="target-progress-container" style="display:none; margin-top: 15px; padding: 15px; background: rgba(103, 58, 183, 0.08); border-radius: 12px; border: 1px solid rgba(103, 58, 183, 0.2);">
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: #673AB7; font-weight: 800; margin-bottom: 8px;">
+                                        <span><i class="fa-solid fa-arrow-trend-up"></i> লক্ষ্যমাত্রা: <span id="progress-percent">0%</span></span>
+                                        <span><span id="current-w-text">0</span> / <span id="target-w-text">0</span> কেজি</span>
+                                    </div>
+                                    <div style="width: 100%; background: #E1BEE7; border-radius: 10px; height: 10px; overflow: hidden;">
+                                        <div id="progress-bar-fill" style="width: 0%; background: linear-gradient(90deg, #9C27B0, #E91E63); height: 100%; border-radius: 10px; transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);"></div>
                                     </div>
                                 </div>
 
-                                <hr style="border: 0; border-top: 1.5px dashed #E0E0E0; margin: 20px 0;">
-
-                                <!-- ফর্ম সেকশন -->
-                                <h4 style="margin: 0 0 15px 0; font-size: 1.05rem; color: var(--text-main); font-weight: 800;"><i class="fa-solid fa-file-medical" style="color: #795548; margin-right: 8px;"></i> স্বাস্থ্য ও ওজন আপডেট</h4>
+                                <hr style="border: 0; border-top: 1.5px dashed #E0E0E0; margin: 25px 0 20px 0;">
 
                                 <div class="form-group" style="margin-bottom: 18px;">
                                     <label style="font-size: 0.9rem; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                                        <i class="fa-solid fa-weight-scale" style="color: #FF9800; font-size: 1.1rem;"></i> বর্তমান ওজন (কেজি)
+                                        <i class="fa-solid fa-clipboard-list" style="color: #4CAF50; font-size: 1.1rem;"></i> গরুর নাম বা জাত
                                     </label>
-                                    <input type="number" id="cow-weight" placeholder="যেমন: ৩৫০" style="width: 100%; padding: 15px; border-radius: 14px; border: 1.5px solid #E0E0E0; background: #F9F9F9; outline:none; font-family:inherit; font-size: 1rem; transition: 0.3s; box-sizing: border-box;">
+                                    <input type="text" id="cow-name" placeholder="যেমন: শাহীওয়াল বা লালু" style="width: 100%; padding: 15px; border-radius: 14px; border: 1.5px solid #E0E0E0; background: #F9F9F9; outline:none; font-family:inherit; font-size: 1rem; box-sizing: border-box;">
                                 </div>
 
                                 <div class="form-group" style="margin-bottom: 18px;">
                                     <label style="font-size: 0.9rem; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                                        <i class="fa-solid fa-pills" style="color: #E91E63; font-size: 1.1rem;"></i> সর্বশেষ কৃমিনাশক দেওয়া হয়েছে
+                                        <i class="fa-solid fa-heart-pulse" style="color: #F44336; font-size: 1.1rem;"></i> বর্তমান অবস্থা
                                     </label>
-                                    <input type="date" id="cow-deworm" style="width: 100%; padding: 15px; border-radius: 14px; border: 1.5px solid #E0E0E0; background: #F9F9F9; outline:none; font-family:inherit; font-size: 1rem; box-sizing: border-box;">
+                                    <select id="cow-health-status" style="width: 100%; padding: 15px; border-radius: 14px; border: 1.5px solid #E0E0E0; background: #F9F9F9; outline:none; font-family:inherit; font-size: 1rem; box-sizing: border-box;">
+                                        <option value="🟢 সুস্থ">🟢 সুস্থ (Healthy)</option>
+                                        <option value="🟡 পর্যবেক্ষণে">🟡 পর্যবেক্ষণে (Observation)</option>
+                                        <option value="🔵 বিক্রির জন্য প্রস্তুত">🔵 বিক্রির জন্য প্রস্তুত (Ready to Sell)</option>
+                                    </select>
                                 </div>
 
-                                <div class="form-group" style="margin-bottom: 25px;">
-                                    <label style="font-size: 0.9rem; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                                        <i class="fa-solid fa-syringe" style="color: #2196F3; font-size: 1.1rem;"></i> ভ্যাকসিন (খুরা রোগ/তড়কা)
-                                    </label>
-                                    <input type="date" id="cow-vaccine" style="width: 100%; padding: 15px; border-radius: 14px; border: 1.5px solid #E0E0E0; background: #F9F9F9; outline:none; font-family:inherit; font-size: 1rem; box-sizing: border-box;">
+                                <div style="display: flex; gap: 10px; margin-bottom: 18px;">
+                                    <div style="flex: 1;">
+                                        <label style="font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px; display:block;">বর্তমান ওজন (কেজি)</label>
+                                        <input type="number" id="cow-weight" placeholder="৩৫০" style="width: 100%; padding: 15px; border-radius: 14px; border: 1.5px solid #E0E0E0; background: #F9F9F9; outline:none; font-family:inherit; font-size: 1rem; box-sizing: border-box;">
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <label style="font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px; display:block;">টার্গেট ওজন (কেজি)</label>
+                                        <input type="number" id="cow-target-weight" placeholder="৪০০" style="width: 100%; padding: 15px; border-radius: 14px; border: 1.5px solid #E0E0E0; background: #F9F9F9; outline:none; font-family:inherit; font-size: 1rem; box-sizing: border-box;">
+                                    </div>
                                 </div>
 
-                                <button id="save-cow-btn" onclick="window.saveCattleData(${cowId})" style="width: 100%; background: linear-gradient(135deg, #795548 0%, #5D4037 100%); color: white; border: none; padding: 16px; border-radius: 14px; font-weight: 800; cursor: pointer; box-shadow: 0 6px 15px rgba(121,85,72,0.35); font-size: 1.05rem; display: flex; justify-content: center; align-items: center; gap: 10px; transition: 0.3s;">
-                                    <i class="fa-solid fa-cloud-arrow-up"></i> প্রোফাইল সেভ করুন
+                                <hr style="border: 0; border-top: 1.5px dashed #E0E0E0; margin: 25px 0 20px 0;">
+                                <h4 style="margin: 0 0 15px 0; font-size: 1.05rem; color: var(--text-main); font-weight: 800;"><i class="fa-solid fa-vial-virus" style="color: #E91E63; margin-right: 8px;"></i> নিয়মিত মেডিসিন ও রুটিন</h4>
+
+                                <div style="background: rgba(233, 30, 99, 0.05); padding: 15px; border-radius: 14px; margin-bottom: 15px; border: 1px solid rgba(233, 30, 99, 0.1);">
+                                    <label style="font-size: 0.9rem; font-weight: 700; color: #C2185B; margin-bottom: 10px; display: block;">ক্যাটাফস (Catophos)</label>
+                                    <div style="display: flex; gap: 10px;">
+                                        <div style="flex: 1;">
+                                            <input type="text" id="cow-catophos-ml" placeholder="ডোজ: 10 ml" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ddd; outline:none; font-family:inherit; font-size: 0.9rem; box-sizing: border-box;">
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <select id="cow-catophos-freq" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ddd; outline:none; font-family:inherit; font-size: 0.9rem; box-sizing: border-box;">
+                                                <option value="">রুটিন</option>
+                                                <option value="সপ্তাহে ১ বার">সপ্তাহে ১ বার</option>
+                                                <option value="সপ্তাহে ২ বার">সপ্তাহে ২ বার</option>
+                                                <option value="সপ্তাহে ৩ বার">সপ্তাহে ৩ বার</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="background: rgba(33, 150, 243, 0.05); padding: 15px; border-radius: 14px; margin-bottom: 15px; border: 1px solid rgba(33, 150, 243, 0.1);">
+                                    <label style="font-size: 0.9rem; font-weight: 700; color: #1976D2; margin-bottom: 10px; display: block;">এমাইনোভিট প্লাস ভেট</label>
+                                    <div style="display: flex; gap: 10px;">
+                                        <div style="flex: 1;">
+                                            <input type="text" id="cow-aminovit-ml" placeholder="ডোজ: 20 ml" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ddd; outline:none; font-family:inherit; font-size: 0.9rem; box-sizing: border-box;">
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <select id="cow-aminovit-freq" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ddd; outline:none; font-family:inherit; font-size: 0.9rem; box-sizing: border-box;">
+                                                <option value="">রুটিন</option>
+                                                <option value="সপ্তাহে ১ বার">সপ্তাহে ১ বার</option>
+                                                <option value="সপ্তাহে ২ বার">সপ্তাহে ২ বার</option>
+                                                <option value="প্রতিদিন">প্রতিদিন</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" style="margin-bottom: 15px;">
+                                    <label style="font-size: 0.9rem; font-weight: 700; color: #D32F2F; margin-bottom: 10px; display: block;"><i class="fa-regular fa-bell"></i> পরবর্তী টিকার/কৃমিনাশক তারিখ</label>
+                                    <input type="date" id="cow-next-vaccine" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ddd; outline:none; font-family:inherit; font-size: 0.9rem; box-sizing: border-box;">
+                                </div>
+
+                                <button id="save-cow-btn" onclick="window.saveCattleData(${cowId})" style="width: 100%; background: linear-gradient(135deg, #795548 0%, #5D4037 100%); color: white; border: none; padding: 16px; border-radius: 14px; font-weight: 800; cursor: pointer; box-shadow: 0 6px 15px rgba(121,85,72,0.35); font-size: 1.05rem; display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 15px;">
+                                    <i class="fa-solid fa-floppy-disk"></i> প্রোফাইল সেভ করুন
                                 </button>
+                                
+                                <button onclick="window.downloadProfilePDF()" style="width: 100%; background: #E0E0E0; color: #424242; border: none; padding: 16px; border-radius: 14px; font-weight: 800; cursor: pointer; font-size: 1.05rem; display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 10px;">
+                                    <i class="fa-solid fa-file-pdf"></i> প্রোফাইল রিপোর্ট (PDF)
+                                </button>
+
+                                <hr style="border: 0; border-top: 1.5px dashed #E0E0E0; margin: 25px 0 20px 0;">
+                                <h4 style="margin: 0 0 12px 0; font-size: 1.05rem; color: var(--text-main); font-weight: 800; display: flex; align-items: center; gap: 8px;">
+                                    <i class="fa-solid fa-clock-rotate-left" style="color: #673AB7;"></i> পূর্বের রেকর্ড ও হিস্ট্রি
+                                </h4>
+                                <div id="cow-history-list">
+                                    <div style="text-align: center; color: var(--text-muted); font-size: 0.85rem; padding: 10px;"><i class="fa-solid fa-spinner fa-spin"></i> হিস্ট্রি লোড হচ্ছে...</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>`;
                 
-                setTimeout(() => window.loadCattleData(cowId), 100);
+                setTimeout(() => { if(window.loadCattleData) window.loadCattleData(cowId); }, 100);
                 break;
-
-            // ================= PAGE: মেন্যু (More) =================
-            case 'more':
-                content = `
-                <div class="fade-in">
-                    ${subPageHeader('মেন্যু ও সেটিংস')}
-                    
-                    <div class="agro-card" style="display: flex; align-items: center; gap: 15px; padding: 20px; border-bottom: 3px solid var(--primary-main);">
-                        <div style="width: 60px; height: 60px; background: rgba(46, 125, 50, 0.1); color: var(--primary-main); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem;"><i class="fa-solid fa-user-tie"></i></div>
-                        <div>
-                            <h3 style="margin: 0; color: var(--text-main); font-size: 1.3rem;">আব্দুর রশিদ</h3>
-                            <p style="margin: 0; color: var(--text-muted); font-size: 0.9rem;">ভাই ভাই ডেইরি ও ফ্যাটেনিং</p>
-                        </div>
-                    </div>
-                    <button onclick="window.showAdminPinModal()" style="width: 100%; padding: 14px; background: #2c3e50; color: white; border: none; border-radius: 12px; font-size: 1.05rem; font-weight: 600; margin-bottom: 20px; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);">
-                        <i class="fa-solid fa-user-shield"></i> অ্যাডমিন প্যানেলে প্রবেশ করুন
-                    </button>
-
-                    <h4 style="margin: 20px 0 10px 5px; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase;">খামার ব্যবস্থাপনা</h4>
-                    <div class="agro-card" style="padding: 0; overflow: hidden;">
-                        <div onclick="goToPage('reports', 'more')" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid #f0f0f0; cursor: pointer;">
-                            <div style="display: flex; align-items: center; gap: 15px;">
-                                <i class="fa-solid fa-file-invoice-dollar" style="color: #FF9800; font-size: 1.2rem; width: 25px; text-align: center;"></i>
-                                <span style="font-size: 1.05rem; font-weight: 600; color: var(--text-main);">আয়-ব্যয় ড্যাশবোর্ড</span>
-                            </div>
-                            <i class="fa-solid fa-chevron-right" style="color: #ccc;"></i>
-                        </div>
-                        <div onclick="goToPage('cows', 'more')" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid #f0f0f0; cursor: pointer;">
-                            <div style="display: flex; align-items: center; gap: 15px;">
-                                <i class="fa-solid fa-cow" style="color: #795548; font-size: 1.2rem; width: 25px; text-align: center;"></i>
-                                <span style="font-size: 1.05rem; font-weight: 600; color: var(--text-main);">গরুর প্রোফাইল ও ট্যাগিং</span>
-                            </div>
-                            <i class="fa-solid fa-chevron-right" style="color: #ccc;"></i>
-                        </div>
-                        <div onclick="goToPage('reminder', 'more')" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; cursor: pointer;">
-                            <div style="display: flex; align-items: center; gap: 15px;">
-                                <i class="fa-solid fa-bell" style="color: #E91E63; font-size: 1.2rem; width: 25px; text-align: center;"></i>
-                                <span style="font-size: 1.05rem; font-weight: 600; color: var(--text-main);">অ্যালার্ট ও রিমাইন্ডার</span>
-                            </div>
-                            <i class="fa-solid fa-chevron-right" style="color: #ccc;"></i>
-                        </div>
-                    </div>
-
-                    <h4 style="margin: 25px 0 10px 5px; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase;">সাপোর্ট ও সেটিংস</h4>
-                    <div class="agro-card" style="padding: 0; overflow: hidden;">
-                        <div onclick="window.location.href='tel:16358'" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid #f0f0f0; cursor: pointer;">
-                            <div style="display: flex; align-items: center; gap: 15px;">
-                                <i class="fa-solid fa-headset" style="color: #03A9F4; font-size: 1.2rem; width: 25px; text-align: center;"></i>
-                                <div>
-                                    <span style="font-size: 1.05rem; font-weight: 600; color: var(--text-main); display: block;">জরুরি হেল্পলাইন</span>
-                                    <span style="font-size: 0.8rem; color: var(--text-muted);">কৃষি ও পশুসম্পদ কল সেন্টার</span>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-phone" style="color: var(--success);"></i>
-                        </div>
-                        <div onclick="window.showLogoutModal()" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; cursor: pointer;">
-                            <div style="display: flex; align-items: center; gap: 15px;">
-                                <i class="fa-solid fa-right-from-bracket" style="color: var(--danger); font-size: 1.2rem; width: 25px; text-align: center;"></i>
-                                <span style="font-size: 1.05rem; font-weight: 600; color: var(--danger);">লগআউট করুন</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>`;
-                break;
-                // ================= PAGE: অ্যাডমিন প্যানেল (Full Control) =================
+                
+            // ================= PAGE: অ্যাডমিন প্যানেল (Full Control) =================
             case 'admin':
                 content = `
                 <div class="fade-in">
@@ -829,52 +824,24 @@ window.loadPage = loadPage;
                 <div class="fade-in">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                         <h2 class="card-title" style="font-size: 1.5rem; margin: 0;">বাজার দর আপডেট</h2>
-                        <button style="background: rgba(46, 125, 50, 0.1); color: var(--primary-main); border: none; padding: 8px 15px; border-radius: 8px; font-weight: 600; font-size: 0.9rem;">
+                        <!-- এডিট বাটনে অ্যাডমিন পিন মডাল যুক্ত করা হলো -->
+                        <button onclick="window.showAdminPinModal()" style="background: rgba(46, 125, 50, 0.1); color: var(--primary-main); border: none; padding: 8px 15px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; cursor: pointer;">
                             <i class="fa-solid fa-pen-to-square"></i> এডিট
                         </button>
                     </div>
                     <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">সকল খাদ্য উপাদানের বর্তমান বাজার মূল্য (প্রতি কেজি) নিচে দেওয়া হলো।</p>
                     
-                    <div class="agro-card" style="padding: 5px 20px;">
-                        ${[
-                            { name: 'ভুট্টা ভাঙা / গুঁড়া', price: 35 },
-                            { name: 'রাইস কুড়া / ধানের কুড়া / পলিস', price: 28 },
-                            { name: 'গমের ভুষি', price: 45 },
-                            { name: 'সয়াবিন মিল / সয়ামিল', price: 75 },
-                            { name: 'ডালের খোসা', price: 38 },
-                            { name: 'সরিষার খৈল', price: 45 },
-                            { name: 'ডিডিজিএস (DDGS)', price: 42 },
-                            { name: 'ডিওআরবি (DORB)', price: 25 },
-                            { name: 'রেপসিড (Rapeseed)', price: 40 },
-                            { name: 'শুঁটকি মাছের গুঁড়ো / ফিশ মিল', price: 110 },
-                            { name: 'লাইমস্টোন (চুনাপাথর)', price: 15 },
-                            { name: 'লবণ', price: 15 },
-                            { name: 'ভেজিটেবল ফ্যাট / ফ্যাট', price: 160 },
-                            { name: 'এমসিপি (MCP)', price: 65 },
-                            { name: 'খাবার সোডা', price: 80 },
-                            { name: 'টক্সিন বাইন্ডার', price: 350 },
-                            { name: 'ইস্ট (Yeast)', price: 400 },
-                            { name: 'মেথিওনিন (Methionine)', price: 650 },
-                            { name: 'লাইসিন (Lysine)', price: 550 },
-                            { name: 'ফাইটোজ এনজাইম', price: 450 },
-                            { name: 'ভিটামিন-মিনারেল প্রিমিক্স', price: 280 },
-                            { name: 'সাধারণ প্রিমিক্স', price: 150 },
-                            { name: 'গ্রোথ প্রমোটার / ভিটামিন', price: 550 },
-                            { name: 'রুমেন সাপোর্ট (Rumen)', price: 350 },
-                            { name: 'সিআর (Chromium)', price: 900 }
-                        ].map(item => `
-                            <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #eee;">
-                                <div>
-                                    <h4 style="font-size:1.05rem; color:var(--text-main); margin-bottom: 2px;">${item.name}</h4>
-                                    <p style="font-size:0.8rem; color:var(--text-muted);">প্রতি কেজি</p>
-                                </div>
-                                <div style="text-align:right;">
-                                    <h4 style="font-size:1.15rem; color:var(--primary-dark);">৳ ${item.price}</h4>
-                                </div>
-                            </div>
-                        `).join('')}
+                    <!-- ডায়নামিক লিস্ট লোড হওয়ার কন্টেইনার -->
+                    <div class="agro-card" style="padding: 5px 20px;" id="global-market-list-view">
+                        <div style="text-align:center; padding:30px; color: var(--text-muted);">
+                            <i class="fa-solid fa-spinner fa-spin" style="font-size: 1.5rem; margin-bottom: 10px; color: var(--primary-main);"></i>
+                            <p style="margin: 0;">লাইভ বাজার দর লোড হচ্ছে...</p>
+                        </div>
                     </div>
                 </div>`;
+                
+                // লাইভ ডাটাবেস থেকে মূল্য তালিকা রেন্ডার করার কমান্ড
+                setTimeout(window.renderGlobalMarketPricesPage, 100);
                 break;
 
             case 'more':
@@ -971,21 +938,19 @@ window.loadPage = loadPage;
             return;
         }
 
-        // লাইভ অথবা ক্যাশড ফর্মুলা ডাটাবেস থেকে লোড করা হচ্ছে (আগের হার্ডকোডেড লিস্ট মুছে ফেলা হয়েছে)
         let formulas = JSON.parse(localStorage.getItem('agroFormulas')) || defaultAgroFormulas;
 
-        // ক্যালকুলেটরের জন্য ডিকশনারি (যেকোনো নামের ভ্যারিয়েশন ম্যাচ করার জন্য)
         const defaultPrices = {
             'ভুট্টা ভাঙা': 30, 'ভুট্রা গুড়া': 35,
-            'রাইস কুড়া/পলিস': 28, 'রাইস কুড়া/পলিস': 28, 'ধানের কুড়া': 28, 'রাইস পলিস/ধান পাউডার': 28,
+            'রাইস কুড়া/পলিস': 28, 'ধানের কুড়া': 28, 'রাইস পলিস/ধান পাউডার': 28,
             'গমের ভুষি': 45,
-            'সয়াবিন মিল': 75, 'সয়াবিন মিল': 65, 'সয়ামিল/সোয়াবিন মিল': 75,
+            'সয়াবিন মিল': 75, 'সয়ামিল/সোয়াবিন মিল': 75,
             'ডালের খোসা': 38,
             'সরিষার খৈল': 45,
             'DDGS': 42,
             'DORB': 25,
             'রেপসিড': 40,
-            'শুঁটকি মাছের গুঁড়ো': 110, 'শুঁটকি মাছের গুঁড়ো': 110, 'ফিশ মিল': 85,
+            'শুঁটকি মাছের গুঁড়ো': 110, 'ফিশ মিল': 85,
             'লাইমস্টোন': 15,
             'লবন': 15, 'লবণ': 15,
             'ভেজিটেবল ফ্যাট': 300, 'ফ্যাট': 300,
@@ -1081,11 +1046,11 @@ window.loadPage = loadPage;
 
     // Initialize App Load
     loadPage('home');
+
     // --- 9. Disease Details Modal (Popup) Function ---
     window.showDiseaseDetails = function(diseaseKey) {
         window.vibrate(40);
         
-        // রোগের ডাটাবেস
         const diseaseData = {
             fmd: {
                 title: "খুরা রোগ (FMD)", icon: "fa-virus", color: "var(--danger)",
@@ -1127,7 +1092,6 @@ window.loadPage = loadPage;
                         <li>জ্বর কমাতে <strong>রেনাডেক্স ভেট (Renadex Vet)</strong> ব্যবহার করা যায়।</li>
                         <li><strong>সতর্কতা:</strong> এটি মানুষের শরীরেও ছড়াতে পারে। মৃত পশুকে ৩-৪ ফুট মাটির নিচে চুন দিয়ে পুঁতে ফেলতে হবে।</li>
                     </ul>
-
                     <div style="background:rgba(217, 48, 37, 0.1); padding:10px; border-radius:8px; margin-top:15px;">
                         <p style="color:var(--danger); font-size:0.85rem; margin:0; line-height:1.5;">* সতর্কতা: যেকোনো অ্যান্টিবায়োটিক বা ইনজেকশন প্রয়োগের আগে অবশ্যই রেজিস্টার্ড ভেটেরিনারি চিকিৎসকের পরামর্শ নিন।</p>
                     </div>
@@ -1143,7 +1107,6 @@ window.loadPage = loadPage;
                         <li>জ্বর ও ব্যথার জন্য <strong>রেনাডেক্স ভেট</strong> খাওয়াতে পারেন।</li>
                         <li>রোগ সেরে ওঠার পর পশুর স্বাস্থ্য ও পুষ্টির ঘাটতি পূরণে <strong>প্রোটিমিন ভেট (Protimin Vet)</strong> নিয়মিত খাওয়ালে দ্রুত স্বাস্থ্য ফিরে পাবে।</li>
                     </ul>
-
                     <div style="background:rgba(217, 48, 37, 0.1); padding:10px; border-radius:8px; margin-top:15px;">
                         <p style="color:var(--danger); font-size:0.85rem; margin:0; line-height:1.5;">* সতর্কতা: যেকোনো অ্যান্টিবায়োটিক বা ইনজেকশন প্রয়োগের আগে অবশ্যই রেজিস্টার্ড ভেটেরিনারি চিকিৎসকের পরামর্শ নিন।</p>
                     </div>
@@ -1159,7 +1122,6 @@ window.loadPage = loadPage;
                         <li>আক্রান্ত ওলান সম্পূর্ণ খালি করে অ্যান্টি-ম্যাসটাইটিস টিউব ব্যবহার করতে হবে।</li>
                         <li>দোহন করার আগে ও পরে ওলান পটাশ পানি দিয়ে ধুয়ে শুকিয়ে নিতে হবে।</li>
                     </ul>
-
                     <div style="background:rgba(217, 48, 37, 0.1); padding:10px; border-radius:8px; margin-top:15px;">
                         <p style="color:var(--danger); font-size:0.85rem; margin:0; line-height:1.5;">* সতর্কতা: যেকোনো অ্যান্টিবায়োটিক বা ইনজেকশন প্রয়োগের আগে অবশ্যই রেজিস্টার্ড ভেটেরিনারি চিকিৎসকের পরামর্শ নিন।</p>
                     </div>
@@ -1170,12 +1132,9 @@ window.loadPage = loadPage;
         const data = diseaseData[diseaseKey];
         if(!data) return;
 
-        // পপ-আপের HTML তৈরি
         const modalHTML = `
             <div id="disease-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 9999; display: flex; justify-content: center; align-items: flex-end; opacity: 0; transition: opacity 0.3s ease;">
-                
                 <div style="background: var(--card-bg); width: 100%; max-height: 85vh; border-top-left-radius: 24px; border-top-right-radius: 24px; padding: 25px 20px; overflow-y: auto; transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 -10px 25px rgba(0,0,0,0.1);">
-                    
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                         <h2 style="margin: 0; color: ${data.color}; font-size: 1.4rem; display: flex; align-items: center; gap: 10px;">
                             <i class="fa-solid ${data.icon}"></i> ${data.title}
@@ -1184,47 +1143,48 @@ window.loadPage = loadPage;
                             <i class="fa-solid fa-xmark"></i>
                         </button>
                     </div>
-                    
                     <div style="font-size: 1rem; color: var(--text-main);">
                         ${data.content}
                     </div>
-                    
                 </div>
             </div>
         `;
 
-        // বডিতে পপ-আপ যোগ করা
         document.body.insertAdjacentHTML('beforeend', modalHTML);
         const modal = document.getElementById('disease-modal');
         const modalBox = modal.querySelector('div');
 
-        // এনিমেশন শুরু
         setTimeout(() => {
             modal.style.opacity = '1';
             modalBox.style.transform = 'translateY(0)';
         }, 10);
     };
-// --- 10. Premium Logout Modal ---
+
+    window.closeDiseaseModal = function() {
+        const modal = document.getElementById('disease-modal');
+        if(modal) {
+            modal.style.opacity = '0';
+            modal.querySelector('div').style.transform = 'translateY(100%)';
+            setTimeout(() => modal.remove(), 300);
+        }
+    };
+
+    // --- 10. Premium Logout Modal ---
     window.showLogoutModal = function() {
         if (navigator.vibrate) navigator.vibrate(40);
         
         const modalHTML = `
             <div id="logout-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;">
-                
                 <div style="background: var(--card-bg); width: 85%; max-width: 320px; border-radius: 24px; padding: 25px 20px; text-align: center; transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                    
                     <div style="width: 65px; height: 65px; background: rgba(217, 48, 37, 0.1); color: var(--danger); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; margin: 0 auto 15px auto;">
                         <i class="fa-solid fa-right-from-bracket"></i>
                     </div>
-                    
                     <h3 style="color: var(--text-main); font-size: 1.3rem; margin-bottom: 10px; font-weight: 700;">লগআউট নিশ্চিত করুন</h3>
                     <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5;">আপনি কি নিশ্চিত যে আপনি আপনার অ্যাকাউন্ট থেকে বের হয়ে যেতে চান?</p>
-                    
                     <div style="display: flex; gap: 12px;">
                         <button onclick="window.closeLogoutModal()" style="flex: 1; background: #f1f3f4; color: var(--text-muted); border: none; padding: 14px; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: 0.2s;">বাতিল</button>
                         <button onclick="window.confirmLogout()" style="flex: 1; background: var(--danger); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 12px rgba(217, 48, 37, 0.3); transition: 0.2s;">লগআউট</button>
                     </div>
-                    
                 </div>
             </div>
         `;
@@ -1233,14 +1193,12 @@ window.loadPage = loadPage;
         const modal = document.getElementById('logout-modal');
         const modalBox = modal.querySelector('div');
 
-        // এনিমেশন শুরু (স্কেল আপ)
         setTimeout(() => {
             modal.style.opacity = '1';
             modalBox.style.transform = 'scale(1)';
         }, 10);
     };
 
-    // পপআপ ক্লোজ করার ফাংশন
     window.closeLogoutModal = function() {
         const modal = document.getElementById('logout-modal');
         if(modal) {
@@ -1250,41 +1208,21 @@ window.loadPage = loadPage;
         }
     };
 
-    // লগআউট কনফার্ম করার ফাংশন
     window.confirmLogout = function() {
         if (navigator.vibrate) navigator.vibrate(50);
-        
-        // এখানে ফায়ারবেস (Firebase) লগআউটের কোড বসবে ভবিষ্যতে
-        // auth.signOut().then(() => { ... });
-        
         window.closeLogoutModal();
-        
-        // আপাতত অ্যাপটি রিলোড করে স্প্ল্যাশ স্ক্রিনে পাঠিয়ে দেওয়া হচ্ছে
         setTimeout(() => {
             window.location.reload(); 
         }, 300);
     };
-    // পপ-আপ ক্লোজ করার ফাংশন
-    window.closeDiseaseModal = function() {
-        const modal = document.getElementById('disease-modal');
-        if(modal) {
-            modal.style.opacity = '0';
-            modal.querySelector('div').style.transform = 'translateY(100%)';
-            setTimeout(() => modal.remove(), 300);
-        }
-    };
-});
-// --- 11. Finance Logic (Premium Modals) ---
 
-    // লেনদেন যুক্ত করার পপআপ
+    // --- 11. Finance Logic (Premium Modals) ---
+
     window.showFinanceModal = function() {
         if (navigator.vibrate) navigator.vibrate(40);
-        
         const modalHTML = `
             <div id="finance-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;">
-                
                 <div style="background: var(--card-bg); width: 90%; max-width: 380px; border-radius: 24px; padding: 25px 20px; transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                    
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                         <h3 style="margin: 0; color: var(--text-main); font-size: 1.3rem; display: flex; align-items: center; gap: 8px;">
                             <i class="fa-solid fa-wallet" style="color: var(--primary-main);"></i> নতুন হিসাব
@@ -1293,7 +1231,6 @@ window.loadPage = loadPage;
                             <i class="fa-solid fa-xmark"></i>
                         </button>
                     </div>
-                    
                     <div class="form-group" style="margin-bottom: 15px;">
                         <label style="font-size: 0.95rem; margin-bottom: 8px; display: block; color: var(--text-main); font-weight: 600;">লেনদেনের ধরন</label>
                         <select id="modal-fin-type" style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; outline: none; background: #F9F9F9; font-size: 1rem; font-family: inherit;">
@@ -1301,21 +1238,17 @@ window.loadPage = loadPage;
                             <option value="income">আয় (দুধ/গরু/গোবর বিক্রি)</option>
                         </select>
                     </div>
-                    
                     <div class="form-group" style="margin-bottom: 15px;">
                         <label style="font-size: 0.95rem; margin-bottom: 8px; display: block; color: var(--text-main); font-weight: 600;">পরিমাণ (৳)</label>
                         <input type="number" id="modal-fin-amount" placeholder="যেমন: 5000" style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; outline: none; background: #F9F9F9; font-size: 1.1rem; font-weight: 700; font-family: inherit;">
                     </div>
-                    
                     <div class="form-group" style="margin-bottom: 25px;">
                         <label style="font-size: 0.95rem; margin-bottom: 8px; display: block; color: var(--text-main); font-weight: 600;">বিবরণ (ঐচ্ছিক)</label>
                         <input type="text" id="modal-fin-note" placeholder="যেমন: ২ বস্তা ভুষি কেনা" style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; outline: none; background: #F9F9F9; font-size: 1rem; font-family: inherit;">
                     </div>
-                    
                     <button onclick="window.saveTransaction()" style="width: 100%; background: var(--primary-main); color: white; border: none; padding: 15px; border-radius: 12px; font-weight: 700; font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3); transition: 0.2s;">
                         সেভ করুন
                     </button>
-                    
                 </div>
             </div>
         `;
@@ -1355,7 +1288,6 @@ window.loadPage = loadPage;
         window.renderTransactions();
     };
 
-    // ক্যালকুলেটর থেকে ডিরেক্ট সেভ
     window.saveCostToFinance = function(amount, note) {
         const transactions = JSON.parse(localStorage.getItem('agroFinance')) || [];
         transactions.unshift({ id: Date.now(), type: 'expense', amount: amount, note: note, date: new Date().toLocaleDateString('bn-BD') });
@@ -1404,31 +1336,21 @@ window.loadPage = loadPage;
         if(expArea) expArea.innerText = `৳ ${totalExp}`;
     };
 
-    // ডিলিট করার প্রিমিয়াম কনফার্মেশন পপআপ
     window.showDeleteConfirmModal = function(id) {
         if (navigator.vibrate) navigator.vibrate(40);
-        
         const modalHTML = `
             <div id="delete-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;">
-                
                 <div style="background: var(--card-bg); width: 85%; max-width: 320px; border-radius: 24px; padding: 25px 20px; text-align: center; transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                    
-                    <div style="width: 65px; height: 65px; background: rgba(217, 48, 37, 0.1); color: var(--danger); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; margin: 0 auto 15px auto;">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </div>
-                    
+                    <div style="width: 65px; height: 65px; background: rgba(217, 48, 37, 0.1); color: var(--danger); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; margin: 0 auto 15px auto;"><i class="fa-solid fa-trash-can"></i></div>
                     <h3 style="color: var(--text-main); font-size: 1.3rem; margin-bottom: 10px; font-weight: 700;">হিসাবটি মুছতে চান?</h3>
                     <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5;">এই লেনদেনটি আপনার আয়-ব্যয়ের হিসাব থেকে চিরতরে মুছে যাবে।</p>
-                    
                     <div style="display: flex; gap: 12px;">
                         <button onclick="window.closeDeleteModal()" style="flex: 1; background: #f1f3f4; color: var(--text-muted); border: none; padding: 14px; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: 0.2s;">বাতিল</button>
                         <button onclick="window.deleteTransaction(${id})" style="flex: 1; background: var(--danger); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 12px rgba(217, 48, 37, 0.3); transition: 0.2s;">মুছুন</button>
                     </div>
-                    
                 </div>
             </div>
         `;
-
         document.body.insertAdjacentHTML('beforeend', modalHTML);
         const modal = document.getElementById('delete-modal');
         const modalBox = modal.querySelector('div');
@@ -1454,164 +1376,6 @@ window.loadPage = loadPage;
         localStorage.setItem('agroFinance', JSON.stringify(transactions.filter(t => t.id !== id)));
         window.closeDeleteModal();
         window.renderTransactions();
-    };
-
-    // --- 12. Cow Profile Logic (Premium Modals) ---
-
-    // নতুন গরু যোগ করার পপআপ
-    window.showCowModal = function() {
-        if (navigator.vibrate) navigator.vibrate(40);
-        
-        const modalHTML = `
-            <div id="cow-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;">
-                
-                <div style="background: var(--card-bg); width: 90%; max-width: 380px; border-radius: 24px; padding: 25px 20px; transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                    
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                        <h3 style="margin: 0; color: var(--text-main); font-size: 1.3rem; display: flex; align-items: center; gap: 8px;">
-                            <i class="fa-solid fa-cow" style="color: #795548;"></i> নতুন গরু
-                        </h3>
-                        <button onclick="window.closeCowModal()" style="background: #f1f3f4; border: none; width: 32px; height: 32px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--text-muted); font-size: 1.1rem; cursor: pointer;">
-                            <i class="fa-solid fa-xmark"></i>
-                        </button>
-                    </div>
-                    
-                    <div class="form-group" style="margin-bottom: 15px;">
-                        <label style="font-size: 0.95rem; margin-bottom: 8px; display: block; color: var(--text-main); font-weight: 600;">ট্যাগ নম্বর / নাম</label>
-                        <input type="text" id="modal-cow-tag" placeholder="যেমন: T-01 বা লালু" style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; outline: none; background: #F9F9F9; font-size: 1rem; font-family: inherit;">
-                    </div>
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 25px;">
-                        <div class="form-group">
-                            <label style="font-size: 0.95rem; margin-bottom: 8px; display: block; color: var(--text-main); font-weight: 600;">জাত</label>
-                            <input type="text" id="modal-cow-breed" placeholder="যেমন: শাহীওয়াল" style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; outline: none; background: #F9F9F9; font-size: 1rem; font-family: inherit;">
-                        </div>
-                        <div class="form-group">
-                            <label style="font-size: 0.95rem; margin-bottom: 8px; display: block; color: var(--text-main); font-weight: 600;">ওজন (কেজি)</label>
-                            <input type="number" id="modal-cow-weight" placeholder="যেমন: 250" style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; outline: none; background: #F9F9F9; font-size: 1rem; font-weight: 700; font-family: inherit;">
-                        </div>
-                    </div>
-                    
-                    <button onclick="window.saveCow()" style="width: 100%; background: #795548; color: white; border: none; padding: 15px; border-radius: 12px; font-weight: 700; font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 12px rgba(121, 85, 72, 0.3); transition: 0.2s;">
-                        প্রোফাইল সেভ করুন
-                    </button>
-                    
-                </div>
-            </div>
-        `;
-
-        document.body.insertAdjacentHTML('beforeend', modalHTML);
-        const modal = document.getElementById('cow-modal');
-        const modalBox = modal.querySelector('div');
-
-        setTimeout(() => {
-            modal.style.opacity = '1';
-            modalBox.style.transform = 'scale(1)';
-        }, 10);
-    };
-
-    window.closeCowModal = function() {
-        const modal = document.getElementById('cow-modal');
-        if(modal) {
-            modal.style.opacity = '0';
-            modal.querySelector('div').style.transform = 'scale(0.9)';
-            setTimeout(() => modal.remove(), 300);
-        }
-    };
-
-    window.saveCow = function() {
-        const tag = document.getElementById('modal-cow-tag').value;
-        const breed = document.getElementById('modal-cow-breed').value || 'অজানা';
-        const weight = parseFloat(document.getElementById('modal-cow-weight').value) || 0;
-        
-        if(!tag) return alert('অনুগ্রহ করে ট্যাগ নম্বর বা নাম দিন!');
-
-        const cows = JSON.parse(localStorage.getItem('agroCows')) || [];
-        cows.unshift({ id: Date.now(), tag, breed, weight, date: new Date().toLocaleDateString('bn-BD') });
-        localStorage.setItem('agroCows', JSON.stringify(cows));
-        
-        window.vibrate(40);
-        window.closeCowModal();
-        window.renderCows();
-    };
-
-    window.renderCows = function() {
-        const listArea = document.getElementById('cows-list');
-        if(!listArea) return;
-
-        const cows = JSON.parse(localStorage.getItem('agroCows')) || [];
-        let html = '';
-
-        if(cows.length === 0) {
-            html = '<div style="text-align:center; padding: 30px 10px;"><i class="fa-solid fa-cow" style="font-size: 3rem; color: #ddd; margin-bottom: 10px;"></i><p style="color:var(--text-muted); font-size:0.95rem;">কোনো গরুর প্রোফাইল পাওয়া যায়নি।</p></div>';
-        } else {
-            cows.forEach(c => {
-                html += `
-                    <div class="fade-in" style="display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); padding: 15px; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); border: 1px solid #f0f0f0; border-left: 4px solid #795548;">
-                        <div style="display: flex; align-items: center; gap: 15px;">
-                            <div style="width: 45px; height: 45px; border-radius: 12px; background: rgba(121, 85, 72, 0.1); color: #795548; display: flex; justify-content: center; align-items: center; font-size: 1.4rem;"><i class="fa-solid fa-cow"></i></div>
-                            <div>
-                                <h4 style="margin: 0; color: var(--text-main); font-size: 1.15rem; font-weight: 700;">${c.tag}</h4>
-                                <p style="margin: 0; color: var(--text-muted); font-size: 0.85rem; margin-top: 2px;">জাত: ${c.breed} | ওজন: <strong>${c.weight} কেজি</strong></p>
-                            </div>
-                        </div>
-                        <button onclick="window.showDeleteCowModal(${c.id})" style="background: none; border: none; color: #ccc; font-size: 1.1rem; cursor: pointer; padding: 10px; transition: 0.2s;"><i class="fa-solid fa-trash-can"></i></button>
-                    </div>`;
-            });
-        }
-        listArea.innerHTML = html;
-    };
-
-    // ডিলিট করার প্রিমিয়াম কনফার্মেশন পপআপ
-    window.showDeleteCowModal = function(id) {
-        if (navigator.vibrate) navigator.vibrate(40);
-        
-        const modalHTML = `
-            <div id="delete-cow-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;">
-                
-                <div style="background: var(--card-bg); width: 85%; max-width: 320px; border-radius: 24px; padding: 25px 20px; text-align: center; transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                    
-                    <div style="width: 65px; height: 65px; background: rgba(217, 48, 37, 0.1); color: var(--danger); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; margin: 0 auto 15px auto;">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </div>
-                    
-                    <h3 style="color: var(--text-main); font-size: 1.3rem; margin-bottom: 10px; font-weight: 700;">প্রোফাইল মুছতে চান?</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5;">এই গরুর প্রোফাইলটি আপনার খামারের তালিকা থেকে চিরতরে মুছে যাবে।</p>
-                    
-                    <div style="display: flex; gap: 12px;">
-                        <button onclick="window.closeDeleteCowModal()" style="flex: 1; background: #f1f3f4; color: var(--text-muted); border: none; padding: 14px; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: 0.2s;">বাতিল</button>
-                        <button onclick="window.deleteCow(${id})" style="flex: 1; background: var(--danger); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 12px rgba(217, 48, 37, 0.3); transition: 0.2s;">মুছুন</button>
-                    </div>
-                    
-                </div>
-            </div>
-        `;
-
-        document.body.insertAdjacentHTML('beforeend', modalHTML);
-        const modal = document.getElementById('delete-cow-modal');
-        const modalBox = modal.querySelector('div');
-
-        setTimeout(() => {
-            modal.style.opacity = '1';
-            modalBox.style.transform = 'scale(1)';
-        }, 10);
-    }
-
-    window.closeDeleteCowModal = function() {
-        const modal = document.getElementById('delete-cow-modal');
-        if(modal) {
-            modal.style.opacity = '0';
-            modal.querySelector('div').style.transform = 'scale(0.9)';
-            setTimeout(() => modal.remove(), 300);
-        }
-    }
-
-    window.deleteCow = function(id) {
-        window.vibrate(40);
-        let cows = JSON.parse(localStorage.getItem('agroCows')) || [];
-        localStorage.setItem('agroCows', JSON.stringify(cows.filter(c => c.id !== id)));
-        window.closeDeleteCowModal();
-        window.renderCows();
     };
 
     // --- ১৪. সেন্ট্রাল অ্যাডমিন প্যানেল লজিক (Full Control Hub) ---
@@ -1657,10 +1421,8 @@ window.loadPage = loadPage;
         }
     };
 
-    // ট্যাব সুইচিং লজিক
     window.switchAdminTab = function(tabName) {
         window.vibrate(30);
-        // Reset Tab Styles
         ['market', 'disease', 'formula', 'users'].forEach(tab => {
             const btn = document.getElementById(`tab-${tab}`);
             if(btn) {
@@ -1669,7 +1431,6 @@ window.loadPage = loadPage;
             }
         });
         
-        // Active Tab Style
         const activeBtn = document.getElementById(`tab-${tabName}`);
         if(activeBtn) {
             activeBtn.style.background = '#2c3e50';
@@ -1692,8 +1453,6 @@ window.loadPage = loadPage;
         }, 200);
     };
 
-    // --- Tab 1: Market Controller ---
-    // ডিফল্ট বাজার দরের তালিকা (সার্ভারে ডাটা না থাকলে বা অফলাইন থাকলে এটি কাজ করবে)
     const defaultGlobalPrices = {
         'ভুট্টা ভাঙা': 35, 'রাইস কুড়া/পলিস': 28, 'গমের ভুষি': 45, 'সয়াবিন মিল': 75, 'ডালের খোসা': 38,
         'সরিষার খৈল': 45, 'DDGS': 42, 'DORB': 25, 'রেপসিড (Rapeseed)': 40, 'শুঁটকি মাছের গুঁড়ো': 110,
@@ -1703,7 +1462,6 @@ window.loadPage = loadPage;
         'Growth Promoter': 550, 'রুমেন সাপোর্ট (Rumen)': 350, 'সিআর (Chromium)': 900
     };
 
-    // --- Tab 1: Live Market Controller (Admin Side) ---
     window.renderAdminMarketTab = function(container) {
         container.innerHTML = `
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
@@ -1718,53 +1476,74 @@ window.loadPage = loadPage;
         const listArea = document.getElementById('admin-market-list');
         if(!listArea) return;
 
-        // ফায়ারবেস কানেকশন চেক করা হচ্ছে
         if (window.db && window.fbFirestore) {
             const { collection, onSnapshot } = window.fbFirestore;
             
-            // রিয়াল-টাইম ডাটা রিড লুপ
             onSnapshot(collection(window.db, "market_prices"), (snapshot) => {
                 let html = '';
                 let serverPrices = {};
+                let deletedItems = {}; 
+                
+    // ডিলিট করা আইটেমের ট্র্যাক রাখা হচ্ছে
                 
                 snapshot.forEach((doc) => {
-                    serverPrices[doc.id] = doc.data().price;
+                    if(doc.data().deleted) {
+                        deletedItems[doc.id] = true;
+                    } else {
+                        serverPrices[doc.id] = doc.data().price;
+                    }
                 });
 
                 Object.keys(defaultGlobalPrices).forEach(item => {
+                    if(deletedItems[item]) return; // ডিলিট করা থাকলে লিস্টে দেখাবে না
+
                     const currentPrice = serverPrices[item] !== undefined ? serverPrices[item] : defaultGlobalPrices[item];
                     html += `
-                        <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #eee;">
-                            <div>
+                        <div class="fade-in" style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #eee;">
+                            <div style="flex: 1;">
                                 <h4 style="font-size:1.02rem; color:var(--text-main); margin-bottom: 2px;">${item}</h4>
                                 <span style="font-size: 0.8rem; color: var(--primary-main); background: rgba(46,125,52,0.08); padding: 2px 8px; border-radius: 6px; font-weight:600;">৳ ${currentPrice} / কেজি</span>
                             </div>
-                            <button onclick="window.showEditPriceModal('${item}', ${currentPrice})" style="background: rgba(52, 152, 219, 0.1); color: #3498db; border: none; padding: 8px 14px; border-radius: 8px; font-weight: 600; cursor: pointer;">
-                                <i class="fa-solid fa-pen"></i> এডিট
-                            </button>
+                            <div style="display: flex; gap: 8px;">
+                                <!-- এডিট বাটন -->
+                                <button onclick="window.showEditPriceModal('${item}', ${currentPrice})" style="background: rgba(52, 152, 219, 0.1); color: #3498db; border: none; padding: 8px 12px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s;">
+                                    <i class="fa-solid fa-pen"></i> এডিট
+                                </button>
+                                <!-- নতুন: ডিলিট বাটন -->
+                                <button onclick="window.showDeletePriceModal('${item}')" style="background: rgba(217, 48, 37, 0.1); color: #D93025; border: none; padding: 8px 12px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s;">
+                                    <i class="fa-solid fa-trash-can"></i> ডিলিট
+                                </button>
+                            </div>
                         </div>`;
                 });
                 listArea.innerHTML = html;
-                // লোকাল ক্যালকুলেটরের সিনক্রোনাইজেশনের জন্য ক্যাশ সেভ
                 localStorage.setItem('agroFeedPrices', JSON.stringify(serverPrices));
+                localStorage.setItem('agroDeletedPrices', JSON.stringify(deletedItems));
             });
         } else {
-            // ফায়ারবেস কনফিগ না থাকলে লোকাল ব্যাকআপ ভিউ
+            // অফলাইন ব্যাকআপ
             const savedPrices = JSON.parse(localStorage.getItem('agroFeedPrices')) || {};
+            const deletedItems = JSON.parse(localStorage.getItem('agroDeletedPrices')) || {};
             let html = '';
             Object.keys(defaultGlobalPrices).forEach(item => {
+                if(deletedItems[item]) return;
                 const currentPrice = savedPrices[item] || defaultGlobalPrices[item];
                 html += `
-                    <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #eee;">
-                        <div><h4 style="font-size:1.02rem; color:var(--text-main);">${item}</h4><span style="font-size: 0.8rem; color: var(--primary-main);">৳ ${currentPrice} (Offline)</span></div>
-                        <button onclick="window.showEditPriceModal('${item}', ${currentPrice})" style="background: rgba(52, 152, 219, 0.1); color: #3498db; border: none; padding: 8px 14px; border-radius: 8px; font-weight: 600; cursor: pointer;"><i class="fa-solid fa-pen"></i></button>
+                    <div class="fade-in" style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #eee;">
+                        <div style="flex: 1;">
+                            <h4 style="font-size:1.02rem; color:var(--text-main); margin-bottom: 2px;">${item}</h4>
+                            <span style="font-size: 0.8rem; color: var(--primary-main); background: rgba(46,125,52,0.08); padding: 2px 8px; border-radius: 6px; font-weight:600;">৳ ${currentPrice} (Offline)</span>
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                            <button onclick="window.showEditPriceModal('${item}', ${currentPrice})" style="background: rgba(52, 152, 219, 0.1); color: #3498db; border: none; padding: 8px 12px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s;"><i class="fa-solid fa-pen"></i> এডিট</button>
+                            <button onclick="window.showDeletePriceModal('${item}')" style="background: rgba(217, 48, 37, 0.1); color: #D93025; border: none; padding: 8px 12px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s;"><i class="fa-solid fa-trash-can"></i> ডিলিট</button>
+                        </div>
                     </div>`;
             });
             listArea.innerHTML = html;
         }
     };
 
-    // ফায়ারবেস ক্লাউডে ডাটা রাইট/আপডেট করা
     window.saveNewPrice = function(itemName) {
         window.vibrate(40);
         const newPrice = Number(document.getElementById('new-price-input').value);
@@ -1773,7 +1552,6 @@ window.loadPage = loadPage;
             if(window.db && window.fbFirestore) {
                 const { doc, setDoc } = window.fbFirestore;
                 
-                // ফায়ারবেস ফায়ারস্টোরে আপলোড হচ্ছে
                 setDoc(doc(window.db, "market_prices", itemName), {
                     price: newPrice,
                     last_updated: new Date().toISOString()
@@ -1784,7 +1562,6 @@ window.loadPage = loadPage;
                     alert("সার্ভার ত্রুটি: ডাটা সেভ হয়নি।");
                 });
             } else {
-                // অফলাইন মোড সেভিং
                 let savedPrices = JSON.parse(localStorage.getItem('agroFeedPrices')) || {};
                 savedPrices[itemName] = newPrice;
                 localStorage.setItem('agroFeedPrices', JSON.stringify(savedPrices));
@@ -1797,7 +1574,6 @@ window.loadPage = loadPage;
         }
     };
 
-    // --- ১৩. গ্লোবাল বাজার দর রেন্ডারিং (ইউজার মোড - Live Sync) ---
     window.renderGlobalMarketPricesPage = function() {
         const listArea = document.getElementById('global-market-list-view');
         if(!listArea) return;
@@ -1814,14 +1590,22 @@ window.loadPage = loadPage;
             
             onSnapshot(collection(window.db, "market_prices"), (snapshot) => {
                 let serverPrices = {};
-                snapshot.forEach((doc) => { serverPrices[doc.id] = doc.data().price; });
+                let deletedItems = {};
+                snapshot.forEach((doc) => { 
+                    if(doc.data().deleted) deletedItems[doc.id] = true;
+                    else serverPrices[doc.id] = doc.data().price; 
+                });
                 
                 let html = '';
                 Object.keys(defaultGlobalPrices).forEach(displayName => {
                     const calculatedKey = aliasMap[displayName] || displayName;
-                    const currentPrice = serverPrices[calculatedKey] !== undefined ? serverPrices[calculatedKey] : defaultGlobalPrices[displayName];
+                    // ডিলিট করা আইটেম হলে স্কিপ করবে
+                    if(deletedItems[calculatedKey] || deletedItems[displayName]) return;
+
+                    const currentPrice = serverPrices[calculatedKey] !== undefined ? serverPrices[calculatedKey] : (serverPrices[displayName] !== undefined ? serverPrices[displayName] : defaultGlobalPrices[displayName]);
+                    
                     html += `
-                        <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #eee;">
+                        <div class="fade-in" style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #eee;">
                             <div>
                                 <h4 style="font-size:1.05rem; color:var(--text-main); margin-bottom: 2px;">${displayName}</h4>
                                 <p style="font-size:0.8rem; color:var(--text-muted);">প্রতি কেজি</p>
@@ -1834,135 +1618,24 @@ window.loadPage = loadPage;
                 listArea.innerHTML = html;
             });
         } else {
-            // অফলাইন ব্যাকআপ রেন্ডারিং
             const savedPrices = JSON.parse(localStorage.getItem('agroFeedPrices')) || {};
+            const deletedItems = JSON.parse(localStorage.getItem('agroDeletedPrices')) || {};
             let html = '';
             Object.keys(defaultGlobalPrices).forEach(displayName => {
                 const calculatedKey = aliasMap[displayName] || displayName;
-                const currentPrice = savedPrices[calculatedKey] || defaultGlobalPrices[displayName];
+                if(deletedItems[calculatedKey] || deletedItems[displayName]) return;
+
+                const currentPrice = savedPrices[calculatedKey] || savedPrices[displayName] || defaultGlobalPrices[displayName];
                 html += `
-                    <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #eee;">
-                        <div><h4 style="font-size:1.05rem; color:var(--text-main);">${displayName}</h4><p style="font-size:0.8rem; color:var(--text-muted);">প্রতি কেজি</p></div>
+                    <div class="fade-in" style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #eee;">
+                        <div><h4 style="font-size:1.05rem; color:var(--text-main); margin-bottom: 2px;">${displayName}</h4><p style="font-size:0.8rem; color:var(--text-muted);">প্রতি কেজি</p></div>
                         <div style="text-align:right;"><h4 style="font-size:1.15rem; color:var(--primary-dark);">৳ ${currentPrice}</h4></div>
                     </div>`;
             });
             listArea.innerHTML = html;
         }
     };
-    // --- Tab 2: Disease Manager ---
-    window.renderAdminDiseaseTab = function(container) {
-        container.innerHTML = `
-            <button onclick="alert('নতুন রোগ যুক্ত করার পপআপ এখানে আসবে (Firebase আপডেট)')" style="width: 100%; padding: 14px; background: rgba(233, 30, 99, 0.1); color: #E91E63; border: 1.5px dashed #E91E63; border-radius: 12px; font-size: 1.05rem; font-weight: 600; margin-bottom: 15px; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px;">
-                <i class="fa-solid fa-plus"></i> নতুন রোগের গাইডলাইন যুক্ত করুন
-            </button>
-            <div class="agro-card" style="padding: 5px 15px;">
-                <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #eee;">
-                    <div><h4 style="font-size:1rem; color:var(--text-main); margin-bottom: 2px;">খুরা রোগ (FMD)</h4><span style="font-size: 0.8rem; color: var(--text-muted);">লাইভ আছে</span></div>
-                    <button style="background: rgba(52, 152, 219, 0.1); color: #3498db; border: none; padding: 6px 12px; border-radius: 8px; font-weight: 600;"><i class="fa-solid fa-pen"></i></button>
-                </div>
-                <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 0;">
-                    <div><h4 style="font-size:1rem; color:var(--text-main); margin-bottom: 2px;">লাম্পি স্কিন ডিজিজ</h4><span style="font-size: 0.8rem; color: var(--text-muted);">লাইভ আছে</span></div>
-                    <button style="background: rgba(52, 152, 219, 0.1); color: #3498db; border: none; padding: 6px 12px; border-radius: 8px; font-weight: 600;"><i class="fa-solid fa-pen"></i></button>
-                </div>
-            </div>
-        `;
-    };
 
-    // --- ১৭. খামারি তালিকা (Users Monitor) ফায়ারবেস লাইভ কন্ট্রোলার ---
-    
-    // অ্যাডমিন প্যানেলে খামারিদের ট্যাবের মূল কাঠামো রেন্ডার করা
-    window.renderAdminUsersTab = function(container) {
-        container.innerHTML = `
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
-                <div style="background: var(--card-bg); padding: 15px; border-radius: 12px; border: 1px solid #eee; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
-                    <h3 id="admin-total-users" style="color: var(--primary-main); margin:0; font-size: 1.5rem; font-weight:700;">০</h3>
-                    <p style="margin:0; font-size:0.8rem; color:var(--text-muted); font-weight:600;">মোট খামারি</p>
-                </div>
-                <div style="background: var(--card-bg); padding: 15px; border-radius: 12px; border: 1px solid #eee; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
-                    <h3 id="admin-today-users" style="color: var(--success); margin:0; font-size: 1.5rem; font-weight:700;">০</h3>
-                    <p style="margin:0; font-size:0.8rem; color:var(--text-muted); font-weight:600;">আজকের রেজিস্ট্রেশন</p>
-                </div>
-            </div>
-            
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding: 0 5px;">
-                <h3 style="font-size: 1.1rem; color: var(--text-main); margin: 0;"><i class="fa-solid fa-users"></i> নিবন্ধিত খামারিদের তালিকা</h3>
-            </div>
-            
-            <div class="agro-card" style="padding: 0; overflow:hidden; min-height:100px;" id="admin-users-list-area">
-                <div style="text-align:center; padding:30px; color:var(--text-muted);">
-                    <i class="fa-solid fa-spinner fa-spin" style="font-size:1.5rem; color:var(--primary-main); margin-bottom:8px;"></i>
-                    <p style="font-size:0.9rem; margin:0;">খামারি তালিকা লোড হচ্ছে...</p>
-                </div>
-            </div>
-        `;
-        window.loadAdminUsersLive();
-    };
-
-    // ফায়ারবেস থেকে লাইভ খামারিদের ডাটা নিয়ে আসা (Real-time listener)
-    window.loadAdminUsersLive = function() {
-        const listArea = document.getElementById('admin-users-list-area');
-        const totalCounter = document.getElementById('admin-total-users');
-        const todayCounter = document.getElementById('admin-today-users');
-        if(!listArea) return;
-
-        if(window.db && window.fbFirestore) {
-            const { collection, onSnapshot } = window.fbFirestore;
-            
-            // ফায়ারস্টোরের 'users' কালেকশন রিয়াল-টাইম লিসেন করা হচ্ছে
-            onSnapshot(collection(window.db, "users"), (snapshot) => {
-                let html = '';
-                let total = 0;
-                let todayCount = 0;
-                
-                // আজকের তারিখ ফরম্যাট (যেমন: ২১/৬/২০২৬)
-                const todayStr = new Date().toLocaleDateString('bn-BD');
-
-                snapshot.forEach((doc) => {
-                    total++;
-                    const u = doc.data();
-                    if(u.regDate === todayStr) todayCount++;
-
-                    html += `
-                        <div class="fade-in" style="display:flex; justify-content:space-between; align-items:center; padding:15px; border-bottom:1px solid #eee; transition: 0.2s;">
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <div style="width:40px; height:40px; background:rgba(46,125,52,0.08); border-radius:50%; display:flex; justify-content:center; align-items:center; color:var(--primary-main); font-size:1.1rem;">
-                                    <i class="fa-solid fa-user"></i>
-                                </div>
-                                <div>
-                                    <span style="font-size: 1rem; font-weight: 700; color:var(--text-main); display:block;">${u.name || 'অজ্ঞাত খামারি'}</span>
-                                    <small style="color:var(--text-muted); font-size:0.8rem; display:block; margin-top:2px;">
-                                        <i class="fa-solid fa-phone" style="font-size:0.7rem;"></i> ${u.phone || 'মোবাইল নেই'} | <i class="fa-solid fa-location-dot" style="font-size:0.7rem;"></i> জেলা: ${u.district || 'কুড়িগ্রাম'}
-                                    </small>
-                                </div>
-                            </div>
-                            <button onclick="window.showBanUserConfirmModal('${doc.id}', '${u.name || 'এই খামারি'}')" style="background: none; border: none; color: #ccc; cursor:pointer; padding:10px; font-size:1.1rem; transition:0.2s;" onmouseover="this.style.color='var(--danger)'" onmouseout="this.style.color='#ccc'">
-                                <i class="fa-solid fa-user-slash"></i>
-                            </button>
-                        </div>`;
-                });
-
-                listArea.innerHTML = html || '<div style="text-align:center; padding:30px; color:var(--text-muted);"><i class="fa-solid fa-users-slash" style="font-size:2.5rem; margin-bottom:10px; color:#ddd;"></i><p style="margin:0; font-size:0.95rem;">এখনো কোনো খামারি নিবন্ধন করেননি।</p></div>';
-                
-                // কাউন্টারগুলো বাংলা সংখ্যায় আপডেট করা
-                if(totalCounter) totalCounter.innerText = total.toLocaleString('bn-BD');
-                if(todayCounter) todayCounter.innerText = todayCount.toLocaleString('bn-BD');
-            });
-        } else {
-            // ফায়ারবেস অফলাইন বা কানেক্ট না থাকলে ডেমো ব্যাকআপ ডাটা ভিউ
-            if(totalCounter) totalCounter.innerText = '৩';
-            if(todayCounter) todayCounter.innerText = '১';
-            listArea.innerHTML = `
-                <div style="display:flex; justify-content:space-between; align-items:center; padding:15px; border-bottom:1px solid #eee;">
-                    <div style="display: flex; align-items: center; gap: 12px;">
-                        <div style="width:40px; height:40px; background:#f1f3f4; border-radius:50%; display:flex; justify-content:center; align-items:center; color:#555;"><i class="fa-solid fa-user"></i></div>
-                        <div><span style="font-size: 1rem; font-weight: 700; color:var(--text-main); display:block;">করিম শেখ</span><small style="color:var(--text-muted); font-size:0.8rem;">০১৭১১****** | জেলা: কুড়িগ্রাম</small></div>
-                    </div>
-                    <button style="background: none; border: none; color: #ccc; padding:10px;"><i class="fa-solid fa-user-slash"></i></button>
-                </div>`;
-        }
-    };
-
-    // ইউজার রিমুভ/ব্লক করার প্রিমিয়াম কনফার্মেশন মডাল
     window.showBanUserConfirmModal = function(userId, userName) {
         window.vibrate(40);
         const modalHTML = `
@@ -1984,7 +1657,6 @@ window.loadPage = loadPage;
         }, 10);
     };
 
-    // সার্ভার থেকে ইউজার ডাটা ডিলিট করার এক্সিকিউশন
     window.executeUserDelete = function(userId) {
         window.vibrate(40);
         if(window.db && window.fbFirestore && window.fbFirestore.deleteDoc) {
@@ -2000,21 +1672,26 @@ window.loadPage = loadPage;
             document.getElementById('ban-user-modal').remove();
         }
     };
-    // --- ১৫. রোগ-বালাই (Disease Guidelines) ফায়ারবেস কন্ট্রোলার ---
 
-    // ডিফল্ট রোগের ডাটা (অফলাইনের জন্য)
-    const defaultDiseasesList = [
-        { id: 'fmd', name: 'খুরা রোগ (FMD)', icon: 'fa-virus', color: '#D93025', symptoms: 'গরুর শরীরের তাপমাত্রা বেড়ে যায় (১০৪-১০৬° ফাঃ)। মুখ, জিহ্বা এবং পায়ের ক্ষুরে ঘা হয়।', treatment: 'পটাশ পানি দিয়ে ঘায়ের স্থান দিনে ২-৩ বার ধুয়ে দিতে হবে। চিকিৎসকের পরামর্শে কম্বিপেন ভেট ইনজেকশন ব্যবহার করুন।' },
-        { id: 'lsd', name: 'লাম্পি স্কিন ডিজিজ (LSD)', icon: 'fa-bugs', color: '#F57C00', symptoms: 'গরুর গায়ে গুটি বা চাকা চাকা দাগ দেখা দেয়। তীব্র জ্বর হয়, পা ফুলে যেতে পারে।', treatment: 'জ্বর ও ব্যথা কমানোর জন্য রেনাডেক্স ভেট (Renadex Vet) ট্যাবলেট খাওয়াতে হবে। গুটি ফেটে ঘা হলে পভিসেপ লাগান।' }
+    // ==========================================
+    // ১৫. রোগ-বালাই (Disease Guidelines) অ্যাডমিন কন্ট্রোলার
+    // ==========================================
+
+    window.defaultDiseasesList = [
+        { id: 'fmd', name: 'খুরা রোগ (FMD)', icon: 'fa-virus', color: '#D93025', symptoms: 'গরুর শরীরের তাপমাত্রা বেড়ে যায়। মুখ, জিহ্বা এবং পায়ের ক্ষুরে ঘা হয়।', treatment: 'পটাশ পানি দিয়ে ঘায়ের স্থান ধুয়ে দিন। চিকিৎসকের পরামর্শে অ্যান্টিবায়োটিক দিন।' },
+        { id: 'lsd', name: 'লাম্পি স্কিন ডিজিজ (LSD)', icon: 'fa-bugs', color: '#F57C00', symptoms: 'গরুর গায়ে গুটি বা চাকা দাগ দেখা দেয়। তীব্র জ্বর হয়, পা ফুলে যেতে পারে।', treatment: 'জ্বর ও ব্যথা কমানোর জন্য রেনাডেক্স ভেট (Renadex Vet) খাওয়াতে হবে।' }
     ];
 
-    // [অ্যাডমিন] প্যানেলে রোগের তালিকা লোড করা
     window.renderAdminDiseaseTab = function(container) {
         container.innerHTML = `
             <button onclick="window.showAddDiseaseModal()" style="width: 100%; padding: 14px; background: rgba(233, 30, 99, 0.1); color: #E91E63; border: 1.5px dashed #E91E63; border-radius: 12px; font-size: 1.05rem; font-weight: 600; margin-bottom: 15px; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; transition: 0.3s;">
                 <i class="fa-solid fa-plus"></i> নতুন রোগের গাইডলাইন যুক্ত করুন
             </button>
-            <div id="admin-disease-list" class="agro-card" style="padding: 5px 15px; min-height: 100px;"></div>
+            <div id="admin-disease-list" class="agro-card" style="padding: 5px 15px; min-height: 100px;">
+                <div style="text-align:center; padding:30px;">
+                    <i class="fa-solid fa-spinner fa-spin" style="font-size:2rem; color:var(--primary-main);"></i>
+                </div>
+            </div>
         `;
         window.loadAdminDiseases();
     };
@@ -2024,19 +1701,26 @@ window.loadPage = loadPage;
         if(!listArea) return;
 
         const renderList = (diseases) => {
+            window.adminDiseasesMap = {}; 
             let html = '';
             diseases.forEach(d => {
+                window.adminDiseasesMap[d.id] = d;
                 html += `
-                <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #eee;">
-                    <div>
+                <div class="fade-in" style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #eee;">
+                    <div style="flex: 1; padding-right: 10px;">
                         <h4 style="font-size:1.02rem; color:var(--text-main); margin-bottom: 2px;">
                             <i class="fa-solid ${d.icon || 'fa-notes-medical'}" style="color:${d.color || '#E91E63'}; margin-right: 5px;"></i> ${d.name}
                         </h4>
                         <span style="font-size: 0.8rem; color: var(--success); background: rgba(46,125,52,0.1); padding: 2px 6px; border-radius: 4px;">লাইভ আছে</span>
                     </div>
-                    <button onclick="window.deleteDisease('${d.id}')" style="background: rgba(217, 48, 37, 0.1); color: #D93025; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; transition: 0.2s;">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
+                    <div style="display: flex; gap: 8px;">
+                        <button onclick="window.showEditDiseaseModal('${d.id}')" style="background: rgba(52, 152, 219, 0.1); color: #3498db; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; transition: 0.2s;">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+                        <button onclick="window.deleteDisease('${d.id}')" style="background: rgba(217, 48, 37, 0.1); color: #D93025; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; transition: 0.2s;">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
                 </div>`;
             });
             listArea.innerHTML = html || '<p style="text-align:center; padding:15px; color:var(--text-muted);">কোনো রোগ যুক্ত করা হয়নি।</p>';
@@ -2047,18 +1731,112 @@ window.loadPage = loadPage;
             onSnapshot(collection(window.db, "disease_guidelines"), (snapshot) => {
                 let diseases = [];
                 snapshot.forEach((doc) => { diseases.push({ id: doc.id, ...doc.data() }); });
-                if(diseases.length === 0) diseases = defaultDiseasesList;
+                
+                if(diseases.length === 0) diseases = window.defaultDiseasesList;
+                
                 localStorage.setItem('agroDiseases', JSON.stringify(diseases));
                 renderList(diseases);
             });
         } else {
             let diseases = JSON.parse(localStorage.getItem('agroDiseases'));
-            if(!diseases || diseases.length === 0) diseases = defaultDiseasesList;
+            if(!diseases || diseases.length === 0) diseases = window.defaultDiseasesList;
             renderList(diseases);
         }
     };
 
-    // [অ্যাডমিন] নতুন রোগ যুক্ত করার পপআপ
+    // --- এডিট পপআপ ---
+    window.showEditDiseaseModal = function(id) {
+        window.vibrate(40);
+        const data = window.adminDiseasesMap[id];
+        if(!data) return;
+
+        const modalHTML = `
+            <div id="edit-disease-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;">
+                <div style="background: var(--card-bg); width: 90%; max-width: 380px; border-radius: 24px; padding: 25px 20px; transform: scale(0.9); transition: transform 0.3s ease; max-height: 90vh; overflow-y: auto;">
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 style="margin: 0; color: #3498db; font-size: 1.25rem; display:flex; align-items:center; gap:8px;">
+                            <i class="fa-solid fa-pen-to-square"></i> তথ্য এডিট করুন
+                        </h3>
+                        <button onclick="window.closeEditDiseaseModal()" style="background: #f1f3f4; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; color:var(--text-muted);"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label style="font-size: 0.95rem; font-weight: 600; color: var(--text-main);">রোগের নাম</label>
+                        <input type="text" id="edit-d-name" value="${data.name || ''}" style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; background: #F9F9F9; margin-top:8px; font-family: inherit; outline:none; box-sizing: border-box;">
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label style="font-size: 0.95rem; font-weight: 600; color: var(--text-main);">প্রধান লক্ষণসমূহ</label>
+                        <textarea id="edit-d-symptoms" style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; background: #F9F9F9; margin-top:8px; height: 80px; font-family: inherit; outline:none; resize:none; box-sizing: border-box;">${data.symptoms || ''}</textarea>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 25px;">
+                        <label style="font-size: 0.95rem; font-weight: 600; color: var(--text-main);">চিকিৎসা ও ঔষধের নাম</label>
+                        <textarea id="edit-d-treatment" style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; background: #F9F9F9; margin-top:8px; height: 100px; font-family: inherit; outline:none; resize:none; box-sizing: border-box;">${data.treatment || ''}</textarea>
+                    </div>
+                    
+                    <button onclick="window.updateDisease('${id}')" style="width: 100%; background: #3498db; color: white; border: none; padding: 15px; border-radius: 12px; font-weight: 700; font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> আপডেট করুন
+                    </button>
+                </div>
+            </div>`;
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        setTimeout(() => { 
+            const modal = document.getElementById('edit-disease-modal');
+            if(modal) {
+                modal.style.opacity = '1'; 
+                modal.querySelector('div').style.transform = 'scale(1)'; 
+            }
+        }, 10);
+    };
+
+    window.closeEditDiseaseModal = function() {
+        const modal = document.getElementById('edit-disease-modal');
+        if(modal) {
+            modal.style.opacity = '0';
+            modal.querySelector('div').style.transform = 'scale(0.9)';
+            setTimeout(() => modal.remove(), 300);
+        }
+    };
+
+    window.updateDisease = function(id) {
+        window.vibrate(40);
+        const name = document.getElementById('edit-d-name').value;
+        const symptoms = document.getElementById('edit-d-symptoms').value;
+        const treatment = document.getElementById('edit-d-treatment').value;
+        
+        if(!name || !symptoms || !treatment) {
+            return alert("অনুগ্রহ করে সকল তথ্য পূরণ করুন!");
+        }
+
+        const data = {
+            name: name,
+            symptoms: symptoms,
+            treatment: treatment,
+            updatedAt: new Date().toISOString()
+        };
+
+        if(window.db && window.fbFirestore) {
+            const { doc, setDoc } = window.fbFirestore;
+            setDoc(doc(window.db, "disease_guidelines", id), data, { merge: true }).then(() => {
+                window.vibrate(60);
+                window.closeEditDiseaseModal();
+            }).catch(err => alert("আপডেট ব্যর্থ হয়েছে। সার্ভার ত্রুটি!"));
+        } else {
+            let diseases = JSON.parse(localStorage.getItem('agroDiseases')) || [];
+            const idx = diseases.findIndex(d => d.id === id);
+            if(idx !== -1) {
+                diseases[idx] = { ...diseases[idx], ...data };
+                localStorage.setItem('agroDiseases', JSON.stringify(diseases));
+            }
+            window.vibrate(60);
+            window.closeEditDiseaseModal();
+            window.loadAdminDiseases();
+        }
+    };
+
+    // --- নতুন যোগ ও ডিলিট ---
     window.showAddDiseaseModal = function() {
         window.vibrate(40);
         const modalHTML = `
@@ -2108,7 +1886,6 @@ window.loadPage = loadPage;
         }
     };
 
-    // [অ্যাডমিন] রোগ ডাটাবেসে সেভ করা
     window.saveNewDisease = function() {
         window.vibrate(40);
         const name = document.getElementById('d-name').value;
@@ -2120,7 +1897,6 @@ window.loadPage = loadPage;
         }
         
         const docId = 'disease_' + Date.now();
-        // রেন্ডম কালার জেনারেট করা হচ্ছে কার্ডের ডিজাইনের জন্য
         const colors = ['#E91E63', '#9C27B0', '#795548', '#FF9800', '#F44336', '#009688'];
         const randomColor = colors[Math.floor(Math.random() * colors.length)];
 
@@ -2140,7 +1916,7 @@ window.loadPage = loadPage;
                 window.closeAddDiseaseModal();
             }).catch(err => alert("ডাটা সেভ হয়নি। সার্ভার ত্রুটি!"));
         } else {
-            let diseases = JSON.parse(localStorage.getItem('agroDiseases')) || defaultDiseasesList;
+            let diseases = JSON.parse(localStorage.getItem('agroDiseases')) || window.defaultDiseasesList;
             diseases.unshift({...data, id: docId});
             localStorage.setItem('agroDiseases', JSON.stringify(diseases));
             window.vibrate(60);
@@ -2149,40 +1925,131 @@ window.loadPage = loadPage;
         }
     };
 
-    // [অ্যাডমিন] রোগ মুছে ফেলার প্রিমিয়াম পপআপ
     window.deleteDisease = function(id) {
+        window.showConfirmModal(
+            'গাইডলাইনটি মুছবেন?', 
+            'এই রোগের গাইডলাইনটি ডাটাবেস থেকে চিরতরে মুছে যাবে এবং সকল ইউজারের অ্যাপ থেকে সরে যাবে।',
+            function() {
+                if(window.db && window.fbFirestore) {
+                    const { doc, deleteDoc } = window.fbFirestore;
+                    deleteDoc(doc(window.db, "disease_guidelines", id)).then(() => {
+                        window.showAppAlert('সফলভাবে মোছা হয়েছে!', 'রোগের গাইডলাইনটি মুছে ফেলা হয়েছে।', 'fa-trash-can', '#F44336');
+                    }).catch(err => {
+                        window.showAppAlert('ত্রুটি!', 'সার্ভার থেকে ডিলিট করতে সমস্যা হয়েছে!', 'fa-triangle-exclamation', '#F44336');
+                    });
+                } else {
+                    let diseases = JSON.parse(localStorage.getItem('agroDiseases')) || [];
+                    diseases = diseases.filter(d => d.id !== id);
+                    localStorage.setItem('agroDiseases', JSON.stringify(diseases));
+                    window.showAppAlert('সফলভাবে মোছা হয়েছে!', 'রোগের গাইডলাইনটি মুছে ফেলা হয়েছে (Offline)।', 'fa-trash-can', '#F44336');
+                    window.loadAdminDiseases(); 
+                }
+            }
+        );
+    };
+
+    // ১. গ্লোবাল ডিফল্ট লিস্ট (যদি ডাটাবেস খালি থাকে)
+    window.defaultDiseasesList = [
+        { id: 'fmd', name: 'খুরা রোগ (FMD)', icon: 'fa-virus', color: '#D93025', symptoms: 'গরুর শরীরের তাপমাত্রা বেড়ে যায়। মুখ, জিহ্বা এবং পায়ের ক্ষুরে ঘা হয়।', treatment: 'পটাশ পানি দিয়ে ঘায়ের স্থান ধুয়ে দিন। চিকিৎসকের পরামর্শে অ্যান্টিবায়োটিক দিন।' },
+        { id: 'lsd', name: 'লাম্পি স্কিন ডিজিজ (LSD)', icon: 'fa-bugs', color: '#F57C00', symptoms: 'গরুর গায়ে গুটি বা চাকা দাগ দেখা দেয়। তীব্র জ্বর হয়, পা ফুলে যেতে পারে।', treatment: 'জ্বর ও ব্যথা কমানোর জন্য রেনাডেক্স ভেট (Renadex Vet) খাওয়াতে হবে।' }
+    ];
+
+    // ৩. ফায়ারবেস বা লোকাল স্টোরেজ থেকে ডাটা নিয়ে আসা
+    window.loadAdminDiseases = function() {
+        const listArea = document.getElementById('admin-disease-list');
+        if(!listArea) return;
+
+        const renderList = (diseases) => {
+            window.adminDiseasesMap = {}; // এডিট করার জন্য ডাটা ক্যাশে রাখা হচ্ছে
+            let html = '';
+            diseases.forEach(d => {
+                window.adminDiseasesMap[d.id] = d;
+                html += `
+                <div class="fade-in" style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #eee;">
+                    <div style="flex: 1; padding-right: 10px;">
+                        <h4 style="font-size:1.02rem; color:var(--text-main); margin-bottom: 2px;">
+                            <i class="fa-solid ${d.icon || 'fa-notes-medical'}" style="color:${d.color || '#E91E63'}; margin-right: 5px;"></i> ${d.name}
+                        </h4>
+                        <span style="font-size: 0.8rem; color: var(--success); background: rgba(46,125,52,0.1); padding: 2px 6px; border-radius: 4px;">লাইভ আছে</span>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <!-- এডিট বাটন -->
+                        <button onclick="window.showEditDiseaseModal('${d.id}')" style="background: rgba(52, 152, 219, 0.1); color: #3498db; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; transition: 0.2s;">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+                        <!-- ডিলিট বাটন -->
+                        <button onclick="window.deleteDisease('${d.id}')" style="background: rgba(217, 48, 37, 0.1); color: #D93025; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; transition: 0.2s;">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                </div>`;
+            });
+            listArea.innerHTML = html || '<p style="text-align:center; padding:15px; color:var(--text-muted);">কোনো রোগ যুক্ত করা হয়নি।</p>';
+        };
+
+        if (window.db && window.fbFirestore) {
+            const { collection, onSnapshot } = window.fbFirestore;
+            // ফায়ারবেস থেকে লাইভ ডাটা লোড
+            onSnapshot(collection(window.db, "disease_guidelines"), (snapshot) => {
+                let diseases = [];
+                snapshot.forEach((doc) => { diseases.push({ id: doc.id, ...doc.data() }); });
+                
+                // যদি ডাটাবেস একদম খালি থাকে, তাহলে ডিফল্ট ডাটা দেখাবে
+                if(diseases.length === 0) diseases = window.defaultDiseasesList;
+                
+                localStorage.setItem('agroDiseases', JSON.stringify(diseases));
+                renderList(diseases);
+            });
+        } else {
+            // অফলাইন ব্যাকআপ
+            let diseases = JSON.parse(localStorage.getItem('agroDiseases'));
+            if(!diseases || diseases.length === 0) diseases = window.defaultDiseasesList;
+            renderList(diseases);
+        }
+    };
+
+    window.showAddDiseaseModal = function() {
         window.vibrate(40);
         const modalHTML = `
-            <div id="delete-disease-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;">
-                <div style="background: var(--card-bg); width: 85%; max-width: 320px; border-radius: 24px; padding: 25px 20px; text-align: center; transform: scale(0.9); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            <div id="add-disease-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;">
+                <div style="background: var(--card-bg); width: 90%; max-width: 380px; border-radius: 24px; padding: 25px 20px; transform: scale(0.9); transition: transform 0.3s ease; max-height: 90vh; overflow-y: auto;">
                     
-                    <div style="width: 65px; height: 65px; background: rgba(217, 48, 37, 0.1); color: var(--danger); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; margin: 0 auto 15px auto;">
-                        <i class="fa-solid fa-trash-can"></i>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 style="margin: 0; color: #E91E63; font-size: 1.25rem; display:flex; align-items:center; gap:8px;">
+                            <i class="fa-solid fa-notes-medical"></i> রোগ যুক্ত করুন
+                        </h3>
+                        <button onclick="window.closeAddDiseaseModal()" style="background: #f1f3f4; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; color:var(--text-muted);"><i class="fa-solid fa-xmark"></i></button>
                     </div>
                     
-                    <h3 style="color: var(--text-main); font-size: 1.3rem; margin-bottom: 10px; font-weight: 700;">গাইডলাইনটি মুছবেন?</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5;">এই রোগের গাইডলাইনটি ডাটাবেস থেকে চিরতরে মুছে যাবে এবং সকল ইউজারের অ্যাপ থেকে সরে যাবে।</p>
-                    
-                    <div style="display: flex; gap: 12px;">
-                        <button onclick="window.closeDeleteDiseaseModal()" style="flex: 1; background: #f1f3f4; color: var(--text-muted); border: none; padding: 14px; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: 0.2s;">বাতিল</button>
-                        <button onclick="window.executeDiseaseDelete('${id}')" style="flex: 1; background: var(--danger); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 600; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 12px rgba(217, 48, 37, 0.3); transition: 0.2s;">মুছুন</button>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label style="font-size: 0.95rem; font-weight: 600; color: var(--text-main);">রোগের নাম</label>
+                        <input type="text" id="d-name" placeholder="যেমন: ম্যাস্টাইটিস বা ওলান পাকা" style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; background: #F9F9F9; margin-top:8px; font-family: inherit; outline:none;">
                     </div>
                     
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label style="font-size: 0.95rem; font-weight: 600; color: var(--text-main);">প্রধান লক্ষণসমূহ</label>
+                        <textarea id="d-symptoms" placeholder="গরুর শরীরে কী কী লক্ষণ দেখা যায়..." style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; background: #F9F9F9; margin-top:8px; height: 80px; font-family: inherit; outline:none; resize:none;"></textarea>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 25px;">
+                        <label style="font-size: 0.95rem; font-weight: 600; color: var(--text-main);">চিকিৎসা ও ঔষধের নাম</label>
+                        <textarea id="d-treatment" placeholder="কী কী ঔষধ বা চিকিৎসা দিতে হবে..." style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; background: #F9F9F9; margin-top:8px; height: 100px; font-family: inherit; outline:none; resize:none;"></textarea>
+                    </div>
+                    
+                    <button onclick="window.saveNewDisease()" style="width: 100%; background: #E91E63; color: white; border: none; padding: 15px; border-radius: 12px; font-weight: 700; font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 12px rgba(233, 30, 99, 0.3);">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> পাবলিশ করুন
+                    </button>
                 </div>
-            </div>
-        `;
+            </div>`;
         document.body.insertAdjacentHTML('beforeend', modalHTML);
-        setTimeout(() => {
-            const modal = document.getElementById('delete-disease-modal');
-            if(modal) {
-                modal.style.opacity = '1';
-                modal.querySelector('div').style.transform = 'scale(1)';
-            }
+        setTimeout(() => { 
+            document.getElementById('add-disease-modal').style.opacity = '1'; 
+            document.getElementById('add-disease-modal').querySelector('div').style.transform = 'scale(1)'; 
         }, 10);
     };
 
-    window.closeDeleteDiseaseModal = function() {
-        const modal = document.getElementById('delete-disease-modal');
+    window.closeAddDiseaseModal = function() {
+        const modal = document.getElementById('add-disease-modal');
         if(modal) {
             modal.style.opacity = '0';
             modal.querySelector('div').style.transform = 'scale(0.9)';
@@ -2190,39 +2057,108 @@ window.loadPage = loadPage;
         }
     };
 
-    // আসল ডিলিট লজিক (Local Storage + Firebase)
-    window.executeDiseaseDelete = function(id) {
+    // [অ্যাডমিন] রোগ এডিট করার পপআপ মডাল
+    window.showEditDiseaseModal = function(id) {
         window.vibrate(40);
-        
-        if(window.db && window.fbFirestore && window.fbFirestore.deleteDoc) {
-            // ফায়ারবেস কানেক্টেড থাকলে সার্ভার থেকে ডিলিট
-            const { doc, deleteDoc } = window.fbFirestore;
-            deleteDoc(doc(window.db, "disease_guidelines", id)).then(() => {
-                window.vibrate(50);
-                window.closeDeleteDiseaseModal();
-            }).catch(err => {
-                alert("সার্ভার থেকে ডিলিট করতে সমস্যা হয়েছে!");
-                window.closeDeleteDiseaseModal();
-            });
-        } else {
-            // ফায়ারবেস কানেক্ট না থাকলে লোকাল স্টোরেজ থেকে ডিলিট
-            let diseases = JSON.parse(localStorage.getItem('agroDiseases')) || [];
-            diseases = diseases.filter(d => d.id !== id);
-            localStorage.setItem('agroDiseases', JSON.stringify(diseases));
-            
-            window.vibrate(50);
-            window.closeDeleteDiseaseModal();
-            window.loadAdminDiseases(); 
+        const data = window.adminDiseasesMap[id];
+        if(!data) return;
+
+        const modalHTML = `
+            <div id="edit-disease-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;">
+                <div style="background: var(--card-bg); width: 90%; max-width: 380px; border-radius: 24px; padding: 25px 20px; transform: scale(0.9); transition: transform 0.3s ease; max-height: 90vh; overflow-y: auto;">
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 style="margin: 0; color: #3498db; font-size: 1.25rem; display:flex; align-items:center; gap:8px;">
+                            <i class="fa-solid fa-pen-to-square"></i> তথ্য এডিট করুন
+                        </h3>
+                        <button onclick="window.closeEditDiseaseModal()" style="background: #f1f3f4; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; color:var(--text-muted);"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label style="font-size: 0.95rem; font-weight: 600; color: var(--text-main);">রোগের নাম</label>
+                        <input type="text" id="edit-d-name" value="${data.name || ''}" style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; background: #F9F9F9; margin-top:8px; font-family: inherit; outline:none; box-sizing: border-box;">
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label style="font-size: 0.95rem; font-weight: 600; color: var(--text-main);">প্রধান লক্ষণসমূহ</label>
+                        <textarea id="edit-d-symptoms" style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; background: #F9F9F9; margin-top:8px; height: 80px; font-family: inherit; outline:none; resize:none; box-sizing: border-box;">${data.symptoms || ''}</textarea>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 25px;">
+                        <label style="font-size: 0.95rem; font-weight: 600; color: var(--text-main);">চিকিৎসা ও ঔষধের নাম</label>
+                        <textarea id="edit-d-treatment" style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; background: #F9F9F9; margin-top:8px; height: 100px; font-family: inherit; outline:none; resize:none; box-sizing: border-box;">${data.treatment || ''}</textarea>
+                    </div>
+                    
+                    <button onclick="window.updateDisease('${id}')" style="width: 100%; background: #3498db; color: white; border: none; padding: 15px; border-radius: 12px; font-weight: 700; font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> আপডেট করুন
+                    </button>
+                </div>
+            </div>`;
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        setTimeout(() => { 
+            const modal = document.getElementById('edit-disease-modal');
+            if(modal) {
+                modal.style.opacity = '1'; 
+                modal.querySelector('div').style.transform = 'scale(1)'; 
+            }
+        }, 10);
+    };
+
+    // এডিট পপআপ বন্ধ করা
+    window.closeEditDiseaseModal = function() {
+        const modal = document.getElementById('edit-disease-modal');
+        if(modal) {
+            modal.style.opacity = '0';
+            modal.querySelector('div').style.transform = 'scale(0.9)';
+            setTimeout(() => modal.remove(), 300);
         }
     };
 
-    // --- [ইউজার ভিউ] রোগ-বালাই লাইভ রেন্ডারিং এবং বিস্তারিত পপআপ ---
+
+    // [অ্যাডমিন] ডাটাবেসে আপডেট করা
+    window.updateDisease = function(id) {
+        window.vibrate(40);
+        const name = document.getElementById('edit-d-name').value;
+        const symptoms = document.getElementById('edit-d-symptoms').value;
+        const treatment = document.getElementById('edit-d-treatment').value;
+        
+        if(!name || !symptoms || !treatment) {
+            return alert("অনুগ্রহ করে সকল তথ্য পূরণ করুন!");
+        }
+
+        const data = {
+            name: name,
+            symptoms: symptoms,
+            treatment: treatment,
+            updatedAt: new Date().toISOString()
+        };
+
+        if(window.db && window.fbFirestore) {
+            const { doc, setDoc } = window.fbFirestore;
+            // { merge: true } থাকার কারণে আগের আইকন ও কালার নষ্ট হবে না
+            setDoc(doc(window.db, "disease_guidelines", id), data, { merge: true }).then(() => {
+                window.vibrate(60);
+                window.closeEditDiseaseModal();
+            }).catch(err => alert("আপডেট ব্যর্থ হয়েছে। সার্ভার ত্রুটি!"));
+        } else {
+            let diseases = JSON.parse(localStorage.getItem('agroDiseases')) || [];
+            const idx = diseases.findIndex(d => d.id === id);
+            if(idx !== -1) {
+                diseases[idx] = { ...diseases[idx], ...data };
+                localStorage.setItem('agroDiseases', JSON.stringify(diseases));
+            }
+            window.vibrate(60);
+            window.closeEditDiseaseModal();
+            window.loadAdminDiseases();
+        }
+    };
+
     window.renderUserDiseasesPage = function() {
         const listArea = document.getElementById('user-disease-list-view');
         if(!listArea) return;
 
         const renderCards = (diseases) => {
-            window.agroDiseasesCache = {}; // বিস্তারিত পপআপের জন্য মেমোরিতে রাখা হচ্ছে
+            window.agroDiseasesCache = {}; 
             let html = '';
             diseases.forEach(d => {
                 window.agroDiseasesCache[d.id] = d;
@@ -2258,7 +2194,6 @@ window.loadPage = loadPage;
         }
     };
 
-    // [ইউজার] ডাইনামিক রোগের বিস্তারিত পপআপ
     window.showDynamicDiseaseDetails = function(diseaseId) {
         window.vibrate(40);
         const data = window.agroDiseasesCache ? window.agroDiseasesCache[diseaseId] : null;
@@ -2303,46 +2238,7 @@ window.loadPage = loadPage;
             modal.querySelector('div').style.transform = 'translateY(0)';
         }, 10);
     };
-    // --- ১৬. খাদ্য ফর্মুলা এডিটর (Formula Configurator) ফায়ারবেস ও লাইভ লজিক ---
 
-    // গ্লোবাল ডিফল্ট ফর্মুলা ডিকশনারি (সার্ভার অফলাইন থাকলে এটি কাজ করবে)
-    const defaultAgroFormulas = {
-        primary: {
-            main: [
-                { name: 'ভুট্টা ভাঙা', qty: 35 }, { name: 'রাইস কুড়া/পলিস', qty: 15 }, { name: 'DDGS', qty: 10 },
-                { name: 'গমের ভুষি', qty: 5 }, { name: 'সয়াবিন মিল', qty: 10 }, { name: 'ডালের খোসা', qty: 10 },
-                { name: 'সরিষার খৈল', qty: 10 }
-            ],
-            supplements: [
-                { name: 'শুঁটকি মাছের গুঁড়ো', qty: 2 }, { name: 'লাইমস্টোন', qty: 1 }, { name: 'লবন', qty: 1 }, { name: 'ফ্যাট', qty: 1 }
-            ]
-        },
-        standard: {
-            main: [
-                { name: 'ভুট্রা গুড়া', qty: 35 }, { name: 'ধানের কুড়া', qty: 7 }, { name: 'রাইস পলিস/ধান পাউডার', qty: 12 },
-                { name: 'সয়ামিল/সোয়াবিন মিল', qty: 11 }, { name: 'DDGS', qty: 11 }, { name: 'DORB', qty: 11 },
-                { name: 'রেপসিড', qty: 8 }, { name: 'ফিশ মিল', qty: 2 }, { name: 'ফ্যাট', qty: 1 }, { name: 'লাইমস্টোন', qty: 1 }, { name: 'লবন', qty: 1 }
-            ],
-            supplements: [
-                { name: 'টক্সিন', qty: 0.1 }, { name: 'গ্রোথ ভিটামিন', qty: 0.1 }, { name: 'ইস্ট', qty: 0.05 }, { name: 'মেথিওনিন', qty: 0.05 }
-            ]
-        },
-        premium: {
-            main: [
-                { name: 'ভুট্টা ভাঙা', qty: 40 }, { name: 'রাইস কুড়া/পলিস', qty: 20 }, { name: 'গমের ভুষি', qty: 10 },
-                { name: 'সয়াবিন মিল', qty: 10 }, { name: 'ডালের খোসা', qty: 10 }, { name: 'সরিষার খৈল', qty: 10 }
-            ],
-            supplements: [
-                { name: 'শুঁটকি মাছের গুঁড়ো', qty: 3 }, { name: 'এমসিপি (MCP)', qty: 1.5 }, { name: 'লাইমস্টোন', qty: 1.5 },
-                { name: 'ভেজিটেবল ফ্যাট', qty: 0.25 }, { name: 'খাবার সোডা', qty: 0.25 }, { name: 'টক্সিন বাইন্ডার', qty: 0.20 },
-                { name: 'মেথিওনিন', qty: 0.25 }, { name: 'লাইসিন', qty: 0.25 }, { name: 'ফাইটোজ এনজাইম', qty: 0.25 },
-                { name: 'ভিটামিন-মিনারেল প্রিমিক্স', qty: 0.25 }, { name: 'সাধারণ প্রিমিক্স', qty: 0.25 }, { name: 'Growth Promoter', qty: 0.20 },
-                { name: 'রুমেন সাপোর্ট (Rumen)', qty: 0.10 }, { name: 'সিআর (Chromium)', qty: 0.05 }
-            ]
-        }
-    };
-
-    // ফর্মুলা ট্যাব রেন্ডার
     window.renderAdminFormulaTab = function(container) {
         container.innerHTML = `
             <div style="margin-bottom: 20px;">
@@ -2361,13 +2257,11 @@ window.loadPage = loadPage;
         window.loadAdminFormulaCategoryData();
     };
 
-    // নির্দিষ্ট ক্যাটাগরির উপাদানগুলো ডাটাবেস থেকে লোড করা
     window.loadAdminFormulaCategoryData = function() {
         const cat = document.getElementById('admin-formula-cat-selector').value;
         const listArea = document.getElementById('admin-formula-ingredients-list');
         if(!listArea) return;
 
-        // ফায়ারবেস বা লোকাল স্টোরেজ থেকে ডাটা চেক করা
         let formulas = JSON.parse(localStorage.getItem('agroFormulas')) || defaultAgroFormulas;
         const selectedData = formulas[cat] || defaultAgroFormulas[cat];
 
@@ -2397,7 +2291,6 @@ window.loadPage = loadPage;
         `;
     };
 
-    // অনুপাত এডিটের প্রফেশনাল পপআপ মডাল
     window.showEditIngredientWeightModal = function(cat, type, index, name, currentWeight) {
         window.vibrate(40);
         const modalHTML = `
@@ -2424,7 +2317,6 @@ window.loadPage = loadPage;
         }, 10);
     };
 
-    // ফায়ারবেস ক্লাউডে অনুপাত আপডেট
     window.saveIngredientWeightCloud = function(cat, type, index) {
         window.vibrate(40);
         const newWeight = parseFloat(document.getElementById('new-ingredient-weight-input').value);
@@ -2436,7 +2328,6 @@ window.loadPage = loadPage;
 
         if(window.db && window.fbFirestore) {
             const { doc, setDoc } = window.fbFirestore;
-            // ফায়ারবেস ফায়ারস্টোরের 'feed_formulas' কালেকশনে রিয়েল-টাইম পুশ
             setDoc(doc(window.db, "feed_formulas", cat), {
                 [type]: formulas[cat][type],
                 last_updated: new Date().toISOString()
@@ -2451,11 +2342,9 @@ window.loadPage = loadPage;
             window.loadAdminFormulaCategoryData();
         }
     };
-    // --- ১৮. ইউজার রেজিস্ট্রেশন (Onboarding) লজিক ---
-    
+
     window.checkUserRegistration = function() {
         const user = localStorage.getItem('agroUser');
-        // ইউজার না থাকলে রেজিস্ট্রেশন পেজ দেখাবে
         if(!user) {
             window.showRegistrationModal();
         }
@@ -2538,13 +2427,11 @@ window.loadPage = loadPage;
             timestamp: new Date().toISOString()
         };
 
-        // ফায়ারবেসে ডাটা পুশ করা
         if(window.db && window.fbFirestore) {
             const { doc, setDoc } = window.fbFirestore;
             setDoc(doc(window.db, "users", userId), userData).then(() => {
                 window.finalizeRegistration(userData);
             }).catch(err => {
-                // অফলাইনে থাকলেও ইউজারকে অ্যাপে ঢুকতে দেওয়া হবে
                 window.finalizeRegistration(userData);
             });
         } else {
@@ -2561,13 +2448,9 @@ window.loadPage = loadPage;
             modal.style.opacity = '0';
             setTimeout(() => modal.remove(), 500);
         }
-        // রেজিস্ট্রেশন শেষে হোম পেজ রিলোড করা
         window.location.reload(); 
     };
 
-    // --- আয় ও ব্যয়ের হিসাব (Income/Expense Tracker) লজিক ---
-
-    // আয় নাকি খরচ, তার ওপর ভিত্তি করে ক্যাটাগরি বদলানো
     window.updateCategories = function() {
         const type = document.getElementById('exp-type').value;
         const categorySelect = document.getElementById('exp-category');
@@ -2579,7 +2462,7 @@ window.loadPage = loadPage;
                 <option value="গরু বিক্রি">গরু বিক্রি</option>
                 <option value="অন্যান্য আয়">অন্যান্য আয়</option>
             `;
-            cattleDiv.style.display = 'none'; // আয়ের ক্ষেত্রে সাধারণত স্পেসিফিক গরুর দরকার নেই
+            cattleDiv.style.display = 'none'; 
         } else {
             categorySelect.innerHTML = `
                 <option value="খাদ্য">খাদ্য (Feed)</option>
@@ -2591,13 +2474,11 @@ window.loadPage = loadPage;
         window.toggleCattleSelect();
     };
 
-    // খাত পরিবর্তন করলে গরুর তালিকা দেখানো/লুকানো
     window.toggleCattleSelect = function() {
         const category = document.getElementById('exp-category').value;
         const type = document.getElementById('exp-type').value;
         const cattleDiv = document.getElementById('cattle-select-div');
         
-        // শুধু ওষুধ বা ডাক্তার সিলেক্ট করলে গরুর অপশন আসবে
         if(type === 'খরচ' && (category === 'ওষুধ' || category === 'ডাক্তার ভিজিট')) {
             cattleDiv.style.display = 'block';
             cattleDiv.classList.add('fade-in');
@@ -2606,7 +2487,6 @@ window.loadPage = loadPage;
         }
     };
 
-    // হিসাব সেভ বা আপডেট করা
     window.saveExpense = function() {
         if(navigator.vibrate) navigator.vibrate(40);
         
@@ -2631,7 +2511,6 @@ window.loadPage = loadPage;
         const originalText = btn.innerHTML;
         btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> প্রসেস হচ্ছে...';
 
-        // নতুন ডাটাবেস এন্ট্রি সেটআপ
         const transactionData = {
             userPhone: currentUser.phone,
             type: type, 
@@ -2641,7 +2520,6 @@ window.loadPage = loadPage;
             amount: amount
         };
 
-        // যদি এটি নতুন হিসাব হয়, তাহলে তারিখ যোগ হবে (এডিট হলে আগের তারিখই থাকবে)
         if(!window.editingExpenseId) {
             const now = new Date();
             transactionData.date = now.toLocaleDateString('bn-BD');
@@ -2649,17 +2527,15 @@ window.loadPage = loadPage;
             transactionData.timestamp = now.toISOString();
         }
 
-        // এডিট হলে আগের আইডি নিবে, না হলে নতুন আইডি বানাবে
         const transId = window.editingExpenseId || ('trx_' + Date.now());
 
         if(window.db && window.fbFirestore) {
             const { doc, setDoc } = window.fbFirestore;
-            // merge: true থাকার কারণে এডিট করার সময় শুধু নতুন ডাটা আপডেট হবে, আগের তারিখ মুছবে না
             setDoc(doc(window.db, "farm_expenses", transId), transactionData, { merge: true }).then(() => {
                 if(window.editingExpenseId) {
                     window.showAppAlert('আপডেট সফল!', 'আপনার হিসাবটি সফলভাবে আপডেট করা হয়েছে।', 'fa-check-circle', '#4CAF50');
                 }
-                window.cancelEditExpense(); // ফর্ম ক্লিয়ার করা
+                window.cancelEditExpense(); 
             }).catch(err => {
                 window.showAppAlert('ত্রুটি', 'সেভ করতে সমস্যা হয়েছে। ইন্টারনেট চেক করুন।', 'fa-triangle-exclamation', '#F44336');
                 btn.innerHTML = originalText;
@@ -2667,7 +2543,6 @@ window.loadPage = loadPage;
         }
     };
 
-    // লাইভ আয়-ব্যয় লোড করা (এডিট ও ডিলিট বাটনসহ)
     window.loadExpensesLive = function() {
         const currentUser = JSON.parse(localStorage.getItem('agroUser')) || { phone: '01700000000', name: 'টেস্ট খামারি' };
 
@@ -2733,7 +2608,6 @@ window.loadPage = loadPage;
                                 <div style="font-weight:700; ${amountColor} font-size:1.1rem; margin-bottom: 6px;">
                                     ${sign} ৳ ${trx.amount.toLocaleString('bn-BD')}
                                 </div>
-                                <!-- এডিট ও ডিলিট বাটন -->
                                 <div style="display: flex; gap: 8px; justify-content: flex-end;">
                                     <button onclick="window.setupEditExpense('${trx.id}')" style="background: rgba(33, 150, 243, 0.1); color: #1565C0; border: none; padding: 5px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; cursor: pointer; transition: 0.2s;">
                                         <i class="fa-solid fa-pen"></i> এডিট
@@ -2766,18 +2640,16 @@ window.loadPage = loadPage;
         }
     };
 
-    // ফর্মে এডিট করার জন্য ডাটা সেট করা
     window.setupEditExpense = function(id) {
         if(!window.allTransactions) return;
         const trx = window.allTransactions.find(t => t.id === id);
         if(!trx) return;
 
-        window.editingExpenseId = id; // এডিট মোড অন করা হলো
+        window.editingExpenseId = id; 
 
         document.getElementById('exp-type').value = trx.type;
-        window.updateCategories(); // ক্যাটাগরি আপডেট
+        window.updateCategories(); 
 
-        // সামান্য ডিলের পর বাকি ফিল্ড পূরণ করা (যাতে ড্রপডাউন রেডি হতে পারে)
         setTimeout(() => {
             document.getElementById('exp-category').value = trx.category;
             window.toggleCattleSelect(); 
@@ -2789,23 +2661,19 @@ window.loadPage = loadPage;
                 document.getElementById('exp-details').value = trx.details;
                 document.getElementById('exp-amount').value = trx.amount;
 
-                // বাটনের ডিজাইন ও লেখা পরিবর্তন
                 const btn = document.getElementById('save-expense-btn');
                 btn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> আপডেট করুন';
                 btn.style.background = '#1565C0';
 
-                // ক্যানসেল বাটন যোগ করা
                 if(!document.getElementById('cancel-edit-btn')) {
                     btn.insertAdjacentHTML('afterend', `<button id="cancel-edit-btn" onclick="window.cancelEditExpense()" style="width: 100%; background: #F44336; color: white; border: none; padding: 12px; border-radius: 10px; font-weight: 700; cursor: pointer; margin-top: 10px; box-shadow: 0 4px 10px rgba(244,67,54,0.2);">এডিট বাতিল করুন</button>`);
                 }
 
-                // অটোমেটিক স্ক্রল করে ফর্মের উপরে নিয়ে যাওয়া
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }, 50);
         }, 50);
     };
 
-    // এডিট মোড বাতিল করা
     window.cancelEditExpense = function() {
         window.editingExpenseId = null;
         document.getElementById('exp-details').value = '';
@@ -2813,20 +2681,17 @@ window.loadPage = loadPage;
         
         const btn = document.getElementById('save-expense-btn');
         btn.innerHTML = 'হিসাব সেভ করুন';
-        btn.style.background = 'var(--primary-main)'; // আগের সবুজ রঙ
+        btn.style.background = 'var(--primary-main)'; 
         
         const cancelBtn = document.getElementById('cancel-edit-btn');
         if(cancelBtn) cancelBtn.remove();
     };
 
-    // হিসাব ডিলিট করার ফাংশন (কাস্টম পপ-আপ সহ)
     window.deleteExpense = function(id) {
-        // আমাদের তৈরি করা নতুন সুন্দর পপ-আপ কল করা হচ্ছে
         window.showConfirmModal(
             'হিসাব মুছে ফেলবেন?', 
-            'আপনি কি নিশ্চিত যে এই হিসাবটি মুছে ফেলতে চান? মুছে ফেললে এটি আর ফেরত পাওয়া যাবে না।',
+            'আপনি কি নিশ্চিত যে এই হিসাবটি মুছে ফেলতে চান? মুছে ফেললে এটি আর ফেরত পাওয়া যাবে মিলিটারি।',
             function() {
-                // ইউজার "হ্যাঁ, মুছুন" এ ক্লিক করলে এই অংশটি রান হবে
                 if(window.db && window.fbFirestore) {
                     const { doc, deleteDoc } = window.fbFirestore; 
                     
@@ -2840,9 +2705,8 @@ window.loadPage = loadPage;
         );
     };
 
-    // --- ২০. কাস্টম বিউটিফুল অ্যালার্ট পপ-আপ ---
     window.showAppAlert = function(title, message, icon = 'fa-triangle-exclamation', color = '#FF9800') {
-        if(navigator.vibrate) navigator.vibrate(50); // ফোন হালকা ভাইব্রেট হবে
+        if(navigator.vibrate) navigator.vibrate(50); 
         
         const modalHTML = `
             <div id="custom-app-alert" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); z-index: 100000; display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;">
@@ -2858,13 +2722,11 @@ window.loadPage = loadPage;
                 </div>
             </div>`;
         
-        // আগে কোনো অ্যালার্ট থাকলে মুছে ফেলা
         const existing = document.getElementById('custom-app-alert');
         if(existing) existing.remove();
 
         document.body.insertAdjacentHTML('beforeend', modalHTML);
         
-        // এনিমেশন চালু করা
         setTimeout(() => {
             const alertBox = document.getElementById('custom-app-alert');
             if(alertBox) {
@@ -2874,24 +2736,31 @@ window.loadPage = loadPage;
         }, 10);
     };
 
-    // --- গরুর প্রোফাইল ও এডিটিং লজিক ---
-
     window.viewCattle = function(id) {
-        window.currentCattleId = id;
-        loadPage('cattle-details');
+        window.currentCattleId = id; 
+        
+        if (typeof window.loadPage === 'function') {
+            window.loadPage('cattle-details');
+        } else if (typeof loadPage === 'function') {
+            loadPage('cattle-details');
+        } else {
+            console.error("loadPage ফাংশনটি পাওয়া যাচ্ছে না!");
+        }
     };
 
-    // গরুর ডাটা সেভ বা এডিট করার ফাংশন (উন্নত এরর চেকিং সহ)
     window.saveCattleData = function(cowId) {
         if(navigator.vibrate) navigator.vibrate(40);
         
+        const name = document.getElementById('cow-name').value.trim();
+        const status = document.getElementById('cow-health-status').value;
         const weight = document.getElementById('cow-weight').value;
-        const deworm = document.getElementById('cow-deworm').value;
-        const vaccine = document.getElementById('cow-vaccine').value;
-
-        if(!weight && !deworm && !vaccine) {
-            return window.showAppAlert('খালি ফর্ম!', 'সেভ করার জন্য অন্তত একটি তথ্য (ওজন বা তারিখ) দিন।', 'fa-triangle-exclamation', '#FF9800');
-        }
+        const targetWeight = document.getElementById('cow-target-weight').value;
+        
+        const catophosMl = document.getElementById('cow-catophos-ml').value;
+        const catophosFreq = document.getElementById('cow-catophos-freq').value;
+        const aminovitMl = document.getElementById('cow-aminovit-ml').value;
+        const aminovitFreq = document.getElementById('cow-aminovit-freq').value;
+        const nextVaccine = document.getElementById('cow-next-vaccine').value;
 
         const currentUser = JSON.parse(localStorage.getItem('agroUser')) || { phone: '01700000000' };
         const docId = `cow_${currentUser.phone}_${cowId}`;
@@ -2900,31 +2769,57 @@ window.loadPage = loadPage;
         const originalText = btn.innerHTML;
         btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> সেভ হচ্ছে...';
 
-        const cowData = {
-            weight: weight || "",
-            dewormDate: deworm || "",
-            vaccineDate: vaccine || "",
-            updatedAt: new Date().toISOString()
-        };
-
         if(window.db && window.fbFirestore) {
-            const { doc, setDoc } = window.fbFirestore;
-            setDoc(doc(window.db, "cattle_profiles", docId), cowData, { merge: true }).then(() => {
-                window.showAppAlert('সফল!', `ষাঁড় গরু-${cowId} এর তথ্য সফলভাবে সেভ হয়েছে।`, 'fa-circle-check', '#4CAF50');
-                btn.innerHTML = originalText;
-                window.loadCattleData(cowId); // সেভ হওয়ার পর স্ট্যাটাস ব্যাজ রিফ্রেশ করবে
-            }).catch(err => {
-                // আসল এরর মেসেজটি স্ক্রিনে দেখাবে
-                window.showAppAlert('ফায়ারবেস ত্রুটি!', `কারণ: ${err.message}`, 'fa-triangle-exclamation', '#F44336');
-                btn.innerHTML = originalText;
+            const { doc, getDoc, setDoc } = window.fbFirestore;
+            const docRef = doc(window.db, "cattle_profiles", docId);
+
+            getDoc(docRef).then(docSnap => {
+                let history = [];
+                if (docSnap.exists() && docSnap.data().history) {
+                    history = docSnap.data().history; 
+                }
+
+                let logDetails = [];
+                if(weight) logDetails.push(`ওজন: ${weight} কেজি`);
+                if(catophosMl) logDetails.push(`ক্যাটাফস: ${catophosMl}`);
+                if(aminovitMl) logDetails.push(`এমাইনোভিট: ${aminovitMl}`);
+
+                if(logDetails.length > 0) {
+                    const todayStr = new Date().toLocaleDateString('bn-BD');
+                    history.push({
+                        date: todayStr,
+                        timestamp: new Date().toISOString(), 
+                        details: logDetails.join(' | ') 
+                    });
+                }
+
+                const cowData = {
+                    name: name || `ষাঁড় গরু - ${cowId}`,
+                    healthStatus: status || "🟢 সুস্থ",
+                    weight: weight || "",
+                    targetWeight: targetWeight || "",
+                    catophosMl: catophosMl || "",
+                    catophosFreq: catophosFreq || "",
+                    aminovitMl: aminovitMl || "",
+                    aminovitFreq: aminovitFreq || "",
+                    nextVaccineDate: nextVaccine || "",
+                    imageUrl: window.currentCowImage || "", 
+                    history: history, 
+                    updatedAt: new Date().toISOString()
+                };
+
+                setDoc(docRef, cowData, { merge: true }).then(() => {
+                    window.showAppAlert('সফল!', `সকল তথ্য ও লক্ষ্যমাত্রা সফলভাবে সেভ হয়েছে।`, 'fa-circle-check', '#4CAF50');
+                    btn.innerHTML = originalText;
+                    window.loadCattleData(cowId); 
+                }).catch(err => {
+                    window.showAppAlert('ত্রুটি!', `কারণ: ${err.message}`, 'fa-triangle-exclamation', '#F44336');
+                    btn.innerHTML = originalText;
+                });
             });
-        } else {
-             window.showAppAlert('ত্রুটি', 'ফায়ারবেস ডাটাবেস কানেক্ট হয়নি!', 'fa-wifi', '#F44336');
-             btn.innerHTML = originalText;
         }
     };
 
-    // নির্দিষ্ট গরুর ডাটা লোড করা এবং স্ট্যাটাস ব্যাজ আপডেট করা
     window.loadCattleData = function(cowId) {
         const currentUser = JSON.parse(localStorage.getItem('agroUser')) || { phone: '01700000000' };
         const docId = `cow_${currentUser.phone}_${cowId}`;
@@ -2933,57 +2828,145 @@ window.loadPage = loadPage;
             const { doc, getDoc } = window.fbFirestore;
             getDoc(doc(window.db, "cattle_profiles", docId)).then(docSnap => {
                 const badge = document.getElementById('cow-status-badge');
+                const title = document.getElementById('details-cow-title');
+                const historyContainer = document.getElementById('cow-history-list');
                 
                 if(docSnap.exists()) {
                     const data = docSnap.data();
-                    if(data.weight) document.getElementById('cow-weight').value = data.weight;
-                    if(data.dewormDate) document.getElementById('cow-deworm').value = data.dewormDate;
-                    if(data.vaccineDate) document.getElementById('cow-vaccine').value = data.vaccineDate;
                     
-                    // ডাটা থাকলে ব্যাজ সবুজ হবে
-                    if(badge) {
-                        badge.innerHTML = `<i class="fa-solid fa-circle-check"></i> বর্তমান ওজন: ${data.weight || '?'} কেজি`;
-                        badge.style.background = '#E8F5E9';
-                        badge.style.color = '#2E7D32';
+                    if(data.imageUrl) {
+                        window.currentCowImage = data.imageUrl;
+                        const imgEl = document.getElementById('cow-profile-img');
+                        const iconEl = document.getElementById('cow-default-icon');
+                        if(imgEl && iconEl) {
+                            imgEl.src = window.currentCowImage;
+                            imgEl.style.display = 'block';
+                            iconEl.style.display = 'none';
+                        }
                     }
+
+                    if(data.name) {
+                        document.getElementById('cow-name').value = data.name === `ষাঁড় গরু - ${cowId}` ? "" : data.name;
+                        if(title) title.innerText = data.name;
+                    }
+                    if(data.healthStatus) document.getElementById('cow-health-status').value = data.healthStatus;
+                    if(data.weight) document.getElementById('cow-weight').value = data.weight;
+                    if(data.targetWeight) document.getElementById('cow-target-weight').value = data.targetWeight;
+                    if(data.nextVaccineDate) document.getElementById('cow-next-vaccine').value = data.nextVaccineDate;
+                    
+                    if(data.catophosMl) document.getElementById('cow-catophos-ml').value = data.catophosMl;
+                    if(data.catophosFreq) document.getElementById('cow-catophos-freq').value = data.catophosFreq;
+                    if(data.aminovitMl) document.getElementById('cow-aminovit-ml').value = data.aminovitMl;
+                    if(data.aminovitFreq) document.getElementById('cow-aminovit-freq').value = data.aminovitFreq;
+                    
+                    if(data.weight && data.targetWeight) {
+                        const cw = parseFloat(data.weight);
+                        const tw = parseFloat(data.targetWeight);
+                        if(cw > 0 && tw > 0) {
+                            let percent = Math.round((cw / tw) * 100);
+                            if(percent > 100) percent = 100;
+                            
+                            document.getElementById('target-progress-container').style.display = 'block';
+                            document.getElementById('progress-percent').innerText = percent + '%';
+                            document.getElementById('current-w-text').innerText = cw;
+                            document.getElementById('target-w-text').innerText = tw;
+                            
+                            setTimeout(() => {
+                                document.getElementById('progress-bar-fill').style.width = percent + '%';
+                            }, 200);
+                        }
+                    } else {
+                        document.getElementById('target-progress-container').style.display = 'none';
+                    }
+
+                    if(badge) {
+                        let statusColor = '#E8F5E9';
+                        let statusTextColor = '#2E7D32';
+                        let displayStatus = data.healthStatus || '🟢 সুস্থ';
+                        
+                        if(displayStatus.includes('পর্যবেক্ষণে')) {
+                            statusColor = '#FFF3E0';
+                            statusTextColor = '#E65100';
+                        } else if(displayStatus.includes('বিক্রির')) {
+                            statusColor = '#E3F2FD';
+                            statusTextColor = '#1565C0';
+                        }
+
+                        badge.innerHTML = `${displayStatus} | ওজন: ${data.weight || '?'} কেজি`;
+                        badge.style.background = statusColor;
+                        badge.style.color = statusTextColor;
+                    }
+
+                    if(historyContainer) {
+                        if(data.history && data.history.length > 0) {
+                            let sortedHistory = data.history.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+                            let html = '';
+                            sortedHistory.forEach(item => {
+                                html += `
+                                <div class="fade-in" style="background: rgba(103, 58, 183, 0.05); border-left: 3px solid #673AB7; padding: 12px; border-radius: 10px; margin-bottom: 12px; position: relative;">
+                                    <div style="font-size: 0.75rem; color: #777; margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between;">
+                                        <span style="display: flex; align-items: center; gap: 6px;"><i class="fa-regular fa-calendar-days"></i> ${item.date}</span>
+                                        <button onclick="window.deleteCattleHistory(${cowId}, '${item.timestamp}')" style="background: none; border: none; color: #F44336; cursor: pointer; padding: 0; font-size: 0.9rem; transition: 0.2s;">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </button>
+                                    </div>
+                                    <div style="font-size: 0.85rem; color: var(--text-main); font-weight: 600; line-height: 1.5;">
+                                        ${item.details}
+                                    </div>
+                                </div>`;
+                            });
+                            historyContainer.innerHTML = html;
+                        } else {
+                            historyContainer.innerHTML = `<div style="text-align: center; color: var(--text-muted); font-size: 0.85rem; padding: 10px;">এখনো কোনো হিস্ট্রি যোগ করা হয়নি।</div>`;
+                        }
+                    }
+
                 } else {
-                    // ডাটা না থাকলে ব্যাজ হলুদ হবে
                     if(badge) {
                         badge.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> প্রোফাইল অসম্পূর্ণ`;
                         badge.style.background = '#FFF3E0';
                         badge.style.color = '#E65100';
+                    }
+                    if(historyContainer) {
+                        historyContainer.innerHTML = `<div style="text-align: center; color: var(--text-muted); font-size: 0.85rem; padding: 10px;">এখনো কোনো হিস্ট্রি যোগ করা হয়নি।</div>`;
                     }
                 }
             });
         }
     };
 
-    // ১০টি গরুর লিস্ট পেজে কোনটিতে ডাটা আছে তা ফুটিয়ে তোলা
-    window.loadAllCattleSummary = function() {
-        const currentUser = JSON.parse(localStorage.getItem('agroUser')) || { phone: '01700000000' };
-        if(window.db && window.fbFirestore) {
-            const { collection, getDocs } = window.fbFirestore;
-            getDocs(collection(window.db, "cattle_profiles")).then(snapshot => {
-                snapshot.forEach(docSnap => {
-                    const docId = docSnap.id;
-                    if(docId.startsWith(`cow_${currentUser.phone}_`)) {
-                        const parts = docId.split('_');
-                        const cId = parts[parts.length - 1];
-                        const data = docSnap.data();
+    window.deleteCattleHistory = function(cowId, timestamp) {
+        if(window.showConfirmModal) {
+            window.showConfirmModal(
+                'রেকর্ড মুছবেন?', 
+                'আপনি কি নিশ্চিত যে এই হিস্ট্রি রেকর্ডটি মুছে ফেলতে চান?',
+                function() {
+                    const currentUser = JSON.parse(localStorage.getItem('agroUser')) || { phone: '01700000000' };
+                    const docId = `cow_${currentUser.phone}_${cowId}`;
+
+                    if(window.db && window.fbFirestore) {
+                        const { doc, getDoc, setDoc } = window.fbFirestore;
+                        const docRef = doc(window.db, "cattle_profiles", docId);
                         
-                        const badge = document.getElementById(`list-badge-${cId}`);
-                        if(badge && data.weight) {
-                            badge.innerHTML = `<span style="color: #2E7D32; font-weight: 600;">ওজন: ${data.weight} কেজি (তথ্য সংরক্ষিত)</span>`;
-                        }
+                        getDoc(docRef).then(docSnap => {
+                            if(docSnap.exists() && docSnap.data().history) {
+                                let history = docSnap.data().history;
+                                history = history.filter(item => item.timestamp !== timestamp);
+                                
+                                setDoc(docRef, { history: history }, { merge: true }).then(() => {
+                                    window.showAppAlert('মুছে ফেলা হয়েছে!', 'রেকর্ডটি সফলভাবে ডিলিট করা হয়েছে।', 'fa-trash-can', '#F44336');
+                                    window.loadCattleData(cowId); 
+                                });
+                            }
+                        });
                     }
-                });
-            });
+                }
+            );
         }
     };
 
-    // --- ২২. কাস্টম কনফার্মেশন পপ-আপ (Delete Alert) ---
     window.showConfirmModal = function(title, message, onConfirmCallback) {
-        if(navigator.vibrate) navigator.vibrate([30, 50, 30]); // ডিলিটের আগে সতর্কতামূলক ভাইব্রেশন
+        if(navigator.vibrate) navigator.vibrate([30, 50, 30]); 
         
         const modalId = 'custom-confirm-modal';
         const existing = document.getElementById(modalId);
@@ -3011,13 +2994,11 @@ window.loadPage = loadPage;
         
         document.body.insertAdjacentHTML('beforeend', modalHTML);
         
-        // "হ্যাঁ, মুছুন" বাটনে ক্লিক করলে কী হবে তার লজিক
         document.getElementById('confirm-yes-btn').onclick = function() {
             document.getElementById(modalId).remove();
             if(onConfirmCallback) onConfirmCallback();
         };
 
-        // এনিমেশন দিয়ে শো করা
         setTimeout(() => {
             const modalBox = document.getElementById(modalId);
             if(modalBox) {
@@ -3027,16 +3008,153 @@ window.loadPage = loadPage;
         }, 10);
     };
 
-    // --- গরুর লিস্টে ক্লিক করলে বিস্তারিত পেজ ওপেন করার ফাংশন ---
-    window.viewCattle = function(id) {
-        window.currentCattleId = id; // কোন গরুতে ক্লিক করা হয়েছে তার আইডি সেভ রাখা হলো
-        
-        // পেজ লোড করার ফাংশন কল করা
-        if (typeof window.loadPage === 'function') {
-            window.loadPage('cattle-details');
-        } else if (typeof loadPage === 'function') {
-            loadPage('cattle-details');
-        } else {
-            console.error("loadPage ফাংশনটি পাওয়া যাচ্ছে না!");
+    window.handleCowImageUpload = function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            if(file.size > 1048576) { 
+                window.showAppAlert('ফাইল অনেক বড়!', 'দয়া করে ১ মেগাবাইটের কম সাইজের ছবি আপলোড করুন।', 'fa-image', '#FF9800');
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const base64String = e.target.result;
+                window.currentCowImage = base64String;
+                
+                const imgEl = document.getElementById('cow-profile-img');
+                const iconEl = document.getElementById('cow-default-icon');
+                if(imgEl && iconEl) {
+                    imgEl.src = base64String;
+                    imgEl.style.display = 'block';
+                    iconEl.style.display = 'none';
+                }
+            };
+            reader.readAsDataURL(file);
         }
     };
+
+    window.downloadProfilePDF = function() {
+        if(navigator.vibrate) navigator.vibrate(40);
+        
+        const saveBtn = document.getElementById('save-cow-btn');
+        const pdfBtn = event.currentTarget;
+        const nav = document.querySelector('.bottom-nav');
+        const header = document.querySelector('.app-header');
+        
+        if(saveBtn) saveBtn.style.display = 'none';
+        if(pdfBtn) pdfBtn.style.display = 'none';
+        if(nav) nav.style.display = 'none';
+        if(header) header.style.display = 'none';
+        
+        window.print();
+        
+        setTimeout(() => {
+            if(saveBtn) saveBtn.style.display = 'flex';
+            if(pdfBtn) pdfBtn.style.display = 'flex';
+            if(nav) nav.style.display = 'flex';
+            if(header) header.style.display = 'flex';
+        }, 1000);
+    };
+
+    window.loadAllCattleSummary = function() {
+        const currentUser = JSON.parse(localStorage.getItem('agroUser')) || { phone: '01700000000' };
+        if(window.db && window.fbFirestore) {
+            const { collection, getDocs } = window.fbFirestore;
+            getDocs(collection(window.db, "cattle_profiles")).then(snapshot => {
+                snapshot.forEach(docSnap => {
+                    const docId = docSnap.id;
+                    if(docId.startsWith(`cow_${currentUser.phone}_`)) {
+                        const parts = docId.split('_');
+                        const cId = parts[parts.length - 1];
+                        const data = docSnap.data();
+                        
+                        const title = document.getElementById(`list-title-${cId}`);
+                        if(title && data.name) {
+                            title.innerText = data.name;
+                        }
+
+                        const badge = document.getElementById(`list-badge-${cId}`);
+                        if(badge && data.weight) {
+                            badge.innerHTML = `<span style="color: #2E7D32; font-weight: 600;">ওজন: ${data.weight} কেজি (তথ্য সংরক্ষিত)</span>`;
+                        }
+                    }
+                });
+            });
+        }
+    };
+
+    // --- বাজার দর এডিট করার পপআপ (Admin Market Edit Modal) ---
+    window.showEditPriceModal = function(itemName, currentPrice) {
+        window.vibrate(40);
+        const modalHTML = `
+            <div id="price-edit-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 100000; display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;">
+                <div style="background: var(--card-bg); width: 85%; max-width: 320px; border-radius: 24px; padding: 25px 20px; text-align: center; transform: scale(0.9); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    
+                    <h3 style="color: var(--text-main); font-size: 1.25rem; margin-bottom: 5px; font-weight: 700;">মূল্য পরিবর্তন</h3>
+                    <p style="color: var(--primary-main); font-weight: 700; margin-bottom: 15px; font-size: 1.05rem;">${itemName}</p>
+                    
+                    <div style="position: relative; margin-bottom: 20px;">
+                        <span style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); font-weight: 700; color: var(--text-main); font-size: 1.2rem;">৳</span>
+                        <input type="number" id="new-price-input" value="${currentPrice}" style="width: 100%; padding: 15px 15px 15px 35px; border-radius: 12px; border: 1.5px solid #E0E0E0; text-align: center; font-size: 1.4rem; outline: none; background: #F9F9F9; font-weight: 700; color: var(--text-main); box-sizing: border-box;">
+                    </div>
+                    
+                    <div style="display: flex; gap: 12px;">
+                        <button onclick="window.closePriceEditModal()" style="flex: 1; background: #f1f3f4; border: none; padding: 14px; border-radius: 12px; font-weight: 600; cursor: pointer; color: var(--text-muted);">বাতিল</button>
+                        <button onclick="window.saveNewPrice('${itemName}')" style="flex: 1; background: var(--primary-main); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(46,125,50,0.3);">সেভ করুন</button>
+                    </div>
+                </div>
+            </div>`;
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        setTimeout(() => {
+            const modal = document.getElementById('price-edit-modal');
+            if(modal) {
+                modal.style.opacity = '1';
+                modal.querySelector('div').style.transform = 'scale(1)';
+            }
+        }, 10);
+    };
+
+    window.closePriceEditModal = function() {
+        const modal = document.getElementById('price-edit-modal');
+        if(modal) {
+            modal.style.opacity = '0';
+            modal.querySelector('div').style.transform = 'scale(0.9)';
+            setTimeout(() => modal.remove(), 300);
+        }
+    };
+
+    // --- বাজার দর আইটেম মুছে ফেলার কনফার্মেশন পপআপ ---
+    window.showDeletePriceModal = function(itemName) {
+        if(window.showConfirmModal) {
+            window.showConfirmModal(
+                'উপাদানটি মুছবেন?', 
+                `আপনি কি নিশ্চিত যে <b>${itemName}</b> বাজার দর তালিকা থেকে মুছে ফেলতে চান?`,
+                function() {
+                    window.deleteMarketPrice(itemName);
+                }
+            );
+        }
+    };
+
+    // --- ফায়ারবেস থেকে আইটেম মুছে ফেলার এক্সিকিউশন ---
+    window.deleteMarketPrice = function(itemName) {
+        if(window.db && window.fbFirestore) {
+            const { doc, setDoc } = window.fbFirestore;
+            // { deleted: true } সেট করা হচ্ছে, যাতে গ্লোবাল লিস্টে আর না দেখায়
+            setDoc(doc(window.db, "market_prices", itemName), {
+                deleted: true,
+                last_updated: new Date().toISOString()
+            }, { merge: true }).then(() => {
+                window.showAppAlert('সফলভাবে মোছা হয়েছে!', `${itemName} লিস্ট থেকে চিরতরে মুছে ফেলা হয়েছে।`, 'fa-trash-can', '#F44336');
+            }).catch(err => {
+                window.showAppAlert('ত্রুটি!', `সার্ভার সমস্যা: ${err.message}`, 'fa-triangle-exclamation', '#F44336');
+            });
+        } else {
+            let deletedItems = JSON.parse(localStorage.getItem('agroDeletedPrices')) || {};
+            deletedItems[itemName] = true;
+            localStorage.setItem('agroDeletedPrices', JSON.stringify(deletedItems));
+            window.showAppAlert('সফলভাবে মোছা হয়েছে!', `${itemName} লিস্ট থেকে মুছে ফেলা হয়েছে (Offline)।`, 'fa-trash-can', '#F44336');
+            window.loadAdminMarketPrices();
+        }
+    };
+
+});
