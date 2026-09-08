@@ -156,31 +156,61 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
 
                     <!-- কুইক মেন্যু গ্রিড -->
-                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 15px;">
-                        <div class="grid-item fade-in" onclick="loadPage('food-calculator')" style="cursor:pointer; text-align:center;">
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px 10px; padding: 15px;">
+                        
+                        <!-- প্রথম লাইন (আগের ৪টি বাটন - লিংক ফিক্স করা হয়েছে) -->
+                        <div class="grid-item fade-in" onclick="loadPage('calculator')" style="cursor:pointer; text-align:center;">
                             <div style="width:50px; height:50px; background:rgba(76, 175, 80, 0.12); color:#2E7D32; border-radius:16px; display:flex; justify-content:center; align-items:center; font-size:1.3rem; margin:0 auto 6px auto;">
                                 <i class="fa-solid fa-scale-balanced"></i>
                             </div>
                             <span style="font-weight:600; color:var(--text-main); font-size:0.78rem;">খাদ্য হিসাব</span>
                         </div>
-                        <div class="grid-item fade-in" onclick="loadPage('treatment')" style="cursor:pointer; text-align:center;">
+                        <div class="grid-item fade-in" onclick="loadPage('advice')" style="cursor:pointer; text-align:center;">
                             <div style="width:50px; height:50px; background:rgba(33, 150, 243, 0.12); color:#1565C0; border-radius:16px; display:flex; justify-content:center; align-items:center; font-size:1.3rem; margin:0 auto 6px auto;">
                                 <i class="fa-solid fa-syringe"></i>
                             </div>
                             <span style="font-weight:600; color:var(--text-main); font-size:0.78rem;">চিকিৎসা</span>
                         </div>
-                        <div class="grid-item fade-in" onclick="loadPage('ay-bay')" style="cursor:pointer; text-align:center;">
+                        <div class="grid-item fade-in" onclick="loadPage('reports')" style="cursor:pointer; text-align:center;">
                             <div style="width:50px; height:50px; background:rgba(255, 152, 0, 0.12); color:#E65100; border-radius:16px; display:flex; justify-content:center; align-items:center; font-size:1.3rem; margin:0 auto 6px auto;">
                                 <i class="fa-solid fa-file-invoice-dollar"></i>
                             </div>
                             <span style="font-weight:600; color:var(--text-main); font-size:0.78rem;">আয়-ব্যয়</span>
                         </div>
-                        <div class="grid-item fade-in" onclick="loadPage('alerts')" style="cursor:pointer; text-align:center;">
+                        <div class="grid-item fade-in" onclick="loadPage('reminder')" style="cursor:pointer; text-align:center;">
                             <div style="width:50px; height:50px; background:rgba(156, 39, 176, 0.12); color:#6A1B9A; border-radius:16px; display:flex; justify-content:center; align-items:center; font-size:1.3rem; margin:0 auto 6px auto;">
                                 <i class="fa-solid fa-calendar-check"></i>
                             </div>
                             <span style="font-weight:600; color:var(--text-main); font-size:0.78rem;">রিমাইন্ডার</span>
                         </div>
+
+                        <!-- দ্বিতীয় লাইন (নতুন যুক্ত করা ৪টি বাটন) -->
+                        <div class="grid-item fade-in" onclick="loadPage('protein-calculator')" style="cursor:pointer; text-align:center;">
+    <div style="width:50px; height:50px; background:rgba(0, 150, 136, 0.12); color:#00796B; border-radius:16px; display:flex; justify-content:center; align-items:center; font-size:1.3rem; margin:0 auto 6px auto;">
+        <i class="fa-solid fa-flask"></i>
+    </div>
+    <span style="font-weight:600; color:var(--text-main); font-size:0.78rem;">প্রোটিন %</span>
+</div>
+                        <div class="grid-item fade-in" onclick="loadPage('cattle-profiles')" style="cursor:pointer; text-align:center;">
+                            <div style="width:50px; height:50px; background:rgba(121, 85, 72, 0.12); color:#5D4037; border-radius:16px; display:flex; justify-content:center; align-items:center; font-size:1.3rem; margin:0 auto 6px auto;">
+                                <i class="fa-solid fa-cow"></i>
+                            </div>
+                            <span style="font-weight:600; color:var(--text-main); font-size:0.78rem;">গরুর তালিকা</span>
+                        </div>
+                        <!-- আপডেট করা মেডিসিন (DIMS) বাটন -->
+                        <div class="grid-item fade-in" onclick="loadPage('medicine-index')" style="cursor:pointer; text-align:center;">
+                            <div style="width:50px; height:50px; background:rgba(244, 67, 54, 0.12); color:#C62828; border-radius:16px; display:flex; justify-content:center; align-items:center; font-size:1.3rem; margin:0 auto 6px auto;">
+                                <i class="fa-solid fa-pills"></i>
+                            </div>
+                            <span style="font-weight:600; color:var(--text-main); font-size:0.78rem;">মেডিসিন</span>
+                        </div>
+                        <div class="grid-item fade-in" onclick="window.showAdminPinModal()" style="cursor:pointer; text-align:center;">
+                            <div style="width:50px; height:50px; background:rgba(44, 62, 80, 0.12); color:#2C3E50; border-radius:16px; display:flex; justify-content:center; align-items:center; font-size:1.3rem; margin:0 auto 6px auto;">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <span style="font-weight:600; color:var(--text-main); font-size:0.78rem;">অ্যাডমিন</span>
+                        </div>
+
                     </div>
 
                     <!-- আজকের পরামর্শ -->
@@ -317,7 +347,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 </div>`;
                 break;
-            
+            case 'medicine-index':
+                content = `
+                <div class="fade-in" style="padding-bottom: 90px;">
+                    ${subPageHeader('ভেটেরিনারি মেডিসিন ইনডেক্স')}
+                    
+                    <!-- স্টিকি সার্চ বার -->
+                    <div style="padding: 0 15px; margin-bottom: 15px; position: sticky; top: 0; z-index: 10; background: var(--bg-color); padding-top: 10px; padding-bottom: 10px;">
+                        <div style="position: relative;">
+                            <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+                            <input type="text" id="medicine-search-input" onkeyup="window.searchMedicine()" placeholder="ওষুধের নাম বা কাজ লিখে খুঁজুন..." style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 14px; border: 1.5px solid #E0E0E0; background: #fff; font-family: inherit; font-size: 0.95rem; outline: none; box-shadow: 0 4px 10px rgba(0,0,0,0.03); box-sizing: border-box;">
+                        </div>
+                    </div>
+
+                    <!-- মেডিসিন লিস্ট কন্টেইনার -->
+                    <div id="medicine-list-container" style="padding: 0 15px;">
+                        <div style="text-align:center; padding:30px;"><i class="fa-solid fa-spinner fa-spin" style="font-size:2rem; color:var(--primary-main);"></i></div>
+                    </div>
+                </div>`;
+                
+                setTimeout(window.renderMedicineList, 100);
+                break;
+
             case 'tmr-rationing':
                 content = `
                 <div class="fade-in" style="padding-bottom: 90px;">
@@ -796,6 +847,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         <button id="tab-disease" onclick="window.switchAdminTab('disease')" style="background: #f1f3f4; color: var(--text-muted); border: none; padding: 10px 18px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; white-space: nowrap; cursor: pointer; transition: 0.3s;">রোগ-বালাই</button>
                         <button id="tab-formula" onclick="window.switchAdminTab('formula')" style="background: #f1f3f4; color: var(--text-muted); border: none; padding: 10px 18px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; white-space: nowrap; cursor: pointer; transition: 0.3s;">খাদ্য ফর্মুলা</button>
                         <button id="tab-users" onclick="window.switchAdminTab('users')" style="background: #f1f3f4; color: var(--text-muted); border: none; padding: 10px 18px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; white-space: nowrap; cursor: pointer; transition: 0.3s;">খামারি তালিকা</button>
+                        <!-- নতুন প্রোটিন ট্যাব -->
+                        <button id="tab-protein" onclick="window.switchAdminTab('protein')" style="background: #f1f3f4; color: var(--text-muted); border: none; padding: 10px 18px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; white-space: nowrap; cursor: pointer; transition: 0.3s;">প্রোটিন %</button>
                     </div>
 
                     <div id="admin-tab-content" style="min-height: 300px;"></div>
@@ -817,6 +870,35 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                     </div>
                 </div>`;
+                break;
+
+            case 'protein-calculator':
+                content = `
+                <div class="fade-in" style="padding-bottom: 120px;">
+                    ${subPageHeader('খাদ্যের প্রোটিন (CP) ক্যালকুলেটর')}
+                    
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; padding: 0 15px; line-height: 1.5;">
+                        ১০০ কেজি দানাদার মিশ্রণ তৈরির জন্য নিচের উপাদানগুলোর কেজি নির্ধারণ করুন। মোট প্রোটিন (Crude Protein) স্বয়ংক্রিয়ভাবে হিসাব হয়ে যাবে।
+                    </p>
+
+                    <!-- ফায়ারবেস থেকে ডাটা এখানে লোড হবে -->
+                    <div class="agro-card" style="padding: 5px 20px; margin: 0 15px;" id="protein-ingredients-list-view">
+                        <div style="text-align:center; padding:30px;"><i class="fa-solid fa-spinner fa-spin" style="font-size:2rem; color:#00796B;"></i></div>
+                    </div>
+
+                    <div style="position: fixed; bottom: 70px; left: 0; width: 100%; background: linear-gradient(135deg, #00796B 0%, #004D40 100%); color: white; padding: 15px 20px; box-sizing: border-box; box-shadow: 0 -5px 15px rgba(0,0,0,0.15); display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-top-left-radius: 20px; border-top-right-radius: 20px;">
+                        <div>
+                            <span style="font-size: 0.85rem; opacity: 0.9; display: block; margin-bottom: 2px;">মোট ওজন</span>
+                            <span style="font-size: 1.3rem; font-weight: 800;"><span id="protein-total-kg" style="color: #FFEB3B;">0</span> / 100 <span style="font-size: 0.9rem; font-weight: 500;">কেজি</span></span>
+                        </div>
+                        <div style="text-align: right; background: rgba(255,255,255,0.15); padding: 8px 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2);">
+                            <span style="font-size: 0.85rem; opacity: 0.9; display: block; margin-bottom: 2px;">মোট প্রোটিন (CP)</span>
+                            <span style="font-size: 1.4rem; font-weight: 800;" id="protein-final-cp">0.00%</span>
+                        </div>
+                    </div>
+                </div>`;
+                
+                setTimeout(window.renderProteinCalculatorPage, 100);
                 break;
 
             case 'market':
@@ -1423,7 +1505,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.switchAdminTab = function(tabName) {
         window.vibrate(30);
-        ['market', 'disease', 'formula', 'users'].forEach(tab => {
+        // নতুন 'protein' ট্যাব অ্যারেতে যোগ করা হলো
+        ['market', 'disease', 'formula', 'users', 'protein'].forEach(tab => {
             const btn = document.getElementById(`tab-${tab}`);
             if(btn) {
                 btn.style.background = '#f1f3f4';
@@ -1441,15 +1524,11 @@ document.addEventListener("DOMContentLoaded", () => {
         contentArea.innerHTML = '<div style="text-align:center; padding:50px;"><i class="fa-solid fa-spinner fa-spin" style="font-size:2rem; color:var(--primary-main);"></i></div>';
 
         setTimeout(() => {
-            if(tabName === 'market') {
-                window.renderAdminMarketTab(contentArea);
-            } else if(tabName === 'disease') {
-                window.renderAdminDiseaseTab(contentArea);
-            } else if(tabName === 'users') {
-                window.renderAdminUsersTab(contentArea);
-            } else if(tabName === 'formula') {
-                window.renderAdminFormulaTab(contentArea);
-            }
+            if(tabName === 'market') window.renderAdminMarketTab(contentArea);
+            else if(tabName === 'disease') window.renderAdminDiseaseTab(contentArea);
+            else if(tabName === 'users') window.renderAdminUsersTab(contentArea);
+            else if(tabName === 'formula') window.renderAdminFormulaTab(contentArea);
+            else if(tabName === 'protein') window.renderAdminProteinTab(contentArea); // নতুন প্রোটিন প্যানেল রেন্ডার হবে
         }, 200);
     };
 
@@ -3155,6 +3234,717 @@ document.addEventListener("DOMContentLoaded", () => {
             window.showAppAlert('সফলভাবে মোছা হয়েছে!', `${itemName} লিস্ট থেকে মুছে ফেলা হয়েছে (Offline)।`, 'fa-trash-can', '#F44336');
             window.loadAdminMarketPrices();
         }
+    };
+
+    // --- প্রোটিন (CP%) ক্যালকুলেশনের ডায়নামিক লজিক ---
+    window.calculateTotalProtein = function() {
+        let totalKg = 0;
+        let totalProteinRaw = 0; // (কেজি * প্রোটিন %) এর যোগফল
+
+        const inputs = document.querySelectorAll('.protein-kg-input');
+        inputs.forEach(input => {
+            const kg = parseFloat(input.value) || 0;
+            const cp = parseFloat(input.getAttribute('data-cp')) || 0;
+            if(kg > 0) {
+                totalKg += kg;
+                totalProteinRaw += (kg * cp);
+            }
+        });
+
+        // মোট প্রোটিন পার্সেন্টেজ বের করা
+        const finalCP = totalKg > 0 ? (totalProteinRaw / totalKg).toFixed(2) : "0.00";
+
+        const kgElement = document.getElementById('protein-total-kg');
+        const cpElement = document.getElementById('protein-final-cp');
+        
+        if(kgElement && cpElement) {
+            kgElement.innerText = totalKg.toFixed(1);
+            cpElement.innerText = finalCP + '%';
+
+            // ১০০ কেজি ওভার হলে লাল রং দেখাবে, পারফেক্ট হলে সবুজ
+            if(totalKg > 100) {
+                kgElement.style.color = '#FF5252'; // লাল (ওজন বেশি)
+                kgElement.parentElement.parentElement.classList.add('shake-anim');
+            } else if(totalKg === 100) {
+                kgElement.style.color = '#69F0AE'; // সবুজ (১০০ কেজি পারফেক্ট)
+            } else {
+                kgElement.style.color = '#FFEB3B'; // হলুদ (১০০ কেজির কম)
+            }
+        }
+    };
+
+    // ==========================================
+    // প্রোটিন উপাদান (Protein Ingredients) অ্যাডমিন ও ইউজার লজিক
+    // ==========================================
+
+    window.defaultProteinIngredients = [
+        { id: 'p_1', name: 'ভুট্টা ভাঙা / গুঁড়া', cp: 9, work: 'প্রধান শক্তির উৎস ও কার্বোহাইড্রেট' },
+        { id: 'p_2', name: 'সয়াবিন মিল', cp: 46, work: 'সবচেয়ে ভালো মানের উদ্ভিজ্জ প্রোটিন' },
+        { id: 'p_3', name: 'সরিষার খৈল', cp: 36, work: 'সাশ্রয়ী মূল্যের প্রোটিন ও ফ্যাট' },
+        { id: 'p_4', name: 'ডিডিজিএস (DDGS)', cp: 28, work: 'বাইপাস প্রোটিন ও হজমযোগ্য শক্তি' },
+        { id: 'p_5', name: 'গমের ভুষি', cp: 15, work: 'ফাইবার ও শক্তি বৃদ্ধি করে' },
+        { id: 'p_6', name: 'রাইস কুড়া / পলিস', cp: 12, work: 'ফ্যাট ও শক্তির দারুণ উৎস' },
+        { id: 'p_7', name: 'ডালের খোসা', cp: 16, work: 'পরিপাকতন্ত্র ভালো রাখে ও ফাইবার দেয়' },
+        { id: 'p_8', name: 'শুঁটকি মাছের গুঁড়ো', cp: 55, work: 'উচ্চমাত্রার প্রাণিজ প্রোটিন ও ক্যালসিয়াম' },
+        { id: 'p_9', name: 'ডিওআরবি (DORB)', cp: 14, work: 'সাশ্রয়ী ফাইবার উপাদান' },
+        // --- ফ্যাটেনিং সাপ্লিমেন্ট ও এডিটিভস (Fattening Supplements) ---
+        { id: 'p_10', name: 'লাইমস্টোন (চুনাপাথর)', cp: 0, work: 'হাড় গঠন, কাঠামো মজবুত করা ও ক্যালসিয়ামের প্রধান উৎস।' },
+        { id: 'p_11', name: 'ডিসিপি (DCP)', cp: 0, work: 'হাড় শক্ত করতে ও ফসফরাস-ক্যালসিয়ামের অভাব পূরণে।' },
+        { id: 'p_12', name: 'লবণ (Salt)', cp: 0, work: 'খাবারে রুচি বৃদ্ধি, হজম সহায়তা ও পানিশূন্যতা রোধ করে।' },
+        { id: 'p_13', name: 'খাবার সোডা (S. Bicarbonate)', cp: 0, work: 'রুমেনের এসিডিটি (টক ঢেকুর) কমায় ও হজম স্বাভাবিক রাখে।' },
+        { id: 'p_14', name: 'টক্সিন বাইন্ডার (Toxin Binder)', cp: 0, work: 'পচা বা ছত্রাকযুক্ত খাবারের ক্ষতিকর বিষক্রিয়া নষ্ট করে।' },
+        { id: 'p_15', name: 'লাইভ ইস্ট (Live Yeast)', cp: 40, work: 'রুমেনের কার্যক্ষমতা ও ব্যাকটেরিয়ার পরিমাণ বহুগুণ বাড়িয়ে দেয়।' },
+        { id: 'p_16', name: 'ভিটামিন-মিনারেল প্রিমিক্স', cp: 0, work: 'ষাঁড়ের সার্বিক পুষ্টি, রোগ প্রতিরোধ ও ভিটামিন ঘাটতি পূরণ করে।' },
+        { id: 'p_17', name: 'রুমেন বাইপাস ফ্যাট (Bypass Fat)', cp: 0, work: 'ফ্যাটেনিং ষাঁড়ের দ্রুত ওজন ও মাংস বৃদ্ধিতে উচ্চ শক্তি প্রদান করে।' },
+        { id: 'p_18', name: 'বাইপাস প্রোটিন', cp: 60, work: 'সরাসরি রক্তে মিশে দ্রুত পেশি ও সলিড মাংস গঠন করে।' },
+        { id: 'p_19', name: 'ফিড গ্রেড ইউরিয়া (Urea)', cp: 281, work: 'রুমেনের ব্যাকটেরিয়ার খাবার হিসেবে কাজ করে ও সস্তা প্রোটিন দেয়।' },
+        { id: 'p_20', name: 'মোলাসেস / ঝোলা গুড়', cp: 3, work: 'খাবারে স্বাদ বাড়ায়, ফারমেন্টেশনে সাহায্য করে ও তাৎক্ষণিক শক্তি দেয়।' },
+        { id: 'p_21', name: 'মেথিওনিন (Methionine)', cp: 58, work: 'অত্যাবশ্যকীয় অ্যামাইনো এসিড, মাংস ও পেশি বৃদ্ধিতে সহায়তা করে।' },
+        { id: 'p_22', name: 'লাইসিন (Lysine)', cp: 90, work: 'প্রোটিন সংশ্লেষণ ও কোষ গঠনে সাহায্য করে ওজন বাড়ায়।' },
+        { id: 'p_23', name: 'গ্রোথ প্রমোটার (Growth Promoter)', cp: 0, work: 'ফ্যাটেনিং প্রজেক্টে দ্রুত দৈহিক বৃদ্ধি (FCR) নিশ্চিত করে।' },
+        { id: 'p_24', name: 'ফাইটোজ এনজাইম (Enzyme)', cp: 0, work: 'খাবারের লুকায়িত পুষ্টি গরুর শরীরে শোষণে সাহায্য করে।' },
+        { id: 'p_25', name: 'চিলেটেড মিনারেলস', cp: 0, work: 'জিংক, কপার, কোবাল্ট এর অভাব দূর করে খুর ও চামড়া চকচকে রাখে।' }
+    ];
+
+    // [অ্যাডমিন] প্যানেল রেন্ডারিং
+    window.renderAdminProteinTab = function(container) {
+        container.innerHTML = `
+            <button onclick="window.showAddProteinModal()" style="width: 100%; padding: 14px; background: rgba(0, 121, 107, 0.1); color: #00796B; border: 1.5px dashed #00796B; border-radius: 12px; font-size: 1.05rem; font-weight: 600; margin-bottom: 15px; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; transition: 0.3s;">
+                <i class="fa-solid fa-plus"></i> নতুন উপাদান ও প্রোটিন % যুক্ত করুন
+            </button>
+            <div id="admin-protein-list" class="agro-card" style="padding: 5px 15px; min-height: 100px;">
+                <div style="text-align:center; padding:30px;"><i class="fa-solid fa-spinner fa-spin" style="font-size:2rem; color:#00796B;"></i></div>
+            </div>
+        `;
+        window.loadAdminProteinIngredients();
+    };
+
+    window.loadAdminProteinIngredients = function() {
+        const listArea = document.getElementById('admin-protein-list');
+        if(!listArea) return;
+
+        const renderList = (items) => {
+            window.adminProteinMap = {}; 
+            let html = '';
+            items.forEach(item => {
+                window.adminProteinMap[item.id] = item;
+                html += `
+                <div class="fade-in" style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #eee;">
+                    <div style="flex: 1; padding-right: 10px;">
+                        <h4 style="font-size:1.02rem; color:var(--text-main); margin-bottom: 4px;">
+                            ${item.name} <span style="background: rgba(0, 150, 136, 0.1); color: #00796B; font-size: 0.75rem; font-weight: 700; padding: 2px 6px; border-radius: 8px; margin-left: 5px;">CP: ${item.cp}%</span>
+                        </h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;"><i class="fa-solid fa-circle-info" style="color:#00796B;"></i> ${item.work}</p>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <button onclick="window.showEditProteinModal('${item.id}')" style="background: rgba(52, 152, 219, 0.1); color: #3498db; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; transition: 0.2s;"><i class="fa-solid fa-pen"></i></button>
+                        <button onclick="window.deleteProtein('${item.id}')" style="background: rgba(217, 48, 37, 0.1); color: #D93025; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; transition: 0.2s;"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                </div>`;
+            });
+            listArea.innerHTML = html || '<p style="text-align:center; padding:15px; color:var(--text-muted);">কোনো উপাদান নেই।</p>';
+        };
+
+        if (window.db && window.fbFirestore) {
+            const { collection, onSnapshot } = window.fbFirestore;
+            onSnapshot(collection(window.db, "protein_ingredients"), (snapshot) => {
+                let items = [];
+                snapshot.forEach((doc) => { items.push({ id: doc.id, ...doc.data() }); });
+                
+                if(items.length === 0) items = window.defaultProteinIngredients;
+                
+                localStorage.setItem('agroProteinIngredients', JSON.stringify(items));
+                renderList(items);
+            }, (error) => {
+                // রুলস এরর হলে অফলাইন ব্যাকআপ লোড হবে
+                let items = JSON.parse(localStorage.getItem('agroProteinIngredients'));
+                if(!items || items.length === 0) items = window.defaultProteinIngredients;
+                renderList(items);
+            });
+        } else {
+            let items = JSON.parse(localStorage.getItem('agroProteinIngredients'));
+            if(!items || items.length === 0) items = window.defaultProteinIngredients;
+            renderList(items);
+        }
+    };
+
+    // [অ্যাডমিন] পপআপ: নতুন উপাদান যোগ
+    window.showAddProteinModal = function() {
+        window.vibrate(40);
+        const modalHTML = `
+            <div id="add-protein-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;">
+                <div style="background: var(--card-bg); width: 90%; max-width: 380px; border-radius: 24px; padding: 25px 20px; transform: scale(0.9); transition: transform 0.3s ease; max-height: 90vh; overflow-y: auto;">
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 style="margin: 0; color: #00796B; font-size: 1.25rem; display:flex; align-items:center; gap:8px;">
+                            <i class="fa-solid fa-flask"></i> নতুন উপাদান যোগ
+                        </h3>
+                        <button onclick="window.closeAddProteinModal()" style="background: #f1f3f4; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; color:var(--text-muted);"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label style="font-size: 0.95rem; font-weight: 600; color: var(--text-main);">উপাদানের নাম</label>
+                        <input type="text" id="p-name" placeholder="যেমন: খেসারি ডাল" style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; background: #F9F9F9; margin-top:8px; font-family: inherit; outline:none; box-sizing: border-box;">
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label style="font-size: 0.95rem; font-weight: 600; color: var(--text-main);">প্রোটিন (CP) %</label>
+                        <input type="number" id="p-cp" placeholder="যেমন: 22" style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; background: #F9F9F9; margin-top:8px; font-family: inherit; outline:none; box-sizing: border-box;">
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 25px;">
+                        <label style="font-size: 0.95rem; font-weight: 600; color: var(--text-main);">উপাদানের কাজ</label>
+                        <input type="text" id="p-work" placeholder="যেমন: হজমশক্তি বাড়ায় ও শক্তি দেয়..." style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; background: #F9F9F9; margin-top:8px; font-family: inherit; outline:none; box-sizing: border-box;">
+                    </div>
+                    
+                    <button onclick="window.saveNewProtein()" style="width: 100%; background: #00796B; color: white; border: none; padding: 15px; border-radius: 12px; font-weight: 700; font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 12px rgba(0, 121, 107, 0.3);">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> পাবলিশ করুন
+                    </button>
+                </div>
+            </div>`;
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        setTimeout(() => { 
+            document.getElementById('add-protein-modal').style.opacity = '1'; 
+            document.getElementById('add-protein-modal').querySelector('div').style.transform = 'scale(1)'; 
+        }, 10);
+    };
+
+    window.closeAddProteinModal = function() {
+        const modal = document.getElementById('add-protein-modal');
+        if(modal) {
+            modal.style.opacity = '0';
+            modal.querySelector('div').style.transform = 'scale(0.9)';
+            setTimeout(() => modal.remove(), 300);
+        }
+    };
+
+    window.saveNewProtein = function() {
+        window.vibrate(40);
+        const name = document.getElementById('p-name').value;
+        const cp = parseFloat(document.getElementById('p-cp').value);
+        const work = document.getElementById('p-work').value;
+        
+        if(!name || isNaN(cp) || !work) {
+            return alert("অনুগ্রহ করে নাম, প্রোটিন % এবং কাজের বিবরণ দিন!");
+        }
+        
+        const docId = 'protein_' + Date.now();
+        const data = { name, cp, work, timestamp: new Date().toISOString() };
+
+        if(window.db && window.fbFirestore) {
+            const { doc, setDoc } = window.fbFirestore;
+            setDoc(doc(window.db, "protein_ingredients", docId), data).then(() => {
+                window.vibrate(60);
+                window.closeAddProteinModal();
+            }).catch(err => alert("সার্ভার ত্রুটি: " + err.message));
+        } else {
+            let items = JSON.parse(localStorage.getItem('agroProteinIngredients')) || window.defaultProteinIngredients;
+            items.unshift({...data, id: docId});
+            localStorage.setItem('agroProteinIngredients', JSON.stringify(items));
+            window.vibrate(60);
+            window.closeAddProteinModal();
+            window.loadAdminProteinIngredients();
+        }
+    };
+
+    // [অ্যাডমিন] পপআপ: বিদ্যমান উপাদান এডিট
+    window.showEditProteinModal = function(id) {
+        window.vibrate(40);
+        const data = window.adminProteinMap[id];
+        if(!data) return;
+
+        const modalHTML = `
+            <div id="edit-protein-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;">
+                <div style="background: var(--card-bg); width: 90%; max-width: 380px; border-radius: 24px; padding: 25px 20px; transform: scale(0.9); transition: transform 0.3s ease; max-height: 90vh; overflow-y: auto;">
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 style="margin: 0; color: #3498db; font-size: 1.25rem; display:flex; align-items:center; gap:8px;">
+                            <i class="fa-solid fa-pen-to-square"></i> তথ্য এডিট করুন
+                        </h3>
+                        <button onclick="window.closeEditProteinModal()" style="background: #f1f3f4; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; color:var(--text-muted);"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label style="font-size: 0.95rem; font-weight: 600; color: var(--text-main);">উপাদানের নাম</label>
+                        <input type="text" id="edit-p-name" value="${data.name}" style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; background: #F9F9F9; margin-top:8px; font-family: inherit; outline:none; box-sizing: border-box;">
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label style="font-size: 0.95rem; font-weight: 600; color: var(--text-main);">প্রোটিন (CP) %</label>
+                        <input type="number" id="edit-p-cp" value="${data.cp}" style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; background: #F9F9F9; margin-top:8px; font-family: inherit; outline:none; box-sizing: border-box;">
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 25px;">
+                        <label style="font-size: 0.95rem; font-weight: 600; color: var(--text-main);">উপাদানের কাজ</label>
+                        <input type="text" id="edit-p-work" value="${data.work}" style="width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid #E0E0E0; background: #F9F9F9; margin-top:8px; font-family: inherit; outline:none; box-sizing: border-box;">
+                    </div>
+                    
+                    <button onclick="window.updateProtein('${id}')" style="width: 100%; background: #3498db; color: white; border: none; padding: 15px; border-radius: 12px; font-weight: 700; font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> আপডেট করুন
+                    </button>
+                </div>
+            </div>`;
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        setTimeout(() => { 
+            const modal = document.getElementById('edit-protein-modal');
+            if(modal) {
+                modal.style.opacity = '1'; 
+                modal.querySelector('div').style.transform = 'scale(1)'; 
+            }
+        }, 10);
+    };
+
+    window.closeEditProteinModal = function() {
+        const modal = document.getElementById('edit-protein-modal');
+        if(modal) {
+            modal.style.opacity = '0';
+            modal.querySelector('div').style.transform = 'scale(0.9)';
+            setTimeout(() => modal.remove(), 300);
+        }
+    };
+
+    window.updateProtein = function(id) {
+        window.vibrate(40);
+        const name = document.getElementById('edit-p-name').value;
+        const cp = parseFloat(document.getElementById('edit-p-cp').value);
+        const work = document.getElementById('edit-p-work').value;
+        
+        if(!name || isNaN(cp) || !work) {
+            return alert("অনুগ্রহ করে সকল তথ্য পূরণ করুন!");
+        }
+
+        const data = { name, cp, work, updatedAt: new Date().toISOString() };
+
+        if(window.db && window.fbFirestore) {
+            const { doc, setDoc } = window.fbFirestore;
+            setDoc(doc(window.db, "protein_ingredients", id), data, { merge: true }).then(() => {
+                window.vibrate(60);
+                window.closeEditProteinModal();
+            }).catch(err => alert("আপডেট ব্যর্থ হয়েছে। সার্ভার ত্রুটি!"));
+        } else {
+            let items = JSON.parse(localStorage.getItem('agroProteinIngredients')) || [];
+            const idx = items.findIndex(d => d.id === id);
+            if(idx !== -1) {
+                items[idx] = { ...items[idx], ...data };
+                localStorage.setItem('agroProteinIngredients', JSON.stringify(items));
+            }
+            window.vibrate(60);
+            window.closeEditProteinModal();
+            window.loadAdminProteinIngredients();
+        }
+    };
+
+    window.deleteProtein = function(id) {
+        window.showConfirmModal(
+            'উপাদানটি মুছবেন?', 
+            'এই প্রোটিন উপাদানটি ডাটাবেস থেকে চিরতরে মুছে যাবে।',
+            function() {
+                if(window.db && window.fbFirestore) {
+                    const { doc, deleteDoc } = window.fbFirestore;
+                    deleteDoc(doc(window.db, "protein_ingredients", id)).then(() => {
+                        window.showAppAlert('সফলভাবে মোছা হয়েছে!', 'উপাদানটি মুছে ফেলা হয়েছে।', 'fa-trash-can', '#F44336');
+                    }).catch(err => {
+                        window.showAppAlert('ত্রুটি!', 'সার্ভার থেকে ডিলিট করতে সমস্যা হয়েছে!', 'fa-triangle-exclamation', '#F44336');
+                    });
+                } else {
+                    let items = JSON.parse(localStorage.getItem('agroProteinIngredients')) || [];
+                    items = items.filter(d => d.id !== id);
+                    localStorage.setItem('agroProteinIngredients', JSON.stringify(items));
+                    window.showAppAlert('সফলভাবে মোছা হয়েছে!', 'উপাদানটি মুছে ফেলা হয়েছে (Offline)।', 'fa-trash-can', '#F44336');
+                    window.loadAdminProteinIngredients(); 
+                }
+            }
+        );
+    };
+
+    // [ইউজার] সাইডে প্রোটিন ক্যালকুলেটর পেজ রেন্ডারিং
+    window.renderProteinCalculatorPage = function() {
+        const listArea = document.getElementById('protein-ingredients-list-view');
+        if(!listArea) return;
+
+        const renderItems = (items) => {
+            let html = '';
+            items.forEach((item) => {
+                html += `
+                <div style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:1px dashed #E0E0E0;">
+                    <div style="flex: 1; padding-right: 15px;">
+                        <h4 style="font-size:1.05rem; color:var(--text-main); margin: 0 0 4px 0;">${item.name}</h4>
+                        <p style="font-size:0.75rem; color:var(--text-muted); margin: 0 0 6px 0;"><i class="fa-solid fa-circle-info" style="color:#00796B;"></i> ${item.work}</p>
+                        <span style="background: rgba(0, 150, 136, 0.1); color: #00796B; font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: 12px;">প্রোটিন: ${item.cp}%</span>
+                    </div>
+                    <!-- আপডেট করা ইনপুট ডিজাইন (Flexbox) -->
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <input type="number" class="protein-kg-input" data-cp="${item.cp}" onkeyup="window.calculateTotalProtein()" onchange="window.calculateTotalProtein()" placeholder="0" style="width: 75px; padding: 12px 8px; border-radius: 10px; border: 1.5px solid #E0E0E0; text-align: center; font-size: 1.15rem; font-weight: 700; outline: none; background: #F9F9F9; box-sizing: border-box;">
+                        <span style="font-size: 0.95rem; color: var(--text-muted); font-weight: 700;">কেজি</span>
+                    </div>
+                </div>`;
+            });
+            listArea.innerHTML = html;
+        };
+
+        if (window.db && window.fbFirestore) {
+            const { collection, onSnapshot } = window.fbFirestore;
+            onSnapshot(collection(window.db, "protein_ingredients"), (snapshot) => {
+                let items = [];
+                snapshot.forEach((doc) => { items.push({ id: doc.id, ...doc.data() }); });
+                if(items.length === 0) items = window.defaultProteinIngredients;
+                renderItems(items);
+            }, (error) => {
+                let items = JSON.parse(localStorage.getItem('agroProteinIngredients'));
+                if(!items || items.length === 0) items = window.defaultProteinIngredients;
+                renderItems(items);
+            });
+        } else {
+            let items = JSON.parse(localStorage.getItem('agroProteinIngredients'));
+            if(!items || items.length === 0) items = window.defaultProteinIngredients;
+            renderItems(items);
+        }
+    };
+
+    // ==========================================
+    // ভেটেরিনারি মেডিসিন ইনডেক্স (Vet DIMS Clone)
+    // ==========================================
+
+    // ==========================================
+    // ভেটেরিনারি মেডিসিন ইনডেক্স (Vet DIMS Clone)
+    // ==========================================
+
+    window.vetMedicinesData = [
+        { id: 'm1', name: 'ক্যাটাফস (Catophos)', generic: 'Butaphosphan + Vitamin B12', company: 'Renata Ltd.', category: 'ভিটামিন ও মিনারেল', indications: 'শারীরিক দুর্বলতা, রুচিহীনতা, বিপাকীয় সমস্যা, ক্যালসিয়াম ঘাটতি দূর করে।', dosage: 'গরু/মহিষ: ১০-২৫ মিলি (শিরায়, মাংসে বা চামড়ার নিচে)।' },
+        { id: 'm2', name: 'অ্যামাইনোভিট প্লাস ভেট', generic: 'Amino Acids + Vitamins', company: 'Acme Laboratories', category: 'মাল্টিভিটামিন', indications: 'দ্রুত ওজন বৃদ্ধি, রোগ প্রতিরোধ ক্ষমতা বাড়ানো, ধকল (Stress) কাটানো।', dosage: '১০০ কেজি ওজনের জন্য ১০-২০ মিলি (মাংসে)।' },
+        { id: 'm3', name: 'রেনাডেক্স ভেট (Renadex)', generic: 'Dexamethasone', company: 'Renata Ltd.', category: 'স্টেরয়েড / অ্যান্টি-ইনফ্লেমেটরি', indications: 'তীব্র জ্বর, এলার্জি, জয়েন্টে ব্যথা, লাম্পি স্কিন ডিজিজের ফোলা কমানো।', dosage: 'গরু: ৫-১৫ মিলি (মাংসে বা শিরায়)। গর্ভাবস্থায় ব্যবহার নিষেধ।' },
+        { id: 'm4', name: 'কম্বিপেন ভেট (Combipen)', generic: 'Penicillin + Streptomycin', company: 'Renata Ltd.', category: 'অ্যান্টিবায়োটিক', indications: 'খুরা রোগ (FMD), নিউমোনিয়া, গলাফুলা, ম্যাসটাইটিস বা ওলান পাকা।', dosage: 'প্রতি ৫০ কেজি ওজনের জন্য ১ ভায়াল (মাংসে)।' },
+        { id: 'm5', name: 'গ্লুকোলাইট ভেট (Glucolyte)', generic: 'Electrolytes + Dextrose', company: 'Square Pharma', category: 'স্যালাইন / এনার্জি', indications: 'হিট স্ট্রোক, ডায়রিয়া, পানিশূন্যতা, তীব্র গরমে ধকল কমানো।', dosage: '১ লিটার পানিতে ২০-৪০ গ্রাম মিশিয়ে খাওয়াতে হবে।' },
+        { id: 'm6', name: 'প্রোটিমিন ভেট (Protimin)', generic: 'Vitamin & Mineral Premix', company: 'Renata Ltd.', category: 'প্রিমিক্স', indications: 'খাবারের পুষ্টিমান বৃদ্ধি, ওজন বাড়ানো, হাড় শক্ত করা, প্রজনন ক্ষমতা বৃদ্ধি।', dosage: 'প্রতি ১০০ কেজি খাবারে ১ কেজি মেশাতে হবে।' },
+        { id: 'm7', name: 'এনডেক্স (Endex)', generic: 'Triclabendazole + Levamisole', company: 'Elanco', category: 'কৃমিনাশক (Dewormer)', indications: 'কলিজা কৃমি, ফিতা কৃমি, গোল কৃমি ও পাকস্থলীর কৃমি মুক্ত করতে।', dosage: 'প্রতি ৭৫ কেজি ওজনের জন্য ১টি বড়ি (খাবারের সাথে)।' },
+        { id: 'm8', name: 'রেনামাইসিন (Renamycin)', generic: 'Oxytetracycline LA', company: 'Renata Ltd.', category: 'অ্যান্টিবায়োটিক (Long Acting)', indications: 'তড়কা, বাদলা, গলাফুলা, নাভী পাকা, নিউমোনিয়া ও ব্যাকটেরিয়াল ইনফেকশন।', dosage: 'প্রতি ১০ কেজি ওজনের জন্য ১ মিলি (শুধুমাত্র মাংসে)।' },
+        { id: 'm9', name: 'হেপাভেট (Hepavet)', generic: 'Liver Tonic', company: 'Acme Laboratories', category: 'লিভার টনিক', indications: 'কৃমিনাশক দেওয়ার পর লিভারের সুস্থতা, হজমশক্তি ও ক্ষুধা বৃদ্ধি।', dosage: 'বড় গরু: ৫০-১০০ মিলি প্রতিদিন (খাওয়ানোর জন্য)।' },
+        { id: 'm10', name: 'জিজ ভেট (Ziz Vet)', generic: 'Zinc Sulfate', company: 'Square Pharma', category: 'মিনারেল (জিংক)', indications: 'চুল পড়া রোধ, চামড়ার উজ্জ্বলতা বৃদ্ধি, ক্ষুর ও ওলানের ক্ষত শুকানো।', dosage: 'বড় গরু: ১-২টি বল প্রতিদিন ৫-৭ দিন।' },
+        { id: 'm11', name: 'অ্যাসিমেক (Acemec 1%)', generic: 'Ivermectin', company: 'Square Pharma', category: 'পরজীবীনাশক', indications: 'উঁকুন, আঠালী, মাইট এবং ভেতরের গোল কৃমি ধ্বংস করে।', dosage: 'প্রতি ৫০ কেজি ওজনের জন্য ১ মিলি (শুধুমাত্র চামড়ার নিচে)।' },
+        { id: 'm12', name: 'ফ্যাসিনেক্স (Fasinex)', generic: 'Triclabendazole', company: 'Novartis', category: 'কৃমিনাশক (কলিজা কৃমি)', indications: 'যেকোনো স্টেজের কলিজা কৃমি (Liver Fluke) দমনে অত্যন্ত কার্যকরী।', dosage: '১টি বল প্রতি ৭৫-১০০ কেজি ওজনের জন্য।' },
+        { id: 'm13', name: 'মক্সিলিন ভেট (Moxilin)', generic: 'Amoxicillin', company: 'Square Pharma', category: 'অ্যান্টিবায়োটিক', indications: 'শ্বাসতন্ত্রের ইনফেকশন, নিউমোনিয়া, গলাফুলা, কাটা-ছেঁড়া ও ক্ষতের ইনফেকশন।', dosage: 'প্রতি ১০ কেজি ওজনের জন্য ১ মিলি (মাংসে)।' },
+        { id: 'm14', name: 'এনরোসিন ভেট (Enrocin)', generic: 'Enrofloxacin', company: 'Renata Ltd.', category: 'অ্যান্টিবায়োটিক', indications: 'মারাত্মক ব্যাকটেরিয়াল ইনফেকশন, ডায়রিয়া, এবং ম্যাসটাইটিস (ওলান পাকা)।', dosage: 'প্রতি ২০ কেজি ওজনের জন্য ১ মিলি (মাংসে)। টানা ৩-৫ দিন।' },
+        { id: 'm15', name: 'সেফট্রন ভেট (Ceftron)', generic: 'Ceftriaxone', company: 'Square Pharma', category: 'অ্যান্টিবায়োটিক', indications: 'তীব্র নিউমোনিয়া, খুরা রোগ, এবং অপারেশনের পর ইনফেকশন রোধে।', dosage: 'প্রতি ৫০ কেজি ওজনের জন্য ১ গ্রাম ভায়াল (মাংসে বা শিরায়)।' },
+        { id: 'm16', name: 'জেন্টামাইসিন (Gentamycin)', generic: 'Gentamicin Sulphate', company: 'Acme Laboratories', category: 'অ্যান্টিবায়োটিক', indications: 'পাকস্থলী ও অন্ত্রের ইনফেকশন, রক্ত আমাশয় ও জরায়ুর ইনফেকশন।', dosage: 'প্রতি ১০ কেজি ওজনের জন্য ১ মিলি (মাংসে)।' },
+        { id: 'm17', name: 'প্রোনাপেন ৪০ এল (Pronapen 40L)', generic: 'Penicillin G', company: 'Renata Ltd.', category: 'অ্যান্টিবায়োটিক', indications: 'তড়কা, বাদলা, গলাফুলা এবং যেকোনো গভীর ক্ষতের ব্যাকটেরিয়াল ইনফেকশন।', dosage: '১ ভায়াল ২-৪ মিলি ডিস্টিল ওয়াটারে মিশিয়ে মাংসে দিতে হবে।' },
+        { id: 'm18', name: 'অক্সিসেন্ট ২০% (Oxysent 20%)', generic: 'Oxytetracycline LA', company: 'Square Pharma', category: 'অ্যান্টিবায়োটিক (Long Acting)', indications: 'দীর্ঘমেয়াদী ইনফেকশন, খুরা রোগ ও নাভী পাকার চিকিৎসায়।', dosage: 'প্রতি ১০ কেজি ওজনের জন্য ১ মিলি (শুধুমাত্র মাংসে)।' },
+        { id: 'm19', name: 'কিটোভেট (Ketovet)', generic: 'Ketoprofen', company: 'Acme Laboratories', category: 'ব্যথানাশক (NSAID)', indications: 'তীব্র ব্যথা, অস্থিসন্ধির প্রদাহ, ওলান পাকা এবং লাম্পি স্কিনের ব্যথা উপশমে।', dosage: 'প্রতি ৩৩ কেজি ওজনের জন্য ১ মিলি (মাংসে বা শিরায়)।' },
+        { id: 'm20', name: 'মেলভেট (Melvet)', generic: 'Meloxicam', company: 'Square Pharma', category: 'ব্যথানাশক', indications: 'অপারেশনের ব্যথা, পেশির ব্যথা এবং শ্বাসতন্ত্রের প্রদাহজনিত ব্যথা।', dosage: 'প্রতি ২৫ কেজি ওজনের জন্য ১ মিলি (মাংসে বা চামড়ার নিচে)।' },
+        { id: 'm21', name: 'প্যারাভেট (Paravet)', generic: 'Paracetamol', company: 'Renata Ltd.', category: 'জ্বর ও ব্যথা', indications: 'যেকোনো সাধারণ জ্বর এবং হালকা ব্যথায় খুবই কার্যকরী ও নিরাপদ।', dosage: 'বড় গরুর জন্য ২-৩ টি বোলাস (বড়ি) দিনে ২ বার।' },
+        { id: 'm22', name: 'হিস্টাভেট (Histavet)', generic: 'Chlorpheniramine Maleate', company: 'Acme Laboratories', category: 'অ্যান্টিহিস্টামিন', indications: 'কীটপতঙ্গের কামড়, ওষুধের রিঅ্যাকশন, চুলকানি ও যেকোনো এলার্জি।', dosage: 'বড় গরু: ৫-১০ মিলি (মাংসে)।' },
+        { id: 'm23', name: 'অ্যাস্টাভেট (Astavet)', generic: 'Promethazine', company: 'Square Pharma', category: 'অ্যান্টিহিস্টামিন', indications: 'সর্দি-কাশি, এলার্জি এবং ভ্রমণজনিত ধকল (Motion Sickness) রোধে।', dosage: 'বড় গরু: ১০-১৫ মিলি (মাংসে)।' },
+        { id: 'm24', name: 'ক্যাল-ডি-ম্যাগ (Cal-D-Mag)', generic: 'Calcium, Magnesium, Phosphorus', company: 'Acme Laboratories', category: 'ক্যালসিয়াম ইনজেকশন', indications: 'মিল্ক ফিভার (দুধ জ্বর), ঘাস টিটানি, হাড়ের দুর্বলতা ও খিঁচুনি রোধে।', dosage: 'বড় গরু: ২৫০-৫০০ মিলি (শুধুমাত্র শিরায়, খুব ধীরে ধীরে)।' },
+        { id: 'm25', name: 'রেনা-ক্যাল পি (Rena-Cal P)', generic: 'Calcium + Phosphorus', company: 'Renata Ltd.', category: 'ক্যালসিয়াম বোলাস', indications: 'গর্ভবতী ও দুধালো গাভীর ক্যালসিয়ামের ঘাটতি পূরণে।', dosage: 'বড় গাভী: ১-২টি বল প্রতিদিন ৫-৭ দিন।' },
+        { id: 'm26', name: 'ডিবি-ভিটামিন (DB-Vitamin)', generic: 'Vitamin B-Complex', company: 'Acme Laboratories', category: 'ভিটামিন বি-কমপ্লেক্স', indications: 'রুচি বৃদ্ধি, স্নায়ুবিক দুর্বলতা দূর এবং এন্টিবায়োটিক কোর্সের সাথে।', dosage: 'বড় গরু: ১০-২০ মিলি (মাংসে বা শিরায়)।' },
+        { id: 'm27', name: 'রেনা-ডব্লিউএস (Rena-WS)', generic: 'Multivitamin Powder', company: 'Renata Ltd.', category: 'ভিটামিন পাউডার', indications: 'ডায়রিয়া, পানিশূন্যতা ও তীব্র গরমে গাভীর ধকল কমাতে।', dosage: '১ গ্রাম পাউডার ২-৩ লিটার পানিতে মিশিয়ে খাওয়াতে হবে।' },
+        { id: 'm28', name: 'ই-সেল (E-Sel)', generic: 'Vitamin E + Selenium', company: 'Square Pharma', category: 'ভিটামিন ও প্রজনন', indications: 'ষাঁড়ের প্রজনন ক্ষমতা বৃদ্ধি, মাংসপেশির দুর্বলতা ও রোগ প্রতিরোধে।', dosage: 'প্রতি ১০০ কেজি ওজনের জন্য ১ মিলি (মাংসে বা চামড়ার নিচে)।' },
+        { id: 'm29', name: 'মেগাভিট (Megavit)', generic: 'Vitamin A, D3, E', company: 'Acme Laboratories', category: 'ভিটামিন ইনজেকশন', indications: 'শারীরিক বৃদ্ধি, অন্ধত্ব দূরীকরণ এবং গর্ভবতী গাভীর পুষ্টি নিশ্চিতে।', dosage: 'বড় গরু: ৫-১০ মিলি (মাংসে)।' },
+        { id: 'm30', name: 'ব্লোটক্স (Bloatox)', generic: 'Dimethicone', company: 'Acme Laboratories', category: 'গ্যাস বা পেট ফাঁপা', indications: 'অতিরিক্ত দানাদার বা কাঁচা ঘাস খেয়ে পেট ফুলে গেলে (Bloat) গ্যাস বের করতে।', dosage: '১০০ মিলি ওষুধ আধা লিটার পানিতে মিশিয়ে খাওয়াতে হবে।' },
+        { id: 'm31', name: 'রুমেন এফএস (Rumen FS)', generic: 'Digestive Enzymes', company: 'Renata Ltd.', category: 'হজমকারক', indications: 'ক্ষুধামন্দা, বদহজম এবং পাকস্থলীর স্বাভাবিক কার্যক্ষমতা ফিরিয়ে আনতে।', dosage: 'বড় গরু: ১-২ প্যাকেট হালকা গরম পানিতে মিশিয়ে খাওয়াতে হবে।' },
+        { id: 'm32', name: 'ডাইজেস্টিভ ভেট (Digestive Vet)', generic: 'Probiotics & Enzymes', company: 'Square Pharma', category: 'হজমকারক', indications: 'অ্যান্টিবায়োটিক ব্যবহারের পর হজমশক্তি ও রুচি বাড়াতে।', dosage: 'বড় গরু: ১-২টি বল প্রতিদিন।' },
+        { id: 'm33', name: 'অ্যালমেক্স ভেট (Almex Vet)', generic: 'Albendazole', company: 'Square Pharma', category: 'কৃমিনাশক', indications: 'সাধারণ গোল কৃমি, ফিতা কৃমি ও পাতা কৃমি দমনে।', dosage: 'প্রতি ৭৫ কেজি ওজনের জন্য ১টি বল (খালি পেটে)। গর্ভবতী গাভীকে দেওয়া নিষেধ।' },
+        { id: 'm34', name: 'লেভানিড (Levanid)', generic: 'Levamisole + Oxyclozanide', company: 'Acme Laboratories', category: 'কৃমিনাশক (কলিজা কৃমি)', indications: 'মারাত্মক কলিজা কৃমি এবং গোল কৃমি একসাথে ধ্বংস করতে।', dosage: 'প্রতি ৭৫ কেজি ওজনের জন্য ১টি বল।' },
+        { id: 'm35', name: 'ফ্যাসিনেক্স (Fasinex)', generic: 'Triclabendazole', company: 'Novartis', category: 'কৃমিনাশক (কলিজা কৃমি)', indications: 'যেকোনো স্টেজের কলিজা কৃমি (Liver Fluke) দমনে অত্যন্ত কার্যকরী।', dosage: '১টি বল প্রতি ৭৫-১০০ কেজি ওজনের জন্য।' },
+        { id: 'm36', name: 'ডেকটোম্যাক্স (Dectomax)', generic: 'Doramectin', company: 'Zoetis', category: 'পরজীবীনাশক (ইনজেকশন)', indications: 'উকুন, মাইট, আঠালি এবং রক্তচোষা পরজীবী দমনে প্রিমিয়াম ওষুধ।', dosage: 'প্রতি ৫০ কেজি ওজনের জন্য ১ মিলি (চামড়ার নিচে)।' },
+        { id: 'm37', name: 'নিওট্রেক (Neotrek)', generic: 'Tetramisole', company: 'Square Pharma', category: 'কৃমিনাশক পাউডার', indications: 'বাছুরের গোল কৃমি ও ফুসফুসের কৃমি দমনে পানিতে মিশিয়ে খাওয়াতে হয়।', dosage: 'প্যাকেটের গায়ে লেখা নিয়ম অনুযায়ী পানির সাথে মেশাতে হবে।' },
+        { id: 'm38', name: 'অক্সিটোসিন (Oxytocin)', generic: 'Oxytocin Injection', company: 'Acme Laboratories', category: 'হরমোন', indications: 'গাভী বাচ্চা দেওয়ার পর ফুল (Placenta) না পড়লে বা দুধ আটকে গেলে।', dosage: '২-৪ মিলি (মাংসে বা শিরায়)। চিকিৎসকের পরামর্শ ছাড়া ব্যবহার নিষেধ।' },
+        { id: 'm39', name: 'ম্যাসটিল (Mastil)', generic: 'Cefoperazone', company: 'Acme Laboratories', category: 'ম্যাসটাইটিস বা ওলান পাকা', indications: 'ওলান ফুলে গেলে, দুধ লাল বা ছানা ছানা হলে সরাসরি ওলানের বাটে পুশ করতে হয়।', dosage: 'আক্রান্ত বাটের দুধ ফেলে দিয়ে ১টি টিউব পুশ করে ম্যাসেজ করতে হবে।' },
+        { id: 'm40', name: 'হিমোকোয়াগুলাস (Haemocoagulase)', generic: 'Haemocoagulase', company: 'Various', category: 'রক্তপাত বন্ধ', indications: 'কাটা-ছেঁড়া, শিং ভাঙা বা যেকোনো অপারেশনের পর অতিরিক্ত রক্তপাত বন্ধ করতে।', dosage: 'প্রয়োজন অনুযায়ী ক্ষতস্থানে স্প্রে বা ইনজেকশন।' },
+        { id: 'm41', name: 'পভিসেপ (Povisep)', generic: 'Povidone Iodine', company: 'JMI', category: 'জীবাণুনাশক (Antiseptic)', indications: 'ক্ষতস্থান, নাভী, বা অপারেশনের জায়গা জীবাণুমুক্ত করতে।', dosage: 'ক্ষতস্থানে তুলা দিয়ে প্রতিদিন ২-৩ বার লাগাতে হবে।' },
+        { id: 'm42', name: 'নেগাসান্ট (Negasunt)', generic: 'Antibacterial Dusting Powder', company: 'Bayer', category: 'ঘা শুকানোর পাউডার', indications: 'খুরা রোগের ঘা, পোকা পড়া ঘা (Maggot wound) দ্রুত শুকাতে।', dosage: 'ক্ষতস্থান পরিষ্কার করে দিনে ১-২ বার পাউডার ছিটিয়ে দিন।' },
+        { id: 'm43', name: 'হিম্যাক্স (Himax)', generic: 'Herbal Ointment', company: 'Indian / Various', category: 'ঘা শুকানোর মলম', indications: 'মাছি তাড়াতে এবং যেকোনো গভীর ঘা দ্রুত শুকাতে।', dosage: 'ক্ষতস্থানে প্রলেপ দিয়ে লাগিয়ে দিন।' },
+        { id: 'm44', name: 'টক্সনিল (Toxnil)', generic: 'Toxin Binder', company: 'Acme Laboratories', category: 'টক্সিন বাইন্ডার', indications: 'খাদ্যের বিষক্রিয়া (Aflatoxin) বা পচা খাবার খেয়ে গরুর ক্ষতি রোধ করতে।', dosage: 'প্রতি ১০০ কেজি খাবারে ১০০-২০০ গ্রাম মেশাতে হবে।' },
+        { id: 'm45', name: 'সিপ্রোসিন ভেট (Ciprocin Vet)', generic: 'Ciprofloxacin', company: 'Square Pharma', category: 'অ্যান্টিবায়োটিক', indications: 'বাছুরের ডায়রিয়া, পাতলা পায়খানা এবং সাধারণ ইনফেকশনে।', dosage: 'প্রতি ১৫ কেজি ওজনের জন্য ১ মিলি (মাংসে)।' },
+        { id: 'm46', name: 'সালফাডিমিডিন (Sulphadimidine)', generic: 'Sulphadimidine', company: 'Acme Laboratories', category: 'সালফা ড্রাগ (ডায়রিয়া)', indications: 'রক্ত আমাশয় (Coccidiosis), তীব্র পাতলা পায়খানা এবং গলাফুলা।', dosage: 'বড় গরু: ২-৪টি বল প্রতিদিন।' },
+        { id: 'm47', name: 'ডায়াডিন (Diadin)', generic: 'Sulphadimidine + Neomycin', company: 'Renata Ltd.', category: 'ডায়রিয়া ও আমাশয়', indications: 'তীব্র ব্যাকটেরিয়াল ডায়রিয়া এবং রক্ত আমাশয় রোধে।', dosage: 'প্রতি ৩০ কেজি ওজনের জন্য ১টি বোলাস (বড়ি)।' },
+        { id: 'm48', name: 'কে-স্যালাইন (K-Saline)', generic: 'Potassium + Sodium Saline', company: 'Acme Laboratories', category: 'খাবার স্যালাইন', indications: 'ডায়রিয়া বা পাতলা পায়খানার কারণে পানিশূন্যতা দূর করতে।', dosage: '১ প্যাকেট ১-২ লিটার পানিতে মিশিয়ে খাওয়াতে হবে।' },
+        { id: 'm49', name: 'অ্যামক্সিভেট (Amoxyvet)', generic: 'Amoxicillin Trihydrate', company: 'Acme Laboratories', category: 'অ্যান্টিবায়োটিক (পাউডার)', indications: 'খাবারের সাথে মিশিয়ে শ্বাসতন্ত্র ও পরিপাকতন্ত্রের ইনফেকশন রোধ করতে।', dosage: 'প্যাকেটের নির্দেশিকা অনুযায়ী পানির সাথে মেশাতে হবে।' },
+        { id: 'm50', name: 'অ্যাট্রোপিন (Atropine Sulphate)', generic: 'Atropine', company: 'Various', category: 'পয়জনিং / বিষক্রিয়া', indications: 'কীটনাশক বা বিষাক্ত ঘাস খেয়ে বিষক্রিয়া হলে জীবন রক্ষাকারী হিসেবে।', dosage: 'লক্ষণ বুঝে চিকিৎসকের সরাসরি তত্ত্বাবধানে শিরায় বা মাংসে।' },
+        { id: 'm51', name: 'ডেক্সামেথাসন (Dexamethasone)', generic: 'Dexamethasone Sodium', company: 'Various', category: 'স্টেরয়েড', indications: 'আকস্মিক শক, এলার্জি এবং মেটাবলিক ডিসঅর্ডারে।', dosage: 'গর্ভবতী গাভীতে ব্যবহার নিষেধ। ৫-১০ মিলি মাংসে।' },
+        { id: 'm52', name: 'প্রোবায়োটিকস (Probiotics)', generic: 'Live Yeast & Bacteria', company: 'Various', category: 'প্রোবায়োটিক', indications: 'অ্যান্টিবায়োটিক কোর্সের পর পাকস্থলীর ভালো ব্যাকটেরিয়া ফিরিয়ে আনতে।', dosage: 'দৈনিক ১০-২০ গ্রাম খাবারের সাথে মিশিয়ে।' },
+        // --- ম্যাসটাইটিস (ওলান পাকা) ও ওলানের স্বাস্থ্য ---
+        { id: 'm53', name: 'ম্যাসটিক্যাপ (Masticap)', generic: 'Cephalexin', company: 'Square Pharma', category: 'ম্যাসটাইটিস টিউব', indications: 'গাভীর ওলান পাকা বা ম্যাসটাইটিসের চিকিৎসায় সরাসরি বাটে প্রয়োগযোগ্য।', dosage: 'দুধ দোহনের পর প্রতিটি আক্রান্ত বাটে ১টি টিউব পুশ করে ৩ দিন দিতে হবে।' },
+        { id: 'm54', name: 'কোবাকটান (Cobactan)', generic: 'Cefquinome', company: 'Intervet', category: 'অ্যান্টিবায়োটিক', indications: 'তীব্র ওলান পাকা বা ম্যাসটাইটিস এবং শ্বাসতন্ত্রের মারাত্মক ইনফেকশন রোধে।', dosage: 'প্রতি ৫০ কেজি ওজনের জন্য ২ মিলি (মাংসে)।' },
+        { id: 'm55', name: 'ম্যামিটিল (Mammitil)', generic: 'Ampicillin + Cloxacillin', company: 'Acme Laboratories', category: 'ম্যাসটাইটিস টিউব', indications: 'জীবাণুজনিত ওলান পাকা, দুধ লাল হওয়া বা ছানা ছানা হওয়া রোধ করে।', dosage: 'আক্রান্ত বাটে দিনে ১টি করে টিউব টানা ৩ দিন।' },
+        { id: 'm56', name: 'সেফাভেট (Cefavet)', generic: 'Cefoperazone', company: 'Renata Ltd.', category: 'অ্যান্টিবায়োটিক', indications: 'ম্যাসটাইটিস এবং জরায়ুর তীব্র ইনফেকশনে অত্যন্ত কার্যকরী।', dosage: 'প্রতি ৫০ কেজি ওজনের জন্য ১ ভায়াল (মাংসে)।' },
+        { id: 'm57', name: 'অ্যান্টি-ম্যাসটাইটিস পাউডার', generic: 'Herbal Anti-Mastitis', company: 'Various', category: 'হার্বাল পাউডার', indications: 'ওলান পাকার প্রাথমিক লক্ষণ দেখা দিলে এবং দুধের স্বাভাবিক রং ফেরাতে।', dosage: 'প্রতিদিন ৫০ গ্রাম খাবারের সাথে টানা ৫ দিন।' },
+        { id: 'm58', name: 'টাইলোভেট (Tylovet)', generic: 'Tylosin Tartrate', company: 'Square Pharma', category: 'অ্যান্টিবায়োটিক', indications: 'ম্যাসটাইটিস, শ্বাসতন্ত্রের রোগ (CRD) এবং পায়ের জয়েন্টের ব্যথা।', dosage: 'প্রতি ১০ কেজি ওজনের জন্য ১ মিলি (মাংসে)।' },
+        { id: 'm59', name: 'সিএমটি কিট (CMT Kit)', generic: 'California Mastitis Test', company: 'Diagnostic', category: 'টেস্টিং কিট', indications: 'ওলান পাকার লক্ষণ প্রকাশ পাওয়ার আগেই দুধে জীবাণু আছে কিনা তা নির্ণয় করতে।', dosage: 'দুধের সাথে পরিমাণমতো রিএজেন্ট মিশিয়ে টেস্ট করতে হয়।' },
+        { id: 'm60', name: 'ম্যাসটিপ্রো (Mastipro)', generic: 'Trisodium Citrate', company: 'Acme Laboratories', category: 'প্রিভেন্টিভ পাউডার', indications: 'দুধের পিএইচ (pH) ব্যালেন্স করে ওলান পাকা প্রতিরোধ করে।', dosage: 'প্রতিদিন ৩০ গ্রাম খাবারের সাথে।' },
+
+        // --- প্রজনন, জরায়ু পরিষ্কার ও হরমোন (Reproduction & Hormones) ---
+        { id: 'm61', name: 'ফার্টিলন (Fertilon)', generic: 'Buserelin Acetate (GnRH)', company: 'Renata Ltd.', category: 'হরমোন', indications: 'গাভী ঠিকমতো হিটে না আসলে বা বারবার বীজ দিয়েও না টিকলে (রিপিট ব্রিডিং)।', dosage: '২.৫ - ৫ মিলি (মাংসে)। বীজ দেওয়ার ঠিক আগে বা পরে।' },
+        { id: 'm62', name: 'সাইক্লোমেট (Cyclomate)', generic: 'Cloprostenol', company: 'Acme Laboratories', category: 'হরমোন', indications: 'কৃত্রিমভাবে হিটে আনতে এবং জরায়ুর ভেতরের মরা বাচ্চা বা পুঁজ বের করতে।', dosage: '২ মিলি (মাংসে)। শুধুমাত্র চিকিৎসকের পরামর্শে।' },
+        { id: 'm63', name: 'প্রজেস্টেরন (Progesterone)', generic: 'Progesterone Injection', company: 'Various', category: 'হরমোন', indications: 'গর্ভপাত রোধ করতে এবং গর্ভাবস্থা সুরক্ষিত রাখতে।', dosage: 'চিকিৎসকের নির্দেশ অনুযায়ী (মাংসে)।' },
+        { id: 'm64', name: 'ক্লিনজ ভেট (Cleanse Vet)', generic: 'Herbal Uterine Tonic', company: 'Square Pharma', category: 'জরায়ু টনিক', indications: 'বাচ্চা হওয়ার পর ফুল (Placenta) দ্রুত ফেলতে এবং জরায়ু পরিষ্কার করতে।', dosage: 'প্রথম দিন ১০০ মিলি, এরপর প্রতিদিন ৫০ মিলি করে ৩ দিন।' },
+        { id: 'm65', name: 'ইউটোক্লিন (Utoclean)', generic: 'Intrauterine Bolus', company: 'Acme Laboratories', category: 'জরায়ুর বড়ি', indications: 'জরায়ুর ইনফেকশন (Metritis) ও দুর্গন্ধযুক্ত পুঁজ দূর করতে।', dosage: 'জরায়ুর ভেতরে ২-৪টি বড়ি স্থাপন করতে হয়।' },
+        { id: 'm66', name: 'গাইনোভেট (Gynovet)', generic: 'Herbal Heat Inducer', company: 'Square Pharma', category: 'প্রজনন বড়ি', indications: 'দীর্ঘদিন হিটে না আসা গাভীকে প্রাকৃতিকভাবে হিটে আনতে সাহায্য করে।', dosage: 'প্রতিদিন ১-২টি বড়ি।' },
+        { id: 'm67', name: 'রিবুট (Reboot)', generic: 'GnRH Analogue', company: 'Acme Laboratories', category: 'হরমোন', indications: 'ওভুলেশন নিশ্চিত করতে এবং প্রজনন ক্ষমতা বাড়াতে।', dosage: '২.৫ মিলি (মাংসে বা শিরায়)।' },
+        { id: 'm68', name: 'ইউমিন (Umin)', generic: 'Ergometrine Maleate', company: 'Renata Ltd.', category: 'জরায়ু পরিষ্কারক', indications: 'বাচ্চা প্রসবের পর রক্তপাত বন্ধ করতে এবং জরায়ু সংকুচিত করতে।', dosage: '৫-১০ মিলি (মাংসে)।' },
+
+        // --- হাই-পাওয়ার ভিটামিন, মিনারেল ও নিউট্রিশন ---
+        { id: 'm69', name: 'নোভাফস (Novaphos)', generic: 'Toldimfos Sodium', company: 'Acme Laboratories', category: 'ফসফরাস ইনজেকশন', indications: 'দুধ জ্বর, ফসফরাসের অভাব, প্রজনন সমস্যা ও পেশির দুর্বলতা কাটাতে।', dosage: 'বড় গাভী: ১০-১৫ মিলি (শিরায় বা মাংসে)।' },
+        { id: 'm70', name: 'রেনা-ক্যাল পি প্লাস (Rena-Cal P Plus)', generic: 'Liquid Calcium & Phosphorus', company: 'Renata Ltd.', category: 'লিকুইড ক্যালসিয়াম', indications: 'দুধের উৎপাদন বৃদ্ধি এবং গাভীর ক্যালসিয়াম ও ফসফরাসের অভাব পূরণে।', dosage: 'প্রতিদিন ১০০ মিলি খাবারের সাথে বা সরাসরি।' },
+        { id: 'm71', name: 'অ্যামাইনো এনার্জি (Amino Energy)', generic: 'Amino Acids + B-complex', company: 'Square Pharma', category: 'এনার্জি লিকুইড', indications: 'রোগ থেকে ওঠার পর দ্রুত স্বাস্থ্য ফেরাতে এবং মাংসপেশি গঠনে।', dosage: 'প্রতিদিন ১০০ মিলি।' },
+        { id: 'm72', name: 'সেলেভিট (Selevit)', generic: 'Vitamin E + Selenium', company: 'Acme Laboratories', category: 'ভিটামিন পাউডার', indications: 'ষাঁড়ের সিমেন কোয়ালিটি বৃদ্ধি এবং পেশির রোগ (White Muscle Disease) রোধে।', dosage: 'প্রতিদিন ১০-২০ গ্রাম খাবারের সাথে।' },
+        { id: 'm73', name: 'রেনামিক্স প্লাস (Renamix Plus)', generic: 'Vitamin & Mineral Premix', company: 'Renata Ltd.', category: 'ভিটামিন প্রিমিক্স', indications: 'সুষম খাদ্যের পুষ্টি নিশ্চিত করতে এবং খামার লাভজনক করতে।', dosage: '১০০ কেজি খাবারে ১-২ কেজি।' },
+        { id: 'm74', name: 'ডিসিপি ভেট (DCP Vet)', generic: 'Dicalcium Phosphate', company: 'Square Pharma', category: 'মিনারেল পাউডার', indications: 'বাছুরের হাড় গঠন এবং গাভীর দাঁত ও হাড়ের ক্ষয় রোধে।', dosage: 'প্রতিদিন ৫০ গ্রাম।' },
+        { id: 'm75', name: 'রেনা-বি+সি (Rena-B+C)', generic: 'Vitamin B-complex + C', company: 'Renata Ltd.', category: 'ভিটামিন ইনজেকশন', indications: 'স্ট্রেস বা ধকল কাটাতে এবং এন্টিবায়োটিক কোর্সের সময় রুচি ঠিক রাখতে।', dosage: '১০-১৫ মিলি (মাংসে)।' },
+        { id: 'm76', name: 'লিভার টনিক প্লাস (Liver Tonic Plus)', generic: 'Herbal Liver Extract', company: 'Various', category: 'লিভার টনিক (লিকুইড)', indications: 'লিভারের কার্যক্ষমতা বাড়ানো, হজমশক্তি এবং রুচি বৃদ্ধি।', dosage: 'প্রতিদিন ৫০ মিলি।' },
+        { id: 'm77', name: 'ক্যাল-ডি-ম্যাগ জেল (Cal-D-Mag Gel)', generic: 'Calcium Gel', company: 'Acme Laboratories', category: 'ওরাল জেল', indications: 'দুধ জ্বরের তাৎক্ষণিক চিকিৎসায় এবং বাচ্চা দেওয়ার পর দ্রুত ক্যালসিয়াম দিতে।', dosage: '১টি পুরো টিউব সরাসরি মুখে খাইয়ে দিতে হয়।' },
+        { id: 'm78', name: 'বায়োমিন (Biomin)', generic: 'Trace Minerals', company: 'Renata Ltd.', category: 'ট্রেস মিনারেল', indications: 'খনিজ উপাদানের ঘাটতি পূরণ ও প্রজনন স্বাস্থ্যের উন্নতি।', dosage: 'প্রতিদিন ২০-৩০ গ্রাম।' },
+        { id: 'm79', name: 'ভিটা-অ্যামাইনো (Vita-Amino)', generic: 'Multivitamin + Amino Acid', company: 'Square Pharma', category: 'পাউডার', indications: 'গরুর গ্রোথ রেট বা দৈহিক বৃদ্ধি ত্বরান্বিত করতে ফ্যাটেনিং প্রজেক্টে।', dosage: 'প্রতিদিন ২০-২৫ গ্রাম।' },
+        { id: 'm80', name: 'ইমিউনোভেট (Immunovet)', generic: 'Immunity Booster', company: 'Acme Laboratories', category: 'ইমিউনিটি বুস্টার', indications: 'টিকা দেওয়ার আগে বা পরে রোগ প্রতিরোধ ক্ষমতা বাড়াতে।', dosage: 'প্রতিদিন ৫০ মিলি পানিতে মিশিয়ে।' },
+        { id: 'm81', name: 'ফসফরাস-বি১২ (Phosphorus-B12)', generic: 'Butaphosphan + Cyanocobalamin', company: 'Various', category: 'ইনজেকশন', indications: 'মেটাবলিজম বা হজম প্রক্রিয়া স্বাভাবিক করতে এবং রক্তশূন্যতা দূর করতে।', dosage: '১০-২৫ মিলি (মাংসে বা শিরায়)।' },
+        { id: 'm82', name: 'সিবিজি (Cal. Borogluconate)', generic: 'Calcium Borogluconate 25%', company: 'Various', category: 'আইভি স্যালাইন', indications: 'তীব্র মিল্ক ফিভার বা দুধ জ্বরে গাভী পড়ে গেলে ইমার্জেন্সি চিকিৎসায়।', dosage: '৩০০-৫০০ মিলি (শুধুমাত্র শিরায়, খুব সাবধানে ও ধীরে)।' },
+        { id: 'm83', name: 'মিল্ক বুস্টার (Milk Booster)', generic: 'Herbal Galactagogue', company: 'Various', category: 'দুধ বৃদ্ধিকারক', indications: 'গাভীর দুধের পরিমাণ এবং ফ্যাট পার্সেন্টেজ প্রাকৃতিকভাবে বৃদ্ধি করতে।', dosage: 'প্রতিদিন ৫০ গ্রাম খাবারের সাথে।' },
+        { id: 'm84', name: 'মেটাবোলাইট (Metabolite)', generic: 'Metabolic Stimulant', company: 'Square Pharma', category: 'ইনজেকশন', indications: 'দুর্বলতা, ক্ষুধামন্দা এবং দীর্ঘ অসুস্থতা থেকে সেরে ওঠার পর।', dosage: '১০-১৫ মিলি (মাংসে)।' },
+        { id: 'm85', name: 'এডিই ভেট (ADE Vet)', generic: 'Vit A, D3, E Injection', company: 'Renata Ltd.', category: 'ভিটামিন ইনজেকশন', indications: 'দৃষ্টিশক্তি, প্রজনন ক্ষমতা ও হাড়ের সুস্থতার জন্য।', dosage: '৫-১০ মিলি (মাংসে)।' },
+        { id: 'm86', name: 'জিংক-কপার-কোবাল্ট (Zn-Cu-Co)', generic: 'Mineral Bolus', company: 'Various', category: 'মিনারেল বল', indications: 'খুরের রোগ, পশম পড়ে যাওয়া এবং রক্তশূন্যতা রোধে।', dosage: 'প্রতিদিন ১টি বল।' },
+        { id: 'm87', name: 'এনাফ্লক্স (Enaflox)', generic: 'Enrofloxacin 10%', company: 'Square Pharma', category: 'অ্যান্টিবায়োটিক (পাউডার)', indications: 'পানির সাথে মিশিয়ে গণহারে ব্যাকটেরিয়াল ইনফেকশন রোধ করতে।', dosage: '১ গ্রাম পাউডার ২ লিটার পানিতে।' },
+        { id: 'm88', name: 'সালফাকক্স (Sulphacox)', generic: 'Sulphaclozine Sodium', company: 'Acme Laboratories', category: 'রক্ত আমাশয়', indications: 'মারাত্মক রক্ত আমাশয় এবং ককসিডিওসিস দমনে।', dosage: 'প্যাকেটের নির্দেশিকা অনুযায়ী।' },
+        { id: 'm89', name: 'রুমেন কেয়ার (Rumen Care)', generic: 'Rumen Specific Yeast', company: 'Renata Ltd.', category: 'রুমেন প্রোবায়োটিক', indications: 'বদহজম, পেট ফাঁপা এবং গরুর খাবার খাওয়ার রুচি দ্রুত ফিরিয়ে আনতে।', dosage: 'প্রতিদিন ১-২ প্যাকেট।' },
+        { id: 'm90', name: 'ভিক্সল ভেট (Vixol Vet)', generic: 'Bromhexine', company: 'Acme Laboratories', category: 'কফ নিরাময়ক', indications: 'নিউমোনিয়া ও শ্বাসকষ্টের সময় ফুসফুসের কফ তরল করে বের করতে।', dosage: 'প্রতি ১০০ কেজি ওজনের জন্য ৫ মিলি (মাংসে)।' },
+        { id: 'm91', name: 'ভিটামিন-সি ভেট (Vitamin-C Vet)', generic: 'Ascorbic Acid', company: 'Square Pharma', category: 'ভিটামিন ইনজেকশন', indications: 'মারাত্মক হিট স্ট্রোক, স্ট্রেস এবং ইনফেকশনের সময় ইমিউনিটি বাড়াতে।', dosage: '১০-১৫ মিলি (মাংসে)।' },
+        { id: 'm92', name: 'ম্যাগনেসিয়াম সালফেট (Mag. Sulphate)', generic: 'Magnesium Sulphate', company: 'Various', category: 'কোষ্ঠকাঠিন্য', indications: 'গরুর তীব্র কোষ্ঠকাঠিন্য (পায়খানা কষা) বা বদহজমে পেট পরিষ্কার করতে।', dosage: '১০০-২৫০ গ্রাম পাউডার ১ লিটার পানিতে গুলিয়ে খাওয়াতে হবে।' },
+        // --- রেসপাইরেটরি (শ্বাসতন্ত্র) ও তীব্র ইনফেকশন ---
+        { id: 'm93', name: 'ফ্লোরফেন (Florfen)', generic: 'Florfenicol', company: 'Square Pharma', category: 'অ্যান্টিবায়োটিক', indications: 'তীব্র শ্বাসকষ্ট, নিউমোনিয়া এবং অন্যান্য অ্যান্টিবায়োটিক কাজ না করলে এটি অত্যন্ত কার্যকরী।', dosage: 'প্রতি ১৫ কেজি ওজনের জন্য ১ মিলি (মাংসে)। ৪৮ ঘণ্টা পর ২য় ডোজ।' },
+        { id: 'm94', name: 'কোট্রিম ভেট (Cotrim Vet)', generic: 'Sulphadiazine + Trimethoprim', company: 'Renata Ltd.', category: 'অ্যান্টিবায়োটিক', indications: 'শ্বাসতন্ত্র, পরিপাকতন্ত্র এবং প্রস্রাবের নালীর ব্যাকটেরিয়াল ইনফেকশন রোধে।', dosage: 'প্রতি ৩০ কেজি ওজনের জন্য ১টি বোলাস (বড়ি)।' },
+        { id: 'm95', name: 'অক্সি-বি (Oxy-B)', generic: 'Oxytetracycline + B-Complex', company: 'Renata Ltd.', category: 'অ্যান্টিবায়োটিক + ভিটামিন', indications: 'ব্যাকটেরিয়াল ইনফেকশন এবং একইসাথে গাভীর শারীরিক দুর্বলতা সারাতে।', dosage: 'প্রতি ১০ কেজি ওজনের জন্য ১ মিলি (মাংসে)।' },
+
+        // --- তীব্র ব্যথানাশক (Strong Painkillers) ---
+        { id: 'm96', name: 'ফ্লুনিক্সিন (Flunixin Vet)', generic: 'Flunixin Meglumine', company: 'Square Pharma', category: 'তীব্র ব্যথানাশক', indications: 'তীব্র ব্যথা, ফুসফুসের প্রদাহ, ম্যাসটাইটিস এবং পেটে ব্যথার (Colic) দ্রুত উপশম।', dosage: 'প্রতি ২২ কেজি ওজনের জন্য ১ মিলি (শিরায় বা মাংসে)।' },
+        { id: 'm97', name: 'ডিক্লোভেট (Diclovet)', generic: 'Diclofenac Sodium', company: 'Acme Laboratories', category: 'ব্যথানাশক', indications: 'পেশি, হাড়ের জয়েন্টে ব্যথা, খোঁড়া রোগ বা আঘাতজনিত ব্যথা কমাতে।', dosage: 'প্রতি ২৫ কেজি ওজনের জন্য ১ মিলি (মাংসে)।' },
+
+        // --- রক্তশূন্যতা, এনার্জি ও ইমার্জেন্সি ড্রাগস ---
+        { id: 'm98', name: 'আয়রন ডেক্সট্রান (Iron Vet)', generic: 'Iron Dextran', company: 'Various', category: 'মিনারেল (আয়রন)', indications: 'নবজাতক বাছুরের রক্তশূন্যতা, রক্তচোষা পরজীবীর কারণে দুর্বলতা দূর করতে।', dosage: 'বাছুরের জন্য ২-৫ মিলি (মাংসে)।' },
+        { id: 'm99', name: 'ভিটামিন কে (K-Vet)', generic: 'Menadione Sodium Bisulfite', company: 'Acme Laboratories', category: 'রক্তপাত রোধক', indications: 'অপারেশনের সময় অতিরিক্ত রক্তপাত, বিষক্রিয়া বা রক্ত আমাশয় জনিত রক্তক্ষরণ বন্ধ করতে।', dosage: 'বড় গরুর জন্য ৫-১০ মিলি (মাংসে)।' },
+        { id: 'm100', name: 'প্রোপাইলিন গ্লাইকল (Propylene Glycol)', generic: 'Propylene Glycol', company: 'Various', category: 'কিটোসিস ড্রাগ', indications: 'দুধালো গাভীর এনার্জি ঘাটতি (কিটোসিস) বা বাচ্চা দেওয়ার পর দুর্বলতা দূর করতে।', dosage: 'প্রথম দিন ২০০-৩০০ মিলি, এরপর প্রতিদিন ১০০ মিলি খাইয়ে দিতে হবে।' },
+
+        // --- বিষক্রিয়া ও রুমেন (পাকস্থলী) এসিডিটি ---
+        { id: 'm101', name: 'সোডিয়াম বাইকার্বোনেট (খাবার সোডা)', generic: 'Sodium Bicarbonate', company: 'Various', category: 'এন্টাসিড / বাফার', indications: 'অতিরিক্ত দানাদার খাবার খেয়ে রুমেনের এসিডিটি বা টক ঢেকুর দেখা দিলে।', dosage: '৫০-১০০ গ্রাম পাউডার পানির সাথে মিশিয়ে খাওয়াতে হবে।' },
+        { id: 'm102', name: 'অ্যাক্টিভেটেড চারকোল (Charcoal)', generic: 'Activated Charcoal', company: 'Various', category: 'পয়জন এন্টিডোট', indications: 'গরু বিষাক্ত ঘাস বা রাসায়নিক খেয়ে ফেললে পেট থেকে বিষ বের করতে (Life Saving)।', dosage: '১০০-২০০ গ্রাম পাউডার পানিতে গুলিয়ে খাওয়াতে হবে।' },
+        { id: 'm103', name: 'ডায়াজিপাম (Diazepam Vet)', generic: 'Diazepam', company: 'Various', category: 'সিডেটিভ / শান্তকারক', indications: 'গরু অতিরিক্ত ছটফট করলে, খিঁচুনি বা টিটেনাস হলে শান্ত করার জন্য।', dosage: 'লক্ষণ বুঝে চিকিৎসকের সরাসরি তত্ত্বাবধানে শিরায় বা মাংসে।' },
+
+        // --- পরজীবীনাশক (এডভান্সড) ও বাহ্যিক যত্ন ---
+        { id: 'm104', name: 'নাইট্রোক্সিনিল (Nitroxynil 34%)', generic: 'Nitroxynil', company: 'Acme Laboratories', category: 'কৃমিনাশক (ইনজেকশন)', indications: 'মারাত্মক লিভার ফ্লুক (কলিজা কৃমি) এবং রক্তচোষা কৃমি দমনে ইনজেকশন।', dosage: 'প্রতি ৩৫ কেজি ওজনের জন্য ১ মিলি (শুধুমাত্র চামড়ার নিচে)।' },
+        { id: 'm105', name: 'অ্যামিট্রাজ (Amitraz 12.5%)', generic: 'Amitraz', company: 'Various', category: 'বাহ্যিক পরজীবীনাশক', indications: 'চামড়ার উঁকুন, মাইট (Mange) এবং মারাত্মক আঠালী দমনে স্প্রে বা গোসল।', dosage: '১ লিটার পানিতে ২ মিলি মিশিয়ে গায়ে স্প্রে করতে হবে। চেটে যেন না খায় সেদিকে খেয়াল রাখতে হবে।' },
+        { id: 'm106', name: 'বেটিকল পোর-অন (Bayticol)', generic: 'Flumethrin', company: 'Bayer', category: 'পোর-অন সলিউশন', indications: 'আঠালী ও উঁকুন দমনে পিঠের ওপর মেরুদণ্ড বরাবর ঢেলে দেওয়ার আধুনিক ঔষধ।', dosage: 'প্রতি ১০ কেজি ওজনের জন্য ১ মিলি হারে পিঠের ওপর ঢেলে দিন।' },
+        { id: 'm107', name: 'বায়োটিন প্লাস (Biotin Plus)', generic: 'Biotin + Zinc', company: 'Square Pharma', category: 'ভিটামিন / মিনারেল পাউডার', indications: 'গরুর ক্ষুরের ফাটল বা রোগ এবং চামড়ার রুক্ষতা দূর করে উজ্জ্বলতা বাড়াতে।', dosage: 'প্রতিদিন ১০-২০ গ্রাম খাবারের সাথে মেশাতে হবে।' },
+        { id: 'm108', name: 'পটাশিয়াম পারম্যাঙ্গানেট (P.P. / পটাশ)', generic: 'Potassium Permanganate', company: 'Various', category: 'জীবাণুনাশক', indications: 'খুরা রোগের ঘা, মুখ ও পা ধোয়ার জন্য সবচেয়ে সাশ্রয়ী এবং কার্যকরী জীবাণুনাশক।', dosage: '১ চিমটি পটাশ ১ লিটার পানিতে মিশিয়ে হালকা গোলাপি রঙ তৈরি করে ধুয়ে দিন।' },
+        // --- টিক ফিভার (Tick Fever), ব্লাড প্রোটোজোয়া ও রক্তপেশাব ---
+        { id: 'm109', name: 'ডিমিনা ভেট (Dimina Vet)', generic: 'Diminazene Aceturate', company: 'Acme Laboratories', category: 'অ্যান্টি-প্রোটোজোয়াল', indications: 'বাবেসিওসিস (রক্তপেশাব রোগ) এবং ট্রাইপ্যানোসোমিয়াসিস (Surra) রোগের অব্যর্থ চিকিৎসা।', dosage: 'প্রতি ১০০ কেজি ওজনের জন্য ৩.৫ মিলি (গভীর মাংসে)।' },
+        { id: 'm110', name: 'বুটালেক্স (Butalex)', generic: 'Buparvaquone', company: 'MSD Animal Health', category: 'অ্যান্টি-প্রোটোজোয়াল', indications: 'থাইলেরিওসিস (Theileriosis) বা মারাত্মক টিক ফিভার (Tick fever) দমনে।', dosage: 'প্রতি ২০ কেজি ওজনের জন্য ১ মিলি (মাংসে)।' },
+
+        // --- গর্ভবতী গাভীর নিরাপদ কৃমিনাশক ও পরজীবীনাশক ---
+        { id: 'm111', name: 'ফেনাবেল (Fenabel)', generic: 'Fenbendazole', company: 'Square Pharma', category: 'কৃমিনাশক', indications: 'গর্ভবতী গাভীর জন্য সবচেয়ে নিরাপদ কৃমিনাশক। গোল কৃমি ও ফিতা কৃমি দমনে।', dosage: 'প্রতি ৭৫ কেজি ওজনের জন্য ১টি বল (খাবারের সাথে)।' },
+        { id: 'm112', name: 'আইভেরা-সি (Ivera-C)', generic: 'Ivermectin + Clorsulon', company: 'Acme Laboratories', category: 'ডাবল অ্যাকশন পরজীবীনাশক', indications: 'একইসাথে মারাত্মক কলিজা কৃমি এবং বাইরের উঁকুন, আঠালী ও মাইট ধ্বংস করতে।', dosage: 'প্রতি ৫০ কেজি ওজনের জন্য ১ মিলি (শুধুমাত্র চামড়ার নিচে)।' },
+
+        // --- জিরো উইথড্রয়াল ও কম্বিনেশন অ্যান্টিবায়োটিক ---
+        { id: 'm113', name: 'সেফটিওফার ভেট (Ceftiofur)', generic: 'Ceftiofur Sodium', company: 'Various', category: 'অ্যান্টিবায়োটিক (Zero Milk Withdrawal)', indications: 'শ্বাসতন্ত্রের রোগ (BRD) এবং ক্ষুরের পচন (Foot rot)। এই ওষুধ দিলে দুধ ফেলে দিতে হয় না।', dosage: 'প্রতি ৫০ কেজি ওজনের জন্য ১-২ মিলি (মাংসে)।' },
+        { id: 'm114', name: 'সালফা-৩ (Sulpha-3)', generic: 'Sulphadiazine + Sulphadimidine + Sulphapyridine', company: 'Renata Ltd.', category: 'অ্যান্টিবায়োটিক', indications: 'তীব্র রক্ত আমাশয়, নিউমোনিয়া এবং ম্যাসটাইটিসের চিকিৎসায়।', dosage: 'প্রতি ৩৫ কেজি ওজনের জন্য ১টি বোলাস।' },
+
+        // --- ফাস্ট-অ্যাকশন ব্যথানাশক (Combo Painkillers) ---
+        { id: 'm115', name: 'মেলভেট প্লাস (Melvet Plus)', generic: 'Meloxicam + Paracetamol', company: 'Square Pharma', category: 'ব্যথানাশক ও জ্বর', indications: 'তীব্র জ্বর, হাড়ের জয়েন্টে মারাত্মক ব্যথা এবং সার্জারির পর ফাস্ট পেইন রিলিভার হিসেবে।', dosage: 'প্রতি ২৫ কেজি ওজনের জন্য ১ মিলি (মাংসে)।' },
+        { id: 'm116', name: 'ডিক্লো-পি (Diclo-P)', generic: 'Diclofenac + Paracetamol', company: 'Various', category: 'তীব্র ব্যথানাশক', indications: 'খোঁড়া রোগ, পেশির খিঁচুনি এবং যেকোনো প্রদাহজনিত ব্যথা দ্রুত কমাতে।', dosage: 'প্রতি ২৫ কেজি ওজনের জন্য ১ মিলি (মাংসে)।' },
+
+        // --- আইভি ফ্লুইড, স্যালাইন ও জরুরি ড্রাগস ---
+        { id: 'm117', name: 'ডেক্সট্রোজ ৫% / ২৫% (Dextrose)', generic: 'Dextrose Aqua', company: 'Various', category: 'আইভি স্যালাইন', indications: 'মারাত্মক দুর্বলতা, পানিশূন্যতা, ডায়রিয়া এবং কিটোসিসের সময় সরাসরি শিরায় এনার্জি দিতে।', dosage: 'প্রয়োজন অনুযায়ী ৫০০ মিলি থেকে কয়েক লিটার (শিরায়)।' },
+        { id: 'm118', name: 'টিটি (Tetanus Toxoid)', generic: 'Tetanus Vaccine', company: 'Various', category: 'টিকা / ভ্যাকসিন', indications: 'গভীর ক্ষত, শিং ভাঙা বা যেকোনো অপারেশনের পর টিটেনাস (ধনুষ্টংকার) রোধ করতে।', dosage: 'বড় গরুর জন্য ২ মিলি (মাংসে)।' },
+
+        // --- জরায়ু ও ক্ষুর পরিষ্কারক (Reproductive & Hoof Care) ---
+        { id: 'm119', name: 'লুগোলস আয়োডিন (Lugol\'s Iodine)', generic: 'Iodine Solution', company: 'Various', category: 'জরায়ু পরিষ্কারক', indications: 'গাভীর জরায়ুর ইনফেকশন (Metritis) দূর করতে এবং রিপিট ব্রিডিং (বারবার হিট মিস) ঠেকাতে।', dosage: 'পাতলা করে সলিউশন বানিয়ে চিকিৎসকের মাধ্যমে জরায়ুতে পুশ করতে হয়।' },
+        { id: 'm120', name: 'কপার সালফেট (তঁতে)', generic: 'Copper Sulphate', company: 'Various', category: 'ফুটবাথ / ক্ষুর পরিষ্কারক', indications: 'ক্ষুরের পচন বা খুরা রোগের সময় খামারের গেটে ফুটবাথ (পাদানি) হিসেবে জীবাণু ধ্বংস করতে।', dosage: 'পানির সাথে ২-৫% মাত্রায় মিশিয়ে ব্যবহার করতে হবে।' },
+
+        // --- বাহ্যিক ক্ষত, মাছি ও ফাঙ্গাস প্রতিরোধী ---
+        { id: 'm121', name: 'টপিকিউর স্প্রে (Topicure Spray)', generic: 'Herbal Aerosol', company: 'Natural Remedies', category: 'ক্ষত স্প্রে', indications: 'যেকোনো গভীর ক্ষত, পোকা পড়া ঘা এবং ক্ষতের চারপাশ থেকে মাছি তাড়াতে অব্যর্থ স্প্রে।', dosage: 'ক্ষতস্থান পরিষ্কার করে দিনে ২ বার স্প্রে করুন।' },
+        { id: 'm122', name: 'জেনশিয়ান ভায়োলেট (Gentian Violet)', generic: 'Blue Paint/Spray', company: 'Various', category: 'অ্যান্টি-ফাঙ্গাল স্প্রে', indications: 'মুখের ঘা, ক্ষুরের ঘা এবং চামড়ার ফাঙ্গাল ইনফেকশন রোধে নীল রঙের স্প্রে।', dosage: 'ক্ষতস্থানে দিনে ১-২ বার প্রয়োগ করুন।' },
+
+        // --- বাছুরের স্পেশাল যত্ন ---
+        { id: 'm123', name: 'অ্যামপ্রোলিয়াম (Amprolium)', generic: 'Amprolium', company: 'Square Pharma', category: 'ককসিডিওস্ট্যাট', indications: 'বাছুরের তীব্র রক্ত আমাশয় (Coccidiosis) এবং পাতলা পায়খানা বন্ধ করতে।', dosage: '১ গ্রাম পাউডার ১ লিটার পানিতে মিশিয়ে খাওয়াতে হবে।' },
+        { id: 'm124', name: 'কলিক ভেট (Colic Vet)', generic: 'Anti-Spasmodic', company: 'Various', category: 'পেট ব্যথা উপশম', indications: 'বাছুর বা বড় গরুর তীব্র পেট ব্যথা (Colic) এবং মোচড়ানো বন্ধ করতে।', dosage: 'লক্ষণ বুঝে চিকিৎসকের পরামর্শে প্রয়োগযোগ্য।' },
+        { id: 'm125', name: 'জিংক অক্সাইড মলম (Zinc Oxide)', generic: 'Zinc Oxide Ointment', company: 'Various', category: 'ত্বকের মলম', indications: 'দাদ, একজিমা, রিংওয়ার্ম বা গরুর চামড়ার যেকোনো চুলকানিতে প্রশান্তি দিতে।', dosage: 'আক্রান্ত স্থানে প্রলেপ দিয়ে লাগাতে হবে।' },
+        // --- অ্যাডভান্সড অ্যান্টিবায়োটিক (Advanced Antibiotics) ---
+        { id: 'm126', name: 'এম্পিসিলিন ভেট (Ampicillin)', generic: 'Ampicillin Sodium', company: 'Various', category: 'অ্যান্টিবায়োটিক', indications: 'শ্বাসতন্ত্র, পরিপাকতন্ত্র এবং মূত্রনালীর তীব্র ইনফেকশন রোধে।', dosage: 'প্রতি ১০ কেজি ওজনের জন্য ১ মিলি (মাংসে)।' },
+        { id: 'm127', name: 'কানামাইসিন (Kanamycin)', generic: 'Kanamycin Sulphate', company: 'Acme Laboratories', category: 'অ্যান্টিবায়োটিক', indications: 'মারাত্মক ম্যাসটাইটিস এবং জরায়ুর ব্যাকটেরিয়াল ইনফেকশন (মেট্রাইটিস) রোধে।', dosage: 'প্রতি ১০ কেজি ওজনের জন্য ১ মিলি (মাংসে)।' },
+        { id: 'm128', name: 'লিনকো-স্পেকট্রিন (Linco-Spectin)', generic: 'Lincomycin + Spectinomycin', company: 'Various', category: 'অ্যান্টিবায়োটিক', indications: 'খোঁড়া রোগ, ক্ষুরের পচন (Foot rot) এবং জয়েন্ট ফুলে যাওয়া বা বাতের ব্যথায়।', dosage: 'প্রতি ১০ কেজি ওজনের জন্য ১ মিলি (মাংসে)।' },
+        { id: 'm129', name: 'স্পাইরামাইসিন (Spiramycin)', generic: 'Spiramycin', company: 'Square Pharma', category: 'অ্যান্টিবায়োটিক', indications: 'দুধালো গাভীর তীব্র ম্যাসটাইটিস এবং শ্বাসতন্ত্রের জটিলতায়।', dosage: 'প্রতি ১৫ কেজি ওজনের জন্য ১ মিলি (মাংসে)।' },
+        { id: 'm130', name: 'এরিথ্রোমাইসিন (Erythromycin)', generic: 'Erythromycin Thiocyanate', company: 'Various', category: 'অ্যান্টিবায়োটিক (পাউডার)', indications: 'দীর্ঘস্থায়ী সর্দি, কাশি এবং নিউমোনিয়ার চিকিৎসায় খাদ্যের সাথে।', dosage: '১ গ্রাম পাউডার ১ লিটার পানিতে মিশিয়ে।' },
+        { id: 'm131', name: 'অ্যাজিথ্রোভেট (Azithrovet)', generic: 'Azithromycin', company: 'Renata Ltd.', category: 'অ্যান্টিবায়োটিক', indications: 'তীব্র শ্বাসকষ্ট, নিউমোনিয়া এবং অন্যান্য ওষুধ কাজ না করলে।', dosage: 'প্রতি ২০ কেজি ওজনের জন্য ১ মিলি (মাংসে)।' },
+        { id: 'm132', name: 'কোলিস্টিন ভেট (Colistin)', generic: 'Colistin Sulphate', company: 'Acme Laboratories', category: 'অ্যান্টিবায়োটিক', indications: 'বাছুরের মারাত্মক ই.কোলাই (E.coli) ইনফেকশন এবং ডায়রিয়া বন্ধ করতে।', dosage: 'চিকিৎসকের পরামর্শ অনুযায়ী পানিতে মিশিয়ে।' },
+        { id: 'm133', name: 'সেফোট্যাক্সিম (Cefotaxime)', generic: 'Cefotaxime Sodium', company: 'Various', category: 'অ্যান্টিবায়োটিক (ইনজেকশন)', indications: 'মস্তিষ্কের ইনফেকশন, মেনিনজাইটিস এবং রক্তে জীবাণু ছড়িয়ে পড়লে (সেপটিসেমিয়া)।', dosage: 'প্রতি ৫০ কেজি ওজনের জন্য ১ ভায়াল (শিরায় বা মাংসে)।' },
+        { id: 'm134', name: 'স্ট্রেপ্টোমাইসিন (Streptomycin)', generic: 'Streptomycin Sulphate', company: 'Various', category: 'অ্যান্টিবায়োটিক', indications: 'গলাফুলা, ডায়রিয়া এবং পরিপাকতন্ত্রের তীব্র ব্যাকটেরিয়াল ইনফেকশনে।', dosage: 'চিকিৎসকের নির্দেশনা অনুযায়ী মাংসে।' },
+        { id: 'm135', name: 'টাইলো-ডক্স (Tylo-Dox)', generic: 'Tylosin + Doxycycline', company: 'Square Pharma', category: 'অ্যান্টিবায়োটিক (পাউডার)', indications: 'মিক্সড ইনফেকশন, পরিপাকতন্ত্র ও শ্বাসতন্ত্রের যৌথ সমস্যায়।', dosage: '১ গ্রাম পাউডার ২ লিটার পানিতে।' },
+
+        // --- পরজীবী ও কৃমিনাশক (Advanced Parasiticides) ---
+        { id: 'm136', name: 'ডেল্টামেথ্রিন (Deltamethrin)', generic: 'Deltamethrin 1%', company: 'Various', category: 'পোর-অন / স্প্রে', indications: 'উঁকুন, আঠালী এবং মাছি দমনে সরাসরি পিঠের উপর বা স্প্রে করে।', dosage: '১ মিলি ওষুধ ১ লিটার পানিতে মিশিয়ে স্প্রে করতে হবে।' },
+        { id: 'm137', name: 'সাইপারমেথ্রিন (Cypermethrin)', generic: 'Cypermethrin 10%', company: 'Renata Ltd.', category: 'কীটনাশক', indications: 'খামারের চারপাশ, মেঝ এবং শেডের মশা-মাছি ও পোকা দমনে।', dosage: '২ মিলি ১ লিটার পানিতে মিশিয়ে খামারে স্প্রে (গরুর গায়ে নয়)।' },
+        { id: 'm138', name: 'ক্লোস্যানটেল (Closantel)', generic: 'Closantel', company: 'Square Pharma', category: 'কৃমিনাশক (ইনজেকশন)', indications: 'কলিজা কৃমি এবং রক্তচোষা কৃমি দমনে ইনজেকশন।', dosage: 'প্রতি ২৫ কেজি ওজনের জন্য ১ মিলি (চামড়ার নিচে)।' },
+        { id: 'm139', name: 'প্রাজিকুয়ান্টেল (Praziquantel)', generic: 'Praziquantel', company: 'Various', category: 'কৃমিনাশক', indications: 'মারাত্মক ফিতা কৃমি (Tapeworm) ধ্বংস করতে।', dosage: 'প্যাকেটের নির্দেশিকা অনুযায়ী খাবারের সাথে।' },
+        { id: 'm140', name: 'পিপারাজিন (Piperazine)', generic: 'Piperazine Citrate', company: 'Acme Laboratories', category: 'কৃমিনাশক (লিকুইড)', indications: 'বাছুরের গোল কৃমি দমনে খুবই নিরাপদ লিকুইড ওষুধ।', dosage: 'প্রতি ১০ কেজি ওজনের জন্য ৩-৪ মিলি।' },
+        { id: 'm141', name: 'নিক্লোসামাইড (Niclosamide)', generic: 'Niclosamide', company: 'Various', category: 'কৃমিনাশক', indications: 'ফিতা কৃমি এবং অন্ত্রের প্যারাসাইট দমনে।', dosage: 'প্রতি ৫০ কেজি ওজনের জন্য ১টি বড়ি।' },
+        { id: 'm142', name: 'টলট্রাজুরিল (Toltrazuril)', generic: 'Toltrazuril 5%', company: 'Renata Ltd.', category: 'ককসিডিওস্ট্যাট', indications: 'বাছুরের তীব্র রক্ত আমাশয় এবং পাতলা পায়খানা নিরাময়ে লিকুইড।', dosage: 'প্রতি ১০ কেজি ওজনের জন্য ৩ মিলি (মুখে খাইয়ে)।' },
+        { id: 'm143', name: 'পারমেথ্রিন সাবান (Permethrin Soap)', generic: 'Permethrin 1%', company: 'Various', category: 'ত্বকের সাবান', indications: 'গরুর গায়ের উঁকুন ও মাইট দূর করতে এবং ত্বক পরিষ্কার রাখতে।', dosage: 'গোসলের সময় গায়ে মেখে ৫ মিনিট রেখে ধুয়ে ফেলতে হবে।' },
+
+        // --- স্টেরয়েড ও প্রদাহ বিরোধী (Steroids & Anti-inflammatory) ---
+        { id: 'm144', name: 'প্রেডনিসোলন (Prednisolone)', generic: 'Prednisolone Acetate', company: 'Square Pharma', category: 'স্টেরয়েড', indications: 'তীব্র এলার্জি, আকস্মিক শক এবং জয়েন্টের ব্যথায়।', dosage: 'গর্ভবতী গাভীতে ব্যবহার নিষেধ। ৫ মিলি মাংসে।' },
+        { id: 'm145', name: 'বেটামিথাসন (Betamethasone)', generic: 'Betamethasone', company: 'Various', category: 'স্টেরয়েড', indications: 'চুলকানি, এলার্জি এবং ওষুধের পার্শ্বপ্রতিক্রিয়া কাটাতে।', dosage: 'চিকিৎসকের পরামর্শে ২-৫ মিলি (মাংসে)।' },
+        { id: 'm146', name: 'আইসোফ্লুপ্রেডন (Isoflupredone)', generic: 'Isoflupredone Acetate', company: 'Acme Laboratories', category: 'স্টেরয়েড', indications: 'কিটোসিস রোগ এবং তীব্র ম্যাসটাইটিসের ফোলা কমাতে।', dosage: 'বড় গরুর জন্য ৫ মিলি (মাংসে)।' },
+        { id: 'm147', name: 'নিমেসুলাইড (Nimesulide + Paracetamol)', generic: 'Nimesulide + Paracetamol', company: 'Various', category: 'তীব্র ব্যথানাশক', indications: 'তীব্র জ্বর এবং মাসল বা পেশির ব্যথায় দ্রুত কাজ করে।', dosage: 'প্রতি ২৫ কেজি ওজনের জন্য ১ মিলি (মাংসে)।' },
+
+        // --- হজম, পরিপাকতন্ত্র ও পেট ফাঁপা (Digestive & Rumen Health) ---
+        { id: 'm148', name: 'কাওলিন-পেকটিন (Kaolin + Pectin)', generic: 'Kaolin + Pectin Solution', company: 'Various', category: 'ডায়রিয়া প্রতিরোধক', indications: 'ডায়রিয়া বা পাতলা পায়খানার সময় অন্ত্রের ভেতরের বিষাক্ত পদার্থ শুষে নিতে।', dosage: 'বড় গরুর জন্য ২০০-৫০০ মিলি মুখে খাইয়ে।' },
+        { id: 'm149', name: 'সোডিয়াম প্রোপিওনেট (S. Propionate)', generic: 'Sodium Propionate', company: 'Renata Ltd.', category: 'এন্টাসিড / বাফার', indications: 'কিটোসিস প্রতিরোধে এবং রুমেনের এসিডিটি দূর করতে।', dosage: '৫০ গ্রাম পাউডার পানির সাথে মিশিয়ে।' },
+        { id: 'm150', name: 'লাইভ ইস্ট (Live Yeast Culture)', generic: 'Saccharomyces cerevisiae', company: 'Various', category: 'প্রোবায়োটিক', indications: 'গরুর রুচি বৃদ্ধি, হজম শক্তি বাড়ানো এবং দুধের ফ্যাট বাড়াতে।', dosage: 'প্রতিদিন ১০-২০ গ্রাম খাবারের সাথে।' },
+        { id: 'm151', name: 'ম্যাগনেসিয়াম কার্বোনেট (Mag. Carbonate)', generic: 'Magnesium Carbonate', company: 'Various', category: 'এন্টাসিড', indications: 'তীব্র এসিডিটি এবং পেট ফাঁপার চিকিৎসায়।', dosage: 'চিকিৎসকের নির্দেশ অনুযায়ী।' },
+        { id: 'm152', name: 'অ্যাপেটাইজার টনিক (Appetizer Tonic)', generic: 'Herbal Appetizer', company: 'Square Pharma', category: 'রুচি বর্ধক (লিকুইড)', indications: 'রোগ থেকে ওঠার পর গরুর খাবার খাওয়ার রুচি দ্রুত ফিরিয়ে আনতে।', dosage: 'প্রতিদিন ৫০-১০০ মিলি খাইয়ে দিতে হবে।' },
+        { id: 'm153', name: 'বিসমুথ সাবসিলিসিলেট (Bismuth)', generic: 'Bismuth Subsalicylate', company: 'Various', category: 'ডায়রিয়া প্রতিরোধক', indications: 'তীব্র ডায়রিয়া এবং পেটের অস্বস্তি বা আলসার কমাতে।', dosage: 'পশু চিকিৎসকের পরামর্শে মুখে খাইয়ে।' },
+
+        // --- প্রজনন, হরমোন ও ইমার্জেন্সি (Reproductive & Emergency) ---
+        { id: 'm154', name: 'এইচসিজি ইনজেকশন (hCG)', generic: 'Human Chorionic Gonadotropin', company: 'Various', category: 'হরমোন', indications: 'ওভারিয়ান সিস্ট (Ovarian Cyst) বা গাভীর ডিম্বাশয়ের সমস্যায়।', dosage: 'চিকিৎসকের সরাসরি তত্ত্বাবধানে মাংসে বা শিরায়।' },
+        { id: 'm155', name: 'ডাইনোপ্রোস্ট (Dinoprost)', generic: 'PGF2 Alpha', company: 'Renata Ltd.', category: 'হরমোন', indications: 'মৃত বাচ্চা বের করতে, জরায়ুর পুঁজ পরিষ্কার করতে বা হিটে আনতে।', dosage: '৫ মিলি মাংসে (প্রেগন্যান্ট গাভীতে দিলে গর্ভপাত হয়ে যাবে)।' },
+        { id: 'm156', name: 'ইস্ট্রাডিওল (Estradiol)', generic: 'Estradiol Benzoate', company: 'Various', category: 'হরমোন', indications: 'গাভীকে কৃত্রিমভাবে হিটে আনতে ব্যবহৃত হয়।', dosage: 'চিকিৎসকের পরামর্শে।' },
+        { id: 'm157', name: 'সোডিয়াম এসিড ফসফেট (S.A.P)', generic: 'Sodium Acid Phosphate', company: 'Acme Laboratories', category: 'ফসফরাস সাপ্লিমেন্ট', indications: 'রক্তপেশাব (Hemoglobinuria) এবং প্রজনন সমস্যায়।', dosage: '১০-১৫ মিলি শিরায় বা মাংসে।' },
+        { id: 'm158', name: 'ডেক্সট্রোজ ৫০% (Dextrose 50%)', generic: 'Dextrose 50% IV', company: 'Various', category: 'ইমার্জেন্সি স্যালাইন', indications: 'কিটোসিস বা গাভী হঠাৎ এনার্জি হারিয়ে পড়ে গেলে লাইফ সেভিং স্যালাইন।', dosage: '৫০০ মিলি সরাসরি শিরায় (খুব ধীরে ধীরে)।' },
+        { id: 'm159', name: 'হার্বাল অক্সিটোসিন (Herbal Drop)', generic: 'Herbal Uterine Stimulant', company: 'Natural Remedies', category: 'হার্বাল মেডিসিন', indications: 'দুধ নামাতে এবং বাচ্চা প্রসবের পর প্রাকৃতিকভাবে ফুল (Placenta) ফেলতে।', dosage: 'খাবারের সাথে বা সরাসরি খাইয়ে দিতে হবে।' },
+
+        // --- অবশ করা, সার্জারি ও ক্ষত (Anesthesia & Surgery) ---
+        { id: 'm160', name: 'জাইলাজিন (Xylazine 2%)', generic: 'Xylazine Hydrochloride', company: 'Various', category: 'সিডেটিভ / অজ্ঞানকারক', indications: 'অপারেশন, শিং কাটা বা ক্ষুর কাটার সময় গরুকে শান্ত বা অজ্ঞান করতে।', dosage: '১-৩ মিলি (মাংসে)। শুধুমাত্র রেজিস্টার্ড সার্জনের জন্য।' },
+        { id: 'm161', name: 'লিগনোকেইন ২% (Lignocaine)', generic: 'Lidocaine 2%', company: 'Various', category: 'লোকাল অ্যানেস্থেসিয়া', indications: 'নির্দিষ্ট স্থান অবশ করতে (যেমন: সেলাই দেওয়া বা শিং কাটা)।', dosage: 'ক্ষতস্থানের চারপাশে চামড়ার নিচে পুশ করতে হয়।' },
+        { id: 'm162', name: 'সিলভার সালফাডায়াজিন (Silver Cream)', generic: 'Silver Sulfadiazine', company: 'Square Pharma', category: 'পোড়া ও ক্ষতের ক্রিম', indications: 'আগুনে পোড়া, গরম পানিতে ঝলসানো বা মারাত্মক সংক্রামক ক্ষতে।', dosage: 'ক্ষতস্থানে প্রলেপ দিয়ে লাগাতে হবে।' },
+        { id: 'm163', name: 'জিঙ্ক সালফেট স্প্রে (Zinc Sulphate)', generic: 'Zinc Sulphate Aerosol', company: 'Various', category: 'ক্ষুর সুরক্ষক', indications: 'ক্ষুরের পচন (Foot rot) বা ক্ষুরের মাঝখানের ঘা শুকাতে।', dosage: 'ক্ষুর পরিষ্কার করে দিনে ২ বার স্প্রে করুন।' },
+        { id: 'm164', name: 'অ্যালোভেরা নিম স্প্রে (Herbal Fly Spray)', generic: 'Aloe + Neem Extract', company: 'Various', category: 'মাছি তাড়ানোর স্প্রে', indications: 'ক্ষতের চারপাশে মাছি বসা ঠেকাতে এবং প্রাকৃতিকভাবে ঘা শুকাতে।', dosage: 'ক্ষতস্থানের চারপাশে স্প্রে করুন।' },
+        { id: 'm165', name: 'হাইড্রোজেন পারক্সাইড (H2O2)', generic: 'Hydrogen Peroxide 3%', company: 'Various', category: 'ক্ষত পরিষ্কারক', indications: 'গভীর ঘা বা পুঁজযুক্ত ক্ষতস্থান থেকে মৃত কোষ ও জীবাণু পরিষ্কার করতে।', dosage: 'ক্ষতস্থানে ঢেলে পরিষ্কার করতে হবে (খাওয়ানো নিষেধ)।' },
+        { id: 'm166', name: 'সার্জিক্যাল স্পিরিট (Surgical Spirit)', generic: 'Ethanol 70%', company: 'Various', category: 'জীবাণুনাশক', indications: 'ইনজেকশন দেওয়ার আগে বা অপারেশনের যন্ত্রপাতি জীবাণুমুক্ত করতে।', dosage: 'বাহ্যিক ব্যবহারের জন্য।' },
+
+        // --- ভ্যাকসিন (টিকা) এবং বায়োলজিক্স (Vaccines & Biologics) ---
+        { id: 'm167', name: 'এফএমডি ভ্যাকসিন (FMD Trivalent)', generic: 'Foot & Mouth Disease Vaccine', company: 'LRI / Various', category: 'ভ্যাকসিন (টিকা)', indications: 'খুরা রোগ (O, A, Asia-1 টাইপ) থেকে গরুকে সুরক্ষিত রাখতে।', dosage: '২ মিলি চামড়ার নিচে (প্রতি ৬ মাস অন্তর)।' },
+        { id: 'm168', name: 'লাম্পি স্কিন ভ্যাকসিন (LSD Vaccine)', generic: 'Goat Pox / LSD Strain', company: 'Various', category: 'ভ্যাকসিন (টিকা)', indications: 'লাম্পি স্কিন ডিজিজ বা গরুর বসন্ত রোগ প্রতিরোধে।', dosage: '১ মিলি চামড়ার নিচে (বছরে ১ বার)।' },
+        { id: 'm169', name: 'তড়কা ভ্যাকসিন (Anthrax Vaccine)', generic: 'Anthrax Spore Vaccine', company: 'LRI', category: 'ভ্যাকসিন (টিকা)', indications: 'মারাত্মক অ্যানথ্রাক্স বা তড়কা রোগ থেকে বাঁচতে।', dosage: '১ মিলি চামড়ার নিচে (বছরে ১ বার)।' },
+        { id: 'm170', name: 'বাদলা ভ্যাকসিন (BQ Vaccine)', generic: 'Black Quarter Vaccine', company: 'LRI', category: 'ভ্যাকসিন (টিকা)', indications: 'পেশি ফুলে যাওয়া বা বাদলা রোগ প্রতিরোধে।', dosage: '৫ মিলি চামড়ার নিচে (প্রতি ৬ মাস অন্তর)।' },
+        { id: 'm171', name: 'গলাফুলা ভ্যাকসিন (HS Vaccine)', generic: 'Haemorrhagic Septicaemia', company: 'LRI', category: 'ভ্যাকসিন (টিকা)', indications: 'বর্ষাকালের আগে গলাফুলা রোগ থেকে গরুকে বাঁচাতে।', dosage: '২ মিলি চামড়ার নিচে (বছরে ২ বার)।' },
+        { id: 'm172', name: 'রেবিস ভ্যাকসিন (Rabies Vet)', generic: 'Anti-Rabies Vaccine', company: 'Incepta / Various', category: 'ভ্যাকসিন (টিকা)', indications: 'পাগলা কুকুর বা শিয়াল কামড়ালে জলাতঙ্ক রোগ রোধ করতে।', dosage: 'কামড়ানোর ০, ৩, ৭, ১৪ এবং ২৮ তম দিনে ১ মিলি করে (মাংসে)।' },
+        { id: 'm173', name: 'ব্রুসেলোসিস ভ্যাকসিন (Brucella Calf)', generic: 'Brucella Abortus S19', company: 'Various', category: 'ভ্যাকসিন (টিকা)', indications: 'গর্ভপাত বা ব্রুসেলোসিস রোগ ঠেকাতে শুধুমাত্র বকনা বাছুরকে দেওয়া হয়।', dosage: '৪-৮ মাস বয়সী বকনা বাছুরকে ১ বার (চামড়ার নিচে)।' },
+        { id: 'm174', name: 'টিটেনাস অ্যান্টিটক্সিন (TAT)', generic: 'Tetanus Antitoxin', company: 'Various', category: 'অ্যান্টিটক্সিন', indications: 'আহত হওয়ার পর বা শিং ভাঙলে সাথে সাথে টিটেনাস প্রতিরোধ করতে।', dosage: '১৫০০ থেকে ৩০০০ আইইউ (IU) চামড়ার নিচে বা মাংসে।' },
+
+        // --- এডিমা, রক্তপাত ও অন্যান্য স্পেশাল ড্রাগস ---
+        { id: 'm175', name: 'ফুরোসেমাইড (Furosemide Vet)', generic: 'Furosemide', company: 'Renata Ltd.', category: 'ডাইউরেটিক (Diuretic)', indications: 'ওলান অতিরিক্ত ফুলে গেলে (Edema) বা শরীরে পানি জমলে প্রস্রাবের মাধ্যমে বের করতে।', dosage: 'প্রতি ৫০ কেজি ওজনের জন্য ১ মিলি (মাংসে)।' },
+        { id: 'm176', name: 'ভিটামিন কে-৩ (Vitamin K3 Powder)', generic: 'Menadione Sodium', company: 'Square Pharma', category: 'অ্যান্টি-কোয়াগুল্যান্ট', indications: 'খাবারের বিষক্রিয়া বা ইঁদুরের ওষুধের রিঅ্যাকশনে রক্তপাত হলে।', dosage: 'পানির সাথে মিশিয়ে খাওয়াতে হবে।' },
+        { id: 'm177', name: 'ম্যাগনেসিয়াম সালফেট (পোল্টিস)', generic: 'Magnesium Sulphate Paste', company: 'Various', category: 'ব্যথার প্রলেপ (Poultice)', indications: 'পেশিতে আঘাত বা ইনজেকশনের জায়গা ফুলে শক্ত হয়ে গেলে গরম পানিতে মিশিয়ে সেঁক দিতে।', dosage: 'গরম পানিতে পেস্ট বানিয়ে আক্রান্ত স্থানে লাগাতে হবে।' },
+        { id: 'm178', name: 'অ্যান্টি-ডায়রিয়াল পাউডার (Anti-Diarrheal)', generic: 'Bael + Herbal Extract', company: 'Various', category: 'হার্বাল পাউডার', indications: 'দীর্ঘমেয়াদী পাতলা পায়খানা বন্ধ করতে সম্পূর্ণ ন্যাচারাল সমাধান।', dosage: 'প্রতিদিন ৫০ গ্রাম খাবারের সাথে।' },
+        { id: 'm179', name: 'কপার সালফেট পাউডার (তঁতে)', generic: 'Copper Sulphate Powder', company: 'Various', category: 'অ্যান্টি-ফাঙ্গাল', indications: 'পুকুরের পানি জীবাণুমুক্ত করতে বা গরুর ফাঙ্গাল ঘায়ের চিকিৎসায়।', dosage: '১% থেকে ২% দ্রবণ তৈরি করে ব্যবহার্য।' },
+        { id: 'm180', name: 'ভিটামিন এডি৩ই+বি১২ (AD3E + B12)', generic: 'Vitamins Combo', company: 'Acme Laboratories', category: 'ভিটামিন ইনজেকশন', indications: 'দুর্বল বাছুরের গ্রোথ বাড়াতে এবং হাড় বাঁকা হওয়া রোধ করতে।', dosage: 'বাছুরের জন্য ২-৩ মিলি (মাংসে)।' },
+        { id: 'm181', name: 'নরফ্লক্সাসিন (Norfloxacin)', generic: 'Norfloxacin', company: 'Various', category: 'অ্যান্টিবায়োটিক (পাউডার)', indications: 'পানির মাধ্যমে গণহারে ব্যাকটেরিয়াল ইনফেকশন ও আমাশয় রোধে।', dosage: '১ গ্রাম ১ লিটার পানিতে।' },
+        { id: 'm182', name: 'লেভোফ্লক্সাসিন (Levofloxacin)', generic: 'Levofloxacin', company: 'Square Pharma', category: 'অ্যান্টিবায়োটিক (লিকুইড)', indications: 'তীব্র শ্বাসকষ্ট ও নিউমোনিয়ায় দ্রুত কাজ করতে।', dosage: 'পানির সাথে মিশিয়ে খাওয়াতে হবে।' },
+        { id: 'm183', name: 'সালফামেথক্সাজল + ট্রাইমেথোপ্রিম', generic: 'Co-trimoxazole', company: 'Various', category: 'অ্যান্টিবায়োটিক', indications: 'পরিপাকতন্ত্র এবং জরায়ুর ব্যাকটেরিয়াল ইনফেকশন।', dosage: 'বড় গরুকে ২-৪টি বোলাস।' },
+        { id: 'm184', name: 'নিওমাইসিন (Neomycin)', generic: 'Neomycin Sulphate', company: 'Renata Ltd.', category: 'অ্যান্টিবায়োটিক', indications: 'অন্ত্রের ব্যাকটেরিয়াল ইনফেকশন (Enteritis) দমনে খুবই কার্যকরী।', dosage: 'প্রতিদিন ১-২ গ্রাম পাউডার।' },
+        { id: 'm185', name: 'মারবোফ্লক্সাসিন (Marbofloxacin)', generic: 'Marbofloxacin', company: 'Various', category: 'অ্যান্টিবায়োটিক', indications: 'মারাত্মক ম্যাসটাইটিস এবং শ্বাসতন্ত্রের ইনফেকশন (BRD)।', dosage: 'প্রতি ৫০ কেজি ওজনের জন্য ১ মিলি (মাংসে)।' },
+        { id: 'm186', name: 'অ্যাসপিরিন (Aspirin Bolus)', generic: 'Acetylsalicylic Acid', company: 'Various', category: 'ব্যথানাশক বড়ি', indications: 'সাধারণ জ্বর, পেশির ব্যথা এবং প্রদাহ কমাতে সাশ্রয়ী বড়ি।', dosage: 'বড় গরুর জন্য ২-৩টি বড়ি।' },
+        { id: 'm187', name: 'ফিনাইলবুটাজোন (Phenylbutazone)', generic: 'Phenylbutazone', company: 'Various', category: 'তীব্র ব্যথানাশক', indications: 'হাড় বা জয়েন্টের মারাত্মক ব্যথা (Arthritis) এবং খোঁড়ানো বন্ধ করতে।', dosage: 'প্রতি ২০ কেজি ওজনের জন্য ১ মিলি (মাংসে বা শিরায়)।' },
+        { id: 'm188', name: 'পাইরোক্সিকাম (Piroxicam)', generic: 'Piroxicam', company: 'Square Pharma', category: 'ব্যথানাশক', indications: 'অস্থিসন্ধি এবং পেশির তীব্র প্রদাহ কমাতে।', dosage: 'চিকিৎসকের পরামর্শে।' },
+        { id: 'm189', name: 'মেবেন্ডাজোল (Mebendazole)', generic: 'Mebendazole', company: 'Various', category: 'কৃমিনাশক', indications: 'অন্ত্রের গোল কৃমি ও সুতা কৃমি দমনে।', dosage: 'খাবারের সাথে মিশিয়ে।' },
+        { id: 'm190', name: 'ডাইমিনেজেন + ফেনাজোন', generic: 'Diminazene + Phenazone', company: 'Renata Ltd.', category: 'অ্যান্টি-প্রোটোজোয়াল', indications: 'বাবেসিয়া (রক্তপেশাব) এবং ট্রাইপ্যানোসোমা জীবাণু দমনে ব্যথানাশকসহ।', dosage: 'প্রতি ১০০ কেজি ওজনের জন্য ৩.৫ মিলি (মাংসে)।' },
+        { id: 'm191', name: 'ক্লোরটেট্রাসাইক্লিন (Chlortetracycline)', generic: 'CTC Powder', company: 'Various', category: 'অ্যান্টিবায়োটিক প্রিমিক্স', indications: 'খামারে গণহারে রোগ প্রতিরোধ করতে খাদ্যের সাথে মেশানোর জন্য।', dosage: '১০০ কেজি খাবারে পরিমাণমতো মেশাতে হবে।' },
+        { id: 'm192', name: 'অ্যান্টি-ককসিডিয়াল (Anti-coccidial)', generic: 'Amprolium + Sulpha', company: 'Various', category: 'রক্ত আমাশয়', indications: 'বাছুরের তীব্র রক্ত আমাশয় বন্ধ করতে।', dosage: 'পানির সাথে মিশিয়ে।' },
+        { id: 'm193', name: 'হার্বাল ইউটেরিন টনিক (Liquid)', generic: 'Uterine Cleanser', company: 'Various', category: 'জরায়ু টনিক', indications: 'গাভীর জরায়ু পরিষ্কার এবং হিটে আসার সাইকেল ঠিক করতে।', dosage: 'প্রতিদিন ৫০-১০০ মিলি।' },
+        { id: 'm194', name: 'ট্রেস মিনারেল ইনজেকশন', generic: 'Trace Minerals', company: 'Various', category: 'মিনারেল ইনজেকশন', indications: 'কপার, কোবাল্ট ও সেলেনিয়ামের ঘাটতি পূরণে।', dosage: 'চিকিৎসকের পরামর্শে।' },
+        { id: 'm195', name: 'ভিটামিন বি১ (Thiamine)', generic: 'Vitamin B1 Injection', company: 'Acme Laboratories', category: 'ভিটামিন ইনজেকশন', indications: 'স্নায়ুবিক রোগ (Polioencephalomalacia) বা গরুর মাথা বাঁকা হয়ে যাওয়ার চিকিৎসায়।', dosage: 'লক্ষণ বুঝে মাংসে বা শিরায়।' },
+        { id: 'm196', name: 'ভিটামিন সি পাউডার (Vitamin C)', generic: 'Ascorbic Acid Powder', company: 'Square Pharma', category: 'ভিটামিন পাউডার', indications: 'তীব্র গরমের সময় হিট স্ট্রোক রোধে পানির সাথে।', dosage: '১ গ্রাম ২ লিটার পানিতে।' },
+        { id: 'm197', name: 'প্রোবায়োটিক জেল (Probiotic Gel)', generic: 'Live Yeast Paste', company: 'Various', category: 'ওরাল জেল', indications: 'অসুস্থ গরুর রুচি দ্রুত ফেরাতে সরাসরি মুখে পুশ করার জেল।', dosage: '১টি পুরো টিউব খাইয়ে দিতে হবে।' },
+        { id: 'm198', name: 'অ্যান্টি-ব্লোট লিকুইড (Anti-Bloat)', generic: 'Herbal Carminative', company: 'Natural Remedies', category: 'পেট ফাঁপা', indications: 'গ্যাস বা পেট ফাঁপায় দ্রুত স্বস্তি দিতে হার্বাল লিকুইড।', dosage: '১০০ মিলি আধা লিটার পানিতে মিশিয়ে।' },
+        { id: 'm199', name: 'ক্যালসিয়াম বোরোগ্লুকোনেট + ম্যাগনেসিয়াম', generic: 'CBG + Mg IV', company: 'Various', category: 'আইভি স্যালাইন', indications: 'ঘাস টিটানি (Grass Tetany) এবং দুধ জ্বরের যৌথ চিকিৎসায়।', dosage: 'শিরায় (চিকিৎসকের তত্ত্বাবধানে)।' },
+        { id: 'm200', name: 'হার্বাল লিভার পাউডার (Liver Powder)', generic: 'Herbal Liver Extract', company: 'Various', category: 'লিভার টনিক (পাউডার)', indications: 'খাবারের সাথে মিশিয়ে লিভারের কার্যক্ষমতা বাড়াতে।', dosage: 'প্রতিদিন ২০-৩০ গ্রাম।' }
+    ];
+
+    window.renderMedicineList = function() {
+        const container = document.getElementById('medicine-list-container');
+        if(!container) return;
+        window.displayMedicines(window.vetMedicinesData);
+    };
+
+    window.displayMedicines = function(medicines) {
+        const container = document.getElementById('medicine-list-container');
+        let html = '';
+        if(medicines.length === 0) {
+            html = '<div style="text-align:center; padding:30px; color:var(--text-muted);">কোনো মেডিসিন পাওয়া যায়নি।</div>';
+        } else {
+            medicines.forEach(med => {
+                html += `
+                <div class="agro-card fade-in" onclick="window.showMedicineDetailsModal('${med.id}')" style="margin-bottom: 12px; padding: 15px; cursor: pointer; border-left: 4px solid #C62828;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <div>
+                            <h3 style="margin: 0 0 4px 0; font-size: 1.1rem; color: var(--text-main); font-weight: 700;">${med.name}</h3>
+                            <p style="margin: 0 0 6px 0; font-size: 0.8rem; color: #555;"><i>${med.generic}</i></p>
+                            <span style="background: rgba(198, 40, 40, 0.1); color: #C62828; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 12px;">${med.category}</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right" style="color: #ccc; margin-top: 10px;"></i>
+                    </div>
+                </div>`;
+            });
+        }
+        container.innerHTML = html;
+    };
+
+    window.searchMedicine = function() {
+        const query = document.getElementById('medicine-search-input').value.toLowerCase();
+        const filtered = window.vetMedicinesData.filter(med => 
+            med.name.toLowerCase().includes(query) || 
+            med.generic.toLowerCase().includes(query) ||
+            med.indications.toLowerCase().includes(query) ||
+            med.category.toLowerCase().includes(query)
+        );
+        window.displayMedicines(filtered);
+    };
+
+    window.showMedicineDetailsModal = function(id) {
+        window.vibrate(40);
+        const med = window.vetMedicinesData.find(m => m.id === id);
+        if(!med) return;
+
+        const modalHTML = `
+            <div id="medicine-details-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 100000; display: flex; justify-content: center; align-items: flex-end; opacity: 0; transition: opacity 0.3s ease;">
+                <div style="background: var(--card-bg); width: 100%; max-height: 85vh; border-top-left-radius: 24px; border-top-right-radius: 24px; padding: 25px 20px; overflow-y: auto; transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 -10px 25px rgba(0,0,0,0.1);">
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                        <div style="padding-right: 15px;">
+                            <span style="background: rgba(198, 40, 40, 0.1); color: #C62828; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 12px; margin-bottom: 8px; display: inline-block;">${med.category}</span>
+                            <h2 style="margin: 0 0 5px 0; color: var(--text-main); font-size: 1.4rem; font-weight: 800;">${med.name}</h2>
+                            <p style="margin: 0; color: #555; font-size: 0.9rem;"><i>${med.generic}</i></p>
+                            <p style="margin: 5px 0 0 0; color: var(--primary-main); font-size: 0.85rem; font-weight: 600;"><i class="fa-regular fa-building"></i> ${med.company}</p>
+                        </div>
+                        <button onclick="document.getElementById('medicine-details-modal').remove()" style="background: #f1f3f4; border: none; width: 35px; height: 35px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--text-muted); font-size: 1.2rem; cursor: pointer; flex-shrink: 0;">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    
+                    <div style="font-size: 0.95rem; color: var(--text-main); line-height:1.6;">
+                        <div style="background: #F9F9F9; padding: 15px; border-radius: 14px; margin-bottom: 15px; border: 1px solid #E0E0E0;">
+                            <h4 style="color:var(--text-main); margin:0 0 8px 0; font-size: 1rem;"><i class="fa-solid fa-stethoscope" style="color: #00796B;"></i> নির্দেশনা / ব্যবহার (Indications)</h4>
+                            <p style="margin: 0; color: var(--text-muted);">${med.indications}</p>
+                        </div>
+                        
+                        <div style="background: rgba(255, 152, 0, 0.05); padding: 15px; border-radius: 14px; margin-bottom: 15px; border: 1px solid rgba(255, 152, 0, 0.2);">
+                            <h4 style="color:#E65100; margin:0 0 8px 0; font-size: 1rem;"><i class="fa-solid fa-syringe"></i> মাত্রা ও প্রয়োগ (Dosage)</h4>
+                            <p style="margin: 0; color: #5D4037; font-weight: 600;">${med.dosage}</p>
+                        </div>
+                        
+                        <div style="background:rgba(217, 48, 37, 0.08); padding:15px; border-radius:12px; border-left: 4px solid var(--danger);">
+                            <p style="color:var(--danger); font-size:0.85rem; margin:0; line-height:1.6; font-weight: 600;">
+                                <i class="fa-solid fa-triangle-exclamation"></i> সতর্কতা: যেকোনো ঔষধ বা ইনজেকশন ব্যবহারের পূর্বে অবশ্যই একজন রেজিস্টার্ড ভেটেরিনারি চিকিৎসকের পরামর্শ নিন।
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        `;
+
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        const modal = document.getElementById('medicine-details-modal');
+        setTimeout(() => {
+            modal.style.opacity = '1';
+            modal.querySelector('div').style.transform = 'translateY(0)';
+        }, 10);
     };
 
 });
