@@ -927,52 +927,105 @@ document.addEventListener("DOMContentLoaded", () => {
                 break;
 
             case 'more':
+                let savedUser = null;
+                try {
+                    savedUser = JSON.parse(localStorage.getItem('agroUser'));
+                } catch(e) {}
+
+                let profileCardHTML = '';
+                let authButtonHTML = '';
+
+                // যদি ইউজার লগইন করা থাকে
+                if (savedUser) {
+                    let profileImageHTML = savedUser.photoURL 
+                        ? `<img src="${savedUser.photoURL}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">`
+                        : `<i class="fa-solid fa-user-tie"></i>`;
+                        
+                    profileCardHTML = `
+                        <div class="agro-card" style="display: flex; align-items: center; gap: 15px; padding: 20px; border-bottom: 3px solid var(--primary-main);">
+                            <div style="width: 60px; height: 60px; background: rgba(46, 125, 50, 0.1); color: var(--primary-main); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; overflow: hidden;">
+                                ${profileImageHTML}
+                            </div>
+                            <div>
+                                <h3 style="margin: 0; color: var(--text-main); font-size: 1.3rem;">${savedUser.name || 'খামারি ভাই'}</h3>
+                                <p style="margin: 0; color: var(--text-muted); font-size: 0.9rem;">${savedUser.email || 'ডিজিটাল এগ্রো ফার্ম'}</p>
+                            </div>
+                        </div>`;
+                        
+                    authButtonHTML = `
+                        <button onclick="window.showLogoutModal(); event.stopPropagation();" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border: none; background: transparent; width: 100%; cursor: pointer; text-align: left; box-sizing: border-box; font-family: inherit;">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <i class="fa-solid fa-right-from-bracket" style="color: var(--danger); font-size: 1.2rem; width: 25px; text-align: center;"></i>
+                                <span style="font-size: 1.05rem; font-weight: 600; color: var(--danger);">লগআউট করুন</span>
+                            </div>
+                        </button>`;
+                } 
+                // যদি ইউজার লগআউট অবস্থায় থাকে (অতিথি ইউজার)
+                else {
+                    profileCardHTML = `
+                        <div class="agro-card" style="display: flex; align-items: center; justify-content: space-between; padding: 20px; border-bottom: 3px solid #FF9800; cursor: pointer;" onclick="window.loginWithGoogle()">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <div style="width: 60px; height: 60px; background: rgba(255, 152, 0, 0.1); color: #FF9800; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem;">
+                                    <i class="fa-solid fa-user-xmark"></i>
+                                </div>
+                                <div>
+                                    <h3 style="margin: 0; color: var(--text-main); font-size: 1.2rem;">অতিথি ইউজার</h3>
+                                    <p style="margin: 0; color: var(--text-muted); font-size: 0.85rem;">অ্যাকাউন্ট যুক্ত করুন</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-arrow-right-to-bracket" style="color: #FF9800; font-size: 1.5rem;"></i>
+                        </div>`;
+                        
+                    authButtonHTML = `
+                        <button onclick="window.loginWithGoogle(); event.stopPropagation();" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border: none; background: transparent; width: 100%; cursor: pointer; text-align: left; box-sizing: border-box; font-family: inherit;">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <i class="fa-brands fa-google" style="color: #4CAF50; font-size: 1.2rem; width: 25px; text-align: center;"></i>
+                                <span style="font-size: 1.05rem; font-weight: 600; color: #4CAF50;">Google দিয়ে লগইন করুন</span>
+                            </div>
+                        </button>`;
+                }
+
                 content = `
-                <div class="fade-in">
+                <div class="fade-in" style="padding-bottom: 80px;">
                     ${subPageHeader('মেন্যু ও সেটিংস')}
                     
-                    <div class="agro-card" style="display: flex; align-items: center; gap: 15px; padding: 20px; border-bottom: 3px solid var(--primary-main);">
-                        <div style="width: 60px; height: 60px; background: rgba(46, 125, 50, 0.1); color: var(--primary-main); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem;">
-                            <i class="fa-solid fa-user-tie"></i>
-                        </div>
-                        <div>
-                            <h3 style="margin: 0; color: var(--text-main); font-size: 1.3rem;">আব্দুর রশিদ</h3>
-                            <p style="margin: 0; color: var(--text-muted); font-size: 0.9rem;">ভাই ভাই ডেইরি ও ফ্যাটেনিং ফার্ম</p>
-                        </div>
-                    </div>
+                    <!-- প্রোফাইল কার্ড -->
+                    ${profileCardHTML}
 
                     <h4 style="margin: 20px 0 10px 5px; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">খামার ব্যবস্থাপনা</h4>
-                    <div class="agro-card" style="padding: 0; overflow: hidden;">
-                        
-                        <div onclick="goToPage('reports', 'more')" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid #f0f0f0; cursor: pointer;">
+                    
+                    <!-- Buttons Container 1 -->
+                    <div class="agro-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; background: var(--card-bg);">
+                        <button onclick="goToPage('reports', 'more')" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border: none; border-bottom: 1px solid #f0f0f0; background: transparent; width: 100%; cursor: pointer; text-align: left; box-sizing: border-box; font-family: inherit;">
                             <div style="display: flex; align-items: center; gap: 15px;">
                                 <i class="fa-solid fa-file-invoice-dollar" style="color: #FF9800; font-size: 1.2rem; width: 25px; text-align: center;"></i>
-                                <span style="font-size: 1.05rem; font-weight: 600; color: var(--text-main);">আয়-ব্যয় ড্যাশবোর্ড</span>
+                                <span style="font-size: 1.05rem; font-weight: 600; color: var(--text-main);">আয়-ব্যয় ড্যাশবোর্ড</span>
                             </div>
                             <i class="fa-solid fa-chevron-right" style="color: #ccc;"></i>
-                        </div>
+                        </button>
                         
-                        <div onclick="alert('গরুর প্রোফাইল ফিচারটি শীঘ্রই আসছে!')" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid #f0f0f0; cursor: pointer;">
+                        <button onclick="goToPage('cattle-profiles', 'more')" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border: none; border-bottom: 1px solid #f0f0f0; background: transparent; width: 100%; cursor: pointer; text-align: left; box-sizing: border-box; font-family: inherit;">
                             <div style="display: flex; align-items: center; gap: 15px;">
                                 <i class="fa-solid fa-cow" style="color: #795548; font-size: 1.2rem; width: 25px; text-align: center;"></i>
                                 <span style="font-size: 1.05rem; font-weight: 600; color: var(--text-main);">গরুর প্রোফাইল ও ট্যাগিং</span>
                             </div>
                             <i class="fa-solid fa-chevron-right" style="color: #ccc;"></i>
-                        </div>
+                        </button>
 
-                        <div onclick="goToPage('reminder', 'more')" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; cursor: pointer;">
+                        <button onclick="goToPage('reminder', 'more')" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border: none; background: transparent; width: 100%; cursor: pointer; text-align: left; box-sizing: border-box; font-family: inherit;">
                             <div style="display: flex; align-items: center; gap: 15px;">
                                 <i class="fa-solid fa-bell" style="color: #E91E63; font-size: 1.2rem; width: 25px; text-align: center;"></i>
                                 <span style="font-size: 1.05rem; font-weight: 600; color: var(--text-main);">অ্যালার্ট ও রিমাইন্ডার</span>
                             </div>
                             <i class="fa-solid fa-chevron-right" style="color: #ccc;"></i>
-                        </div>
+                        </button>
                     </div>
 
                     <h4 style="margin: 25px 0 10px 5px; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">সাপোর্ট ও সেটিংস</h4>
-                    <div class="agro-card" style="padding: 0; overflow: hidden;">
-                        
-                        <div onclick="window.location.href='tel:16358'" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid #f0f0f0; cursor: pointer;">
+                    
+                    <!-- Buttons Container 2 -->
+                    <div class="agro-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; background: var(--card-bg);">
+                        <button onclick="window.location.href='tel:16358'" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border: none; border-bottom: 1px solid #f0f0f0; background: transparent; width: 100%; cursor: pointer; text-align: left; box-sizing: border-box; font-family: inherit;">
                             <div style="display: flex; align-items: center; gap: 15px;">
                                 <i class="fa-solid fa-headset" style="color: #03A9F4; font-size: 1.2rem; width: 25px; text-align: center;"></i>
                                 <div>
@@ -981,25 +1034,21 @@ document.addEventListener("DOMContentLoaded", () => {
                                 </div>
                             </div>
                             <i class="fa-solid fa-phone" style="color: var(--success);"></i>
-                        </div>
+                        </button>
 
-                        <div onclick="alert('টেলিগ্রাম সেটআপ ফিচারটি শীঘ্রই আসছে!')" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid #f0f0f0; cursor: pointer;">
+                        <button onclick="window.showAppAlert('শিগগিরই আসছে', 'টেলিগ্রাম অ্যালার্ট সেটআপ ফিচারটি শীঘ্রই যুক্ত করা হবে।', 'fa-telegram', '#0088cc'); event.stopPropagation();" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border: none; border-bottom: 1px solid #f0f0f0; background: transparent; width: 100%; cursor: pointer; text-align: left; box-sizing: border-box; font-family: inherit;">
                             <div style="display: flex; align-items: center; gap: 15px;">
                                 <i class="fa-brands fa-telegram" style="color: #0088cc; font-size: 1.2rem; width: 25px; text-align: center;"></i>
                                 <span style="font-size: 1.05rem; font-weight: 600; color: var(--text-main);">টেলিগ্রাম অ্যালার্ট সেটআপ</span>
                             </div>
                             <i class="fa-solid fa-chevron-right" style="color: #ccc;"></i>
-                        </div>
+                        </button>
                         
-                        <div onclick="window.showLogoutModal()" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; cursor: pointer;">
-                            <div style="display: flex; align-items: center; gap: 15px;">
-                                <i class="fa-solid fa-right-from-bracket" style="color: var(--danger); font-size: 1.2rem; width: 25px; text-align: center;"></i>
-                                <span style="font-size: 1.05rem; font-weight: 600; color: var(--danger);">লগআউট করুন</span>
-                            </div>
-                        </div>
+                        <!-- ডাইনামিক লগইন / লগআউট বাটন -->
+                        ${authButtonHTML}
                     </div>
                     
-                    <p style="text-align: center; color: #ccc; font-size: 0.85rem; margin-top: 25px;">ভার্সন ২.০.১ | ডিজিটাল এগ্রো</p>
+                    <p style="text-align: center; color: #ccc; font-size: 0.85rem; margin-top: 25px;">ভার্সন ২.০.৩ | ডিজিটাল এগ্রো</p>
                 </div>`;
                 break;
         }
@@ -3945,6 +3994,107 @@ document.addEventListener("DOMContentLoaded", () => {
             modal.style.opacity = '1';
             modal.querySelector('div').style.transform = 'translateY(0)';
         }, 10);
+    };
+
+    // ==========================================
+    // ইউজার লগইন ও লগআউট লজিক (Google Auth)
+    // ==========================================
+
+    window.loginWithGoogle = function() {
+        if (navigator.vibrate) navigator.vibrate(40);
+
+        // বাটনটিতে লোডিং এনিমেশন দেখানো
+        const btn = document.querySelector('button[onclick*="loginWithGoogle"]');
+        if(btn) btn.innerHTML = '<div style="display:flex; align-items:center; gap:15px; justify-content:center; width:100%;"><i class="fa-solid fa-spinner fa-spin" style="color: #4CAF50;"></i> <span style="font-size: 1.05rem; font-weight: 600; color: #4CAF50;">লগইন হচ্ছে...</span></div>';
+
+        if(window.auth && window.fbAuth) {
+            const { signInWithPopup, GoogleAuthProvider } = window.fbAuth;
+            const provider = new GoogleAuthProvider();
+
+            signInWithPopup(window.auth, provider).then((result) => {
+                const user = result.user;
+                const userId = 'user_' + user.uid;
+                
+                const userData = {
+                    uid: user.uid,
+                    name: user.displayName || 'খামারি ভাই',
+                    email: user.email,
+                    phone: user.phoneNumber || '01700000000',
+                    photoURL: user.photoURL || '',
+                    regDate: new Date().toLocaleDateString('bn-BD'),
+                    timestamp: new Date().toISOString()
+                };
+
+                // ফায়ারবেস ও লোকাল স্টোরেজে সেভ করা
+                if(window.db && window.fbFirestore) {
+                    const { doc, setDoc } = window.fbFirestore;
+                    setDoc(doc(window.db, "users", userId), userData, { merge: true }).then(() => {
+                        localStorage.setItem('agroUser', JSON.stringify(userData));
+                        window.location.reload(); 
+                    });
+                } else {
+                    localStorage.setItem('agroUser', JSON.stringify(userData));
+                    window.location.reload();
+                }
+            }).catch((error) => {
+                alert("লগইন বাতিল হয়েছে বা সমস্যা হয়েছে: " + error.message);
+                if(btn) btn.innerHTML = '<div style="display:flex; align-items:center; gap:15px;"><i class="fa-brands fa-google" style="color: #4CAF50; font-size: 1.2rem; width: 25px; text-align: center;"></i><span style="font-size: 1.05rem; font-weight: 600; color: #4CAF50;">Google দিয়ে লগইন করুন</span></div>';
+            });
+        } else {
+            alert("ইন্টারনেট বা ফায়ারবেস কানেকশন চেক করুন!");
+            if(btn) btn.innerHTML = '<div style="display:flex; align-items:center; gap:15px;"><i class="fa-brands fa-google" style="color: #4CAF50; font-size: 1.2rem; width: 25px; text-align: center;"></i><span style="font-size: 1.05rem; font-weight: 600; color: #4CAF50;">Google দিয়ে লগইন করুন</span></div>';
+        }
+    };
+
+    window.showLogoutModal = function() {
+        if(navigator.vibrate) navigator.vibrate(40);
+        
+        const existingModal = document.getElementById('logout-confirm-modal');
+        if(existingModal) existingModal.remove();
+
+        const modalHTML = `
+            <div id="logout-confirm-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); z-index: 100000; display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;">
+                <div style="background: var(--card-bg); width: 85%; max-width: 320px; border-radius: 24px; padding: 25px 20px; text-align: center; transform: scale(0.9); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    <div style="width: 65px; height: 65px; background: rgba(217, 48, 37, 0.1); color: var(--danger); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; margin: 0 auto 15px auto;"><i class="fa-solid fa-right-from-bracket"></i></div>
+                    <h3 style="color: var(--text-main); font-size: 1.25rem; margin-bottom: 10px; font-weight: 700;">অ্যাকাউন্ট সাইন-আউট</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5;">আপনি কি নিশ্চিত যে অ্যাকাউন্ট থেকে বের হয়ে যেতে চান?</p>
+                    <div style="display: flex; gap: 12px;">
+                        <button onclick="document.getElementById('logout-confirm-modal').remove()" style="flex: 1; background: #f1f3f4; color: var(--text-muted); border: none; padding: 14px; border-radius: 12px; font-weight: 600; cursor: pointer;">বাতিল</button>
+                        <button onclick="window.executeLogout()" style="flex: 1; background: var(--danger); color: white; border: none; padding: 14px; border-radius: 12px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(217, 48, 37, 0.3);">লগআউট</button>
+                    </div>
+                </div>
+            </div>`;
+        
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        setTimeout(() => {
+            const modal = document.getElementById('logout-confirm-modal');
+            if(modal) {
+                modal.style.opacity = '1';
+                modal.querySelector('div').style.transform = 'scale(1)';
+            }
+        }, 30);
+    };
+
+    window.executeLogout = function() {
+        if(navigator.vibrate) navigator.vibrate(40);
+        
+        const modal = document.getElementById('logout-confirm-modal');
+        if(modal) {
+            modal.style.opacity = '0';
+            modal.querySelector('div').style.transform = 'scale(0.9)';
+        }
+
+        localStorage.removeItem('agroUser'); // সবার আগে লোকাল ডাটা মুছে ফেলা
+
+        if (window.auth && typeof window.auth.signOut === 'function') {
+            window.auth.signOut().then(() => {
+                setTimeout(() => window.location.reload(), 150); 
+            }).catch(err => {
+                setTimeout(() => window.location.reload(), 150);
+            });
+        } else {
+            setTimeout(() => window.location.reload(), 150);
+        }
     };
 
 });
