@@ -2615,19 +2615,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    // ১. আয়-ব্যয় সেভ করার ফাংশন
     window.saveExpense = function() {
         if(navigator.vibrate) navigator.vibrate(40);
         
-        const currentUser = JSON.parse(localStorage.getItem('agroUser')) || { phone: '01700000000', name: 'টেস্ট খামারি' };
+        const currentUser = JSON.parse(localStorage.getItem('agroUser'));
+        if(!currentUser || !currentUser.email) {
+            return window.showAppAlert('লগইন করুন', 'হিসাব সেভ করতে আগে লগইন করুন।', 'fa-user-lock', '#FF9800');
+        }
 
         const type = document.getElementById('exp-type').value;
         const category = document.getElementById('exp-category').value;
-        
         let cattle = "প্রযোজ্য নয়";
         if(type === 'খরচ' && (category === 'ওষুধ' || category === 'ডাক্তার ভিজিট')) {
             cattle = document.getElementById('exp-cattle').value;
         }
-        
         const details = document.getElementById('exp-details').value.trim();
         const amount = Number(document.getElementById('exp-amount').value.trim());
 
@@ -2639,8 +2641,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const originalText = btn.innerHTML;
         btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> প্রসেস হচ্ছে...';
 
+        // এখানে userPhone এর বদলে userEmail ও userId দেওয়া হয়েছে
         const transactionData = {
-            userPhone: currentUser.phone,
+            userEmail: currentUser.email,
+            userId: currentUser.uid,
             type: type, 
             category: category,
             cattle: cattle,
@@ -2671,8 +2675,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    // ২. আয়-ব্যয় লোড করার ফাংশন
     window.loadExpensesLive = function() {
-        const currentUser = JSON.parse(localStorage.getItem('agroUser')) || { phone: '01700000000', name: 'টেস্ট খামারি' };
+        const currentUser = JSON.parse(localStorage.getItem('agroUser'));
+        if(!currentUser || !currentUser.email) return;
 
         if(window.db && window.fbFirestore) {
             const { collection, onSnapshot } = window.fbFirestore;
@@ -2684,17 +2690,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 let totalIncome = 0;
                 let totalExpense = 0;
                 let hasData = false;
-
                 let transactions = [];
+                
                 snapshot.forEach(doc => transactions.push({id: doc.id, ...doc.data()}));
                 transactions.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)); 
 
                 window.allTransactions = transactions;
 
                 transactions.forEach((trx) => {
-                    if(trx.userPhone === currentUser.phone && trx.monthYear === currentMonthYear) {
+                    // এখানে userPhone এর বদলে userEmail দিয়ে চেক করা হচ্ছে
+                    if(trx.userEmail === currentUser.email && trx.monthYear === currentMonthYear) {
                         hasData = true;
-
                         let icon = 'fa-sack-dollar';
                         let iconColor = '#9E9E9E';
                         let sign = '';
@@ -2710,7 +2716,6 @@ document.addEventListener("DOMContentLoaded", () => {
                             iconColor = '#E91E63';
                             sign = '-';
                             amountColor = 'color: #C2185B;';
-                            
                             if(trx.category === 'ওষুধ') icon = 'fa-pills';
                             else if(trx.category === 'খাদ্য') icon = 'fa-wheat-awn';
                             else if(trx.category === 'ডাক্তার ভিজিট') icon = 'fa-stethoscope';
@@ -2737,10 +2742,10 @@ document.addEventListener("DOMContentLoaded", () => {
                                     ${sign} ৳ ${trx.amount.toLocaleString('bn-BD')}
                                 </div>
                                 <div style="display: flex; gap: 8px; justify-content: flex-end;">
-                                    <button onclick="window.setupEditExpense('${trx.id}')" style="background: rgba(33, 150, 243, 0.1); color: #1565C0; border: none; padding: 5px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; cursor: pointer; transition: 0.2s;">
+                                    <button onclick="window.setupEditExpense('${trx.id}')" style="background: rgba(33, 150, 243, 0.1); color: #1565C0; border: none; padding: 5px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; cursor: pointer;">
                                         <i class="fa-solid fa-pen"></i> এডিট
                                     </button>
-                                    <button onclick="window.deleteExpense('${trx.id}')" style="background: rgba(244, 67, 54, 0.1); color: #F44336; border: none; padding: 5px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; cursor: pointer; transition: 0.2s;">
+                                    <button onclick="window.deleteExpense('${trx.id}')" style="background: rgba(244, 67, 54, 0.1); color: #F44336; border: none; padding: 5px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; cursor: pointer;">
                                         <i class="fa-solid fa-trash-can"></i> ডিলিট
                                     </button>
                                 </div>
@@ -2751,19 +2756,250 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const incomeEl = document.getElementById('monthly-total-income');
                 const expenseEl = document.getElementById('monthly-total-expense');
-                
                 if(incomeEl) incomeEl.innerText = `৳ ${totalIncome.toLocaleString('bn-BD')}`;
                 if(expenseEl) expenseEl.innerText = `৳ ${totalExpense.toLocaleString('bn-BD')}`;
                 
                 if(!hasData) {
                     html = `<div style="text-align:center; padding:30px; color:var(--text-muted); background:var(--card-bg); border-radius:12px;">
                                 <i class="fa-solid fa-receipt" style="font-size:2rem; color:#ddd; margin-bottom:10px;"></i>
-                                <p style="margin:0;">এই মাসে এখনো কোনো হিসাব যুক্ত করা হয়নি।</p>
+                                <p style="margin:0;">আপনার কোনো হিসাব যুক্ত করা হয়নি।</p>
                             </div>`;
                 }
                 
                 const listArea = document.getElementById('expense-list-area');
                 if(listArea) listArea.innerHTML = html;
+            });
+        }
+    };
+
+    // ৩. গরুর ডাটা সেভ করার ফাংশন
+    window.saveCattleData = function(cowId) {
+        if(navigator.vibrate) navigator.vibrate(40);
+        
+        const currentUser = JSON.parse(localStorage.getItem('agroUser'));
+        if(!currentUser || !currentUser.uid) {
+            return window.showAppAlert('লগইন করুন', 'গরুর প্রোফাইল সেভ করতে লগইন করুন।', 'fa-user-lock', '#FF9800');
+        }
+
+        const name = document.getElementById('cow-name').value.trim();
+        const status = document.getElementById('cow-health-status').value;
+        const weight = document.getElementById('cow-weight').value;
+        const targetWeight = document.getElementById('cow-target-weight').value;
+        const catophosMl = document.getElementById('cow-catophos-ml').value;
+        const catophosFreq = document.getElementById('cow-catophos-freq').value;
+        const aminovitMl = document.getElementById('cow-aminovit-ml').value;
+        const aminovitFreq = document.getElementById('cow-aminovit-freq').value;
+        const nextVaccine = document.getElementById('cow-next-vaccine').value;
+
+        // এখানে phone এর বদলে uid ব্যবহার করা হয়েছে
+        const docId = `cow_${currentUser.uid}_${cowId}`;
+
+        const btn = document.getElementById('save-cow-btn');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> সেভ হচ্ছে...';
+
+        if(window.db && window.fbFirestore) {
+            const { doc, getDoc, setDoc } = window.fbFirestore;
+            const docRef = doc(window.db, "cattle_profiles", docId);
+
+            getDoc(docRef).then(docSnap => {
+                let history = [];
+                if (docSnap.exists() && docSnap.data().history) {
+                    history = docSnap.data().history; 
+                }
+
+                let logDetails = [];
+                if(weight) logDetails.push(`ওজন: ${weight} কেজি`);
+                if(catophosMl) logDetails.push(`ক্যাটাফস: ${catophosMl}`);
+                if(aminovitMl) logDetails.push(`এমাইনোভিট: ${aminovitMl}`);
+
+                if(logDetails.length > 0) {
+                    const todayStr = new Date().toLocaleDateString('bn-BD');
+                    history.push({
+                        date: todayStr,
+                        timestamp: new Date().toISOString(), 
+                        details: logDetails.join(' | ') 
+                    });
+                }
+
+                const cowData = {
+                    userUid: currentUser.uid,
+                    name: name || `ষাঁড় গরু - ${cowId}`,
+                    healthStatus: status || "🟢 সুস্থ",
+                    weight: weight || "",
+                    targetWeight: targetWeight || "",
+                    catophosMl: catophosMl || "",
+                    catophosFreq: catophosFreq || "",
+                    aminovitMl: aminovitMl || "",
+                    aminovitFreq: aminovitFreq || "",
+                    nextVaccineDate: nextVaccine || "",
+                    imageUrl: window.currentCowImage || "", 
+                    history: history, 
+                    updatedAt: new Date().toISOString()
+                };
+
+                setDoc(docRef, cowData, { merge: true }).then(() => {
+                    window.showAppAlert('সফল!', `সকল তথ্য ও লক্ষ্যমাত্রা সফলভাবে সেভ হয়েছে।`, 'fa-circle-check', '#4CAF50');
+                    btn.innerHTML = originalText;
+                    window.loadCattleData(cowId); 
+                });
+            });
+        }
+    };
+
+    // ৪. গরুর ডাটা লোড করার ফাংশন
+    window.loadCattleData = function(cowId) {
+        const currentUser = JSON.parse(localStorage.getItem('agroUser'));
+        if(!currentUser || !currentUser.uid) return;
+        
+        // phone এর বদলে uid
+        const docId = `cow_${currentUser.uid}_${cowId}`;
+
+        if(window.db && window.fbFirestore) {
+            const { doc, getDoc } = window.fbFirestore;
+            getDoc(doc(window.db, "cattle_profiles", docId)).then(docSnap => {
+                const badge = document.getElementById('cow-status-badge');
+                const title = document.getElementById('details-cow-title');
+                const historyContainer = document.getElementById('cow-history-list');
+                
+                if(docSnap.exists()) {
+                    const data = docSnap.data();
+                    
+                    if(data.imageUrl) {
+                        window.currentCowImage = data.imageUrl;
+                        const imgEl = document.getElementById('cow-profile-img');
+                        const iconEl = document.getElementById('cow-default-icon');
+                        if(imgEl && iconEl) {
+                            imgEl.src = window.currentCowImage;
+                            imgEl.style.display = 'block';
+                            iconEl.style.display = 'none';
+                        }
+                    }
+
+                    if(data.name) {
+                        document.getElementById('cow-name').value = data.name === `ষাঁড় গরু - ${cowId}` ? "" : data.name;
+                        if(title) title.innerText = data.name;
+                    }
+                    if(data.healthStatus) document.getElementById('cow-health-status').value = data.healthStatus;
+                    if(data.weight) document.getElementById('cow-weight').value = data.weight;
+                    if(data.targetWeight) document.getElementById('cow-target-weight').value = data.targetWeight;
+                    if(data.nextVaccineDate) document.getElementById('cow-next-vaccine').value = data.nextVaccineDate;
+                    
+                    if(data.catophosMl) document.getElementById('cow-catophos-ml').value = data.catophosMl;
+                    if(data.catophosFreq) document.getElementById('cow-catophos-freq').value = data.catophosFreq;
+                    if(data.aminovitMl) document.getElementById('cow-aminovit-ml').value = data.aminovitMl;
+                    if(data.aminovitFreq) document.getElementById('cow-aminovit-freq').value = data.aminovitFreq;
+                    
+                    if(data.weight && data.targetWeight) {
+                        const cw = parseFloat(data.weight);
+                        const tw = parseFloat(data.targetWeight);
+                        if(cw > 0 && tw > 0) {
+                            let percent = Math.round((cw / tw) * 100);
+                            if(percent > 100) percent = 100;
+                            
+                            document.getElementById('target-progress-container').style.display = 'block';
+                            document.getElementById('progress-percent').innerText = percent + '%';
+                            document.getElementById('current-w-text').innerText = cw;
+                            document.getElementById('target-w-text').innerText = tw;
+                            
+                            setTimeout(() => {
+                                document.getElementById('progress-bar-fill').style.width = percent + '%';
+                            }, 200);
+                        }
+                    }
+
+                    if(badge) {
+                        let statusColor = '#E8F5E9';
+                        let statusTextColor = '#2E7D32';
+                        let displayStatus = data.healthStatus || '🟢 সুস্থ';
+                        
+                        if(displayStatus.includes('পর্যবেক্ষণে')) {
+                            statusColor = '#FFF3E0';
+                            statusTextColor = '#E65100';
+                        } else if(displayStatus.includes('বিক্রির')) {
+                            statusColor = '#E3F2FD';
+                            statusTextColor = '#1565C0';
+                        }
+
+                        badge.innerHTML = `${displayStatus} | ওজন: ${data.weight || '?'} কেজি`;
+                        badge.style.background = statusColor;
+                        badge.style.color = statusTextColor;
+                    }
+
+                    if(historyContainer) {
+                        if(data.history && data.history.length > 0) {
+                            let sortedHistory = data.history.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+                            let html = '';
+                            sortedHistory.forEach(item => {
+                                html += `
+                                <div class="fade-in" style="background: rgba(103, 58, 183, 0.05); border-left: 3px solid #673AB7; padding: 12px; border-radius: 10px; margin-bottom: 12px;">
+                                    <div style="font-size: 0.75rem; color: #777; margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between;">
+                                        <span><i class="fa-regular fa-calendar-days"></i> ${item.date}</span>
+                                        <button onclick="window.deleteCattleHistory(${cowId}, '${item.timestamp}')" style="background: none; border: none; color: #F44336; cursor: pointer;"><i class="fa-solid fa-trash-can"></i></button>
+                                    </div>
+                                    <div style="font-size: 0.85rem; color: var(--text-main); font-weight: 600; line-height: 1.5;">${item.details}</div>
+                                </div>`;
+                            });
+                            historyContainer.innerHTML = html;
+                        } else {
+                            historyContainer.innerHTML = `<div style="text-align: center; color: var(--text-muted); font-size: 0.85rem; padding: 10px;">এখনো কোনো হিস্ট্রি যোগ করা হয়নি।</div>`;
+                        }
+                    }
+
+                } else {
+                    if(badge) {
+                        badge.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> প্রোফাইল অসম্পূর্ণ`;
+                        badge.style.background = '#FFF3E0';
+                        badge.style.color = '#E65100';
+                    }
+                }
+            });
+        }
+    };
+
+    // ৫. গরুর রেকর্ড ডিলিট করার ফাংশন
+    window.deleteCattleHistory = function(cowId, timestamp) {
+        window.showConfirmModal('রেকর্ড মুছবেন?', 'আপনি কি নিশ্চিত যে এই রেকর্ডটি মুছে ফেলতে চান?', function() {
+            const currentUser = JSON.parse(localStorage.getItem('agroUser'));
+            if(!currentUser || !currentUser.uid) return;
+            
+            // phone এর বদলে uid
+            const docId = `cow_${currentUser.uid}_${cowId}`;
+            
+            if(window.db && window.fbFirestore) {
+                const { doc, getDoc, setDoc } = window.fbFirestore;
+                getDoc(doc(window.db, "cattle_profiles", docId)).then(docSnap => {
+                    if(docSnap.exists() && docSnap.data().history) {
+                        let history = docSnap.data().history.filter(item => item.timestamp !== timestamp);
+                        setDoc(doc(window.db, "cattle_profiles", docId), { history: history }, { merge: true }).then(() => {
+                            window.loadCattleData(cowId); 
+                        });
+                    }
+                });
+            }
+        });
+    };
+
+    // ৬. গরুর লিস্ট লোড করার ফাংশন
+    window.loadAllCattleSummary = function() {
+        const currentUser = JSON.parse(localStorage.getItem('agroUser'));
+        if(!currentUser || !currentUser.uid) return;
+        
+        if(window.db && window.fbFirestore) {
+            const { collection, getDocs } = window.fbFirestore;
+            getDocs(collection(window.db, "cattle_profiles")).then(snapshot => {
+                snapshot.forEach(docSnap => {
+                    const docId = docSnap.id;
+                    // phone এর বদলে uid দিয়ে চেক করা হচ্ছে
+                    if(docId.startsWith(`cow_${currentUser.uid}_`)) {
+                        const cId = docId.split('_').pop();
+                        const data = docSnap.data();
+                        const title = document.getElementById(`list-title-${cId}`);
+                        if(title && data.name) title.innerText = data.name;
+                        const badge = document.getElementById(`list-badge-${cId}`);
+                        if(badge && data.weight) badge.innerHTML = `<span style="color: #2E7D32; font-weight: 600;">ওজন: ${data.weight} কেজি</span>`;
+                    }
+                });
             });
         }
     };
