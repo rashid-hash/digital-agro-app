@@ -341,6 +341,46 @@ document.addEventListener("DOMContentLoaded", () => {
                                 </div>
                             </div>
 
+                            <!-- কার্ড 7 -->
+                            <div class="agro-card fade-in" onclick="loadPage('water-drainage')" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.06); background: var(--card-bg, #fff); cursor: pointer;">
+                                <img src="" style="width: 100%; height: 105px; object-fit: cover;" alt="Bio Security">
+                                <div style="padding: 10px 12px;">
+                                    <span style="font-size: 0.68rem; color: #4CAF50; font-weight: 700; text-transform: uppercase;">পরিবেশ ও পরিচ্ছন্নতা</span>
+                                    <h5 style="margin: 3px 0 4px 0; font-size: 0.88rem; color: var(--text-main); font-weight: 700; line-height: 1.3;">বায়োসিকিউরিটি ও বর্জ্য ব্যবস্থাপনা</h5>
+                                    <p style="margin: 0; font-size: 0.74rem; color: var(--text-muted); line-height: 1.3;">খামারের সার্বিক পরিচ্ছন্নতা বজায় রাখা এবং জীবাণুনাশক স্প্রে করার মাধ্যমে রোগবালাই নিয়ন্ত্রণ।</p>
+                                </div>
+                            </div>
+
+                            <!-- কার্ড 8 -->
+                            <div class="agro-card fade-in" onclick="loadPage('water-drainage')" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.06); background: var(--card-bg, #fff); cursor: pointer;">
+                                <img src="" style="width: 100%; height: 105px; object-fit: cover;" alt="Bio Security">
+                                <div style="padding: 10px 12px;">
+                                    <span style="font-size: 0.68rem; color: #4CAF50; font-weight: 700; text-transform: uppercase;">পরিবেশ ও পরিচ্ছন্নতা</span>
+                                    <h5 style="margin: 3px 0 4px 0; font-size: 0.88rem; color: var(--text-main); font-weight: 700; line-height: 1.3;">বায়োসিকিউরিটি ও বর্জ্য ব্যবস্থাপনা</h5>
+                                    <p style="margin: 0; font-size: 0.74rem; color: var(--text-muted); line-height: 1.3;">খামারের সার্বিক পরিচ্ছন্নতা বজায় রাখা এবং জীবাণুনাশক স্প্রে করার মাধ্যমে রোগবালাই নিয়ন্ত্রণ।</p>
+                                </div>
+                            </div>
+
+                            <!-- কার্ড 9 -->
+                            <div class="agro-card fade-in" onclick="loadPage('water-drainage')" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.06); background: var(--card-bg, #fff); cursor: pointer;">
+                                <img src="https://i.postimg.cc/q7WmxpSD/Gemini-Generated-Image-d8frlld8frlld8fr.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="Bio Security">
+                                <div style="padding: 10px 12px;">
+                                    <span style="font-size: 0.68rem; color: #4CAF50; font-weight: 700; text-transform: uppercase;">পুষ্টি ও সাপ্লিমেন্ট</span>
+                                    <h5 style="margin: 3px 0 4px 0; font-size: 0.88rem; color: var(--text-main); font-weight: 700; line-height: 1.3;">প্রিমিক্স ও অ্যাডিটিভস</h5>
+                                    <p style="margin: 0; font-size: 0.74rem; color: var(--text-muted); line-height: 1.3;">খাদ্যের সাথে সঠিক মাত্রায় টক্সিন বাইন্ডার, লাইভ ইস্ট, অ্যামিনো এসিড ও মিনারেল মিশ্রণ।</p>
+                                </div>
+                            </div>
+
+                            <!-- কার্ড 10 -->
+                            <div class="agro-card fade-in" onclick="loadPage('water-drainage')" style="padding: 0; overflow: hidden; border-radius: 16px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.06); background: var(--card-bg, #fff); cursor: pointer;">
+                                <img src="https://i.postimg.cc/sDS3Y2LP/Gemini-Generated-Image-i606lai606lai606.jpg" style="width: 100%; height: 105px; object-fit: cover;" alt="Bio Security">
+                                <div style="padding: 10px 12px;">
+                                    <span style="font-size: 0.68rem; color: #4CAF50; font-weight: 700; text-transform: uppercase;">খামার পরিবেশ ও আরাম</span>
+                                    <h5 style="margin: 3px 0 4px 0; font-size: 0.88rem; color: var(--text-main); font-weight: 700; line-height: 1.3;">ম্যাট ও হিট স্ট্রেস কন্ট্রোল</h5>
+                                    <p style="margin: 0; font-size: 0.74rem; color: var(--text-muted); line-height: 1.3;">ফ্যান বা কুলিং সিস্টেম দিয়ে হিট স্ট্রেস কমানো এবং খুরের সুরক্ষায় রাবার ম্যাট ব্যবস্থাপনা।</p>
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>
@@ -1056,9 +1096,9 @@ document.addEventListener("DOMContentLoaded", () => {
         contentArea.innerHTML = content;
     }
 
-    // --- 8. Global Calculator Result Function ---
+    // --- 8. Global Calculator Result Function (Bulletproof Version) ---
     window.showCalculationResult = function() {
-        window.vibrate(40);
+        if(navigator.vibrate) navigator.vibrate(40);
         
         const kgInput = document.getElementById('total-kg').value;
         const targetKg = parseFloat(kgInput) || 0;
@@ -1069,44 +1109,49 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        let formulas = JSON.parse(localStorage.getItem('agroFormulas')) || defaultAgroFormulas;
+        // ১. ক্র্যাশ রোধে নিরাপদ ফর্মুলা ফেচিং
+        let formulas = window.defaultAgroFormulas;
+        try {
+            const savedFormulas = JSON.parse(localStorage.getItem('agroFormulas'));
+            if (savedFormulas && savedFormulas[cat] && savedFormulas[cat].main) {
+                formulas = savedFormulas;
+            }
+        } catch(e) { }
 
-        const defaultPrices = {
-            'ভুট্টা ভাঙা': 30, 'ভুট্রা গুড়া': 35,
-            'রাইস কুড়া/পলিস': 28, 'ধানের কুড়া': 28, 'রাইস পলিস/ধান পাউডার': 28,
-            'গমের ভুষি': 45,
-            'সয়াবিন মিল': 75, 'সয়ামিল/সোয়াবিন মিল': 75,
-            'ডালের খোসা': 38,
-            'সরিষার খৈল': 45,
-            'DDGS': 42,
-            'DORB': 25,
-            'রেপসিড': 40,
-            'শুঁটকি মাছের গুঁড়ো': 110, 'ফিশ মিল': 85,
-            'লাইমস্টোন': 15,
-            'লবন': 15, 'লবণ': 15,
-            'ভেজিটেবল ফ্যাট': 300, 'ফ্যাট': 300,
-            'এমসিপি (MCP)': 65,
-            'খাবার সোডা': 80,
-            'টক্সিন বাইন্ডার': 350, 'টক্সিন': 350,
-            'ইস্ট': 400,
-            'মেথিওনিন': 650,
-            'লাইসিন': 550,
-            'ফাইটোজ এনজাইম': 450,
-            'ভিটামিন-মিনারেল প্রিমিক্স': 280,
-            'সাধারণ প্রিমিক্স': 150,
-            'Growth Promoter': 550, 'গ্রোথ ভিটামিন': 550,
-            'রুমেন সাপোর্ট (Rumen)': 350,
-            'সিআর (Chromium)': 900
+        const selectedData = formulas[cat] || (window.defaultAgroFormulas ? window.defaultAgroFormulas['standard'] : null);
+        
+        if(!selectedData || !selectedData.main) {
+            alert("ফর্মুলা লোড হতে সমস্যা হচ্ছে। অনুগ্রহ করে পেজ রিলোড দিন।");
+            return;
+        }
+
+        // ২. গ্লোবাল প্রাইস না পেলে নিজস্ব প্রাইস ব্যবহার (Crash-Proof Logic)
+        const fallbackPrices = {
+            'ভুট্টা ভাঙা': 35, 'রাইস কুড়া/পলিস': 28, 'গমের ভুষি': 45, 'সয়াবিন মিল': 75, 'মসুর ডালের খোসা': 38,
+            'সরিষার খৈল': 45, 'DDGS': 42, 'DORB': 25, 'রেপসিড (Rapeseed)': 40, 'শুঁটকি মাছের গুঁড়ো': 110,
+            'লাইমস্টোন': 15, 'লবণ': 15, 'ভেজিটেবল ফ্যাট': 160, 'এমসিপি (MCP)': 65, 'খাবার সোডা': 80,
+            'টক্সিন বাইন্ডার': 350, 'ইস্ট (Yeast)': 400, 'মেথিওনিন (Methionine)': 650, 'লাইসিন (Lysine)': 550,
+            'ফাইটোজ এনজাইম': 450, 'ভিটামিন-মিনারেল প্রিমিক্স': 280, 'সাধারণ প্রিমিক্স': 150,
+            'Growth Promoter': 550, 'রুমেন সাপোর্ট (Rumen)': 350, 'সিআর (Chromium)': 900
         };
 
         const savedPrices = JSON.parse(localStorage.getItem('agroFeedPrices')) || {};
-        const selectedData = formulas[cat] || formulas['standard'];
         const multiplier = targetKg / 100;
         let totalCost = 0; 
 
         const renderItem = (item) => {
             const calculatedQty = item.qty * multiplier;
-            const currentPrice = savedPrices[item.name] || defaultPrices[item.name] || 0; 
+            
+            // প্রথমে ইউজারের এডিট করা দাম, না পেলে গ্লোবাল, তাও না পেলে নিজস্ব ফলব্যাক
+            let currentPrice = 0;
+            if (savedPrices[item.name]) {
+                currentPrice = savedPrices[item.name];
+            } else if (window.defaultGlobalPrices && window.defaultGlobalPrices[item.name]) {
+                currentPrice = window.defaultGlobalPrices[item.name];
+            } else if (fallbackPrices[item.name]) {
+                currentPrice = fallbackPrices[item.name];
+            }
+
             const itemCost = calculatedQty * currentPrice;
             totalCost += itemCost;
 
@@ -1161,7 +1206,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
                 
-                <button onclick="window.saveCostToFinance(${totalCost.toFixed(0)}, '${targetKg} কেজির খাদ্য মিশ্রণ তৈরি')" style="width: 100%; margin-top: 15px; background: transparent; border: 1.5px solid var(--primary-main); color: var(--primary-main); padding: 12px; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 8px;">
+                <button onclick="if(window.saveCostToFinance) window.saveCostToFinance(${totalCost.toFixed(0)}, '${targetKg} কেজির খাদ্য মিশ্রণ তৈরি')" style="width: 100%; margin-top: 15px; background: transparent; border: 1.5px solid var(--primary-main); color: var(--primary-main); padding: 12px; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 8px;">
                     <i class="fa-solid fa-plus"></i> এই খরচটি আয়-ব্যয়ে যোগ করুন
                 </button>
             </div>
@@ -1582,8 +1627,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const defaultGlobalPrices = {
-        'ভুট্টা ভাঙা': 35, 'রাইস কুড়া/পলিস': 28, 'গমের ভুষি': 45, 'সয়াবিন মিল': 75, 'ডালের খোসা': 38,
-        'সরিষার খৈল': 45, 'DDGS': 42, 'DORB': 25, 'রেপসিড (Rapeseed)': 40, 'শুঁটকি মাছের গুঁড়ো': 110,
+        'ভুট্টা ভাঙা': 35, 'রাইস কুড়া/পলিস': 28, 'গমের ভুষি': 45, 'সয়াবিন মিল': 75, 'মসুর ডালের খোসা': 38,
+        'সরিষার খৈল': 45, 'DDGS': 42, 'DORB': 25, 'রেপসিড (Rapeseed)': 40, 'শুঁটকি মাছের গুঁড়ো': 110,
         'লাইমস্টোন': 15, 'লবণ': 15, 'ভেজিটেবল ফ্যাট': 160, 'এমসিপি (MCP)': 65, 'খাবার সোডা': 80,
         'টক্সিন বাইন্ডার': 350, 'ইস্ট (Yeast)': 400, 'মেথিওনিন (Methionine)': 650, 'লাইসিন (Lysine)': 550,
         'ফাইটোজ এনজাইম': 450, 'ভিটামিন-মিনারেল প্রিমিক্স': 280, 'সাধারণ প্রিমিক্স': 150,
@@ -3569,7 +3614,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { id: 'p_4', name: 'ডিডিজিএস (DDGS)', cp: 28, work: 'বাইপাস প্রোটিন ও হজমযোগ্য শক্তি' },
         { id: 'p_5', name: 'গমের ভুষি', cp: 15, work: 'ফাইবার ও শক্তি বৃদ্ধি করে' },
         { id: 'p_6', name: 'রাইস কুড়া / পলিস', cp: 12, work: 'ফ্যাট ও শক্তির দারুণ উৎস' },
-        { id: 'p_7', name: 'ডালের খোসা', cp: 16, work: 'পরিপাকতন্ত্র ভালো রাখে ও ফাইবার দেয়' },
+        { id: 'p_7', name: 'মসুর ডালের খোসা', cp: 16, work: 'পরিপাকতন্ত্র ভালো রাখে ও ফাইবার দেয়' },
         { id: 'p_8', name: 'শুঁটকি মাছের গুঁড়ো', cp: 55, work: 'উচ্চমাত্রার প্রাণিজ প্রোটিন ও ক্যালসিয়াম' },
         { id: 'p_9', name: 'ডিওআরবি (DORB)', cp: 14, work: 'সাশ্রয়ী ফাইবার উপাদান' },
         // --- ফ্যাটেনিং সাপ্লিমেন্ট ও এডিটিভস (Fattening Supplements) ---
@@ -4331,6 +4376,147 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             setTimeout(() => window.location.reload(), 150);
         }
+    };
+
+    // ==========================================
+    // সুষম খাদ্য ক্যালকুলেটর (Bulletproof Version)
+    // ==========================================
+    window.showCalculationResult = function() {
+        if(navigator.vibrate) navigator.vibrate(40);
+        
+        const kgInput = document.getElementById('total-kg');
+        const catElem = document.getElementById('food-cat');
+        
+        if(!kgInput || !catElem) return; // পেজ ঠিকমতো লোড না হলে থামিয়ে দেবে
+        
+        const targetKg = parseFloat(kgInput.value) || 0;
+        const cat = catElem.value;
+        
+        if(targetKg <= 0) {
+            alert('অনুগ্রহ করে সঠিক পরিমাণ (কেজি) দিন!');
+            return;
+        }
+
+        // ১. ক্র্যাশ রোধে নিরাপদ ফর্মুলা (Internal Fallback)
+        const safeFormulas = {
+            primary: {
+                main: [{name: 'গমের ভুষি', qty: 35}, {name: 'রাইস কুড়া/পলিস', qty: 25}, {name: 'ভুট্টা ভাঙা', qty: 20}, {name: 'সরিষার খৈল', qty: 15}, {name: 'মসুর ডালের খোসা', qty: 3}],
+                supplements: [{name: 'লবণ', qty: 1}, {name: 'লাইমস্টোন', qty: 0.5}, {name: 'ভিটামিন-মিনারেল প্রিমিক্স', qty: 0.5}]
+            },
+            standard: {
+                main: [{name: 'ভুট্টা ভাঙা', qty: 30}, {name: 'গমের ভুষি', qty: 25}, {name: 'সয়াবিন মিল', qty: 15}, {name: 'রাইস কুড়া/পলিস', qty: 15}, {name: 'সরিষার খৈল', qty: 12}],
+                supplements: [{name: 'লবণ', qty: 1}, {name: 'ডিসি পাউডার (DCP)', qty: 1}, {name: 'ভিটামিন-মিনারেল প্রিমিক্স', qty: 1}]
+            },
+            premium: {
+                main: [{name: 'ভুট্টা ভাঙা', qty: 35}, {name: 'সয়াবিন মিল', qty: 25}, {name: 'গমের ভুষি', qty: 15}, {name: 'DDGS', qty: 12}, {name: 'রাইস কুড়া/পলিস', qty: 10}],
+                supplements: [{name: 'লাইভ ইস্ট (Yeast)', qty: 0.070}, {name: 'টক্সিন বাইন্ডার', qty: 0.2}, {name: 'লবণ', qty: 1}, {name: 'ভিটামিন-মিনারেল প্রিমিক্স', qty: 1}]
+            }
+        };
+
+        let formulas = safeFormulas;
+        try {
+            const savedFormulas = JSON.parse(localStorage.getItem('agroFormulas'));
+            if (savedFormulas && savedFormulas[cat] && savedFormulas[cat].main) {
+                formulas = savedFormulas;
+            }
+        } catch(e) {}
+
+        const selectedData = formulas[cat] || safeFormulas['standard'];
+
+        // ২. নিরাপদ বাজার দর (Internal Fallback)
+        const safePrices = {
+            'ভুট্টা ভাঙা': 27, 'রাইস কুড়া/পলিস': 28, 'গমের ভুষি': 45, 'সয়াবিন মিল': 64, 'মসুর ডালের খোসা': 35,
+            'সরিষার খৈল': 45, 'DDGS': 42, 'DORB': 25, 'রেপসিড (Rapeseed)': 40, 'শুঁটকি মাছের গুঁড়ো': 90,
+            'লাইমস্টোন': 13, 'লবণ': 15, 'ভেজিটেবল ফ্যাট': 160, 'এমসিপি (MCP)': 65, 'খাবার সোডা': 60,
+            'টক্সিন বাইন্ডার': 350, 'ইস্ট (Yeast)': 1000, 'মেথিওনিন (Methionine)': 650, 'লাইসিন (Lysine)': 550,
+            'ফাইটোজ এনজাইম': 450, 'ভিটামিন-মিনারেল প্রিমিক্স': 280, 'সাধারণ প্রিমিক্স': 150,
+            'Growth Promoter': 380, 'রুমেন সাপোর্ট (Rumen)': 350, 'সিআর (Chromium)': 900
+        };
+
+        const savedPrices = JSON.parse(localStorage.getItem('agroFeedPrices')) || {};
+        const multiplier = targetKg / 100;
+        let totalCost = 0; 
+
+        const renderItem = (item) => {
+            const calculatedQty = item.qty * multiplier;
+            
+            // প্রথমে সেভ করা দাম খুঁজবে, না পেলে গ্লোবাল, তাও না পেলে নিজস্ব ফলব্যাক
+            let currentPrice = 0;
+            if (savedPrices[item.name]) {
+                currentPrice = savedPrices[item.name];
+            } else if (window.defaultGlobalPrices && window.defaultGlobalPrices[item.name]) {
+                currentPrice = window.defaultGlobalPrices[item.name];
+            } else if (safePrices[item.name]) {
+                currentPrice = safePrices[item.name];
+            }
+
+            const itemCost = calculatedQty * currentPrice;
+            totalCost += itemCost;
+
+            const displayQty = calculatedQty >= 1 
+                ? `<strong style="color: var(--text-main); font-size: 1rem;">${calculatedQty.toFixed(2)} কেজি</strong>` 
+                : `<strong style="color: var(--primary-main); font-size: 1rem;">${(calculatedQty * 1000).toFixed(0)} গ্রাম</strong>`;
+                
+            return `
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px dashed #ddd; padding-bottom: 10px;">
+                    <div>
+                        <span style="color: var(--text-muted); font-size: 0.95rem; display: block;">${item.name}</span>
+                        <small style="color: #999; font-size: 0.75rem;">@ ৳${currentPrice}/কেজি</small>
+                    </div>
+                    <div style="text-align: right;">
+                        ${displayQty}
+                        <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 2px;">৳ ${itemCost.toFixed(0)}</div>
+                    </div>
+                </div>
+            `;
+        };
+
+        const resultArea = document.getElementById('calc-result-area');
+        if(!resultArea) return;
+        
+        const resultHTML = `
+            <div class="agro-card fade-in" style="border-top: 4px solid var(--primary-main); padding: 20px;">
+                <h3 style="margin-bottom: 15px; color: var(--primary-dark); font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-receipt"></i> ${targetKg} কেজির খাদ্য তালিকা
+                </h3>
+                
+                <h4 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 10px;"><i class="fa-solid fa-wheat-awn"></i> মূল উপকরণসমূহ</h4>
+                <div style="background: #F9F9F9; border-radius: 12px; padding: 15px 15px 5px 15px; margin-bottom: 20px; border: 1px solid #eee;">
+                    ${selectedData.main.map(renderItem).join('')}
+                </div>
+
+                <h4 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 10px;"><i class="fa-solid fa-capsules"></i> পুষ্টি ও সাপ্লিমেন্ট</h4>
+                <div style="background: rgba(255, 193, 7, 0.05); border-radius: 12px; padding: 15px 15px 5px 15px; margin-bottom: 15px; border: 1px solid rgba(255, 193, 7, 0.2);">
+                    ${selectedData.supplements.map(renderItem).join('')}
+                </div>
+                
+                <div style="background: linear-gradient(135deg, var(--primary-main), var(--primary-dark)); padding: 15px; border-radius: 12px; color: white; margin-top: 20px; box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 10px;">
+                        <span style="font-size: 1rem; opacity: 0.9;">মোট পরিমাণ:</span>
+                        <span style="font-size: 1.1rem; font-weight: 700;">${targetKg} কেজি</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 10px;">
+                        <span style="font-size: 1rem; opacity: 0.9;">আনুমানিক মোট খরচ:</span>
+                        <span style="font-size: 1.2rem; font-weight: 700; color: var(--accent);">৳ ${totalCost.toFixed(0)}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 1rem; opacity: 0.9;">প্রতি কেজির দাম:</span>
+                        <span style="font-size: 1.4rem; font-weight: 700;">৳ ${(totalCost / targetKg).toFixed(2)}</span>
+                    </div>
+                </div>
+                
+                <button onclick="if(window.saveCostToFinance) window.saveCostToFinance(${totalCost.toFixed(0)}, '${targetKg} কেজির খাদ্য মিশ্রণ তৈরি')" style="width: 100%; margin-top: 15px; background: transparent; border: 1.5px solid var(--primary-main); color: var(--primary-main); padding: 12px; border-radius: 12px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-plus"></i> এই খরচটি আয়-ব্যয়ে যোগ করুন
+                </button>
+            </div>
+        `;
+        
+        resultArea.style.display = 'block';
+        resultArea.innerHTML = resultHTML;
+        
+        setTimeout(() => {
+            resultArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
     };
 
 });
