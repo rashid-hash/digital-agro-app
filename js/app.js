@@ -914,26 +914,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
             case 'protein-calculator':
                 content = `
-                <div class="fade-in" style="padding-bottom: 120px;">
-                    ${subPageHeader('খাদ্যের প্রোটিন (CP) ক্যালকুলেটর')}
+                <div class="fade-in" style="padding-bottom: 240px;">
+                    ${subPageHeader('খাদ্যের সম্পূর্ণ পুষ্টিমান ক্যালকুলেটর')}
                     
                     <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; padding: 0 15px; line-height: 1.5;">
-                        ১০০ কেজি দানাদার মিশ্রণ তৈরির জন্য নিচের উপাদানগুলোর কেজি নির্ধারণ করুন। মোট প্রোটিন (Crude Protein) স্বয়ংক্রিয়ভাবে হিসাব হয়ে যাবে।
+                        ১০০ কেজি দানাদার মিশ্রণ তৈরির জন্য নিচের উপাদানগুলোর কেজি নির্ধারণ করুন। খাদ্যের মোট প্রোটিন, এনার্জি (TDN), ক্যালসিয়াম, ফসফরাস, খনিজ ও ভিটামিন স্বয়ংক্রিয়ভাবে হিসাব হয়ে যাবে।
                     </p>
 
-                    <!-- ফায়ারবেস থেকে ডাটা এখানে লোড হবে -->
-                    <div class="agro-card" style="padding: 5px 20px; margin: 0 15px;" id="protein-ingredients-list-view">
+                    <!-- উপাদানের বক্সের মার্জিন 0 করে ফুল-উইডথ করা হলো -->
+                    <div class="agro-card" style="padding: 5px 15px; margin: 0; border-radius: 24px 24px 0 0;" id="protein-ingredients-list-view">
                         <div style="text-align:center; padding:30px;"><i class="fa-solid fa-spinner fa-spin" style="font-size:2rem; color:#00796B;"></i></div>
                     </div>
 
-                    <div style="position: fixed; bottom: 70px; left: 0; width: 100%; background: linear-gradient(135deg, #00796B 0%, #004D40 100%); color: white; padding: 15px 20px; box-sizing: border-box; box-shadow: 0 -5px 15px rgba(0,0,0,0.15); display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-top-left-radius: 20px; border-top-right-radius: 20px;">
-                        <div>
-                            <span style="font-size: 0.85rem; opacity: 0.9; display: block; margin-bottom: 2px;">মোট ওজন</span>
-                            <span style="font-size: 1.3rem; font-weight: 800;"><span id="protein-total-kg" style="color: #FFEB3B;">0</span> / 100 <span style="font-size: 0.9rem; font-weight: 500;">কেজি</span></span>
+                    <!-- স্টিকি বটম বার -->
+                    <div style="position: fixed; bottom: 60px; left: 0; width: 100%; background: linear-gradient(135deg, #00796B 0%, #004D40 100%); color: white; padding: 12px 15px; box-sizing: border-box; box-shadow: 0 -5px 15px rgba(0,0,0,0.15); z-index: 1000; border-top-left-radius: 24px; border-top-right-radius: 24px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 8px;">
+                            <span style="font-size: 0.95rem; font-weight: 600;">মোট মিশ্রণ: <span id="calc-total-kg" style="color:#FFEB3B; font-size: 1.2rem;">0</span> / 100 কেজি</span>
+                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px;">পুষ্টিমান রিপোর্ট</span>
                         </div>
-                        <div style="text-align: right; background: rgba(255,255,255,0.15); padding: 8px 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2);">
-                            <span style="font-size: 0.85rem; opacity: 0.9; display: block; margin-bottom: 2px;">মোট প্রোটিন (CP)</span>
-                            <span style="font-size: 1.4rem; font-weight: 800;" id="protein-final-cp">0.00%</span>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; gap: 10px 5px;">
+                            <div>
+                                <div style="font-size: 0.7rem; opacity: 0.85; margin-bottom: 2px;">প্রোটিন (CP)</div>
+                                <div id="calc-total-cp" style="font-weight: 800; font-size: 1.05rem;">0.0%</div>
+                            </div>
+                            <div style="border-left: 1px solid rgba(255,255,255,0.2);">
+                                <div style="font-size: 0.7rem; opacity: 0.85; margin-bottom: 2px;">এনার্জি (TDN)</div>
+                                <div id="calc-total-tdn" style="font-weight: 800; font-size: 1.05rem;">0.0%</div>
+                            </div>
+                            <div style="border-left: 1px solid rgba(255,255,255,0.2);">
+                                <div style="font-size: 0.7rem; opacity: 0.85; margin-bottom: 2px;">খনিজ (Min)</div>
+                                <div id="calc-total-min" style="font-weight: 800; font-size: 1.05rem;">0.0%</div>
+                            </div>
+                            
+                            <div>
+                                <div style="font-size: 0.7rem; opacity: 0.85; margin-bottom: 2px;">ক্যালসিয়াম</div>
+                                <div id="calc-total-ca" style="font-weight: 800; font-size: 1.05rem;">0.00%</div>
+                            </div>
+                            <div style="border-left: 1px solid rgba(255,255,255,0.2);">
+                                <div style="font-size: 0.7rem; opacity: 0.85; margin-bottom: 2px;">ফসফরাস</div>
+                                <div id="calc-total-p" style="font-weight: 800; font-size: 1.05rem;">0.00%</div>
+                            </div>
+                            <div style="border-left: 1px solid rgba(255,255,255,0.2);">
+                                <div style="font-size: 0.7rem; opacity: 0.85; margin-bottom: 2px;">ভিটামিন</div>
+                                <div id="calc-total-vit" style="font-weight: 800; font-size: 1.05rem;">0.0%</div>
+                            </div>
                         </div>
                     </div>
                 </div>`;
@@ -3569,71 +3594,91 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- প্রোটিন (CP%) ক্যালকুলেশনের ডায়নামিক লজিক ---
     window.calculateTotalProtein = function() {
         let totalKg = 0;
-        let totalProteinRaw = 0; // (কেজি * প্রোটিন %) এর যোগফল
+        let totalCP = 0, totalTDN = 0, totalCa = 0, totalP = 0, totalMin = 0, totalVit = 0;
 
         const inputs = document.querySelectorAll('.protein-kg-input');
         inputs.forEach(input => {
             const kg = parseFloat(input.value) || 0;
             const cp = parseFloat(input.getAttribute('data-cp')) || 0;
+            const tdn = parseFloat(input.getAttribute('data-tdn')) || 0;
+            const ca = parseFloat(input.getAttribute('data-ca')) || 0;
+            const p = parseFloat(input.getAttribute('data-p')) || 0;
+            const min = parseFloat(input.getAttribute('data-min')) || 0;
+            const vit = parseFloat(input.getAttribute('data-vit')) || 0;
+
             if(kg > 0) {
                 totalKg += kg;
-                totalProteinRaw += (kg * cp);
+                totalCP += (kg * cp);
+                totalTDN += (kg * tdn);
+                totalCa += (kg * ca);
+                totalP += (kg * p);
+                totalMin += (kg * min);
+                totalVit += (kg * vit);
             }
         });
 
-        // মোট প্রোটিন পার্সেন্টেজ বের করা
-        const finalCP = totalKg > 0 ? (totalProteinRaw / totalKg).toFixed(2) : "0.00";
+        // পার্সেন্টেজ বের করা
+        const finalCP = totalKg > 0 ? (totalCP / totalKg).toFixed(1) : "0.0";
+        const finalTDN = totalKg > 0 ? (totalTDN / totalKg).toFixed(1) : "0.0";
+        const finalCa = totalKg > 0 ? (totalCa / totalKg).toFixed(2) : "0.00";
+        const finalP = totalKg > 0 ? (totalP / totalKg).toFixed(2) : "0.00";
+        const finalMin = totalKg > 0 ? (totalMin / totalKg).toFixed(1) : "0.0";
+        const finalVit = totalKg > 0 ? (totalVit / totalKg).toFixed(1) : "0.0";
 
-        const kgElement = document.getElementById('protein-total-kg');
-        const cpElement = document.getElementById('protein-final-cp');
-        
-        if(kgElement && cpElement) {
+        const kgElement = document.getElementById('calc-total-kg');
+        if(kgElement) {
             kgElement.innerText = totalKg.toFixed(1);
-            cpElement.innerText = finalCP + '%';
+            document.getElementById('calc-total-cp').innerText = finalCP + '%';
+            document.getElementById('calc-total-tdn').innerText = finalTDN + '%';
+            document.getElementById('calc-total-ca').innerText = finalCa + '%';
+            document.getElementById('calc-total-p').innerText = finalP + '%';
+            document.getElementById('calc-total-min').innerText = finalMin + '%';
+            document.getElementById('calc-total-vit').innerText = finalVit + '%';
 
-            // ১০০ কেজি ওভার হলে লাল রং দেখাবে, পারফেক্ট হলে সবুজ
+            // ১০০ কেজি ওয়ার্নিং লজিক
             if(totalKg > 100) {
-                kgElement.style.color = '#FF5252'; // লাল (ওজন বেশি)
-                kgElement.parentElement.parentElement.classList.add('shake-anim');
+                kgElement.style.color = '#FF5252'; 
             } else if(totalKg === 100) {
-                kgElement.style.color = '#69F0AE'; // সবুজ (১০০ কেজি পারফেক্ট)
+                kgElement.style.color = '#69F0AE'; 
             } else {
-                kgElement.style.color = '#FFEB3B'; // হলুদ (১০০ কেজির কম)
+                kgElement.style.color = '#FFEB3B'; 
             }
         }
     };
 
     // ==========================================
-    // প্রোটিন উপাদান (Protein Ingredients) অ্যাডমিন ও ইউজার লজিক
+    // সঠিক পুষ্টিমান ডাটাবেস (CP, TDN, Ca, P, Min, Vit)
     // ==========================================
-
     window.defaultProteinIngredients = [
-        { id: 'p_1', name: 'ভুট্টা ভাঙা / গুঁড়া', cp: 9, work: 'প্রধান শক্তির উৎস ও কার্বোহাইড্রেট' },
-        { id: 'p_2', name: 'সয়াবিন মিল', cp: 46, work: 'সবচেয়ে ভালো মানের উদ্ভিজ্জ প্রোটিন' },
-        { id: 'p_3', name: 'সরিষার খৈল', cp: 36, work: 'সাশ্রয়ী মূল্যের প্রোটিন ও ফ্যাট' },
-        { id: 'p_4', name: 'ডিডিজিএস (DDGS)', cp: 28, work: 'বাইপাস প্রোটিন ও হজমযোগ্য শক্তি' },
-        { id: 'p_5', name: 'গমের ভুষি', cp: 15, work: 'ফাইবার ও শক্তি বৃদ্ধি করে' },
-        { id: 'p_6', name: 'রাইস কুড়া / পলিস', cp: 12, work: 'ফ্যাট ও শক্তির দারুণ উৎস' },
-        { id: 'p_7', name: 'মসুর ডালের খোসা', cp: 16, work: 'পরিপাকতন্ত্র ভালো রাখে ও ফাইবার দেয়' },
-        { id: 'p_8', name: 'শুঁটকি মাছের গুঁড়ো', cp: 55, work: 'উচ্চমাত্রার প্রাণিজ প্রোটিন ও ক্যালসিয়াম' },
-        { id: 'p_9', name: 'ডিওআরবি (DORB)', cp: 14, work: 'সাশ্রয়ী ফাইবার উপাদান' },
-        // --- ফ্যাটেনিং সাপ্লিমেন্ট ও এডিটিভস (Fattening Supplements) ---
-        { id: 'p_10', name: 'লাইমস্টোন (চুনাপাথর)', cp: 0, work: 'হাড় গঠন, কাঠামো মজবুত করা ও ক্যালসিয়ামের প্রধান উৎস।' },
-        { id: 'p_11', name: 'ডিসিপি (DCP)', cp: 0, work: 'হাড় শক্ত করতে ও ফসফরাস-ক্যালসিয়ামের অভাব পূরণে।' },
-        { id: 'p_12', name: 'লবণ (Salt)', cp: 0, work: 'খাবারে রুচি বৃদ্ধি, হজম সহায়তা ও পানিশূন্যতা রোধ করে।' },
-        { id: 'p_13', name: 'খাবার সোডা (S. Bicarbonate)', cp: 0, work: 'রুমেনের এসিডিটি (টক ঢেকুর) কমায় ও হজম স্বাভাবিক রাখে।' },
-        { id: 'p_14', name: 'টক্সিন বাইন্ডার (Toxin Binder)', cp: 0, work: 'পচা বা ছত্রাকযুক্ত খাবারের ক্ষতিকর বিষক্রিয়া নষ্ট করে।' },
-        { id: 'p_15', name: 'লাইভ ইস্ট (Live Yeast)', cp: 40, work: 'রুমেনের কার্যক্ষমতা ও ব্যাকটেরিয়ার পরিমাণ বহুগুণ বাড়িয়ে দেয়।' },
-        { id: 'p_16', name: 'ভিটামিন-মিনারেল প্রিমিক্স', cp: 0, work: 'ষাঁড়ের সার্বিক পুষ্টি, রোগ প্রতিরোধ ও ভিটামিন ঘাটতি পূরণ করে।' },
-        { id: 'p_17', name: 'রুমেন বাইপাস ফ্যাট (Bypass Fat)', cp: 0, work: 'ফ্যাটেনিং ষাঁড়ের দ্রুত ওজন ও মাংস বৃদ্ধিতে উচ্চ শক্তি প্রদান করে।' },
-        { id: 'p_18', name: 'বাইপাস প্রোটিন', cp: 60, work: 'সরাসরি রক্তে মিশে দ্রুত পেশি ও সলিড মাংস গঠন করে।' },
-        { id: 'p_19', name: 'ফিড গ্রেড ইউরিয়া (Urea)', cp: 281, work: 'রুমেনের ব্যাকটেরিয়ার খাবার হিসেবে কাজ করে ও সস্তা প্রোটিন দেয়।' },
-        { id: 'p_20', name: 'মোলাসেস / ঝোলা গুড়', cp: 3, work: 'খাবারে স্বাদ বাড়ায়, ফারমেন্টেশনে সাহায্য করে ও তাৎক্ষণিক শক্তি দেয়।' },
-        { id: 'p_21', name: 'মেথিওনিন (Methionine)', cp: 58, work: 'অত্যাবশ্যকীয় অ্যামাইনো এসিড, মাংস ও পেশি বৃদ্ধিতে সহায়তা করে।' },
-        { id: 'p_22', name: 'লাইসিন (Lysine)', cp: 90, work: 'প্রোটিন সংশ্লেষণ ও কোষ গঠনে সাহায্য করে ওজন বাড়ায়।' },
-        { id: 'p_23', name: 'গ্রোথ প্রমোটার (Growth Promoter)', cp: 0, work: 'ফ্যাটেনিং প্রজেক্টে দ্রুত দৈহিক বৃদ্ধি (FCR) নিশ্চিত করে।' },
-        { id: 'p_24', name: 'ফাইটোজ এনজাইম (Enzyme)', cp: 0, work: 'খাবারের লুকায়িত পুষ্টি গরুর শরীরে শোষণে সাহায্য করে।' },
-        { id: 'p_25', name: 'চিলেটেড মিনারেলস', cp: 0, work: 'জিংক, কপার, কোবাল্ট এর অভাব দূর করে খুর ও চামড়া চকচকে রাখে।' }
+        // --- প্রধান শক্তির উৎস ও প্রোটিন ---
+        { id: 'p_1', name: 'ভুট্টা ভাঙা / গুঁড়া', cp: 9.0, tdn: 82.0, ca: 0.02, p: 0.30, min: 1.5, vit: 0.0, work: 'প্রধান শক্তির উৎস ও কার্বোহাইড্রেট' },
+        { id: 'p_new4', name: 'ক্ষুদ (Broken Rice)', cp: 8.5, tdn: 82.0, ca: 0.05, p: 0.20, min: 2.0, vit: 0.0, work: 'দ্রুত শক্তি ও ওজন বৃদ্ধির নিরাপদ কার্বোহাইড্রেট' },
+        { id: 'p_2', name: 'সয়াবিন মিল', cp: 46.0, tdn: 78.0, ca: 0.30, p: 0.65, min: 6.5, vit: 0.0, work: 'সবচেয়ে ভালো মানের উদ্ভিজ্জ প্রোটিন' },
+        { id: 'p_3', name: 'সরিষার খৈল', cp: 36.0, tdn: 72.0, ca: 0.60, p: 1.00, min: 8.0, vit: 0.0, work: 'সাশ্রয়ী মূল্যের প্রোটিন ও ফ্যাট' },
+        { id: 'p_new5', name: 'তিলের খৈল', cp: 38.0, tdn: 70.0, ca: 2.00, p: 1.20, min: 11.0, vit: 0.0, work: 'উচ্চ প্রোটিন ও ক্যালসিয়ামের দারুণ উৎস' },
+        { id: 'p_4', name: 'ডিডিজিএস (DDGS)', cp: 28.0, tdn: 80.0, ca: 0.10, p: 0.80, min: 4.5, vit: 0.0, work: 'বাইপাস প্রোটিন ও হজমযোগ্য শক্তি' },
+        { id: 'p_new6', name: 'পিকেসি (Palm Kernel Cake)', cp: 16.0, tdn: 72.0, ca: 0.30, p: 0.60, min: 5.0, vit: 0.0, work: 'নিরাপদ ফ্যাট ও প্রোটিনের চমৎকার উৎস' },
+        
+        // --- ফাইবার ও ভুষি জাতীয় ---
+        { id: 'p_new1', name: 'সয়াবিনের খোসা (Soybean Hull)', cp: 12.0, tdn: 75.0, ca: 0.55, p: 0.17, min: 6.0, vit: 0.0, work: 'উন্নতমানের হজমযোগ্য ফাইবার ও নিরাপদ শক্তি' },
+        { id: 'p_5', name: 'গমের ভুষি', cp: 15.0, tdn: 65.0, ca: 0.10, p: 1.00, min: 5.0, vit: 0.0, work: 'ফাইবার ও শক্তি বৃদ্ধি করে' },
+        { id: 'p_6', name: 'রাইস কুড়া / পলিস', cp: 12.0, tdn: 72.0, ca: 0.05, p: 1.40, min: 9.0, vit: 0.0, work: 'ফ্যাট ও শক্তির দারুণ উৎস' },
+        { id: 'p_new2', name: 'অ্যাংকর ডালের ভুষি', cp: 14.5, tdn: 68.0, ca: 0.60, p: 0.35, min: 5.5, vit: 0.0, work: 'নিরাপদ ফাইবার ও প্রোটিনের মিশ্রণ' },
+        { id: 'p_new3', name: 'ছোলার ভুষি', cp: 16.0, tdn: 65.0, ca: 0.70, p: 0.20, min: 6.0, vit: 0.0, work: 'মাংস বৃদ্ধি ও পরিপাকতন্ত্র ভালো রাখে' },
+        { id: 'p_7', name: 'ডালের খোসা (মসুর/মুগ)', cp: 16.0, tdn: 60.0, ca: 0.80, p: 0.20, min: 4.0, vit: 0.0, work: 'পরিপাকতন্ত্র ভালো রাখে ও ফাইবার দেয়' },
+        { id: 'p_9', name: 'ডিওআরবি (DORB)', cp: 14.0, tdn: 58.0, ca: 0.10, p: 1.50, min: 10.0, vit: 0.0, work: 'সাশ্রয়ী ফাইবার উপাদান' },
+        
+        // --- প্রাণিজ প্রোটিন ও খনিজ/ভিটামিন ---
+        { id: 'p_8', name: 'শুঁটকি মাছের গুঁড়ো', cp: 52.0, tdn: 70.0, ca: 5.00, p: 3.00, min: 20.0, vit: 0.0, work: 'উচ্চমাত্রার প্রাণিজ প্রোটিন ও ক্যালসিয়াম' },
+        { id: 'p_10', name: 'লাইমস্টোন (চুনাপাথর)', cp: 0.0, tdn: 0.0, ca: 38.00, p: 0.00, min: 98.0, vit: 0.0, work: 'হাড় গঠন ও ক্যালসিয়ামের প্রধান উৎস' },
+        { id: 'p_11', name: 'ডিসিপি (DCP)', cp: 0.0, tdn: 0.0, ca: 22.00, p: 18.00, min: 95.0, vit: 0.0, work: 'হাড় শক্ত করতে ক্যালসিয়াম-ফসফরাস' },
+        { id: 'p_12', name: 'লবণ (Salt)', cp: 0.0, tdn: 0.0, ca: 0.00, p: 0.00, min: 99.0, vit: 0.0, work: 'খাবারে রুচি বৃদ্ধি ও হজমে সহায়তা করে' },
+        { id: 'p_13', name: 'খাবার সোডা', cp: 0.0, tdn: 0.0, ca: 0.00, p: 0.00, min: 99.0, vit: 0.0, work: 'রুমেনের এসিডিটি কমায় ও হজম ঠিক রাখে' },
+        { id: 'p_14', name: 'টক্সিন বাইন্ডার', cp: 0.0, tdn: 0.0, ca: 0.00, p: 0.00, min: 0.0, vit: 0.0, work: 'ছত্রাকযুক্ত খাবারের ক্ষতিকর বিষক্রিয়া নষ্ট করে' },
+        { id: 'p_15', name: 'লাইভ ইস্ট (Yeast)', cp: 40.0, tdn: 0.0, ca: 0.00, p: 0.00, min: 5.0, vit: 10.0, work: 'রুমেনের ব্যাকটেরিয়ার পরিমাণ বাড়িয়ে দেয়' },
+        { id: 'p_16', name: 'ভিটামিন প্রিমিক্স', cp: 0.0, tdn: 0.0, ca: 0.00, p: 0.00, min: 50.0, vit: 100.0, work: 'রোগ প্রতিরোধ ও ভিটামিন ঘাটতি পূরণ করে' },
+        { id: 'p_17', name: 'বাইপাস ফ্যাট', cp: 0.0, tdn: 150.0, ca: 0.00, p: 0.00, min: 0.0, vit: 0.0, work: 'দ্রুত ওজন ও মাংস বৃদ্ধিতে উচ্চ শক্তি প্রদান করে' },
+        { id: 'p_18', name: 'মোলাসেস / ঝোলা গুড়', cp: 3.0, tdn: 72.0, ca: 0.80, p: 0.10, min: 10.0, vit: 0.0, work: 'খাবারে স্বাদ বাড়ায় ও তাৎক্ষণিক শক্তি দেয়' }
     ];
 
     // [অ্যাডমিন] প্যানেল রেন্ডারিং
@@ -3887,7 +3932,6 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     };
 
-    // [ইউজার] সাইডে প্রোটিন ক্যালকুলেটর পেজ রেন্ডারিং
     window.renderProteinCalculatorPage = function() {
         const listArea = document.getElementById('protein-ingredients-list-view');
         if(!listArea) return;
@@ -3895,45 +3939,36 @@ document.addEventListener("DOMContentLoaded", () => {
         const renderItems = (items) => {
             let html = '';
             items.forEach((item) => {
+                // ডিফল্ট মান সেট করা 
+                const tdn = item.tdn || 0;
+                const ca = item.ca || 0;
+                const p = item.p || 0;
+                const min = item.min || 0;
+                const vit = item.vit || 0;
+
                 html += `
                 <div style="display:flex; justify-content:space-between; align-items:center; padding:15px 0; border-bottom:1px dashed #E0E0E0;">
                     <div style="flex: 1; padding-right: 15px;">
                         <h4 style="font-size:1.05rem; color:var(--text-main); margin: 0 0 4px 0;">${item.name}</h4>
                         <p style="font-size:0.75rem; color:var(--text-muted); margin: 0 0 6px 0;"><i class="fa-solid fa-circle-info" style="color:#00796B;"></i> ${item.work}</p>
-                        <span style="background: rgba(0, 150, 136, 0.1); color: #00796B; font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: 12px;">প্রোটিন: ${item.cp}%</span>
+                        <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+                            <span style="background: rgba(0, 150, 136, 0.1); color: #00796B; font-size: 0.7rem; font-weight: 700; padding: 3px 6px; border-radius: 8px;">CP: ${item.cp}%</span>
+                            <span style="background: rgba(255, 152, 0, 0.1); color: #E65100; font-size: 0.7rem; font-weight: 700; padding: 3px 6px; border-radius: 8px;">TDN: ${tdn}%</span>
+                        </div>
                     </div>
-                    <!-- আপডেট করা ইনপুট ডিজাইন (Flexbox) -->
                     <div style="display: flex; align-items: center; gap: 8px;">
-                        <input type="number" class="protein-kg-input" data-cp="${item.cp}" onkeyup="window.calculateTotalProtein()" onchange="window.calculateTotalProtein()" placeholder="0" style="width: 75px; padding: 12px 8px; border-radius: 10px; border: 1.5px solid #E0E0E0; text-align: center; font-size: 1.15rem; font-weight: 700; outline: none; background: #F9F9F9; box-sizing: border-box;">
-                        <span style="font-size: 0.95rem; color: var(--text-muted); font-weight: 700;">কেজি</span>
+                        <input type="number" class="protein-kg-input" data-cp="${item.cp}" data-tdn="${tdn}" data-ca="${ca}" data-p="${p}" data-min="${min}" data-vit="${vit}" onkeyup="window.calculateTotalProtein()" onchange="window.calculateTotalProtein()" placeholder="0" style="width: 70px; padding: 12px 5px; border-radius: 10px; border: 1.5px solid #E0E0E0; text-align: center; font-size: 1.15rem; font-weight: 700; outline: none; background: #F9F9F9; box-sizing: border-box;">
+                        <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 700;">কেজি</span>
                     </div>
                 </div>`;
             });
             listArea.innerHTML = html;
         };
 
-        if (window.db && window.fbFirestore) {
-            const { collection, onSnapshot } = window.fbFirestore;
-            onSnapshot(collection(window.db, "protein_ingredients"), (snapshot) => {
-                let items = [];
-                snapshot.forEach((doc) => { items.push({ id: doc.id, ...doc.data() }); });
-                if(items.length === 0) items = window.defaultProteinIngredients;
-                renderItems(items);
-            }, (error) => {
-                let items = JSON.parse(localStorage.getItem('agroProteinIngredients'));
-                if(!items || items.length === 0) items = window.defaultProteinIngredients;
-                renderItems(items);
-            });
-        } else {
-            let items = JSON.parse(localStorage.getItem('agroProteinIngredients'));
-            if(!items || items.length === 0) items = window.defaultProteinIngredients;
-            renderItems(items);
-        }
+        // লোকাল স্টোরেজ ফোর্স আপডেট (যাতে আগের ভুল ডাটা না আসে)
+        localStorage.setItem('agroProteinIngredients', JSON.stringify(window.defaultProteinIngredients));
+        renderItems(window.defaultProteinIngredients);
     };
-
-    // ==========================================
-    // ভেটেরিনারি মেডিসিন ইনডেক্স (Vet DIMS Clone)
-    // ==========================================
 
     // ==========================================
     // ভেটেরিনারি মেডিসিন ইনডেক্স (Vet DIMS Clone)
