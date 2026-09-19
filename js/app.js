@@ -921,16 +921,19 @@ document.addEventListener("DOMContentLoaded", () => {
                         ১০০ কেজি দানাদার মিশ্রণ তৈরির জন্য নিচের উপাদানগুলোর কেজি নির্ধারণ করুন। খাদ্যের মোট প্রোটিন, এনার্জি (TDN), ক্যালসিয়াম, ফসফরাস, খনিজ ও ভিটামিন স্বয়ংক্রিয়ভাবে হিসাব হয়ে যাবে।
                     </p>
 
-                    <!-- উপাদানের বক্সের মার্জিন 0 করে ফুল-উইডথ করা হলো -->
                     <div class="agro-card" style="padding: 5px 15px; margin: 0; border-radius: 24px 24px 0 0;" id="protein-ingredients-list-view">
                         <div style="text-align:center; padding:30px;"><i class="fa-solid fa-spinner fa-spin" style="font-size:2rem; color:#00796B;"></i></div>
                     </div>
 
-                    <!-- স্টিকি বটম বার -->
+                    <!-- স্টিকি বটম বার ও ডাউনলোড বাটন -->
                     <div style="position: fixed; bottom: 60px; left: 0; width: 100%; background: linear-gradient(135deg, #00796B 0%, #004D40 100%); color: white; padding: 12px 15px; box-sizing: border-box; box-shadow: 0 -5px 15px rgba(0,0,0,0.15); z-index: 1000; border-top-left-radius: 24px; border-top-right-radius: 24px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 8px;">
                             <span style="font-size: 0.95rem; font-weight: 600;">মোট মিশ্রণ: <span id="calc-total-kg" style="color:#FFEB3B; font-size: 1.2rem;">0</span> / 100 কেজি</span>
-                            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 10px;">পুষ্টিমান রিপোর্ট</span>
+                            
+                            <!-- নতুন ডাউনলোড বাটন -->
+                            <button onclick="window.downloadProteinReport()" style="background: #FFEB3B; color: #004D40; border: none; padding: 5px 12px; border-radius: 12px; font-weight: 800; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 3px 8px rgba(0,0,0,0.2); transition: 0.2s;">
+                                <i class="fa-solid fa-file-pdf"></i> রিপোর্ট সেভ
+                            </button>
                         </div>
                         
                         <div style="display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; gap: 10px 5px;">
@@ -4552,6 +4555,127 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             resultArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }, 100);
+    };
+
+    // ==========================================
+    // রিপোর্ট ডাউনলোড / পিডিএফ জেনারেটর
+    // ==========================================
+    window.downloadProteinReport = function() {
+        if(navigator.vibrate) navigator.vibrate(40);
+        
+        const inputs = document.querySelectorAll('.protein-kg-input');
+        let selectedItems = [];
+        let totalKgVal = 0;
+
+        // শুধু 0 এর চেয়ে বেশি কেজি দেওয়া উপাদানগুলো ফিল্টার করা
+        inputs.forEach(input => {
+            const kg = parseFloat(input.value) || 0;
+            if(kg > 0) {
+                // ঐ নির্দিষ্ট input এর পাশের <h4> থেকে উপাদানের নাম নেওয়া
+                const itemName = input.parentElement.parentElement.querySelector('h4').innerText;
+                selectedItems.push({ name: itemName, kg: kg });
+                totalKgVal += kg;
+            }
+        });
+
+        // যদি কোনো কেজি দেওয়া না থাকে
+        if(selectedItems.length === 0) {
+            return alert("ডাউনলোড করার জন্য অন্তত একটি উপাদানের পরিমাণ (কেজি) দিন!");
+        }
+
+        // ক্যালকুলেট হওয়া মোট পুষ্টিমানের ডাটা কালেক্ট করা
+        const totalCp = document.getElementById('calc-total-cp').innerText;
+        const totalTdn = document.getElementById('calc-total-tdn').innerText;
+        const totalCa = document.getElementById('calc-total-ca').innerText;
+        const totalP = document.getElementById('calc-total-p').innerText;
+        const totalMin = document.getElementById('calc-total-min').innerText;
+        const totalVit = document.getElementById('calc-total-vit').innerText;
+
+        // ইনভয়েস স্টাইল HTML তৈরি
+        let invoiceHtml = `
+        <html>
+        <head>
+            <title>পুষ্টিমান রিপোর্ট - ডিজিটাল এগ্রো</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, sans-serif; padding: 20px; color: #2C3E50; }
+                .header { text-align: center; margin-bottom: 25px; border-bottom: 3px solid #00796B; padding-bottom: 15px; }
+                .header h2 { margin: 0; color: #00796B; font-size: 26px; }
+                .header p { margin: 6px 0 0 0; font-size: 14px; color: #7F8C8D; }
+                table { width: 100%; border-collapse: collapse; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+                th, td { border: 1px solid #E0E0E0; padding: 12px; text-align: left; font-size: 15px; }
+                th { background-color: #E8F5E9; color: #2E7D32; }
+                .totals-grid { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; background: #E0F2F1; padding: 20px; border-radius: 12px; border: 1px solid #B2DFDB; }
+                .total-box { text-align: center; flex: 1; min-width: 90px; }
+                .total-box span { display: block; font-size: 13px; color: #004D40; margin-bottom: 8px; font-weight: 600; }
+                .total-box strong { font-size: 18px; color: #00796B; background: #fff; padding: 5px 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+                .footer { text-align: center; margin-top: 40px; font-size: 12px; color: #95A5A6; border-top: 1px dashed #BDC3C7; padding-top: 15px; }
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <h2>ডিজিটাল এগ্রো ফার্ম</h2>
+                <p>সুষম খাদ্যের মিশ্রণ ও পুষ্টিমান রিপোর্ট</p>
+                <p>তারিখ: ${new Date().toLocaleDateString('bn-BD')}</p>
+            </div>
+            
+            <h3 style="font-size: 17px; margin-bottom: 12px; color: #34495E;">উপাদানের তালিকা:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 10%; text-align: center;">ক্রমিক</th>
+                        <th style="width: 60%;">উপাদানের নাম</th>
+                        <th style="width: 30%; text-align: right;">পরিমাণ (কেজি)</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+
+        // শুধু সিলেক্ট করা উপাদানগুলো টেবিলে যোগ করা
+        selectedItems.forEach((item, index) => {
+            invoiceHtml += `
+                <tr>
+                    <td style="text-align: center;">${index + 1}</td>
+                    <td>${item.name}</td>
+                    <td style="text-align: right; font-weight: bold; color: #2C3E50;">${item.kg.toFixed(2)}</td>
+                </tr>
+            `;
+        });
+
+        // টেবিলের নিচে মোট মিশ্রণ
+        invoiceHtml += `
+                    <tr style="background-color: #F9F9F9;">
+                        <td colspan="2" style="text-align: right; font-weight: bold; color: #00796B;">মোট দানাদার মিশ্রণ:</td>
+                        <td style="text-align: right; font-weight: bold; color: #00796B; font-size: 16px;">${totalKgVal.toFixed(2)} কেজি</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="font-size: 17px; margin-bottom: 12px; margin-top: 35px; color: #34495E;">চূড়ান্ত পুষ্টিমান (ফাইনাল রেজাল্ট):</h3>
+            <div class="totals-grid">
+                <div class="total-box"><span>প্রোটিন (CP)</span><strong>${totalCp}</strong></div>
+                <div class="total-box"><span>এনার্জি (TDN)</span><strong>${totalTdn}</strong></div>
+                <div class="total-box"><span>ক্যালসিয়াম</span><strong>${totalCa}</strong></div>
+                <div class="total-box"><span>ফসফরাস</span><strong>${totalP}</strong></div>
+                <div class="total-box"><span>খনিজ (Min)</span><strong>${totalMin}</strong></div>
+                <div class="total-box"><span>ভিটামিন</span><strong>${totalVit}</strong></div>
+            </div>
+            
+            <div class="footer">
+                রিপোর্টটি <strong>ডিজিটাল এগ্রো</strong> স্মার্ট অ্যাপ দ্বারা স্বয়ংক্রিয়ভাবে জেনারেট করা হয়েছে।
+            </div>
+        </body>
+        </html>
+        `;
+
+        // নতুন উইন্ডোতে খুলে প্রিন্ট ডায়ালগ দেখানো
+        const printWindow = window.open('', '_blank');
+        printWindow.document.write(invoiceHtml);
+        printWindow.document.close();
+        
+        // થોડીক্ষণ অপেক্ষা করে প্রিন্ট কমান্ড দেওয়া (স্টাইল লোড হওয়ার জন্য)
+        setTimeout(() => {
+            printWindow.print();
+        }, 500);
     };
 
 });
